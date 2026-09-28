@@ -1,0 +1,46 @@
+schema_version = 1
+
+[preflight]
+profile = "evolutionary_kl_beam_soft_kg_accuracy_preflight_v1"
+master_seed = 420240910
+bootstrap_seed = 20260908
+case_count = 40
+pool_size = 10
+decision_count = 10
+n_outputs = 2
+joint_size = 5
+n_fantasies = 512
+candidate_chunk_size = 64
+fantasy_chunk_size = 512
+beam_width = 4
+max_groups_scored = 160
+max_exact_combinations = 252
+temperature = 0.25
+standard_error_multiplier = 1.0
+relative_eigenvalue_cutoff = 0.0000000001
+constraint_upper_bound = 0.25
+constraint_max_violation_probability = 0.10
+bootstrap_replicates = 10000
+minimum_positive_exact_cases = 24
+minimum_positive_exact_cases_per_regime = 4
+minimum_exact_match_fraction = 0.35
+minimum_optimum_reached_fraction = 0.50
+minimum_mean_score_capture = 0.90
+minimum_median_score_capture = 0.95
+minimum_p10_score_capture = 0.65
+minimum_worst_score_capture = 0.20
+minimum_regime_mean_score_capture = 0.80
+kernel_wall_budget_seconds = 300.0
+kernel_peak_rss_budget_gib = 16
+requested_cpus = 4
+requested_memory_gib = 32
+regimes = [
+  "rbf_dense",
+  "block_dense",
+  "latent_rank_deficient",
+  "mixed_sign_rank_deficient",
+]
+cost_modes = ["unit", "heterogeneous_capped"]
+synthetic_only = true
+production_pins_modified = false
+scientific_claim = "none"

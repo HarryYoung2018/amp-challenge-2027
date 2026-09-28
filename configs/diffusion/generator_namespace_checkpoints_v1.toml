@@ -1,0 +1,84 @@
+schema_version = 1
+artifact = "generator_namespace_native_checkpoints_v1"
+purpose = "label_free_research_initialization_assets"
+oracle_calls = 0
+production_generator_change = false
+scientific_superiority_claim = false
+protocol_sha256 = "579d071fac1d70bf514761ff98e6d2019730fbdad484e548f9b672fda1a001af"
+
+[input]
+receipt_path = "/lustre/scratch/users/yonghan.yang/amp_challenge/data/runs/generator-oracle-namespace-split-v2-audits/233340/independent-verification-233343.json"
+receipt_sha256 = "c430c8704c853a90fd325765251ede189e0edfdb7226922f5234c1d095c09662"
+generator_view_parent = "/lustre/scratch/users/yonghan.yang/amp_challenge/data/runs/generator-oracle-namespace-split-v2/233340/generator-view"
+corpus_sha256 = "31ee0140be5c09328f574613008f6b73559fe0e7cf7a1f262316e1fd464879d3"
+expected_sequences = 698
+expected_fold_counts = [140, 140, 140, 139, 139]
+expected_union_components = 226
+trainer_fields = ["sequence_id", "sequence", "sampling_weight"]
+sampling_weight = "equal_union_component_mass_within_training_triple"
+
+[fits]
+triples = ["012", "013", "014", "023", "024", "034", "123", "124", "134", "234"]
+seeds = [530012, 530013, 530014, 530023, 530024, 530034, 530123, 530124, 530134, 530234]
+training_row_counts = [420, 419, 419, 419, 419, 418, 419, 419, 418, 418]
+duplicate_ordinal = 0
+primary_generator_view = 0
+duplicate_generator_view = 1
+checkpoint_selection = "final_step_only_no_diagnostic_selection"
+checkpoint_aggregation = "equal_weight_mixture_with_seeded_round_robin_checkpoint_assignment"
+
+[model]
+layers = 2
+hidden_dim = 128
+attention_heads = 4
+ffn_dim = 384
+dropout = 0.1
+layer_norm_epsilon = 0.00001
+min_length = 8
+max_length = 50
+levels = 64
+expected_trainable_parameters = 354068
+
+[training]
+steps = 1000
+batch_sequences = 64
+learning_rate = 0.0002
+final_learning_rate = 0.00002
+warmup_steps = 100
+betas = [0.9, 0.95]
+epsilon = 0.00000001
+weight_decay = 0.05
+gradient_clip_norm = 1.0
+cosine_offset = 0.008
+mixed_precision = false
+validation_early_stopping = false
+automatic_retries = 0
+
+[diagnostics]
+holdout_seed = 640000
+holdout_levels = [8, 24, 40, 56]
+holdout_aggregation = "mean_per_sequence_masked_token_cross_entropy_by_heldout_fold"
+sample_seed = 650000
+raw_samples_per_checkpoint = 128
+sampling_batch_sequences = 64
+length_prior = "component_weighted_empirical_training_lengths_only"
+metrics = ["heldout_fold_losses", "valid_rate", "unique_valid_rate", "exact_training_overlap_rate"]
+checkpoint_selection_allowed = false
+oracle_or_reference_evaluation_allowed = false
+
+[resources]
+account = "bio"
+gpu_partition = "gpumid"
+gpu_type = "A100"
+gpu_per_fit = 1
+cpus_per_fit = 4
+host_memory_gib = 16
+maximum_peak_gpu_memory_gib = 12
+maximum_allocation_seconds_per_fit = 900
+maximum_worker_seconds_per_fit = 720
+maximum_concurrent_gpus = 2
+maximum_fit_allocations_including_duplicate = 11
+maximum_total_gpu_seconds = 9900
+independent_validation_cpus = 1
+independent_validation_memory_gib = 8
+independent_validation_seconds = 1800

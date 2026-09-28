@@ -1,0 +1,2821 @@
+schema_version = 1
+artifact = "sequential_mixed_acquisition_v2"
+status = "predeclared_not_run"
+automatic_production_eligible = false
+selection_config = "../acquisition/sequential_mean_dominant_v2.toml"
+
+folds = 5
+batch_size_sequences = 10
+activity_threshold_um = 16.0
+targets = 7
+objectives = [
+  "broad_spectrum_activity",
+  "gram_positive_activity",
+  "gram_negative_activity",
+]
+objective_weights = [1.0, 1.0, 1.0]
+selector_implementation = "v2_only_not_generic_mixer"
+deterministic_policy_runs_per_rotation = 1
+
+# Every ordered pair (outer_test_fold, acquisition_pool_fold) with unequal
+# folds is executed: 5 * 4 = 20 rotations. The other three folds are the sole
+# base-fit and transformation-fit inputs.
+rotation_scope = "all_ordered_distinct_outer_test_and_acquisition_pool_folds"
+expected_rotations = 20
+base_fold_count = 3
+acquisition_fold_count = 1
+outer_test_fold_count = 1
+
+policies = [
+  "no_query",
+  "mean",
+  "random",
+  "mean_nine_diversity_one",
+  "mean_nine_novelty_one",
+  "mixed_eight_diversity_one_novelty_one",
+  "full_acquisition_fold_ceiling",
+]
+primary_policy = "mixed_eight_diversity_one_novelty_one"
+primary_control = "mean"
+random_seeds = [17, 42, 91, 137, 271]
+
+[accepted_gate1]
+producer_job_id = 223248
+audit_job_id = 223250
+git_commit = "0468cc2cbc0b7c3b2a50f7866da1b1083c8ef1a8"
+config_sha256 = "e4e420501efc1bf89c2b1fbd15db5adc1340d3c42963c005bf1eced23c9d0410"
+publication_top_sha256 = "4e259cfb43033c069598d42fd54fec49a67ba55bfbb5c1e77eeef4887815fe2f"
+semantic_top_sha256 = "556e06fd2b1af1e678de88008bc1b87434fb8cf1179f38c897de7ee2c9fd779d"
+examples_sha256 = "d3eecbf3014fd78cf7021818466893d292315b6e90e77cea85d4e1fbd5bec520"
+oof_predictions_sha256 = "11eea907a242606b78261a9b37107647ce393db743be95c146cbbe5caced137c"
+context_audit_sha256 = "9886928e195543eb5725bcb1c1b35b9c3d29eec555e339b0be28a12028813900"
+folds_sha256 = "37e035d488634e50ad95dfefe01d235474867aeb96b8205b543d22c25fdc9988"
+manifest_sha256 = "b1cf4a2ad396d26776a824d4ec3cc077ba45bf9d2d47e00f8f2f482053b1f78e"
+metrics_sha256 = "e06b1893572309b2175fa4c9c1743af2fbb2d4006cdae9a7c452fcd4dba2563b"
+split_receipt_sha256 = "63cf02d87cd4a9b9ec1afe9c40c2e0914fc75515a14a21e71f1e50dce0fd01a7"
+code_manifest_sha256 = "f770a656c4f300855c129ebc044cc753c3bd119cb0476ef14eae277f5b104e72"
+frozen_input_manifest_sha256 = "229e10ad276430136671cb7831f44e50c5a6d6a6f09ef3f16e58129771f53e60"
+independent_receipt_sha256 = "1f6a6ce811d3fbecdbbbe7463e6052dc7766130372926d29952c70be65743e81"
+expected_examples = 2492
+expected_sequences = 952
+
+[descriptor_logistic]
+fit_granularity = "one_pooled_contextual_model_per_rotation_or_policy_update"
+sequence_features = "13_peptide_descriptors_in_declared_dataclass_order_plus_20_canonical_residue_fractions"
+sequence_feature_count = 33
+sequence_feature_order = [
+  "length",
+  "molecular_weight_da",
+  "net_charge",
+  "charge_density",
+  "isoelectric_point",
+  "mean_hydrophobicity",
+  "hydrophobic_moment",
+  "hydrophobic_fraction",
+  "aromatic_fraction",
+  "basic_fraction",
+  "acidic_fraction",
+  "shannon_entropy",
+  "max_residue_fraction",
+  "residue_fraction_A",
+  "residue_fraction_C",
+  "residue_fraction_D",
+  "residue_fraction_E",
+  "residue_fraction_F",
+  "residue_fraction_G",
+  "residue_fraction_H",
+  "residue_fraction_I",
+  "residue_fraction_K",
+  "residue_fraction_L",
+  "residue_fraction_M",
+  "residue_fraction_N",
+  "residue_fraction_P",
+  "residue_fraction_Q",
+  "residue_fraction_R",
+  "residue_fraction_S",
+  "residue_fraction_T",
+  "residue_fraction_V",
+  "residue_fraction_W",
+  "residue_fraction_Y",
+]
+strain_encoding = "sorted_training_strain_one_hots_plus_one_unseen_strain_bucket"
+gram_encoding = "positive_negative_unknown_one_hots"
+context_weight = 1.0
+source_observations_replicate_context_weight = false
+fit_row_order = "ascending_example_id"
+feature_standardization = "context_row_weighted_population_mean_and_population_sd"
+l2 = 0.10
+max_iterations = 100
+tolerance = 1e-9
+prior_strength = 2.0
+fail_if_not_converged = true
+probability_scope = "raw_logistic_probability_no_posthoc_calibration"
+prediction_probability_clip_lower = 1e-6
+prediction_probability_clip_upper = 0.999999
+loss_reduction = "context_row_mean"
+l2_applies_to = "all_coefficients_except_intercept"
+initialization = "all_zero_except_intercept_logit_of_smoothed_prevalence"
+constant_class_branch = "smoothed_prevalence_constant_probability_iterations_zero"
+newton_variance_floor = 1e-9
+hessian_diagonal_jitter = 1e-10
+newton_solver = "numpy_linalg_solve_then_numpy_linalg_lstsq_rcond_none_on_linalgerror"
+convergence_statistic = "maximum_absolute_newton_step_inclusive_at_tolerance"
+numeric_dtype = "numpy_float64"
+fit_scope = "all_context_rows_from_exact_three_base_folds"
+refit_scope = "base_contexts_plus_all_contexts_for_selected_pool_sequences_only"
+
+[[target]]
+name = "acinetobacter_baumannii"
+gram = "negative"
+
+[[target]]
+name = "enterococcus_faecalis"
+gram = "positive"
+
+[[target]]
+name = "enterococcus_faecium"
+gram = "positive"
+
+[[target]]
+name = "escherichia_coli"
+gram = "negative"
+
+[[target]]
+name = "klebsiella_pneumoniae"
+gram = "negative"
+
+[[target]]
+name = "pseudomonas_aeruginosa"
+gram = "negative"
+
+[[target]]
+name = "staphylococcus_aureus"
+gram = "positive"
+
+[prediction_objectives]
+prediction_unit = "each_sequence_once_per_each_of_seven_ordered_targets"
+broad_spectrum_activity = "raw_arithmetic_mean_of_all_seven_target_probabilities"
+gram_positive_activity = "raw_arithmetic_mean_of_three_gram_positive_target_probabilities"
+gram_negative_activity = "raw_arithmetic_mean_of_four_gram_negative_target_probabilities"
+
+[candidate_support]
+require_observed_broad_spectrum = true
+require_observed_gram_positive = true
+require_observed_gram_negative = true
+minimum_contexts_per_required_subset = 1
+observed_broad_spectrum_activity = "arithmetic_mean_of_all_accepted_context_labels_for_sequence"
+observed_gram_positive_activity = "arithmetic_mean_of_accepted_gram_positive_context_labels_for_sequence"
+observed_gram_negative_activity = "arithmetic_mean_of_accepted_gram_negative_context_labels_for_sequence"
+context_weighting = "one_equal_weight_per_accepted_assay_context"
+source_observations_replicate_context_weight = false
+pool_scope = "support_eligible_unique_sequences_from_acquisition_fold_only"
+outer_scope = "support_eligible_unique_sequences_from_outer_fold_only"
+query_unit = "unique_sequence"
+reveal_scope = "all_accepted_acquisition_fold_contexts_for_selected_sequences"
+expected_candidates = 650
+expected_candidates_by_fold = [202, 126, 112, 97, 113]
+expected_candidate_ids_sha256 = "990ef4b248f7d95a9864fef7da5bc648a5e6468c1adc74ba87c3af38dedb21c9"
+
+[fold_local_features]
+names = "13_peptide_descriptors_plus_20_canonical_residue_fractions"
+dimensions = 33
+alphabet = "ACDEFGHIKLMNPQRSTVWY"
+feature_order = [
+  "length",
+  "molecular_weight_da",
+  "net_charge",
+  "charge_density",
+  "isoelectric_point",
+  "mean_hydrophobicity",
+  "hydrophobic_moment",
+  "hydrophobic_fraction",
+  "aromatic_fraction",
+  "basic_fraction",
+  "acidic_fraction",
+  "shannon_entropy",
+  "max_residue_fraction",
+  "residue_fraction_A",
+  "residue_fraction_C",
+  "residue_fraction_D",
+  "residue_fraction_E",
+  "residue_fraction_F",
+  "residue_fraction_G",
+  "residue_fraction_H",
+  "residue_fraction_I",
+  "residue_fraction_K",
+  "residue_fraction_L",
+  "residue_fraction_M",
+  "residue_fraction_N",
+  "residue_fraction_P",
+  "residue_fraction_Q",
+  "residue_fraction_R",
+  "residue_fraction_S",
+  "residue_fraction_T",
+  "residue_fraction_V",
+  "residue_fraction_W",
+  "residue_fraction_Y",
+]
+fit_population = "equal_weight_unique_sequences_from_three_base_folds_only"
+fit_row_order = "ascending_canonical_sequence"
+standardization = "population_mean_and_population_sd"
+reduction = "numpy_float64_mean_and_std_ddof_zero_in_fit_row_order"
+scale_replacement_threshold_strictly_below = 1e-12
+scale_replacement_value = 1.0
+row_normalization = "l2"
+zero_l2_norm_behavior = "retain_all_zero_vector"
+diversity_distance = "cosine"
+zero_vector_cosine_similarity = 0.0
+novelty_metric = "rapidfuzz_indel_normalized_similarity"
+novelty_reference = "unique_sequences_from_three_base_folds_only"
+novelty_definition = "one_minus_exact_maximum_similarity"
+novelty_tie_break = "ascending_canonical_sequence_id"
+
+[fold_local_clusters]
+algorithm = "global_alignment_identity_v1_deterministic_single_link"
+identity_threshold = 0.70
+identity_threshold_inclusive = true
+pool_scope = "support_eligible_acquisition_fold_sequences_only"
+outer_scope = "support_eligible_outer_fold_sequences_only"
+build_scopes_separately = true
+max_selected_per_component = 2
+upstream_union_components_are_not_diversity_clusters = true
+component_id_domain = "amp_challenge.sequential_mixed_acquisition_v2.diversity_component"
+component_id_prefix = "seqv2-div70:"
+component_id_payload = "canonical_json_algorithm_schema_version_domain_role_fold_identity_threshold_hex_sorted_sequence_ids"
+component_id_json_keys = [
+  "algorithm",
+  "domain",
+  "fold",
+  "identity_threshold_hex",
+  "role",
+  "schema_version",
+  "sequence_ids",
+]
+component_role_values = ["pool", "outer"]
+component_canonical_json = "sort_keys_true_compact_separators_utf8_no_trailing_lf"
+identity_threshold_hex = "0x1.6666666666666p-1"
+
+[v2_selector]
+generic_mixer_semantics_claimed = false
+pool_candidate_view_fields = [
+  "rotation_id",
+  "sequence_id",
+  "sequence",
+  "objective_probabilities",
+  "features",
+  "novelty",
+  "diversity_component_id",
+  "eligible",
+]
+outer_candidate_view_fields = [
+  "rotation_id",
+  "sequence_id",
+  "sequence",
+  "objective_probabilities",
+  "diversity_component_id",
+  "eligible",
+]
+rotation_id_must_match_selector_invocation = true
+objective_probability_bounds_inclusive = [1e-6, 0.999999]
+raw_scalar = "arithmetic_mean_of_three_raw_prediction_objectives"
+mean_control = "descending_raw_scalar_then_ascending_sequence_id_under_strict_component_cap_two"
+mixed_seats = [8, 1, 1]
+mixed_seat_names = ["exploit", "diversity", "novelty"]
+diversity_ablation_seats = [9, 1]
+novelty_ablation_seats = [9, 1]
+seat_order = ["all_exploit", "diversity", "novelty"]
+exploratory_quality_floor = "median_raw_scalar_over_support_eligible_pool"
+exploratory_quality_floor_population = "all_and_only_support_eligible_pool_candidates"
+exploratory_quality_floor_inclusive = true
+exploratory_quality_floor_relaxation = false
+midrank_percentile = "stable_average_rank_divided_by_n_minus_one_with_singleton_equal_one"
+midrank_population = "all_and_only_support_eligible_pool_candidates_including_rows_below_exploratory_floor"
+midrank_orientation = "ascending_value_lowest_toward_zero_highest_toward_one"
+diversity_distance_reference = "every_previously_selected_seat_at_the_diversity_step"
+diversity_score = "0.5_times_clipped_min_cosine_distance_0_to_2_divided_by_2_plus_0.5_times_scalar_midrank_percentile"
+novelty_score = "0.8_times_novelty_midrank_percentile_plus_0.2_times_scalar_midrank_percentile"
+tie_break = "descending_strategy_score_then_descending_raw_scalar_then_ascending_sequence_id"
+final_selection_order = "construction_order_exploit_then_diversity_then_novelty_with_in_place_repairs"
+even_pool_median = "arithmetic_mean_of_two_middle_sorted_binary64_scalars"
+removed_exploration_candidate_may_reenter_later_repair = false
+validate_component_id_prefix_and_lowercase_sha256 = true
+
+[reward_guard]
+control = "same_component_cap_mean_batch"
+applies_to = [
+  "mean_nine_diversity_one",
+  "mean_nine_novelty_one",
+  "mixed_eight_diversity_one_novelty_one",
+]
+scalar_batch_mean_loss_max = 0.02
+per_objective_batch_mean_loss_max = 0.03
+loss_thresholds_are_inclusive = true
+binary64_boundary_absolute_tolerance = 1e-12
+repair_order = "replace_novelty_then_diversity_with_highest_remaining_mean_feasible"
+repair_candidate_order = "descending_raw_scalar_then_ascending_sequence_id"
+repair_preserves_strict_component_cap = true
+recheck_after_each_replacement = true
+fallback = "exact_same_component_cap_mean_batch"
+fallback_exact_scope = "ordered_selected_sequence_ids_equal_mean_control_ordered_sequence_ids"
+fallback_result_retains_distinct_requested_applied_repair_and_reason_provenance = true
+guard_uses_predictions_only = true
+mean_policy_equals_control_exactly = true
+
+[random_control]
+guarded = false
+seeds = [17, 42, 91, 137, 271]
+selector_view_fields = [
+  "rotation_id",
+  "sequence_id",
+  "sequence",
+  "diversity_component_id",
+  "eligible",
+]
+rotation_id_must_match_selector_invocation = true
+selector_view_excludes = ["predictions", "features", "novelty"]
+priority_digest = "sha256"
+priority_bytes = "first_8_bytes_unsigned_big_endian"
+priority_order = "ascending_priority_then_ascending_sequence_id"
+priority_payload_notation = 'amp_challenge.sequential_mixed_acquisition_v2.random\0outer-{o}.pool-{a}\0{seed}\0{sequence_id}'
+priority_payload_escape_semantics = "backslash_zero_in_notation_means_one_ascii_nul_byte"
+strict_component_cap = 2
+
+[full_acquisition_fold_ceiling]
+selection = "every_support_eligible_acquisition_fold_sequence"
+selection_order = "ascending_canonical_sequence_id"
+ignores_batch_size = true
+ignores_component_cap = true
+descriptive_only = true
+included_in_promotion_comparisons = false
+
+[no_query_control]
+pool_commitment = "empty"
+revealed_pool_contexts = 0
+refit = false
+post_update_model = "base_model"
+acquired_batch_reward = "null_with_reason_no_acquired_sequences"
+outer_selection_and_outer_metrics = true
+
+[process_boundaries]
+stages = ["stage", "prepare", "select", "reveal", "update", "outer-select", "finalize"]
+stages_are_logical_phases_with_sealed_artifact_boundaries = true
+rotation_order = "outer_fold_ascending_then_acquisition_pool_fold_ascending_skipping_equal_folds"
+policy_order_within_rotation = [
+  "no_query",
+  "mean",
+  "random_seed_17",
+  "random_seed_42",
+  "random_seed_91",
+  "random_seed_137",
+  "random_seed_271",
+  "mean_nine_diversity_one",
+  "mean_nine_novelty_one",
+  "mixed_eight_diversity_one_novelty_one",
+  "full_acquisition_fold_ceiling",
+]
+track_id_nonrandom = "outer-{outer_fold}.pool-{pool_fold}.policy-{policy_name}"
+track_id_random = "outer-{outer_fold}.pool-{pool_fold}.policy-random.seed-{seed}"
+track_id_null_seed_encoding = "nonrandom_suffix_omitted_and_seed_field_is_json_null"
+expected_policy_runs_per_rotation = 11
+expected_policy_runs = 220
+expected_logical_pool_candidate_entities = 2600
+expected_prediction_bearing_pool_view_rows = 2600
+expected_random_minimal_pool_view_rows = 2600
+expected_physical_pool_candidate_view_rows = 5200
+expected_pool_committed_sequence_associations = 4400
+expected_update_states = 220
+expected_refits = 200
+expected_no_refit_states = 20
+expected_update_state_workers = 220
+expected_outer_component_workers = 20
+expected_outer_projection_workers = 220
+expected_update_workers = 460
+expected_update_leaves = 680
+expected_update_global_predecessors = 684
+expected_update_base_context_associations = 328944
+expected_outer_component_membership_associations = 2600
+expected_outer_context_prediction_rows = 109648
+expected_outer_sequence_prediction_rows = 28600
+expected_outer_candidate_rows = 28600
+expected_outer_committed_sequence_associations = 2200
+expected_outer_select_track_workers = 220
+expected_outer_select_barrier_workers = 1
+expected_outer_select_workers = 221
+expected_outer_selection_leaves = 220
+expected_outer_select_global_predecessors = 222
+trusted_stage_custodian_may_read_complete_authenticated_panel_only_to_partition_role_stores = true
+stage_process_must_exit_before_any_worker_controller_starts = true
+post_stage_worker_launch = "fresh_exec_from_controller_that_never_loaded_gate1_never_fork_or_process_pool"
+post_stage_inherited_input_descriptors = 0
+controller_verifies_stage_leaf_before_worker_decode = true
+worker_stage_input = "rootless_descriptor_captured_phase_seal_capsule_decoded_to_exactly_one_immutable_role_capability"
+worker_argv_environment_and_cwd_contain_absolute_or_usable_original_stage_root_or_leaf_path = false
+worker_can_derive_a_sibling_role_path_from_its_input = false
+prepare_worker_granularity = "one_separate_os_process_per_rotation"
+prepare_worker_label_capability = "one_prepare_capability_leaf_containing_exact_three_base_folds_plus_label_free_pool_metadata_and_support_ids"
+select_worker_granularity = "three_fresh_outcome_free_os_processes_per_rotation_prediction_random_and_ceiling_after_global_prepare_barrier"
+expected_prediction_selector_workers = 20
+expected_random_selector_workers = 20
+expected_ceiling_selector_workers = 20
+expected_selector_workers = 60
+expected_prediction_selector_tracks = 80
+expected_random_selector_tracks = 100
+expected_ceiling_selector_tracks = 20
+expected_no_query_tracks_synthesized_by_assembler = 20
+prediction_selector_and_random_selector_share_process = false
+ceiling_selector_shares_an_os_process_with_another_selector = false
+prediction_selector_input = "one_sealed_exact_eight_field_pool_view_capsule_for_one_rotation_plus_authenticated_protocol_prepare_global_capability_and_controller_authoritative_expected_prepare_global_seal_digest"
+random_selector_input = "one_separately_sealed_exact_five_field_random_view_capsule_for_one_rotation_plus_authenticated_protocol_prepare_global_capability_and_controller_authoritative_expected_prepare_global_seal_digest"
+ceiling_selector_input = "a_fresh_projection_of_the_same_authenticated_exact_five_field_random_view_never_the_prediction_view_plus_authenticated_protocol_prepare_global_capability_and_controller_authoritative_expected_prepare_global_seal_digest"
+no_query_input = "authenticated_protocol_record_only_no_candidate_capsule"
+commitment_assembler_input = "three_rootless_selector_output_capsules_plus_controller_authoritative_expected_selector_seal_digest_map_and_expected_prepare_global_seal_digest_plus_authenticated_protocol_and_label_free_prepare_global_index_capability_only_no_candidate_views"
+rotation_commitment_partition = "one_protocol_only_no_query_plus_four_prediction_plus_five_random_plus_one_ceiling"
+candidate_view_binding_fields = "view_kind_phase_seal_sha256_payload_sha256_candidate_count_ordered_candidate_id_stream_sha256"
+prediction_random_and_ceiling_commitments_bind_authenticated_input_view = true
+no_query_commitment_binds_authenticated_protocol_seal_and_empty_id_stream = true
+campaign_barrier_revalidates_every_rotation_view_provenance = true
+policy_run_identity = "rotation_id_policy_name_and_random_seed_or_null_for_nonrandom"
+reveal_worker_granularity = "one_separate_os_process_per_policy_run_after_global_pool_commitment_barrier"
+update_state_worker_granularity = "one_fresh_os_process_per_policy_run_after_global_reveal_barrier"
+update_state_worker_label_capabilities = "one_sealed_base_update_leaf_plus_its_one_committed_selected_pool_reveal_only"
+update_state_worker_accepts_outer_metadata = false
+update_state_worker_must_exit_before_outer_projection_for_track = true
+outer_component_worker_granularity = "one_fresh_label_free_os_process_per_rotation_after_all_eleven_rotation_update_states_are_sealed"
+outer_component_worker_receives_state_payloads_or_models = false
+outer_component_worker_receives = "eleven_canonical_payload_free_state_attestations_plus_controller_authoritative_ordered_state_leaf_digests_and_one_reanchored_matching_outer_metadata_capsule"
+outer_projection_worker_granularity = "one_fresh_raw_label_free_os_process_per_policy_run_after_state_worker_exit_and_matching_rotation_component_leaf"
+outer_projection_worker_receives = "one_authenticated_update_state_leaf_one_authenticated_rotation_outer_component_leaf_and_one_reanchored_matching_outer_metadata_capsule"
+outer_projection_worker_receives_base_or_reveal_context_capability = false
+outer_projection_worker_publishes = "one_isolated_outer_view_leaf_plus_one_separate_outer_evidence_leaf"
+outer_select_worker_granularity = "one_fresh_outcome_free_os_process_per_policy_run_after_update_global_plus_one_payload_free_global_barrier"
+outer_select_track_worker_receives = "one_exact_indexed_outer_view_plus_rootless_protocol_and_update_global_capabilities_and_controller_authoritative_stage_prepare_reveal_update_global_digests"
+outer_select_track_worker_receives_stage_manifest_root_or_role_leaf = false
+outer_select_track_worker_receives_state_component_evidence_or_outcome_payload = false
+outer_select_all_tracks_use = "outer_mean_top_ten_under_strict_outer_component_cap_two"
+outer_select_barrier_receives = "two_hundred_twenty_payload_free_attestations_plus_separately_observed_ordered_leaf_marker_digests_and_rootless_protocol_update_global_capabilities"
+outer_select_barrier_receives_leaf_or_outer_view_phase_seals = false
+finalize_worker_granularity = "one_separate_os_process_after_global_outer_commitment_barrier"
+dag = "stage_to_prepare_to_select_to_reveal_to_update_to_outer_select_to_finalize"
+all_220_track_commitment_leaves_across_twenty_rotation_groups_sealed_before_any_pool_role_outcome_store_opened = true
+all_update_state_workers_emit_only_model_state_training_id_ledger_and_safe_summary = true
+all_outer_projection_workers_emit_label_free_outer_predictions_and_views = true
+all_outer_top10_commitments_sealed_before_any_outer_role_outcome_store_opened = true
+cross_rotation_fold_role_reuse_is_expected = true
+global_epistemic_ignorance_claimed = false
+verifier_reconstructs_exact_allowed_row_ids_per_worker = true
+random_seed_runs_never_share_revealed_pool_context_capabilities = true
+sentinels_fail_on_nonbase_label_access_during_prepare = true
+sentinels_fail_on_unselected_pool_label_access_during_update = true
+sentinels_fail_on_outer_role_label_access_before_finalize = true
+selector_accepts_outcome_paths = false
+selector_accepts_source_paths = false
+pool_selector_input_forbidden_content = [
+  "outcome",
+  "mic",
+  "activity_label",
+  "post_update_score",
+  "outer_fold_outcome",
+  "recoverable_source_row",
+]
+outer_selector_input_forbidden_content = [
+  "outcome",
+  "mic",
+  "activity_label",
+  "outer_fold_outcome",
+  "recoverable_source_row",
+]
+outer_selector_input_contains_label_free_refit_predictions = true
+
+# This table supplies the shared canonical rules for the executable protocol ->
+# prepare -> select -> reveal -> update -> outer-select -> finalize graph. Paths
+# are logical paths below one trusted run root and are also the exact keys used
+# in downstream predecessor maps; the phase-specific outer-select and finalize
+# contracts are frozen below.
+[sealed_prepare_select_reveal]
+schema_version = 1
+phase_order = ["protocol", "prepare", "select", "reveal", "update", "outer-select", "finalize"]
+phase_seal_marker = "SHA256SUMS"
+phase_receipt_filename = "receipt.json"
+phase_publication_api = "amp_challenge.evaluation.sequential_v2_seals.publish_phase"
+phase_path_verification_api = "amp_challenge.evaluation.sequential_v2_seals.verify_phase"
+phase_capability_verification_api = "amp_challenge.evaluation.sequential_v2_seals.verify_phase_capability"
+canonical_json = "utf8_sort_keys_compact_separators_allow_nan_false_exactly_one_trailing_lf"
+canonical_jsonl = "one_canonical_json_object_per_lf_no_blank_lines_no_cr_no_bom"
+json_schema_rule = "exact_key_set_exact_json_types_no_bool_as_integer_or_number_no_unknown_fields"
+binary64_json_number = "finite_json_number_excluding_bool_shortest_roundtrip_encoding_from_canonical_json_bytes"
+binary64_hex = "finite_python_float_hex_string_roundtrips_to_identical_binary64"
+sha256 = "exactly_64_lowercase_hex_characters"
+git_commit = "exactly_40_lowercase_hex_characters"
+ordered_id_stream_sha256 = "sha256_of_each_ordered_lowercase_sha256_id_plus_one_ascii_lf_empty_stream_allowed"
+empty_ordered_id_stream_sha256 = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+absolute_source_filesystem_roots_and_paths_are_not_payload_content = true
+logical_relative_artifact_identifiers_are_allowed_in_label_free_indices = true
+receipt_forbidden_metadata = ["absolute_path", "host", "job_id", "timestamp"]
+payload_path_arrays_are_lexicographic_manifest_order = true
+
+[sealed_prepare_select_reveal.phase_receipt]
+exact_top_level_fields = [
+  "artifact:string",
+  "metadata:object",
+  "payloads:object_of_logical_path_to_sha256",
+  "predecessor_seals:object_of_logical_marker_path_to_sha256",
+  "schema_version:integer_equal_1",
+  "status:string_equal_sealed",
+]
+exact_common_metadata_fields = [
+  "schema_version:integer_equal_1",
+  "phase:string_enum_protocol_prepare_select_reveal_update_outer-select_finalize",
+  "scope_id:string_canonical_rotation_track_or_global",
+  "git_commit:git_commit",
+  "code_manifest_sha256:sha256",
+  "config_sha256:sha256",
+  "lock_sha256:sha256",
+]
+common_metadata_is_mandatory_phase_specific_runtime_input = true
+generic_phase_publication_api_does_not_infer_build_provenance = true
+protocol_phase_artifacts = ["sequential_v2_protocol_v1"]
+prepare_phase_artifacts = [
+  "sequential_v2_prepare_base_update_v1",
+  "sequential_v2_prepare_campaign_barrier_v1",
+  "sequential_v2_prepare_evidence_v1",
+  "sequential_v2_prepare_prediction_view_v1",
+  "sequential_v2_prepare_random_minimal_view_v1",
+]
+select_phase_artifacts = [
+  "sequential_v2_ceiling_selector_commitment_v1",
+  "sequential_v2_pool_commitment_campaign_barrier_v1",
+  "sequential_v2_pool_commitment_v1",
+  "sequential_v2_prediction_selector_commitments_v1",
+  "sequential_v2_random_selector_commitments_v1",
+  "sequential_v2_rotation_pool_commitment_index_v1",
+]
+reveal_phase_artifacts = [
+  "sequential_v2_pool_reveal_campaign_barrier_v1",
+  "sequential_v2_pool_reveal_v1",
+]
+update_phase_artifacts = [
+  "sequential_v2_update_campaign_barrier_v1",
+  "sequential_v2_update_outer_components_v1",
+  "sequential_v2_update_outer_evidence_v1",
+  "sequential_v2_update_outer_view_v1",
+  "sequential_v2_update_state_v1",
+]
+outer_select_phase_artifacts = [
+  "sequential_v2_outer_selection_campaign_barrier_v1",
+  "sequential_v2_outer_selection_commitment_v1",
+]
+finalize_phase_artifacts = ["sequential_v2_finalize_campaign_v1"]
+global_scope_id_artifacts = [
+  "sequential_v2_finalize_campaign_v1",
+  "sequential_v2_prepare_campaign_barrier_v1",
+  "sequential_v2_pool_commitment_campaign_barrier_v1",
+  "sequential_v2_pool_reveal_campaign_barrier_v1",
+  "sequential_v2_protocol_v1",
+  "sequential_v2_update_campaign_barrier_v1",
+  "sequential_v2_outer_selection_campaign_barrier_v1",
+]
+rotation_scope_id_artifacts = [
+  "sequential_v2_ceiling_selector_commitment_v1",
+  "sequential_v2_prediction_selector_commitments_v1",
+  "sequential_v2_prepare_base_update_v1",
+  "sequential_v2_prepare_evidence_v1",
+  "sequential_v2_prepare_prediction_view_v1",
+  "sequential_v2_prepare_random_minimal_view_v1",
+  "sequential_v2_random_selector_commitments_v1",
+  "sequential_v2_rotation_pool_commitment_index_v1",
+  "sequential_v2_update_outer_components_v1",
+]
+track_scope_id_artifacts = [
+  "sequential_v2_outer_selection_commitment_v1",
+  "sequential_v2_pool_commitment_v1",
+  "sequential_v2_pool_reveal_v1",
+  "sequential_v2_update_outer_evidence_v1",
+  "sequential_v2_update_outer_view_v1",
+  "sequential_v2_update_state_v1",
+]
+global_scope_id = "global"
+rotation_scope_id = "exact_rotation_id"
+track_scope_id = "exact_track_id"
+payload_paths_and_predecessor_keys_are_exact_not_supersets = true
+every_payload_digest_is_bound_by_receipt_and_sha256sums = true
+receipt_and_sha256sums_are_not_payloads = true
+
+[sealed_prepare_select_reveal.protocol]
+artifact = "sequential_v2_protocol_v1"
+path = "protocol"
+payload_paths = ["policy-runs.jsonl", "protocol-census.json", "rotations.jsonl"]
+predecessor_keys = []
+predecessor_count = 0
+rotation_rows = 20
+policy_run_rows = 220
+rotation_order = "frozen_outer_major_pool_minor_rotation_order"
+policy_run_order = "frozen_track_order"
+every_prepare_select_and_reveal_phase_binds_protocol_seal = true
+every_update_phase_binds_protocol_seal = true
+
+[sealed_prepare_select_reveal.prepare_outputs]
+worker_count = 20
+worker_granularity = "one_fresh_exec_per_rotation_publishing_four_separately_sealed_leaves"
+expected_rotation_groups = 20
+expected_leaves_per_rotation = 4
+expected_leaf_count = 80
+leaf_roles = ["evidence", "base-update", "prediction-view", "random-minimal-view"]
+expected_base_context_associations = 29904
+context_count_by_fold = [546, 486, 485, 487, 488]
+candidate_count_by_pool_fold = [202, 126, 112, 97, 113]
+expected_logical_candidate_rows = 2600
+expected_prediction_view_rows = 2600
+expected_random_minimal_view_rows = 2600
+expected_physical_view_rows = 5200
+prediction_and_random_ordered_candidate_id_streams_must_match = true
+prediction_and_random_view_phase_seals_are_distinct = true
+
+[sealed_prepare_select_reveal.prepare_base_update_leaf]
+artifact = "sequential_v2_prepare_base_update_v1"
+capability_artifact = "sequential_v2_prepare_base_update_capability_v1"
+path_template = "prepare/rotations/{rotation_id}/base-update"
+expected_count = 20
+payload_paths = [
+  "base-contexts.jsonl",
+  "base-model.json",
+  "capability.json",
+  "diversity-transform.json",
+  "rotation.json",
+]
+predecessor_key_templates = [
+  "protocol/SHA256SUMS",
+  "stage/global/SHA256SUMS",
+  "stage/rotations/{rotation_id}/prepare-capability/SHA256SUMS",
+]
+predecessor_count_per_leaf = 3
+contains_pool_row_or_candidate_metadata = false
+contains_candidate_view = false
+contains_pool_or_outer_outcome = false
+base_context_order = "ascending_example_id"
+future_update_receives_rootless_projection_of_this_leaf_plus_one_reveal_only = true
+
+[sealed_prepare_select_reveal.prepare_prediction_view_leaf]
+artifact = "sequential_v2_prepare_prediction_view_v1"
+summary_artifact = "sequential_v2_prepare_prediction_view_summary_v1"
+path_template = "prepare/rotations/{rotation_id}/prediction-view"
+expected_count = 20
+payload_paths = ["candidates.jsonl", "view-summary.json"]
+predecessor_key_templates = [
+  "protocol/SHA256SUMS",
+  "stage/global/SHA256SUMS",
+  "stage/rotations/{rotation_id}/prepare-capability/SHA256SUMS",
+]
+predecessor_count_per_leaf = 3
+candidate_schema = "prediction_view_row"
+candidate_order = "ascending_sequence_id"
+selector_kind = "prediction"
+
+[sealed_prepare_select_reveal.prepare_random_view_leaf]
+artifact = "sequential_v2_prepare_random_minimal_view_v1"
+summary_artifact = "sequential_v2_prepare_random_minimal_view_summary_v1"
+path_template = "prepare/rotations/{rotation_id}/random-minimal-view"
+expected_count = 20
+payload_paths = ["candidates.jsonl", "view-summary.json"]
+predecessor_key_templates = [
+  "protocol/SHA256SUMS",
+  "stage/global/SHA256SUMS",
+  "stage/rotations/{rotation_id}/prepare-capability/SHA256SUMS",
+]
+predecessor_count_per_leaf = 3
+candidate_schema = "random_minimal_view_row"
+candidate_order = "ascending_sequence_id"
+selector_kinds = ["random", "ceiling"]
+
+[sealed_prepare_select_reveal.prepare_evidence_leaf]
+artifact = "sequential_v2_prepare_evidence_v1"
+summary_artifact = "sequential_v2_prepare_evidence_summary_v1"
+path_template = "prepare/rotations/{rotation_id}/evidence"
+expected_count = 20
+payload_paths = [
+  "pool-components.jsonl",
+  "pool-novelty.jsonl",
+  "pool-predictions.jsonl",
+  "prepare-summary.json",
+  "rotation.json",
+]
+predecessor_key_templates = [
+  "protocol/SHA256SUMS",
+  "stage/global/SHA256SUMS",
+  "stage/rotations/{rotation_id}/prepare-capability/SHA256SUMS",
+  "prepare/rotations/{rotation_id}/base-update/SHA256SUMS",
+  "prepare/rotations/{rotation_id}/prediction-view/SHA256SUMS",
+  "prepare/rotations/{rotation_id}/random-minimal-view/SHA256SUMS",
+]
+predecessor_count_per_leaf = 6
+contains_candidate_view_payload = false
+pool_prediction_order = "ascending_sequence_id"
+pool_novelty_order = "ascending_sequence_id"
+pool_component_order = "ascending_diversity_component_id"
+summary_binds_base_update_and_both_view_seals_and_payload_digests = true
+
+[sealed_prepare_select_reveal.prepare_barrier]
+artifact = "sequential_v2_prepare_campaign_barrier_v1"
+path = "prepare/global"
+payload_paths = ["prepare-index.jsonl", "prepare-summary.json"]
+assembler_input = "20_stripped_label_free_payload_byte_free_rotation_attestations_plus_authenticated_protocol"
+rotation_attestation_count = 20
+rotation_attestation_is_an_additional_published_leaf = false
+rotation_attestation_is_emitted_only_after_isolated_worker_verifies_its_four_leaves = true
+rotation_attestation_transport = "canonical_lf_terminated_json_over_supervisor_controlled_fresh_exec_result_channel"
+rotation_attestation_order = "frozen_rotation_order"
+rotation_attestation_extra_or_missing_fields_are_rejected = true
+rotation_attestation_contains_phase_seal_capability_object_or_payload_bytes = false
+rotation_attestation_contains_context_sequence_label_prediction_novelty_or_component_values = false
+assembler_receives_prepare_artifact_capabilities_or_source_leaves = false
+assembler_decodes_base_update_candidate_or_evidence_payloads = false
+predecessor_key_templates = [
+  "protocol/SHA256SUMS",
+  "prepare/rotations/{each_rotation_id}/{each_prepare_leaf_path_suffix}/SHA256SUMS",
+]
+predecessor_count_formula = "1_protocol_plus_20_rotations_times_4_prepare_leaves"
+predecessor_count = 81
+index_rows = 80
+index_order = "frozen_rotation_order_then_evidence_base-update_prediction-view_random-minimal-view"
+marker_must_be_readable_and_fully_verified_before_any_selector_starts = true
+
+[sealed_prepare_select_reveal.selector_outputs]
+expected_prediction_outputs = 20
+expected_random_outputs = 20
+expected_ceiling_outputs = 20
+expected_outputs = 60
+path_template = "select/selector-outputs/{rotation_id}/{selector_kind}"
+selector_kinds = ["prediction", "random", "ceiling"]
+prediction_artifact = "sequential_v2_prediction_selector_commitments_v1"
+random_artifact = "sequential_v2_random_selector_commitments_v1"
+ceiling_artifact = "sequential_v2_ceiling_selector_commitment_v1"
+payload_paths = ["commitments.jsonl", "selector-summary.json"]
+common_predecessor_keys = [
+  "protocol/SHA256SUMS",
+  "prepare/global/SHA256SUMS",
+]
+prediction_view_predecessor_key = "prepare/rotations/{rotation_id}/prediction-view/SHA256SUMS"
+random_view_predecessor_key = "prepare/rotations/{rotation_id}/random-minimal-view/SHA256SUMS"
+ceiling_view_predecessor_key = "prepare/rotations/{rotation_id}/random-minimal-view/SHA256SUMS"
+predecessor_count_per_output = 3
+prediction_track_count_per_output = 4
+random_track_count_per_output = 5
+ceiling_track_count_per_output = 1
+prediction_association_count_per_output = 40
+random_association_count_per_output = 50
+ceiling_association_count_by_pool_fold = [202, 126, 112, 97, 113]
+prediction_commitment_order = "frozen_track_order_filtered_to_prediction_policies"
+random_commitment_order = "frozen_track_order_filtered_to_random_policy"
+ceiling_commitment_order = "frozen_track_order_filtered_to_ceiling_policy"
+prediction_input_payload_paths = [
+  "prepare/rotations/{rotation_id}/prediction-view/candidates.jsonl",
+  "prepare/rotations/{rotation_id}/prediction-view/view-summary.json",
+]
+random_input_payload_paths = [
+  "prepare/rotations/{rotation_id}/random-minimal-view/candidates.jsonl",
+  "prepare/rotations/{rotation_id}/random-minimal-view/view-summary.json",
+]
+ceiling_input_payload_paths = [
+  "prepare/rotations/{rotation_id}/random-minimal-view/candidates.jsonl",
+  "prepare/rotations/{rotation_id}/random-minimal-view/view-summary.json",
+]
+prediction_input_view_kind = "prediction"
+random_input_view_kind = "random_minimal"
+ceiling_input_view_kind = "ceiling_minimal"
+prediction_random_and_ceiling_are_distinct_fresh_exec_processes = true
+ceiling_receives_fresh_projection_of_random_payload_bytes = true
+selector_accepts_label_free_prepare_global_index_and_summary = true
+selector_accepts_per_rotation_evidence_summary_or_sibling_prepare_leaf_payloads = false
+selector_receives_exact_view_leaf_capsule_not_a_prepare_rotation_parent = true
+selector_expected_prepare_global_seal_digest_is_controller_authoritative = true
+
+[sealed_prepare_select_reveal.commitment_leaf]
+artifact = "sequential_v2_pool_commitment_v1"
+path_template = "select/rotations/{rotation_id}/commitments/{track_id}"
+payload_paths = ["commitment.json"]
+expected_count = 220
+expected_no_query_count = 20
+expected_prediction_count = 80
+expected_random_count = 100
+expected_ceiling_count = 20
+no_query_predecessor_key_templates = [
+  "protocol/SHA256SUMS",
+  "prepare/global/SHA256SUMS",
+]
+no_query_predecessor_count = 2
+candidate_consuming_common_predecessor_keys = [
+  "protocol/SHA256SUMS",
+  "prepare/global/SHA256SUMS",
+]
+prediction_predecessor_keys = [
+  "prepare/rotations/{rotation_id}/prediction-view/SHA256SUMS",
+  "select/selector-outputs/{rotation_id}/prediction/SHA256SUMS",
+]
+random_predecessor_keys = [
+  "prepare/rotations/{rotation_id}/random-minimal-view/SHA256SUMS",
+  "select/selector-outputs/{rotation_id}/random/SHA256SUMS",
+]
+ceiling_predecessor_keys = [
+  "prepare/rotations/{rotation_id}/random-minimal-view/SHA256SUMS",
+  "select/selector-outputs/{rotation_id}/ceiling/SHA256SUMS",
+]
+candidate_consuming_predecessor_count = 4
+candidate_consuming_predecessor_formula = "two_common_keys_plus_two_policy_specific_keys"
+candidate_consuming_selector_output_seal_digest_is_controller_authoritative = true
+no_query_is_synthesized_from_authenticated_protocol_only = true
+no_query_has_selector_output_predecessor = false
+commitment_order = "frozen_track_order"
+
+[sealed_prepare_select_reveal.rotation_commitment_index]
+artifact = "sequential_v2_rotation_pool_commitment_index_v1"
+path_template = "select/rotations/{rotation_id}/global"
+expected_count = 20
+payload_paths = [
+  "commitment-index.jsonl",
+  "rotation-summary.json",
+  "view-provenance.json",
+]
+predecessor_key_templates = [
+  "protocol/SHA256SUMS",
+  "prepare/global/SHA256SUMS",
+  "prepare/rotations/{rotation_id}/evidence/SHA256SUMS",
+  "select/selector-outputs/{rotation_id}/{each_selector_kind}/SHA256SUMS",
+  "select/rotations/{rotation_id}/commitments/{each_track_id}/SHA256SUMS",
+]
+predecessor_count_formula = "1_protocol_plus_1_prepare_global_plus_1_rotation_evidence_plus_3_selector_outputs_plus_11_commitment_leaves"
+predecessor_count_per_rotation = 17
+assembler_count = 20
+assembler_granularity = "one_fresh_outcome_free_exec_per_rotation_after_all_60_selector_output_sha256sums_are_readable_and_fully_verified"
+assembler_input = "three_rootless_selector_output_capsules_plus_controller_authoritative_expected_selector_seal_digest_map_and_expected_prepare_global_seal_digest_plus_authenticated_protocol_and_label_free_prepare_global_index_capability"
+assembler_expected_selector_seal_digest_map_is_controller_authoritative = true
+assembler_expected_prepare_global_seal_digest_is_controller_authoritative = true
+assembler_expected_commitment_leaf_seal_digest_sequence_is_exact_local_publication_result = true
+assembler_candidate_view_access = false
+commitment_rows_per_rotation = 11
+commitment_index_order = "frozen_track_order_filtered_to_rotation"
+
+[sealed_prepare_select_reveal.pool_commitment_barrier]
+artifact = "sequential_v2_pool_commitment_campaign_barrier_v1"
+path = "select/global"
+payload_paths = [
+  "campaign-summary.json",
+  "commitment-index.jsonl",
+  "rotation-index.jsonl",
+]
+predecessor_key_templates = [
+  "protocol/SHA256SUMS",
+  "prepare/global/SHA256SUMS",
+  "select/rotations/{each_rotation_id}/global/SHA256SUMS",
+  "select/rotations/{each_rotation_id}/commitments/{each_track_id_filtered_to_rotation}/SHA256SUMS",
+]
+predecessor_count_formula = "1_protocol_plus_1_prepare_global_plus_20_rotation_indices_plus_220_commitment_leaves"
+predecessor_count = 242
+rotation_index_rows = 20
+commitment_index_rows = 220
+rotation_index_order = "frozen_rotation_order"
+commitment_index_order = "frozen_track_order"
+association_count_formula = "20_times_9_budgeted_tracks_times_10_plus_4_times_sum_202_126_112_97_113"
+budgeted_association_count = 1800
+ceiling_association_count = 2600
+no_query_association_count = 0
+association_count = 4400
+global_assembler_count = 1
+global_assembler = "fresh_outcome_free_exec_receiving_only_rotation_indices_commitment_leaves_controller_authoritative_expected_rotation_index_seal_digest_sequence_and_expected_prepare_global_seal_digest_plus_authenticated_protocol_and_label_free_prepare_global_index_capability"
+global_assembler_expected_rotation_index_seal_digest_sequence_is_controller_authoritative = true
+global_assembler_expected_prepare_global_seal_digest_is_controller_authoritative = true
+global_commitment_leaves_are_anchored_by_authenticated_rotation_index_rows = true
+global_assembler_candidate_view_access = false
+global_assembler_pool_outcome_access = false
+readable_and_fully_verified_sha256sums_is_only_authority_to_start_reveal = true
+directory_existence_or_partial_leaf_census_is_not_authority = true
+commitment_capability_derivation_api = "amp_challenge.evaluation.sequential_v2_commitments.pool_commitment_capability_from_seals"
+commitment_capability_verification_api = "amp_challenge.evaluation.sequential_v2_commitments.verify_pool_commitment_capability"
+commitment_capability_python_object_alone_is_reveal_authority = false
+reveal_worker_rederives_capability_against_authenticated_protocol_and_controller_authoritative_prepare_and_select_global_seal_digests = true
+reveal_worker_receives_prepare_global_capability_or_payload = false
+select_global_digest_release_requires_full_prepare_provenance_cross_check = true
+
+[sealed_prepare_select_reveal.stage_capability_bridge]
+manifest_capability_type = "StageManifestCapability"
+controller_path_verification_api = "amp_challenge.evaluation.sequential_v2_stage.verify_stage_manifest"
+controller_authentication_api = "amp_challenge.evaluation.sequential_v2_stage.authenticate_stage_manifest_for_controller"
+worker_verification_api = "amp_challenge.evaluation.sequential_v2_stage.verify_stage_manifest_capability"
+pool_outcome_materialization_api = "amp_challenge.evaluation.sequential_v2_stage.pool_outcome_vault_from_stage_capabilities"
+controller_authentication_is_path_bearing = true
+manifest_capability_is_rootless_and_label_free = true
+manifest_capability_contains_stage_global_phase_seal_index_summary_and_source_anchor_bytes = true
+manifest_capability_contains_role_leaf_payload_bytes = false
+worker_verification_requires_controller_authoritative_stage_global_seal_digest = true
+pool_outcome_materialization_requires_verified_manifest_capability_and_one_matching_rootless_leaf_capsule = true
+pool_outcome_leaf_is_matched_to_exact_rotation_index_row_before_payload_decode = true
+caller_constructed_manifest_capability_or_leaf_capsule_alone_is_authority = false
+
+[sealed_prepare_select_reveal.reveal_leaf]
+artifact = "sequential_v2_pool_reveal_v1"
+summary_artifact = "sequential_v2_pool_reveal_summary_v1"
+path_template = "reveal/tracks/{track_id}"
+payload_paths = [
+  "commitment.json",
+  "contexts.jsonl",
+  "reveal-summary.json",
+  "selected-sequence-ids.jsonl",
+]
+expected_count = 220
+worker_count = 220
+expected_no_query_empty_leaves = 20
+expected_nonempty_leaves = 200
+expected_budgeted_nonempty_leaves = 180
+expected_ceiling_nonempty_leaves = 20
+no_query_predecessor_key_templates = [
+  "protocol/SHA256SUMS",
+  "select/global/SHA256SUMS",
+  "select/rotations/{rotation_id}/commitments/{track_id}/SHA256SUMS",
+]
+no_query_predecessor_count = 3
+nonempty_predecessor_key_templates = [
+  "protocol/SHA256SUMS",
+  "stage/global/SHA256SUMS",
+  "stage/rotations/{rotation_id}/pool-outcome-vault/SHA256SUMS",
+  "select/global/SHA256SUMS",
+  "select/rotations/{rotation_id}/commitments/{track_id}/SHA256SUMS",
+]
+nonempty_predecessor_count = 5
+no_query_receives_pool_outcome_vault_capsule = false
+no_query_authenticates_or_opens_pool_outcome_vault = false
+no_query_worker_receives = "authenticated_protocol_plus_one_rootless_commitment_capability_plus_controller_authoritative_prepare_and_select_global_seal_digests"
+nonempty_worker_receives = "authenticated_protocol_plus_one_rootless_commitment_capability_plus_one_authenticated_label_free_stage_global_barrier_capability_plus_controller_authoritative_prepare_select_global_and_stage_global_seal_digests_plus_one_matching_rootless_pool_outcome_vault_capsule"
+nonempty_worker_label_bearing_input_count = 1
+nonempty_worker_reanchors_pool_vault_leaf_through_authenticated_stage_global_barrier = true
+worker_granularity = "one_fresh_exec_per_policy_run_after_verified_global_pool_commitment_barrier"
+selected_sequence_order = "exact_commitment_order"
+context_order = "ascending_example_id"
+context_scope = "all_and_only_pool_fold_contexts_whose_sequence_id_is_in_the_exact_commitment"
+selected_sequence_set_must_equal_revealed_context_sequence_set = true
+selected_ids_must_be_subset_of_reconstructed_pool_support = true
+empty_jsonl_allowed_only_for_no_query_contexts_and_selected_sequence_ids = true
+budgeted_association_count = 1800
+ceiling_association_count_formula = "4_times_sum_202_126_112_97_113"
+ceiling_association_count = 2600
+total_association_count = 4400
+accepted_support_context_count = 1967
+ceiling_revealed_context_association_count_formula = "4_times_accepted_support_context_count"
+ceiling_revealed_context_association_count = 7868
+budgeted_revealed_context_association_count = "runtime_sum_of_all_contexts_for_the_1800_budgeted_selected_sequence_associations"
+total_revealed_context_association_count = "budgeted_revealed_context_association_count_plus_7868"
+per_target_revealed_context_counts_are_mandatory = true
+
+[sealed_prepare_select_reveal.reveal_leaf_attestation]
+artifact = "sequential_v2_pool_reveal_attestation_v1"
+expected_count = 220
+one_attestation_per_isolated_reveal_worker = true
+attestation_is_an_additional_published_leaf = false
+emitted_only_after_worker_fully_verifies_and_publishes_its_one_reveal_leaf = true
+transport = "canonical_lf_terminated_json_over_supervisor_controlled_fresh_exec_result_channel"
+order = "frozen_track_order"
+extra_missing_or_noncanonical_fields_are_rejected = true
+serialized_attestation_alone_is_an_authenticated_capability = false
+contains_phase_seal_capability_object_or_payload_bytes = false
+contains_context_sequence_label_probability_or_source_row = false
+contains_exact_four_reveal_payload_digests = true
+contains_exact_run_and_publication_identity = true
+contains_label_free_censuses_and_audit_counts_only = true
+reconstructs_summary_payload_digest_from_attested_censuses = true
+reconstructs_receipt_and_checksum_manifest_to_match_controller_authoritative_reveal_leaf_digest = true
+
+[sealed_prepare_select_reveal.reveal_barrier]
+artifact = "sequential_v2_pool_reveal_campaign_barrier_v1"
+path = "reveal/global"
+payload_paths = ["reveal-index.jsonl", "reveal-summary.json"]
+predecessor_key_templates = [
+  "protocol/SHA256SUMS",
+  "stage/global/SHA256SUMS",
+  "select/global/SHA256SUMS",
+  "reveal/tracks/{each_track_id}/SHA256SUMS",
+]
+predecessor_count_formula = "1_protocol_plus_1_stage_global_plus_1_select_global_plus_220_reveal_leaves"
+predecessor_count = 223
+index_rows = 220
+index_order = "frozen_track_order"
+index_and_summary_are_label_free = true
+barrier_assembler_count = 1
+barrier_assembler = "trusted_fresh_exec_receives_only_220_ordered_reveal_attestations_authenticated_protocol_rootless_stage_and_select_global_capabilities_controller_authoritative_prepare_stage_select_and_ordered_reveal_leaf_digests_then_emits_only_label_free_index_and_summary"
+barrier_assembler_attestation_count = 220
+barrier_assembler_attestation_order = "frozen_track_order"
+barrier_assembler_input = "exact_220_canonical_payload_free_reveal_leaf_attestations_plus_exact_authenticated_protocol_plus_one_rootless_verified_stage_global_manifest_capability_plus_one_rootless_verified_select_global_phase_capability_plus_controller_authoritative_prepare_stage_and_select_global_seal_digests_plus_controller_authoritative_ordered_220_reveal_leaf_seal_digest_sequence"
+barrier_assembler_expected_prepare_global_seal_digest_is_controller_authoritative = true
+barrier_assembler_expected_stage_global_seal_digest_is_controller_authoritative = true
+barrier_assembler_expected_select_global_seal_digest_is_controller_authoritative = true
+barrier_assembler_expected_reveal_leaf_seal_digest_sequence_is_controller_authoritative = true
+barrier_assembler_select_global_verification_api = "amp_challenge.evaluation.sequential_v2_commitments.verify_pool_commitment_campaign_barrier_for_reveal"
+barrier_assembler_cross_checks_attestations_against_protocol_select_and_stage_indices = true
+barrier_assembler_receives_reveal_leaf_phase_seals_or_payloads = false
+barrier_assembler_receives_pool_outcome_vault_capsules_or_payloads = false
+barrier_assembler_receives_context_sequence_label_probability_or_source_rows = false
+returned_capability_type = "amp_challenge.evaluation.sequential_v2_reveal.RevealCampaignCapability"
+returned_capability_derivation_api = "amp_challenge.evaluation.sequential_v2_reveal.reveal_campaign_capability_from_seal"
+returned_capability_verification_api = "amp_challenge.evaluation.sequential_v2_reveal.verify_reveal_campaign_capability"
+returned_capability_is_rootless_and_label_free = true
+returned_capability_is_an_additional_published_leaf = false
+returned_capability_contains_only_verified_reveal_global_phase_seal_index_summary_publication_identity_and_anchor_digests = true
+returned_capability_contains_reveal_leaf_or_outcome_vault_payloads = false
+returned_capability_python_object_alone_is_update_authority = false
+returned_capability_verification_requires_controller_authoritative_reveal_global_seal_digest = true
+readable_and_fully_verified_sha256sums_is_only_authority_to_start_update = true
+
+[sealed_prepare_select_reveal.schemas]
+protocol_rotation_row = [
+  "schema_version:integer_equal_1",
+  "rotation_id:canonical_rotation_id",
+  "outer_fold:integer_0_to_4",
+  "acquisition_pool_fold:integer_0_to_4_distinct_from_outer_fold",
+  "base_folds:array_length_3_of_distinct_integers_0_to_4_ascending",
+]
+protocol_policy_run_row = [
+  "schema_version:integer_equal_1",
+  "track_id:canonical_track_id",
+  "rotation_id:canonical_rotation_id",
+  "policy:string_frozen_policy",
+  "seed:null_or_frozen_random_seed",
+  "selection_kind:string_enum_no_query_budgeted_full_acquisition_fold_ceiling",
+  "expected_pool_selection_count:nonnegative_integer_equal_policy_count",
+  "expected_outer_selection_count:integer_equal_10",
+  "refit:boolean_equal_policy_is_not_no_query",
+]
+protocol_census_document = [
+  "schema_version:integer_equal_1",
+  "rotations:integer_equal_20",
+  "policy_runs:integer_equal_220",
+  "policy_runs_per_rotation:integer_equal_11",
+  "random_policy_runs:integer_equal_100",
+  "deterministic_policy_runs:integer_equal_120",
+  "base_state_references:integer_equal_20",
+  "refits:integer_equal_200",
+  "update_states:integer_equal_220",
+  "pool_candidates:integer_equal_2600",
+  "prediction_bearing_pool_view_rows:integer_equal_2600",
+  "random_minimal_pool_view_rows:integer_equal_2600",
+  "physical_pool_candidate_view_rows:integer_equal_5200",
+  "pool_committed_sequence_associations:integer_equal_4400",
+  "outer_context_predictions:integer_equal_109648",
+  "outer_candidates:integer_equal_28600",
+  "outer_committed_sequence_associations:integer_equal_2200",
+]
+rotation_document = [
+  "schema_version:integer_equal_1",
+  "rotation_id:canonical_rotation_id",
+  "outer_fold:integer_0_to_4",
+  "acquisition_pool_fold:integer_0_to_4_distinct_from_outer_fold",
+  "base_folds:array_length_3_of_distinct_integers_0_to_4_ascending",
+]
+base_model_document = [
+  "schema_version:integer_equal_1",
+  "rotation_id:canonical_rotation_id",
+  "base_folds:array_length_3_of_integers",
+  "training_example_ids_sha256:sha256",
+  "training_sequence_ids_sha256:sha256",
+  "training_example_count:positive_integer",
+  "training_sequence_count:positive_integer",
+  "model_state:descriptor_model_state_object",
+]
+descriptor_model_state_object = [
+  "schema_version:integer_equal_1",
+  "artifact:string_equal_sequential_v2_pooled_descriptor_logistic_state",
+  "converged:boolean_true",
+  "feature_names:array_length_33_of_frozen_feature_names",
+  "feature_mean_hex:array_length_33_of_binary64_hex",
+  "feature_scale_hex:array_length_33_of_positive_binary64_hex",
+  "strains:ascending_unique_array_of_frozen_target_names",
+  "coefficient_hex:null_or_array_of_binary64_hex_with_model_derived_length",
+  "constant_probability_hex:null_or_binary64_hex_strictly_between_zero_and_one",
+  "iterations:integer_0_to_100",
+  "training_contexts:positive_integer",
+  "positive_contexts:integer_0_to_training_contexts",
+  "hyperparameters:exact_descriptor_hyperparameter_object",
+]
+descriptor_hyperparameter_object = [
+  "l2_hex:binary64_hex",
+  "max_iterations:integer_equal_100",
+  "prior_strength_hex:binary64_hex",
+  "probability_clip_hex:binary64_hex",
+  "tolerance_hex:binary64_hex",
+]
+diversity_transform_document = [
+  "schema_version:integer_equal_1",
+  "rotation_id:canonical_rotation_id",
+  "base_folds:array_length_3_of_integers",
+  "training_sequence_ids_sha256:sha256",
+  "transform_state:diversity_transform_state_object",
+]
+diversity_transform_state_object = [
+  "schema_version:integer_equal_1",
+  "artifact:string_equal_sequential_v2_fold_local_diversity_transform",
+  "feature_names:array_length_33_of_frozen_feature_names",
+  "fit_sequence_count:positive_integer",
+  "fit_sequence_ids_sha256:sha256",
+  "mean_hex:array_length_33_of_binary64_hex",
+  "scale_hex:array_length_33_of_positive_binary64_hex",
+  "scale_floor_rule:string_equal_population_sd_below_1e-12_replaced_by_one",
+  "row_normalization:string_equal_euclidean_l2_zero_vector_stays_zero",
+]
+pool_prediction_row = [
+  "schema_version:integer_equal_1",
+  "rotation_id:canonical_rotation_id",
+  "sequence_id:sha256",
+  "target_probabilities_hex:exact_seven_target_key_object_of_binary64_hex",
+  "objective_probabilities_hex:exact_three_objective_key_object_of_binary64_hex",
+]
+pool_novelty_row = [
+  "schema_version:integer_equal_1",
+  "rotation_id:canonical_rotation_id",
+  "sequence_id:sha256",
+  "max_similarity_hex:binary64_hex_inclusive_0_to_1",
+  "nearest_training_sequence_id:sha256",
+  "novelty_hex:binary64_hex_inclusive_0_to_1",
+]
+pool_component_row = [
+  "schema_version:integer_equal_1",
+  "rotation_id:canonical_rotation_id",
+  "role:string_equal_pool",
+  "fold:integer_equal_pool_fold",
+  "diversity_component_id:string_seqv2_div70_prefix_plus_sha256",
+  "sequence_ids:ascending_nonempty_unique_array_of_sha256",
+]
+prediction_view_row = [
+  "rotation_id:canonical_rotation_id",
+  "sequence_id:sha256_matching_sequence",
+  "sequence:canonical_amino_acid_string",
+  "objective_probabilities:exact_three_objective_key_object_of_binary64_json_number",
+  "features:array_length_33_of_binary64_json_number_unit_l2_or_all_zero",
+  "novelty:binary64_json_number_inclusive_0_to_1",
+  "diversity_component_id:string_seqv2_div70_prefix_plus_sha256",
+  "eligible:boolean_true",
+]
+random_minimal_view_row = [
+  "rotation_id:canonical_rotation_id",
+  "sequence_id:sha256_matching_sequence",
+  "sequence:canonical_amino_acid_string",
+  "diversity_component_id:string_seqv2_div70_prefix_plus_sha256",
+  "eligible:boolean_true",
+]
+base_context_row = [
+  "example_id:sha256",
+  "assay_context_id:sha256_equal_example_id",
+  "sequence_id:sha256_matching_sequence",
+  "sequence:canonical_amino_acid_string",
+  "target:string_frozen_target",
+  "gram:string_equal_frozen_target_gram",
+  "fold:integer_in_exact_three_base_folds",
+  "label:integer_0_or_1",
+  "source_observations:positive_integer_audit_only",
+]
+base_update_capability_document = [
+  "schema_version:integer_equal_1",
+  "artifact:string_equal_sequential_v2_prepare_base_update_capability_v1",
+  "rotation_id:canonical_rotation_id",
+  "outer_fold:integer_0_to_4",
+  "acquisition_pool_fold:integer_0_to_4",
+  "base_folds:array_length_3_of_integers",
+  "base_example_count:positive_integer",
+  "base_example_ids_sha256:sha256",
+  "base_sequence_count:positive_integer",
+  "base_sequence_ids_sha256:sha256",
+  "data_payload_paths:array_exact_base_contexts_base_model_diversity_transform_rotation",
+]
+view_summary_document = [
+  "schema_version:integer_equal_1",
+  "artifact:string_equal_matching_prepare_view_summary_artifact",
+  "rotation_id:canonical_rotation_id",
+  "view_kind:string_enum_prediction_random_minimal",
+  "candidate_count:positive_integer_equal_fold_support",
+  "candidate_ids_sha256:sha256",
+  "candidate_payload_sha256:sha256",
+  "field_names:array_exact_matching_candidate_schema_order",
+]
+prepare_evidence_summary_document = [
+  "schema_version:integer_equal_1",
+  "artifact:string_equal_sequential_v2_prepare_evidence_summary_v1",
+  "rotation_id:canonical_rotation_id",
+  "outer_fold:integer_0_to_4",
+  "acquisition_pool_fold:integer_0_to_4",
+  "base_folds:array_length_3_of_integers",
+  "base_example_count:positive_integer",
+  "base_example_ids_sha256:sha256",
+  "base_sequence_count:positive_integer",
+  "base_sequence_ids_sha256:sha256",
+  "candidate_count:positive_integer_equal_fold_support",
+  "candidate_ids_sha256:sha256",
+  "pool_prediction_count:integer_equal_candidate_count",
+  "pool_novelty_count:integer_equal_candidate_count",
+  "pool_component_count:positive_integer",
+  "base_update_seal_sha256:sha256",
+  "base_update_model_payload_sha256:sha256",
+  "base_update_transform_payload_sha256:sha256",
+  "prediction_view_seal_sha256:sha256",
+  "prediction_view_payload_sha256:sha256",
+  "random_minimal_view_seal_sha256:sha256_distinct_from_prediction_view_seal",
+  "random_minimal_view_payload_sha256:sha256",
+]
+prepare_leaf_attestation_object = [
+  "schema_version:integer_equal_1",
+  "leaf_role:string_exact_member_of_prepare_outputs_leaf_roles",
+  "relative_path:exact_prepare_leaf_path_for_rotation_and_role",
+  "artifact:string_equal_matching_prepare_leaf_artifact",
+  "phase_seal_sha256:sha256",
+  "payload_sha256:exact_role_payload_path_to_sha256_object",
+  "base_model_state_sha256:sha256_for_base_update_otherwise_null",
+  "candidate_count:null_for_base_update_otherwise_positive_integer_equal_fold_support",
+  "candidate_ids_sha256:null_for_base_update_otherwise_sha256",
+]
+prepare_rotation_attestation_publication_identity_object = [
+  "git_commit:lowercase_git_sha1_40_hex",
+  "code_manifest_sha256:sha256",
+  "config_sha256:sha256",
+  "lock_sha256:sha256",
+]
+prepare_rotation_attestation_view_provenance_object = [
+  "candidate_count:positive_integer_equal_fold_support",
+  "candidate_ids_sha256:sha256",
+  "prediction_view_seal_sha256:sha256",
+  "prediction_view_payload_sha256:sha256",
+  "random_view_seal_sha256:sha256_distinct_from_prediction_view_seal",
+  "random_view_payload_sha256:sha256",
+]
+prepare_rotation_attestation_document = [
+  "schema_version:integer_equal_1",
+  "artifact:string_equal_sequential_v2_prepare_rotation_attestation_v1",
+  "rotation:exact_frozen_rotation_document",
+  "publication_identity:prepare_rotation_attestation_publication_identity_object",
+  "protocol_seal_sha256:sha256",
+  "stage_global_seal_sha256:sha256_equal_controller_authority",
+  "source_prepare_leaf_seal_sha256:sha256",
+  "base_context_association_count:integer_equal_sum_of_three_base_fold_context_counts",
+  "leaves:array_length_4_of_prepare_leaf_attestation_object_in_evidence_base-update_prediction-view_random-minimal-view_order",
+  "view_provenance:prepare_rotation_attestation_view_provenance_object",
+]
+prepare_index_row = [
+  "schema_version:integer_equal_1",
+  "rotation_id:canonical_rotation_id",
+  "leaf_role:string_exact_member_of_prepare_outputs_leaf_roles",
+  "relative_path:exact_prepare_leaf_path_for_role",
+  "artifact:string_equal_matching_prepare_leaf_artifact",
+  "phase_seal_sha256:sha256",
+  "payload_sha256:exact_role_payload_path_to_sha256_object",
+  "base_model_state_sha256:sha256_for_base_update_otherwise_null",
+  "candidate_count:null_for_base_update_otherwise_positive_integer_equal_fold_support",
+  "candidate_ids_sha256:null_for_base_update_otherwise_sha256",
+]
+prepare_global_summary_document = [
+  "schema_version:integer_equal_1",
+  "artifact:string_equal_sequential_v2_prepare_campaign_barrier_v1",
+  "rotation_count:integer_equal_20",
+  "prepare_leaf_count:integer_equal_80",
+  "evidence_leaf_count:integer_equal_20",
+  "base_update_leaf_count:integer_equal_20",
+  "prediction_view_leaf_count:integer_equal_20",
+  "random_minimal_view_leaf_count:integer_equal_20",
+  "base_model_count:integer_equal_20",
+  "diversity_transform_count:integer_equal_20",
+  "base_context_association_count:integer_equal_29904",
+  "logical_candidate_count:integer_equal_2600",
+  "prediction_view_row_count:integer_equal_2600",
+  "random_minimal_view_row_count:integer_equal_2600",
+  "physical_view_row_count:integer_equal_5200",
+  "prepare_index_sha256:sha256",
+]
+input_view_binding_object = [
+  "kind:string_enum_none_prediction_random_minimal_ceiling_minimal",
+  "phase_seal_sha256:sha256",
+  "payload_sha256:null_for_none_otherwise_sha256",
+  "candidate_count:nonnegative_integer",
+  "candidate_ids_sha256:sha256",
+]
+selection_seat_object = [
+  "sequence_id:sha256",
+  "requested_role:string_enum_exploit_diversity_novelty_random",
+  "applied_role:string_enum_exploit_diversity_novelty_random",
+  "acquisition_score_kind:string_enum_float_hex_unsigned_integer",
+  "acquisition_score:binary64_hex_string_or_nonnegative_integer_as_declared_by_kind",
+  "scalar_mean_hex:null_or_binary64_hex",
+]
+repair_step_object = [
+  "step_number:positive_integer",
+  "requested_role:string_enum_diversity_novelty",
+  "removed_sequence_id:sha256",
+  "added_sequence_id:sha256",
+]
+guard_evaluation_object = [
+  "stage:string_enum_requested_after_novelty_repair_after_diversity_repair_fallback",
+  "sequence_ids:array_length_10_of_unique_sha256",
+  "objective_means_hex:array_length_3_of_binary64_hex",
+  "scalar_mean_hex:binary64_hex",
+  "scalar_loss_hex:binary64_hex",
+  "objective_losses_hex:array_length_3_of_binary64_hex",
+  "passed:boolean",
+]
+selection_result_object = [
+  "schema_version:integer_equal_1",
+  "rotation_id:canonical_rotation_id",
+  "policy:string_budgeted_policy",
+  "seats:array_length_10_of_selection_seat_object",
+  "mean_control_sequence_ids:array_length_10_of_unique_sha256_for_prediction_policy_or_empty_for_random",
+  "requested_sequence_ids:array_of_unique_sha256_maximum_length_10",
+  "requested_complete:boolean",
+  "requested_role_counts:object_of_string_to_nonnegative_integer",
+  "applied_role_counts:object_of_string_to_nonnegative_integer",
+  "component_counts:object_of_component_id_to_positive_integer",
+  "scalar_loss_hex:null_or_binary64_hex",
+  "objective_losses_hex:null_or_array_length_3_of_binary64_hex",
+  "repair_trace:array_of_repair_step_object",
+  "guard_evaluations:array_of_guard_evaluation_object",
+  "fallback_reason:null_or_string_enum_hard_median_floor_infeasible_repair_candidate_infeasible_reward_guard_failed",
+]
+pool_commitment_document = [
+  "schema_version:integer_equal_1",
+  "track_id:canonical_track_id",
+  "rotation_id:canonical_rotation_id",
+  "policy:string_frozen_policy",
+  "seed:null_or_frozen_random_seed",
+  "selection_kind:string_enum_no_query_budgeted_full_acquisition_fold_ceiling",
+  "input_view:input_view_binding_object",
+  "selected_sequence_ids:ordered_unique_array_of_sha256",
+  "selected_sequence_count:nonnegative_integer_equal_array_length_and_policy_count",
+  "selected_sequence_ids_sha256:ordered_id_stream_sha256_of_exact_selected_sequence_ids",
+  "selection_result:null_for_no_query_and_ceiling_otherwise_selection_result_object",
+]
+selector_summary_document = [
+  "schema_version:integer_equal_1",
+  "artifact:string_equal_matching_selector_artifact",
+  "rotation_id:canonical_rotation_id",
+  "selector_kind:string_enum_prediction_random_ceiling",
+  "input_view:input_view_binding_object",
+  "track_count:positive_integer_equal_selector_partition",
+  "track_ids:ordered_array_of_canonical_track_id",
+  "selected_sequence_association_count:positive_integer_equal_selector_partition",
+  "commitments_payload_sha256:sha256",
+]
+view_provenance_document = [
+  "schema_version:integer_equal_1",
+  "rotation_id:canonical_rotation_id",
+  "candidate_count:positive_integer_equal_fold_support",
+  "candidate_ids_sha256:sha256",
+  "prediction_view_seal_sha256:sha256_equal_exact_prediction_view_leaf_seal",
+  "prediction_view_payload_sha256:sha256",
+  "random_view_seal_sha256:sha256_equal_exact_random_minimal_view_leaf_seal_and_distinct_from_prediction_view_seal",
+  "random_view_payload_sha256:sha256",
+]
+commitment_index_row = [
+  "schema_version:integer_equal_1",
+  "track_id:canonical_track_id",
+  "rotation_id:canonical_rotation_id",
+  "policy:string_frozen_policy",
+  "seed:null_or_frozen_random_seed",
+  "selection_kind:string_enum_no_query_budgeted_full_acquisition_fold_ceiling",
+  "relative_path:exact_commitment_leaf_path",
+  "leaf_artifact:string_equal_sequential_v2_pool_commitment_v1",
+  "leaf_seal_sha256:sha256",
+  "commitment_payload_sha256:sha256",
+  "selected_sequence_count:nonnegative_integer_equal_policy_count",
+  "selected_sequence_ids_sha256:sha256",
+  "selector_kind:null_for_no_query_otherwise_prediction_random_or_ceiling",
+  "selector_output_seal_sha256:null_for_no_query_otherwise_sha256",
+  "input_view:input_view_binding_object",
+]
+rotation_commitment_summary_document = [
+  "schema_version:integer_equal_1",
+  "artifact:string_equal_sequential_v2_rotation_pool_commitment_index_v1",
+  "rotation_id:canonical_rotation_id",
+  "commitment_count:integer_equal_11",
+  "selected_sequence_association_count:integer_equal_90_plus_fold_support",
+  "prediction_commitment_count:integer_equal_4",
+  "random_commitment_count:integer_equal_5",
+  "ceiling_commitment_count:integer_equal_1",
+  "no_query_commitment_count:integer_equal_1",
+  "commitment_index_sha256:sha256",
+  "view_provenance_sha256:sha256",
+]
+rotation_index_row = [
+  "schema_version:integer_equal_1",
+  "rotation_id:canonical_rotation_id",
+  "relative_path:exact_rotation_commitment_index_path",
+  "artifact:string_equal_sequential_v2_rotation_pool_commitment_index_v1",
+  "phase_seal_sha256:sha256",
+  "commitment_count:integer_equal_11",
+  "selected_sequence_association_count:integer_equal_90_plus_fold_support",
+]
+campaign_summary_document = [
+  "schema_version:integer_equal_1",
+  "artifact:string_equal_sequential_v2_pool_commitment_campaign_barrier_v1",
+  "rotation_count:integer_equal_20",
+  "commitment_count:integer_equal_220",
+  "no_query_commitment_count:integer_equal_20",
+  "prediction_commitment_count:integer_equal_80",
+  "random_commitment_count:integer_equal_100",
+  "ceiling_commitment_count:integer_equal_20",
+  "budgeted_selected_sequence_association_count:integer_equal_1800",
+  "ceiling_selected_sequence_association_count:integer_equal_2600",
+  "selected_sequence_association_count:integer_equal_4400",
+  "commitment_index_sha256:sha256",
+  "rotation_index_sha256:sha256",
+]
+selected_sequence_id_row = ["sequence_id:sha256"]
+revealed_context_row = [
+  "example_id:sha256",
+  "assay_context_id:sha256_equal_example_id",
+  "sequence_id:sha256_matching_sequence",
+  "sequence:canonical_amino_acid_string",
+  "target:string_frozen_target",
+  "gram:string_equal_frozen_target_gram",
+  "fold:integer_equal_pool_fold",
+  "label:integer_0_or_1",
+  "source_observations:positive_integer_audit_only",
+]
+reveal_summary_document = [
+  "schema_version:integer_equal_1",
+  "artifact:string_equal_sequential_v2_pool_reveal_summary_v1",
+  "track_id:canonical_track_id",
+  "rotation_id:canonical_rotation_id",
+  "policy:string_frozen_policy",
+  "seed:null_or_frozen_random_seed",
+  "selection_kind:string_enum_no_query_budgeted_full_acquisition_fold_ceiling",
+  "campaign_barrier_seal_sha256:sha256",
+  "commitment_leaf_seal_sha256:sha256",
+  "commitment_payload_sha256:sha256",
+  "pool_outcome_vault_seal_sha256:null_for_no_query_otherwise_sha256",
+  "selected_sequence_count:nonnegative_integer_equal_commitment",
+  "selected_sequence_ids_sha256:sha256",
+  "revealed_context_count:nonnegative_integer",
+  "revealed_example_ids_sha256:sha256",
+  "per_target_revealed_context_count:exact_seven_target_key_object_of_nonnegative_integer",
+  "revealed_source_observations:nonnegative_integer_audit_only",
+  "empty_reason:string_equal_no_acquired_sequences_for_no_query_otherwise_null",
+]
+reveal_leaf_attestation_publication_identity_object = [
+  "git_commit:lowercase_git_sha1_40_hex",
+  "code_manifest_sha256:sha256",
+  "config_sha256:sha256",
+  "lock_sha256:sha256",
+]
+reveal_leaf_attestation_payload_sha256_object = [
+  "commitment.json:sha256_equal_byte_identical_commitment_payload",
+  "contexts.jsonl:sha256",
+  "reveal-summary.json:sha256",
+  "selected-sequence-ids.jsonl:sha256",
+]
+reveal_leaf_attestation_document = [
+  "schema_version:integer_equal_1",
+  "artifact:string_equal_sequential_v2_pool_reveal_attestation_v1",
+  "run:protocol_policy_run_row",
+  "publication_identity:reveal_leaf_attestation_publication_identity_object",
+  "protocol_seal_sha256:sha256",
+  "select_global_seal_sha256:sha256_equal_controller_authority",
+  "stage_global_seal_sha256:null_for_no_query_otherwise_sha256_equal_controller_authority",
+  "commitment_leaf_seal_sha256:sha256_equal_select_global_index",
+  "pool_outcome_vault_seal_sha256:null_for_no_query_otherwise_sha256_equal_stage_global_index",
+  "reveal_leaf_seal_sha256:sha256_equal_controller_authoritative_ordered_leaf_digest",
+  "payload_sha256:reveal_leaf_attestation_payload_sha256_object",
+  "selected_sequence_count:nonnegative_integer_equal_commitment",
+  "selected_sequence_ids_sha256:ordered_id_stream_sha256_equal_commitment",
+  "revealed_context_count:nonnegative_integer",
+  "revealed_example_ids_sha256:ordered_id_stream_sha256",
+  "per_target_revealed_context_count:exact_seven_target_key_object_of_nonnegative_integer",
+  "revealed_source_observations:nonnegative_integer_audit_only",
+  "empty_reason:string_equal_no_acquired_sequences_for_no_query_otherwise_null",
+]
+reveal_index_row = [
+  "schema_version:integer_equal_1",
+  "track_id:canonical_track_id",
+  "rotation_id:canonical_rotation_id",
+  "policy:string_frozen_policy",
+  "seed:null_or_frozen_random_seed",
+  "selection_kind:string_enum_no_query_budgeted_full_acquisition_fold_ceiling",
+  "relative_path:exact_reveal_leaf_path",
+  "leaf_artifact:string_equal_sequential_v2_pool_reveal_v1",
+  "leaf_seal_sha256:sha256",
+  "commitment_leaf_seal_sha256:sha256",
+  "pool_outcome_vault_seal_sha256:null_for_no_query_otherwise_sha256",
+  "selected_sequence_count:nonnegative_integer_equal_policy_count",
+  "selected_sequence_ids_sha256:sha256",
+  "revealed_context_count:nonnegative_integer",
+  "revealed_example_ids_sha256:sha256",
+  "per_target_revealed_context_count:exact_seven_target_key_object_of_nonnegative_integer",
+  "revealed_source_observations:nonnegative_integer_audit_only",
+]
+reveal_global_summary_document = [
+  "schema_version:integer_equal_1",
+  "artifact:string_equal_sequential_v2_pool_reveal_campaign_barrier_v1",
+  "reveal_leaf_count:integer_equal_220",
+  "empty_reveal_leaf_count:integer_equal_20",
+  "nonempty_reveal_leaf_count:integer_equal_200",
+  "budgeted_reveal_leaf_count:integer_equal_180",
+  "ceiling_reveal_leaf_count:integer_equal_20",
+  "selected_sequence_association_count:integer_equal_4400",
+  "budgeted_selected_sequence_association_count:integer_equal_1800",
+  "ceiling_selected_sequence_association_count:integer_equal_2600",
+  "revealed_context_association_count:nonnegative_runtime_integer",
+  "budgeted_revealed_context_association_count:nonnegative_runtime_integer",
+  "ceiling_revealed_context_association_count:integer_equal_7868",
+  "per_target_revealed_context_association_count:exact_seven_target_key_object_of_nonnegative_integer",
+  "revealed_source_observations:nonnegative_integer_audit_only",
+  "reveal_index_sha256:sha256",
+]
+
+[sealed_prepare_select_reveal.worker_capabilities]
+controller_source_input_path_api = "verify_global_index_then_authenticate_only_exact_role_leaf_or_phase_into_descriptor_captured_bytes"
+worker_input_api = "path_independent_rootless_self_reverifying_capsule_only"
+worker_capsule_contains_absolute_or_usable_source_root_or_leaf_path = false
+worker_capsule_may_contain_label_free_logical_relative_artifact_identifiers = true
+worker_capsule_contains_sibling_payload_bytes = false
+worker_argv_environment_or_cwd_contains_original_source_root_or_leaf_path = false
+worker_inherited_source_descriptors = 0
+fresh_exec_close_fds = true
+fork_after_any_source_authentication = false
+process_pool_after_any_source_authentication = false
+phase_seal_digest_string_alone_is_an_authenticated_capability = false
+phase_seal_python_dataclass_constructed_by_untrusted_caller_is_an_authenticated_capability = false
+worker_reverifies_capsule_receipt_manifest_payload_hashes_artifact_inventory_predecessors_and_semantic_schema = true
+post_stage_controller_may_call_verify_trusted_stage = false
+post_stage_controller_global_verification_api = "verify_stage_manifest"
+post_stage_controller_global_api = "authenticate_stage_manifest_for_controller"
+post_stage_controller_leaf_api = "authenticate_stage_leaf_for_controller"
+stage_manifest_capability_verification_api = "verify_stage_manifest_capability"
+pool_outcome_vault_from_stage_capabilities_api = "pool_outcome_vault_from_stage_capabilities"
+prepare_worker_input = "one_exact_prepare_capability_capsule_for_one_rotation_plus_authenticated_protocol_and_stage_global_barrier_provenance"
+prepare_worker_expected_stage_global_seal_digest_is_controller_authoritative = true
+prepare_worker_output = "four_separately_sealed_evidence_base_update_prediction_view_and_random_minimal_view_leaves"
+prediction_selector_input = "exact_prediction_view_leaf_capsule_plus_authenticated_protocol_prepare_global_capability_and_controller_authoritative_expected_prepare_global_seal_digest_only"
+random_selector_input = "exact_random_minimal_view_leaf_capsule_plus_authenticated_protocol_prepare_global_capability_and_controller_authoritative_expected_prepare_global_seal_digest_only"
+ceiling_selector_input = "fresh_exact_random_minimal_view_leaf_capsule_plus_authenticated_protocol_prepare_global_capability_and_controller_authoritative_expected_prepare_global_seal_digest_only"
+rotation_assembler_input = "three_selector_output_capsules_plus_controller_authoritative_expected_selector_seal_digest_map_and_expected_prepare_global_seal_digest_plus_authenticated_protocol_and_label_free_prepare_global_index_capability_no_candidate_or_evidence_payload"
+reveal_no_query_input = "authenticated_protocol_plus_one_commitment_capability_and_controller_authoritative_prepare_and_select_global_seal_digests_no_pool_vault"
+reveal_nonempty_input = "authenticated_protocol_plus_one_commitment_capability_one_authenticated_label_free_stage_global_barrier_capability_one_matching_pool_outcome_vault_capsule_and_controller_authoritative_prepare_select_global_and_stage_global_seal_digests"
+reveal_nonempty_pool_vault_capsule_must_match_authenticated_stage_global_index = true
+reveal_worker_result = "one_canonical_payload_free_label_free_reveal_leaf_attestation_after_verified_leaf_publication"
+reveal_barrier_input = "exact_220_ordered_reveal_leaf_attestations_plus_authenticated_protocol_rootless_stage_and_select_global_capabilities_controller_authoritative_prepare_stage_select_and_ordered_reveal_leaf_digests_no_reveal_or_vault_payloads"
+random_seed_reveal_capsules_are_distinct_and_never_co_resident_in_one_update_state_worker = true
+evidence_or_view_prepare_leaf_is_not_an_update_label_capability = true
+update_state_input_must_use_exact_base_update_leaf_plus_one_track_reveal = true
+update_state_input_must_exclude_pool_row_or_candidate_metadata_evidence_candidate_views_sibling_reveals_outer_metadata_and_all_outcome_vaults = true
+update_reveal_decoder_is_authorized_by_reveal_global_without_reopening_pool_vault = true
+outer_metadata_materialization_reanchors_exact_leaf_through_stage_global_before_decode = true
+outer_component_worker_receives_state_attestations_and_digests_not_state_phase_capabilities_or_model_bytes = true
+outer_projection_starts_only_after_matching_state_worker_exits_and_all_input_descriptors_close = true
+outer_projection_input_excludes_base_and_reveal_contexts_pool_and_outer_outcome_vaults_and_sibling_states = true
+outer_selector_receives_only_exact_outer_view_leaf_never_state_component_or_evidence_payload = true
+
+[sealed_prepare_select_reveal.trusted_publication_parent]
+required = true
+meaning = "preexisting_real_owner_controlled_directory_with_no_untrusted_writer_for_entire_build_verify_publish_interval"
+parent_and_required_child_directory_identities_are_descriptor_pinned = true
+publication_destination_is_fresh_and_never_reused = true
+symlink_or_hardlink_aliases_are_rejected = true
+path_rebinding_after_verification_fails_closed = true
+path_binding_is_rechecked_immediately_before_commit_marker_transition = true
+fast_rename_and_lustre_fallback_use_pinned_parent_relative_names = true
+failed_private_stage_is_quarantined_mode_000_via_retained_owned_descriptor = true
+cleanup_after_failed_binding_never_unlinks_rmdirs_chmods_or_renames_an_unverified_path = true
+generic_phase_api_alone_does_not_make_an_attacker_writable_parent_safe = true
+phase_seal_path_independence_begins_only_after_successful_controller_verification_and_byte_capture = true
+global_barrier_marker_transition_is_monotonic_and_last = true
+
+# This section is the complete machine-readable contract for the logical
+# update phase. It deliberately splits label-bearing refit from label-free
+# outer projection while retaining one update/global launch barrier.
+[sealed_update]
+schema_version = 1
+logical_phase = "update"
+phase_seal_marker = "SHA256SUMS"
+phase_receipt_filename = "receipt.json"
+canonical_rules_are_exactly = "sealed_prepare_select_reveal"
+worker_launch = "fresh_exec_close_fds_true_never_fork_or_process_pool_after_input_authentication"
+expected_state_workers = 220
+expected_outer_component_workers = 20
+expected_outer_projection_workers = 220
+expected_workers = 460
+expected_state_leaves = 220
+expected_outer_component_leaves = 20
+expected_outer_view_leaves = 220
+expected_outer_evidence_leaves = 220
+expected_leaves = 680
+state_workers_hold_label_bearing_inputs = true
+outer_component_and_projection_workers_hold_raw_label_or_outcome_capabilities = false
+outer_metadata_may_be_opened_only_after_all_eleven_matching_rotation_state_leaves_are_verified = true
+one_global_barrier_after_all_680_leaves = true
+
+[sealed_update.state_leaf]
+artifact = "sequential_v2_update_state_v1"
+summary_artifact = "sequential_v2_update_state_summary_v1"
+path_template = "update/tracks/{track_id}/state"
+expected_count = 220
+payload_paths = [
+  "training-example-ids.jsonl",
+  "update-summary.json",
+  "updated-model.json",
+]
+predecessor_key_templates = [
+  "protocol/SHA256SUMS",
+  "prepare/global/SHA256SUMS",
+  "prepare/rotations/{rotation_id}/base-update/SHA256SUMS",
+  "reveal/global/SHA256SUMS",
+  "reveal/tracks/{track_id}/SHA256SUMS",
+]
+predecessor_count_per_leaf = 5
+worker_count = 220
+worker_granularity = "one_fresh_exec_per_policy_run_after_verified_reveal_global"
+worker_label_bearing_inputs = "one_exact_base_update_leaf_plus_one_exact_matching_track_reveal_leaf"
+worker_label_free_authority_inputs = "authenticated_protocol_prepare_global_reveal_global_stage_global_and_select_global_capabilities_plus_controller_authoritative_global_and_matching_leaf_digests"
+worker_receives_outer_metadata_or_outer_outcome_vault = false
+worker_receives_pool_outcome_vault_or_sibling_reveal = false
+worker_receives_prepare_evidence_or_candidate_view = false
+base_update_materialization_api = "amp_challenge.evaluation.sequential_v2_prepare_artifacts.base_update_from_campaign"
+reveal_materialization_api = "amp_challenge.evaluation.sequential_v2_reveal.pool_reveal_from_campaign"
+reveal_materialization_reopens_pool_outcome_vault = false
+stage_and_select_global_inputs_are_used_only_to_reverify_reveal_global_transitive_provenance = true
+authority_verification_precedes_any_base_or_reveal_context_decode = true
+training_example_order = "ascending_example_id"
+training_example_scope = "exact_set_union_of_three_base_fold_contexts_and_matching_track_reveal_contexts"
+training_example_ids_are_unique = true
+refit_context_order = "ascending_example_id"
+refit_context_weighting = "one_equal_weight_per_context_source_observations_never_replicate_rows"
+nonempty_tracks_refit_exact_frozen_descriptor_logistic = true
+expected_refit_count = 200
+no_query_track_count = 20
+no_query_refit = false
+no_query_training_ids_equal_base_ids = true
+no_query_updated_model_state_is_byte_identical_to_nested_base_model_state = true
+updated_model_schema = "descriptor_model_state_object"
+updated_model_contains_context_rows_or_labels = false
+
+[sealed_update.state_attestation]
+artifact = "sequential_v2_update_state_attestation_v1"
+expected_count = 220
+one_attestation_per_isolated_state_worker = true
+attestation_is_an_additional_published_leaf = false
+emitted_only_after_worker_semantically_verifies_and_publishes_its_state_leaf = true
+transport = "canonical_lf_terminated_json_over_supervisor_controlled_fresh_exec_result_channel"
+order = "frozen_track_order"
+extra_missing_or_noncanonical_fields_are_rejected = true
+serialized_attestation_alone_is_an_authenticated_capability = false
+contains_phase_seal_capability_model_context_sequence_label_probability_or_payload_bytes = false
+contains_exact_state_payload_digests_run_publication_identity_authorities_and_safe_censuses = true
+reconstructs_state_summary_receipt_and_checksum_manifest_to_match_controller_authoritative_state_leaf_digest = true
+
+[sealed_update.outer_component_leaf]
+artifact = "sequential_v2_update_outer_components_v1"
+summary_artifact = "sequential_v2_update_outer_components_summary_v1"
+path_template = "update/rotations/{rotation_id}/outer-components"
+expected_count = 20
+payload_paths = ["components-summary.json", "outer-components.jsonl"]
+predecessor_key_templates = [
+  "protocol/SHA256SUMS",
+  "stage/global/SHA256SUMS",
+  "stage/rotations/{rotation_id}/outer-metadata/SHA256SUMS",
+  "update/tracks/{each_of_eleven_track_ids_for_rotation}/state/SHA256SUMS",
+]
+predecessor_count_formula = "1_protocol_plus_1_stage_global_plus_1_outer_metadata_plus_11_rotation_state_leaves"
+predecessor_count_per_leaf = 14
+worker_count = 20
+worker_granularity = "one_fresh_label_free_exec_per_rotation_after_all_eleven_rotation_state_leaves_verify"
+worker_receives = "authenticated_protocol_stage_global_and_one_matching_outer_metadata_capsule_plus_eleven_canonical_payload_free_state_attestations_and_controller_authoritative_ordered_state_leaf_digests"
+worker_receives_state_phase_capabilities_or_model_payloads = false
+worker_receives_base_reveal_pool_vault_or_outer_vault_payloads = false
+eleven_state_predecessors_enforce_outer_metadata_after_update_temporal_boundary = true
+component_scope = "all_and_only_support_eligible_sequences_from_matching_outer_fold"
+component_role = "outer"
+component_order = "ascending_diversity_component_id"
+component_membership_order = "ascending_sequence_id"
+component_count = "positive_runtime_deterministic_integer"
+membership_count_per_leaf = "exact_support_count_for_outer_fold"
+campaign_membership_association_count = 2600
+state_barrier_leaf_is_not_required = true
+
+[sealed_update.outer_component_attestation]
+artifact = "sequential_v2_update_outer_components_attestation_v1"
+expected_count = 20
+one_attestation_per_isolated_component_worker = true
+attestation_is_an_additional_published_leaf = false
+emitted_only_after_worker_verifies_and_publishes_its_component_leaf = true
+transport = "canonical_lf_terminated_json_over_supervisor_controlled_fresh_exec_result_channel"
+order = "frozen_rotation_order"
+contains_phase_seal_capability_model_prediction_context_sequence_label_or_payload_bytes = false
+contains_exact_component_payload_digests_rotation_publication_identity_authorities_ordered_state_seals_and_safe_censuses = true
+reconstructs_component_summary_receipt_and_checksum_manifest_to_match_controller_authoritative_component_leaf_digest = true
+
+[sealed_update.outer_view_leaf]
+artifact = "sequential_v2_update_outer_view_v1"
+summary_artifact = "sequential_v2_update_outer_view_summary_v1"
+path_template = "update/tracks/{track_id}/outer-view"
+expected_count = 220
+payload_paths = ["candidates.jsonl", "view-summary.json"]
+predecessor_key_templates = [
+  "protocol/SHA256SUMS",
+  "stage/global/SHA256SUMS",
+  "stage/rotations/{rotation_id}/outer-metadata/SHA256SUMS",
+  "update/rotations/{rotation_id}/outer-components/SHA256SUMS",
+  "update/tracks/{track_id}/state/SHA256SUMS",
+]
+predecessor_count_per_leaf = 5
+candidate_schema = "outer_view_row"
+candidate_order = "ascending_sequence_id"
+candidate_scope = "all_and_only_support_eligible_sequences_from_matching_outer_fold"
+candidate_count = "exact_support_count_for_outer_fold"
+view_kind = "outer_mean"
+contains_context_predictions_model_state_components_or_labels = false
+outer_selector_receives_this_leaf_only = true
+
+[sealed_update.outer_evidence_leaf]
+artifact = "sequential_v2_update_outer_evidence_v1"
+summary_artifact = "sequential_v2_update_outer_evidence_summary_v1"
+path_template = "update/tracks/{track_id}/outer-evidence"
+expected_count = 220
+payload_paths = [
+  "outer-context-predictions.jsonl",
+  "outer-evidence-summary.json",
+  "outer-sequence-predictions.jsonl",
+]
+predecessor_key_templates = [
+  "protocol/SHA256SUMS",
+  "stage/global/SHA256SUMS",
+  "stage/rotations/{rotation_id}/outer-metadata/SHA256SUMS",
+  "update/rotations/{rotation_id}/outer-components/SHA256SUMS",
+  "update/tracks/{track_id}/outer-view/SHA256SUMS",
+  "update/tracks/{track_id}/state/SHA256SUMS",
+]
+predecessor_count_per_leaf = 6
+outer_context_prediction_scope = "all_and_only_contexts_from_matching_outer_fold_in_ascending_example_id_order"
+outer_sequence_prediction_scope = "all_and_only_support_eligible_sequences_from_matching_outer_fold_in_ascending_sequence_id_order"
+outer_context_prediction_count_per_leaf = "exact_context_count_for_outer_fold"
+outer_sequence_prediction_count_per_leaf = "exact_support_count_for_outer_fold"
+campaign_outer_context_prediction_rows = 109648
+campaign_outer_sequence_prediction_rows = 28600
+campaign_outer_target_probability_scalars = 200200
+campaign_outer_objective_probability_scalars = 85800
+contains_outer_context_or_sequence_labels = false
+contains_outer_outcome_vault_payload = false
+summary_binds_state_component_view_and_outer_metadata_provenance = true
+
+[sealed_update.outer_projection]
+worker_count = 220
+worker_granularity = "one_fresh_raw_label_free_exec_per_policy_run_after_matching_state_worker_exit_and_matching_component_leaf"
+worker_receives = "one_authenticated_state_leaf_one_authenticated_rotation_component_leaf_one_reanchored_matching_outer_metadata_capsule_and_label_free_global_authorities"
+worker_receives_base_update_reveal_pool_outcome_outer_outcome_or_sibling_state_capability = false
+state_worker_input_descriptors_are_closed_before_launch = true
+outer_metadata_materialization_api = "amp_challenge.evaluation.sequential_v2_stage.outer_metadata_capability_from_stage_capabilities"
+state_materialization_api = "amp_challenge.evaluation.sequential_v2_update.update_state_from_authorities"
+state_materialization_capability_type = "UpdateStateCapability"
+publishes_outer_view_before_outer_evidence = true
+evidence_leaf_binds_outer_view_leaf = true
+
+[sealed_update.outer_projection_attestation]
+artifact = "sequential_v2_update_outer_projection_attestation_v1"
+expected_count = 220
+one_attestation_per_isolated_projection_worker = true
+attestation_is_an_additional_published_leaf = false
+emitted_only_after_worker_verifies_and_publishes_its_view_and_evidence_leaves = true
+transport = "canonical_lf_terminated_json_over_supervisor_controlled_fresh_exec_result_channel"
+order = "frozen_track_order"
+contains_phase_seal_capability_model_prediction_context_sequence_label_or_payload_bytes = false
+contains_exact_view_and_evidence_payload_digests_run_publication_identity_authorities_and_safe_censuses = true
+reconstructs_both_summaries_receipts_and_checksum_manifests_to_match_controller_authoritative_leaf_digests = true
+
+[sealed_update.barrier]
+artifact = "sequential_v2_update_campaign_barrier_v1"
+path = "update/global"
+payload_paths = ["update-index.jsonl", "update-summary.json"]
+predecessor_key_templates = [
+  "protocol/SHA256SUMS",
+  "stage/global/SHA256SUMS",
+  "prepare/global/SHA256SUMS",
+  "reveal/global/SHA256SUMS",
+  "update/tracks/{each_track_id}/state/SHA256SUMS",
+  "update/rotations/{each_rotation_id}/outer-components/SHA256SUMS",
+  "update/tracks/{each_track_id}/outer-view/SHA256SUMS",
+  "update/tracks/{each_track_id}/outer-evidence/SHA256SUMS",
+]
+predecessor_count_formula = "4_upstream_globals_plus_220_state_plus_20_components_plus_220_outer_view_plus_220_outer_evidence"
+predecessor_count = 684
+index_rows = 680
+index_order = "all_states_frozen_track_order_then_components_frozen_rotation_order_then_outer_views_frozen_track_order_then_outer_evidence_frozen_track_order"
+index_and_summary_are_model_prediction_context_sequence_and_label_free = true
+barrier_assembler_count = 1
+barrier_assembler = "trusted_fresh_exec_receives_only_220_state_attestations_20_component_attestations_220_projection_attestations_authenticated_label_free_global_capabilities_and_controller_authoritative_ordered_680_leaf_digests"
+barrier_assembler_receives_state_component_view_evidence_or_stage_role_payloads = false
+barrier_assembler_expected_leaf_digest_sequences_are_controller_authoritative = true
+barrier_assembler_cross_checks_base_update_seals_against_prepare_global = true
+barrier_assembler_cross_checks_reveal_seals_and_censuses_against_reveal_global = true
+barrier_assembler_cross_checks_outer_metadata_seals_against_stage_global = true
+barrier_assembler_cross_checks_component_state_predecessors = true
+readable_and_fully_verified_sha256sums_is_only_authority_to_start_outer_select = true
+directory_existence_or_partial_leaf_census_is_not_authority = true
+campaign_capability_type = "UpdateCampaignCapability"
+campaign_capability_contains_only_rootless_global_phase_index_summary_publication_identity_and_anchor_digests = true
+campaign_capability_contains_model_prediction_context_sequence_component_or_label_payloads = false
+campaign_capability_python_object_alone_is_outer_select_authority = false
+campaign_capability_verification_requires_controller_authoritative_update_global_seal_digest = true
+outer_view_materialization_rederives_campaign_and_matches_exact_indexed_view_leaf_before_payload_decode = true
+all_680_update_leaf_seal_digests_are_distinct = true
+
+[sealed_update.global_census]
+rotation_count = 20
+track_count = 220
+update_leaf_count = 680
+state_leaf_count = 220
+outer_component_leaf_count = 20
+outer_view_leaf_count = 220
+outer_evidence_leaf_count = 220
+updated_model_count = 220
+refit_count = 200
+no_refit_count = 20
+base_context_association_count = 328944
+revealed_context_association_count = "runtime_integer_equal_reveal_global_summary"
+training_context_association_count = "328944_plus_revealed_context_association_count"
+training_example_id_row_count = "equal_training_context_association_count"
+outer_component_count = "positive_runtime_deterministic_sum_over_twenty_rotation_maps"
+outer_component_membership_association_count = 2600
+outer_context_prediction_count = 109648
+outer_sequence_prediction_count = 28600
+outer_candidate_count = 28600
+outer_target_probability_scalar_count = 200200
+outer_objective_probability_scalar_count = 85800
+update_index_sha256 = "sha256"
+
+[sealed_update.capability_bridges]
+reveal_global_authorized_update_decoder = "amp_challenge.evaluation.sequential_v2_reveal.pool_reveal_from_campaign"
+reveal_global_authorized_update_capability_type = "SelectedPoolRevealCapability"
+reveal_decoder_requires_verified_reveal_campaign_exact_indexed_leaf_and_controller_authoritative_global_and_leaf_digests = true
+reveal_decoder_accepts_pool_outcome_vault_or_stage_pool_leaf = false
+outer_metadata_stage_global_bridge = "amp_challenge.evaluation.sequential_v2_stage.outer_metadata_capability_from_stage_capabilities"
+outer_metadata_stage_global_capability_type = "OuterMetadataCapability"
+outer_metadata_bridge_matches_exact_rotation_role_index_before_payload_decode = true
+caller_constructed_stage_capsule_or_update_campaign_capability_alone_is_authority = false
+caller_constructed_update_state_capability_alone_is_authority = false
+
+[sealed_update.schemas]
+publication_identity_object = [
+  "git_commit:lowercase_git_sha1_40_hex",
+  "code_manifest_sha256:sha256",
+  "config_sha256:sha256",
+  "lock_sha256:sha256",
+]
+state_payload_sha256_object = [
+  "training-example-ids.jsonl:sha256",
+  "update-summary.json:sha256",
+  "updated-model.json:sha256",
+]
+component_payload_sha256_object = [
+  "components-summary.json:sha256",
+  "outer-components.jsonl:sha256",
+]
+outer_view_payload_sha256_object = [
+  "candidates.jsonl:sha256",
+  "view-summary.json:sha256",
+]
+outer_evidence_payload_sha256_object = [
+  "outer-context-predictions.jsonl:sha256",
+  "outer-evidence-summary.json:sha256",
+  "outer-sequence-predictions.jsonl:sha256",
+]
+training_example_id_row = ["example_id:sha256"]
+selected_pool_reveal_capability_object = [
+  "run:protocol_policy_run_row",
+  "selected_sequence_ids:exact_tuple_in_commitment_order",
+  "contexts:exact_tuple_of_revealed_context_row_in_ascending_example_id_order",
+  "allowed_example_ids:exact_tuple_equal_context_example_ids",
+  "selected_sequence_ids_sha256:ordered_id_stream_sha256_equal_reveal_global_index",
+  "revealed_example_ids_sha256:ordered_id_stream_sha256_equal_reveal_global_index",
+  "commitment_leaf_seal_sha256:sha256_equal_select_and_reveal_global_indices",
+  "reveal_leaf_seal_sha256:sha256_equal_reveal_global_index",
+  "reveal_campaign_seal_sha256:sha256_equal_controller_authority",
+]
+update_state_capability_object = [
+  "run:protocol_policy_run_row",
+  "model:exact_descriptor_model_state_object",
+  "training_example_ids:ascending_nonempty_unique_tuple_of_sha256",
+  "state_leaf_seal_sha256:sha256_equal_controller_authority",
+  "updated_model_payload_sha256:sha256_equal_canonical_model_document",
+]
+update_state_summary_document = [
+  "schema_version:integer_equal_1",
+  "artifact:string_equal_sequential_v2_update_state_summary_v1",
+  "run:protocol_policy_run_row",
+  "protocol_seal_sha256:sha256",
+  "prepare_global_seal_sha256:sha256",
+  "base_update_leaf_seal_sha256:sha256_equal_prepare_global_index",
+  "base_contexts_payload_sha256:sha256_equal_prepare_global_index",
+  "base_model_payload_sha256:sha256_equal_prepare_global_index",
+  "base_model_state_sha256:sha256_equal_prepare_global_index",
+  "reveal_global_seal_sha256:sha256",
+  "reveal_leaf_seal_sha256:sha256_equal_reveal_global_index",
+  "reveal_contexts_payload_sha256:sha256",
+  "base_context_count:positive_integer",
+  "base_example_ids_sha256:ordered_id_stream_sha256",
+  "revealed_context_count:nonnegative_integer",
+  "revealed_example_ids_sha256:ordered_id_stream_sha256",
+  "training_context_count:integer_equal_base_plus_revealed",
+  "training_example_ids_sha256:ordered_id_stream_sha256",
+  "training_example_ids_payload_sha256:sha256",
+  "refit:boolean_equal_protocol_run",
+  "updated_model_payload_sha256:sha256",
+]
+update_state_attestation_document = [
+  "schema_version:integer_equal_1",
+  "artifact:string_equal_sequential_v2_update_state_attestation_v1",
+  "run:protocol_policy_run_row",
+  "publication_identity:publication_identity_object",
+  "protocol_seal_sha256:sha256",
+  "prepare_global_seal_sha256:sha256_equal_controller_authority",
+  "base_update_leaf_seal_sha256:sha256_equal_prepare_global_index",
+  "base_contexts_payload_sha256:sha256_equal_prepare_global_index",
+  "base_model_payload_sha256:sha256_equal_prepare_global_index",
+  "base_model_state_sha256:sha256_equal_prepare_global_index",
+  "reveal_global_seal_sha256:sha256_equal_controller_authority",
+  "reveal_leaf_seal_sha256:sha256_equal_reveal_global_index",
+  "reveal_contexts_payload_sha256:sha256",
+  "state_leaf_seal_sha256:sha256_equal_controller_authoritative_ordered_leaf_digest",
+  "payload_sha256:state_payload_sha256_object",
+  "base_context_count:positive_integer",
+  "base_example_ids_sha256:ordered_id_stream_sha256",
+  "revealed_context_count:nonnegative_integer",
+  "revealed_example_ids_sha256:ordered_id_stream_sha256",
+  "training_context_count:integer_equal_base_plus_revealed",
+  "training_example_ids_sha256:ordered_id_stream_sha256",
+  "refit:boolean_equal_protocol_run",
+]
+outer_component_row = [
+  "schema_version:integer_equal_1",
+  "rotation_id:canonical_rotation_id",
+  "role:string_equal_outer",
+  "fold:integer_equal_outer_fold",
+  "diversity_component_id:string_seqv2_div70_prefix_plus_sha256",
+  "sequence_ids:ascending_nonempty_unique_array_of_sha256",
+]
+outer_component_summary_document = [
+  "schema_version:integer_equal_1",
+  "artifact:string_equal_sequential_v2_update_outer_components_summary_v1",
+  "rotation:exact_frozen_rotation_document",
+  "protocol_seal_sha256:sha256",
+  "stage_global_seal_sha256:sha256_equal_controller_authority",
+  "outer_metadata_leaf_seal_sha256:sha256_equal_stage_global_index",
+  "state_leaf_count:integer_equal_11",
+  "state_leaf_seal_sha256s:array_length_11_of_sha256_in_frozen_rotation_track_order",
+  "candidate_count:positive_integer_equal_outer_fold_support",
+  "candidate_ids_sha256:ordered_id_stream_sha256",
+  "component_count:positive_integer",
+  "component_membership_count:integer_equal_candidate_count",
+  "outer_components_payload_sha256:sha256",
+]
+outer_component_attestation_document = [
+  "schema_version:integer_equal_1",
+  "artifact:string_equal_sequential_v2_update_outer_components_attestation_v1",
+  "rotation:exact_frozen_rotation_document",
+  "publication_identity:publication_identity_object",
+  "protocol_seal_sha256:sha256",
+  "stage_global_seal_sha256:sha256_equal_controller_authority",
+  "outer_metadata_leaf_seal_sha256:sha256_equal_stage_global_index",
+  "state_leaf_seal_sha256s:array_length_11_of_sha256_in_frozen_rotation_track_order",
+  "component_leaf_seal_sha256:sha256_equal_controller_authoritative_ordered_leaf_digest",
+  "payload_sha256:component_payload_sha256_object",
+  "candidate_count:positive_integer_equal_outer_fold_support",
+  "candidate_ids_sha256:ordered_id_stream_sha256",
+  "component_count:positive_integer",
+  "component_membership_count:integer_equal_candidate_count",
+]
+outer_view_row = [
+  "rotation_id:canonical_rotation_id",
+  "sequence_id:sha256_matching_sequence",
+  "sequence:canonical_amino_acid_string",
+  "objective_probabilities:exact_three_objective_key_object_of_binary64_json_number",
+  "diversity_component_id:string_seqv2_div70_prefix_plus_sha256",
+  "eligible:boolean_true",
+]
+outer_view_summary_document = [
+  "schema_version:integer_equal_1",
+  "artifact:string_equal_sequential_v2_update_outer_view_summary_v1",
+  "run:protocol_policy_run_row",
+  "view_kind:string_equal_outer_mean",
+  "state_leaf_seal_sha256:sha256",
+  "outer_component_leaf_seal_sha256:sha256",
+  "outer_metadata_leaf_seal_sha256:sha256",
+  "candidate_count:positive_integer_equal_outer_fold_support",
+  "candidate_ids_sha256:ordered_id_stream_sha256",
+  "candidate_payload_sha256:sha256",
+  "field_names:array_exact_outer_view_row_field_order",
+]
+outer_context_prediction_row = [
+  "schema_version:integer_equal_1",
+  "track_id:canonical_track_id",
+  "rotation_id:canonical_rotation_id",
+  "example_id:sha256",
+  "sequence_id:sha256",
+  "target:string_frozen_target",
+  "gram:string_equal_frozen_target_gram",
+  "fold:integer_equal_outer_fold",
+  "probability_hex:binary64_hex_inclusive_1e-6_to_0.999999",
+]
+outer_sequence_prediction_row = [
+  "schema_version:integer_equal_1",
+  "track_id:canonical_track_id",
+  "rotation_id:canonical_rotation_id",
+  "sequence_id:sha256",
+  "target_probabilities_hex:exact_seven_target_key_object_of_binary64_hex",
+  "objective_probabilities_hex:exact_three_objective_key_object_of_binary64_hex",
+]
+outer_evidence_summary_document = [
+  "schema_version:integer_equal_1",
+  "artifact:string_equal_sequential_v2_update_outer_evidence_summary_v1",
+  "run:protocol_policy_run_row",
+  "state_leaf_seal_sha256:sha256",
+  "updated_model_payload_sha256:sha256",
+  "stage_global_seal_sha256:sha256",
+  "outer_metadata_leaf_seal_sha256:sha256",
+  "outer_component_leaf_seal_sha256:sha256",
+  "outer_components_payload_sha256:sha256",
+  "outer_view_leaf_seal_sha256:sha256",
+  "outer_view_candidates_payload_sha256:sha256",
+  "outer_context_count:positive_integer_equal_outer_fold_context_count",
+  "outer_example_ids_sha256:ordered_id_stream_sha256",
+  "outer_context_predictions_payload_sha256:sha256",
+  "outer_sequence_prediction_count:positive_integer_equal_outer_fold_support",
+  "outer_candidate_ids_sha256:ordered_id_stream_sha256",
+  "outer_sequence_predictions_payload_sha256:sha256",
+  "outer_component_count:positive_integer",
+  "outer_component_membership_count:integer_equal_outer_sequence_prediction_count",
+]
+outer_projection_attestation_document = [
+  "schema_version:integer_equal_1",
+  "artifact:string_equal_sequential_v2_update_outer_projection_attestation_v1",
+  "run:protocol_policy_run_row",
+  "publication_identity:publication_identity_object",
+  "protocol_seal_sha256:sha256",
+  "stage_global_seal_sha256:sha256_equal_controller_authority",
+  "outer_metadata_leaf_seal_sha256:sha256_equal_stage_global_index",
+  "state_leaf_seal_sha256:sha256_equal_update_state_attestation",
+  "updated_model_payload_sha256:sha256",
+  "outer_component_leaf_seal_sha256:sha256_equal_rotation_component_attestation",
+  "outer_components_payload_sha256:sha256",
+  "outer_view_leaf_seal_sha256:sha256_equal_controller_authoritative_ordered_leaf_digest",
+  "outer_view_payload_sha256:outer_view_payload_sha256_object",
+  "outer_evidence_leaf_seal_sha256:sha256_equal_controller_authoritative_ordered_leaf_digest",
+  "outer_evidence_payload_sha256:outer_evidence_payload_sha256_object",
+  "outer_context_count:positive_integer_equal_outer_fold_context_count",
+  "outer_example_ids_sha256:ordered_id_stream_sha256",
+  "outer_candidate_count:positive_integer_equal_outer_fold_support",
+  "outer_candidate_ids_sha256:ordered_id_stream_sha256",
+  "outer_component_count:positive_integer",
+  "outer_component_membership_count:integer_equal_outer_candidate_count",
+]
+update_state_index_row = [
+  "schema_version:integer_equal_1",
+  "index_role:string_equal_state",
+  "run:protocol_policy_run_row",
+  "relative_path:exact_update_state_leaf_path",
+  "leaf_artifact:string_equal_sequential_v2_update_state_v1",
+  "leaf_seal_sha256:sha256",
+  "payload_sha256:state_payload_sha256_object",
+  "base_context_count:positive_integer",
+  "base_example_ids_sha256:ordered_id_stream_sha256",
+  "revealed_context_count:nonnegative_integer",
+  "revealed_example_ids_sha256:ordered_id_stream_sha256",
+  "training_context_count:integer_equal_base_plus_revealed",
+  "training_example_ids_sha256:ordered_id_stream_sha256",
+  "refit:boolean_equal_protocol_run",
+]
+update_component_index_row = [
+  "schema_version:integer_equal_1",
+  "index_role:string_equal_outer_components",
+  "rotation:exact_frozen_rotation_document",
+  "relative_path:exact_update_component_leaf_path",
+  "leaf_artifact:string_equal_sequential_v2_update_outer_components_v1",
+  "leaf_seal_sha256:sha256",
+  "payload_sha256:component_payload_sha256_object",
+  "candidate_count:positive_integer_equal_outer_fold_support",
+  "candidate_ids_sha256:ordered_id_stream_sha256",
+  "component_count:positive_integer",
+  "component_membership_count:integer_equal_candidate_count",
+]
+update_outer_view_index_row = [
+  "schema_version:integer_equal_1",
+  "index_role:string_equal_outer_view",
+  "run:protocol_policy_run_row",
+  "relative_path:exact_update_outer_view_leaf_path",
+  "leaf_artifact:string_equal_sequential_v2_update_outer_view_v1",
+  "leaf_seal_sha256:sha256",
+  "payload_sha256:outer_view_payload_sha256_object",
+  "state_leaf_seal_sha256:sha256",
+  "outer_component_leaf_seal_sha256:sha256",
+  "candidate_count:positive_integer_equal_outer_fold_support",
+  "candidate_ids_sha256:ordered_id_stream_sha256",
+]
+update_outer_evidence_index_row = [
+  "schema_version:integer_equal_1",
+  "index_role:string_equal_outer_evidence",
+  "run:protocol_policy_run_row",
+  "relative_path:exact_update_outer_evidence_leaf_path",
+  "leaf_artifact:string_equal_sequential_v2_update_outer_evidence_v1",
+  "leaf_seal_sha256:sha256",
+  "payload_sha256:outer_evidence_payload_sha256_object",
+  "state_leaf_seal_sha256:sha256",
+  "outer_component_leaf_seal_sha256:sha256",
+  "outer_view_leaf_seal_sha256:sha256",
+  "outer_context_count:positive_integer_equal_outer_fold_context_count",
+  "outer_example_ids_sha256:ordered_id_stream_sha256",
+  "outer_sequence_prediction_count:positive_integer_equal_outer_fold_support",
+  "outer_candidate_ids_sha256:ordered_id_stream_sha256",
+  "outer_component_count:positive_integer",
+]
+update_global_summary_document = [
+  "schema_version:integer_equal_1",
+  "artifact:string_equal_sequential_v2_update_campaign_barrier_v1",
+  "rotation_count:integer_equal_20",
+  "track_count:integer_equal_220",
+  "update_leaf_count:integer_equal_680",
+  "state_leaf_count:integer_equal_220",
+  "outer_component_leaf_count:integer_equal_20",
+  "outer_view_leaf_count:integer_equal_220",
+  "outer_evidence_leaf_count:integer_equal_220",
+  "updated_model_count:integer_equal_220",
+  "refit_count:integer_equal_200",
+  "no_refit_count:integer_equal_20",
+  "base_context_association_count:integer_equal_328944",
+  "revealed_context_association_count:runtime_integer_equal_reveal_global_summary",
+  "training_context_association_count:integer_equal_base_plus_revealed",
+  "training_example_id_row_count:integer_equal_training_context_association_count",
+  "outer_component_count:positive_runtime_integer",
+  "outer_component_membership_association_count:integer_equal_2600",
+  "outer_context_prediction_count:integer_equal_109648",
+  "outer_sequence_prediction_count:integer_equal_28600",
+  "outer_candidate_count:integer_equal_28600",
+  "outer_target_probability_scalar_count:integer_equal_200200",
+  "outer_objective_probability_scalar_count:integer_equal_85800",
+  "update_index_sha256:sha256",
+]
+
+# Frozen on 2026-09-06 before any sequential-v2 benchmark execution. This
+# turns the former broad `one_or_more` boundary into an exact least-authority
+# process and artifact DAG.
+[sealed_outer_select]
+schema_version = 1
+phase = "outer-select"
+depends_on = "sealed_update"
+track_worker_role = "outer-select-track"
+barrier_worker_role = "outer-select-barrier"
+track_worker_count = 220
+barrier_worker_count = 1
+worker_leader_count = 221
+track_order = "frozen_ordered_policy_runs"
+all_tracks_use_selector_kind = "outer_mean"
+all_tracks_select_exactly = 10
+selected_sequence_association_count = 2200
+outer_candidate_association_count = 28600
+all_track_leaves_sealed_before_barrier = true
+all_outer_outcome_vaults_forbidden_until_barrier = true
+phase_seal_marker = "SHA256SUMS"
+canonical_rules_are_exactly = "sealed_prepare_select_reveal"
+
+[sealed_outer_select.track_request]
+artifact = "sequential_v2_outer_select_track_worker_request_v1"
+contains_exactly = [
+  "schema_version",
+  "artifact",
+  "track_id",
+  "publication_identity",
+  "protocol_capability",
+  "update_campaign_capability",
+  "outer_view_capability",
+  "expected_stage_global_seal_sha256",
+  "expected_prepare_campaign_seal_sha256",
+  "expected_reveal_campaign_seal_sha256",
+  "expected_update_campaign_seal_sha256",
+]
+contains_stage_root_manifest_or_role_leaf = false
+contains_source_anchors_or_source_path = false
+contains_pool_or_outer_outcome = false
+contains_state_component_or_outer_evidence = false
+contains_model_context_label_or_sibling_view = false
+candidate_decode_requires_verified_update_global_and_exact_indexed_outer_view = true
+
+[sealed_outer_select.commitment_leaf]
+artifact = "sequential_v2_outer_selection_commitment_v1"
+path = "outer-select/tracks/{track_id}"
+payload_paths = [
+  "selected-sequence-ids.jsonl",
+  "selection-result.json",
+  "selection-summary.json",
+]
+metadata_phase = "outer-select"
+metadata_scope = "{track_id}"
+predecessor_count = 3
+predecessor_paths = [
+  "protocol/SHA256SUMS",
+  "update/global/SHA256SUMS",
+  "update/tracks/{track_id}/outer-view/SHA256SUMS",
+]
+selected_sequence_ids_order = "selector_order_descending_raw_mean_then_ascending_sequence_id_under_component_cap"
+selection_result_is_recomputed_from_authenticated_outer_view = true
+strict_component_cap = 2
+
+[sealed_outer_select.commitment_attestation]
+artifact = "sequential_v2_outer_selection_attestation_v1"
+payload_free = true
+contains_phase_seal_or_payload_bytes = false
+contains_candidate_or_selected_sequence_ids = false
+contains_sequence_prediction_model_context_label_or_outcome = false
+fields = [
+  "run",
+  "publication_identity",
+  "protocol_seal_sha256",
+  "update_global_seal_sha256",
+  "outer_view_leaf_seal_sha256",
+  "outer_view_payload_sha256",
+  "outer_candidate_count",
+  "outer_candidate_ids_sha256",
+  "selection_leaf_seal_sha256",
+  "payload_sha256",
+  "selected_sequence_count",
+  "selected_sequence_ids_sha256",
+  "selected_unique_component_count",
+  "selected_max_component_occupancy",
+]
+summary_digest_reconstructed_from_all_safe_fields = true
+leaf_seal_reconstructed_from_payload_digests_receipt_and_predecessors = true
+
+[sealed_outer_select.barrier_request]
+artifact = "sequential_v2_outer_select_barrier_worker_request_v1"
+contains_exactly = [
+  "schema_version",
+  "artifact",
+  "publication_identity",
+  "protocol_capability",
+  "update_campaign_capability",
+  "outer_selection_attestations",
+  "expected_outer_selection_leaf_seal_sha256s",
+  "expected_stage_global_seal_sha256",
+  "expected_prepare_campaign_seal_sha256",
+  "expected_reveal_campaign_seal_sha256",
+  "expected_update_campaign_seal_sha256",
+]
+attestation_count = 220
+controller_marker_digest_count = 220
+attestations_and_marker_digests_use_frozen_track_order = true
+contains_leaf_or_outer_view_phase_seals = false
+contains_payload_bytes_candidate_or_selected_ids = false
+contains_state_component_evidence_or_outcome = false
+marker_digests_are_independently_observed_from_canonical_physical_paths = true
+
+[sealed_outer_select.barrier]
+artifact = "sequential_v2_outer_selection_campaign_barrier_v1"
+path = "outer-select/global"
+payload_paths = ["outer-selection-index.jsonl", "outer-selection-summary.json"]
+metadata_phase = "outer-select"
+metadata_scope = "global"
+predecessor_count = 222
+predecessors = "protocol_plus_update_global_plus_220_outer_selection_leaves"
+index_row_order = "frozen_ordered_policy_runs"
+rotation_count = 20
+track_count = 220
+leaf_count = 220
+outer_candidate_association_count = 28600
+selected_sequence_association_count = 2200
+pre_barrier_contiguous_marker_snapshot_required = true
+post_barrier_all_leaf_marker_recheck_required = true
+post_barrier_nested_inventory_recheck_required = true
+readable_and_fully_verified_sha256sums_is_only_authority_to_start_finalize = true
+
+[sealed_outer_select.schemas]
+leaf_payload_sha256_object = [
+  "selected-sequence-ids.jsonl:sha256",
+  "selection-result.json:sha256",
+  "selection-summary.json:sha256",
+]
+outer_view_payload_sha256_object = [
+  "candidates.jsonl:sha256",
+  "view-summary.json:sha256",
+]
+selected_sequence_id_row = ["sequence_id:sha256"]
+selection_summary_document = [
+  "schema_version:integer_equal_1",
+  "artifact:string_equal_sequential_v2_outer_selection_summary_v1",
+  "run:exact_protocol_policy_run_row",
+  "selector_kind:string_equal_outer_mean",
+  "protocol_seal_sha256:sha256",
+  "update_global_seal_sha256:sha256",
+  "outer_view_leaf_seal_sha256:sha256_equal_update_global_index",
+  "outer_view_payload_sha256:exact_outer_view_payload_sha256_object",
+  "outer_candidate_count:positive_integer_equal_update_global_index",
+  "outer_candidate_ids_sha256:ordered_id_stream_sha256_equal_update_global_index",
+  "selected_sequence_count:integer_equal_10",
+  "selected_sequence_ids_sha256:ordered_id_stream_sha256",
+  "selected_unique_component_count:integer_between_5_and_10",
+  "selected_max_component_occupancy:integer_between_1_and_2",
+  "selected_sequence_ids_payload_sha256:sha256",
+  "selection_result_payload_sha256:sha256",
+]
+selection_result = "exact_outer_mean_SelectionResult_with_ten_exploit_seats_identical_selected_requested_and_mean_control_ids_no_losses_repairs_guards_or_fallback"
+global_index_row = [
+  "schema_version:integer_equal_1",
+  "run:exact_protocol_policy_run_row",
+  "relative_path:exact_outer_selection_track_path",
+  "leaf_artifact:string_equal_sequential_v2_outer_selection_commitment_v1",
+  "leaf_seal_sha256:sha256",
+  "payload_sha256:leaf_payload_sha256_object",
+  "outer_view_leaf_seal_sha256:sha256_equal_update_global_index",
+  "outer_view_payload_sha256:outer_view_payload_sha256_object",
+  "outer_candidate_count:positive_integer_equal_update_global_index",
+  "outer_candidate_ids_sha256:ordered_id_stream_sha256_equal_update_global_index",
+  "selected_sequence_count:integer_equal_10",
+  "selected_sequence_ids_sha256:ordered_id_stream_sha256",
+  "selected_unique_component_count:integer_between_5_and_10",
+  "selected_max_component_occupancy:integer_between_1_and_2",
+]
+global_summary_document = [
+  "schema_version:integer_equal_1",
+  "artifact:string_equal_sequential_v2_outer_selection_campaign_barrier_v1",
+  "rotation_count:integer_equal_20",
+  "track_count:integer_equal_220",
+  "selection_leaf_count:integer_equal_220",
+  "outer_candidate_association_count:integer_equal_28600",
+  "selected_sequence_association_count:integer_equal_2200",
+  "selected_unique_component_association_count:positive_runtime_integer",
+  "selected_max_component_occupancy:integer_at_most_2",
+  "outer_selection_index_sha256:sha256",
+]
+
+[sealed_outer_select.capability_bridge]
+campaign_capability_type = "OuterSelectionCampaignCapability"
+campaign_capability_contains_only_rootless_global_phase_index_summary_publication_identity_and_anchor_digests = true
+campaign_capability_contains_selected_ids_candidate_predictions_model_context_label_or_outcome = false
+campaign_capability_python_object_alone_is_finalize_authority = false
+campaign_capability_verification_requires_controller_authoritative_outer_select_global_digest = true
+indexed_commitment_materialization_checks_campaign_leaf_identity_payloads_metadata_and_predecessors_before_selected_id_decode = true
+
+# Frozen on 2026-09-06 before any sequential-v2 benchmark execution.  The
+# global campaign-attestation identity and explicit no-query null-reason field
+# were resolved during pre-execution implementation review, with no benchmark
+# outcomes observed.  This is the exact executable boundary at which
+# outer-role outcomes first become readable.
+[sealed_finalize]
+schema_version = 1
+phase = "finalize"
+worker_role = "finalize"
+worker_count = 1
+worker_granularity = "one_fresh_exec_for_the_complete_campaign_after_verified_outer_select_global_barrier"
+artifact = "sequential_v2_finalize_campaign_v1"
+attestation_artifact = "sequential_v2_finalize_attestation_v1"
+request_artifact = "sequential_v2_finalize_worker_request_v1"
+path = "finalize/global"
+scope_id = "global"
+phase_seal_marker = "SHA256SUMS"
+canonical_rules_are_exactly = "sealed_prepare_select_reveal"
+payload_paths = [
+  "outer-fold-units.jsonl",
+  "paired-comparisons.jsonl",
+  "policy-point-estimates.jsonl",
+  "policy-rotation-metrics.jsonl",
+  "promotion-decision.json",
+  "rotation-metrics.jsonl",
+  "summary.json",
+]
+payload_count = 7
+predecessor_count = 927
+predecessor_formula = "7_global_barriers_plus_20_stage_outer_outcome_leaves_plus_20_prepare_prediction_view_leaves_plus_220_reveal_leaves_plus_220_update_outer_evidence_leaves_plus_220_update_outer_view_leaves_plus_220_outer_selection_leaves"
+global_predecessor_paths = [
+  "outer-select/global/SHA256SUMS",
+  "prepare/global/SHA256SUMS",
+  "protocol/SHA256SUMS",
+  "reveal/global/SHA256SUMS",
+  "select/global/SHA256SUMS",
+  "stage/global/SHA256SUMS",
+  "update/global/SHA256SUMS",
+]
+rotation_predecessor_path_templates = [
+  "prepare/rotations/{rotation_id}/prediction-view/SHA256SUMS",
+  "stage/rotations/{rotation_id}/outer-outcome-vault/SHA256SUMS",
+]
+track_predecessor_path_templates = [
+  "outer-select/tracks/{track_id}/SHA256SUMS",
+  "reveal/tracks/{track_id}/SHA256SUMS",
+  "update/tracks/{track_id}/outer-evidence/SHA256SUMS",
+  "update/tracks/{track_id}/outer-view/SHA256SUMS",
+]
+all_direct_predecessor_keys_are_exactly_the_lexicographic_expansion_above = true
+select_commitment_leaves_are_not_direct_inputs = true
+verified_reveal_leaf_commitment_copy_supplies_complete_pool_selection_and_guard_trace = true
+select_global_direct_predecessor_authenticates_every_copied_commitment_origin = true
+random_minimal_prepare_views_are_not_inputs = true
+common_prediction_view_supplies_feature_and_component_lookup_for_every_selected_policy = true
+outer_metadata_state_component_base_update_prepare_evidence_and_pool_vault_leaves_are_not_inputs = true
+trusted_stage_source_run_twin_and_filesystem_paths_are_not_inputs = true
+
+[sealed_finalize.start_barrier]
+controller_first_verifies_physical_path = "outer-select/global"
+controller_expected_digest_is_independently_observed = true
+controller_requires_exact_outer_select_global_payload_inventory = true
+controller_requires_exact_220_leaf_nested_inventory = true
+controller_requires_contiguous_prelaunch_marker_snapshot_in_frozen_track_order = true
+controller_rechecks_all_220_markers_and_nested_inventory_after_worker_success = true
+controller_rechecks_all_920_consumed_leaf_markers_after_worker_success = true
+no_outer_outcome_capsule_is_authenticated_or_payload_read_before_prelaunch_barrier_passes = true
+no_finalize_worker_is_launched_before_prelaunch_barrier_passes = true
+child_reverifies_all_seven_globals_under_external_digests_before_outer_outcome_decode = true
+child_rederives_all_220_outer_selections_before_outer_outcome_decode = true
+caller_constructed_selected_reveal_selected_outer_metric_or_decision_values_are_not_authority = true
+
+[sealed_finalize.request]
+contains_exactly = [
+  "schema_version",
+  "artifact",
+  "publication_identity",
+  "protocol_capability",
+  "stage_manifest_capability",
+  "prepare_campaign_capability",
+  "selection_campaign_capability",
+  "reveal_campaign_capability",
+  "update_campaign_capability",
+  "outer_selection_campaign_capability",
+  "outer_outcome_vault_capabilities",
+  "prediction_view_capabilities",
+  "reveal_leaf_capabilities",
+  "outer_evidence_capabilities",
+  "outer_view_capabilities",
+  "outer_selection_leaf_capabilities",
+  "expected_protocol_seal_sha256",
+  "expected_stage_global_seal_sha256",
+  "expected_prepare_campaign_seal_sha256",
+  "expected_selection_campaign_seal_sha256",
+  "expected_reveal_campaign_seal_sha256",
+  "expected_update_campaign_seal_sha256",
+  "expected_outer_selection_campaign_seal_sha256",
+]
+global_capabilities_are_each_serialized_once = true
+outer_outcome_vault_capability_count = 20
+prediction_view_capability_count = 20
+reveal_leaf_capability_count = 220
+outer_evidence_capability_count = 220
+outer_view_capability_count = 220
+outer_selection_leaf_capability_count = 220
+rotation_capability_order = "frozen_outer_major_pool_minor_rotation_order"
+track_capability_order = "frozen_track_order"
+maximum_aggregate_captured_bytes = 134217728
+maximum_aggregate_base64_characters = 201326592
+maximum_canonical_request_bytes = 268435456
+contains_phase_paths_source_paths_stage_root_trusted_stage_or_outcome_values_outside_sealed_capabilities = false
+contains_pool_outcome_vault_base_context_model_state_component_or_outer_metadata_payload = false
+request_is_unlinked_before_computation = true
+
+[sealed_finalize.authentication]
+outer_outcome_materialization_api = "amp_challenge.evaluation.sequential_v2_stage.outer_outcome_vault_from_stage_capabilities"
+outer_evidence_materialization_api = "amp_challenge.evaluation.sequential_v2_update_campaign.outer_context_predictions_from_campaign"
+pool_reveal_materialization_returns_verified_commitment_and_selected_context_projection = true
+outer_selection_materialization_api = "amp_challenge.evaluation.sequential_v2_outer_select.outer_selection_from_campaign"
+prediction_view_materialization_api = "amp_challenge.evaluation.sequential_v2_prepare_artifacts.prediction_view_from_campaign"
+every_global_requires_matching_controller_authoritative_digest = true
+every_leaf_is_matched_to_its_exact_global_index_row_before_semantic_payload_decode = true
+all_leaf_sequences_are_exact_count_exact_type_and_frozen_order = true
+outer_context_prediction_and_outcome_join_key = "exact_tuple_example_id_sequence_id_target_gram_fold"
+outer_context_prediction_and_outcome_identity_order = "ascending_example_id"
+outer_context_prediction_and_outcome_keys_must_match_exactly_before_metric_reduction = true
+outer_selected_sequence_ids_are_exactly_globally_rederived_ten_before_reward_join = true
+outer_selected_sequence_outcomes_must_all_be_support_eligible = true
+same_outer_fold_outcome_context_payloads_are_byte_identical_across_four_rotations = true
+pool_commitment_selected_ids_must_equal_reveal_selected_ids = true
+pool_selected_ids_must_exist_once_in_the_matching_prediction_view = true
+no_query_never_opens_or_invents_pool_outcomes = true
+
+[sealed_finalize.outputs]
+rotation_metric_rows = 220
+rotation_metric_order = "frozen_track_order"
+policy_rotation_metric_rows = 140
+policy_rotation_metric_order = "frozen_rotation_order_then_frozen_policy_order_with_random_seed_averaged_to_one_row"
+outer_fold_unit_rows = 35
+outer_fold_unit_order = "frozen_policy_order_then_outer_fold_zero_through_four"
+policy_point_estimate_rows = 7
+policy_point_estimate_order = "frozen_policy_order"
+paired_comparison_rows = 7
+paired_comparison_order = [
+  "mixed_minus_mean_macro_brier",
+  "mixed_minus_mean_macro_negative_log_likelihood",
+  "mixed_minus_mean_next_round_outer_top10_mean_reward",
+  "mixed_minus_mean_queried_mean_pairwise_feature_cosine_distance",
+  "mixed_minus_mean_queried_unique_diversity_components",
+  "mixed_minus_no_query_macro_brier",
+  "mixed_minus_random_macro_brier",
+]
+promotion_gate_item_order = [
+  "brier_vs_mean",
+  "nll_vs_mean",
+  "outer_reward_vs_mean",
+  "queried_diversity_vs_mean",
+  "brier_vs_no_query_and_random",
+  "guarded_selection_validity",
+]
+promotion_decision_rows = 1
+summary_rows = 1
+all_finite_output_metric_values_are_canonical_binary64_hex_strings = true
+raw_probabilities_are_not_republished = true
+outer_context_labels_and_sequences_are_not_republished = true
+selected_sequence_ids_are_not_republished = true
+complete_input_selection_prediction_reveal_and_outcome_identity_is_bound_by_predecessor_seals = true
+
+[sealed_finalize.no_query]
+queried_outcome_mean_reward_hex = "null"
+queried_unique_diversity_components = 0
+queried_mean_pairwise_feature_cosine_distance_hex = "null"
+queried_metric_null_reason = "no_query_has_empty_acquisition"
+revealed_context_count = 0
+per_target_revealed_context_counts = "all_seven_canonical_targets_integer_zero"
+null_values_are_never_imputed_or_used_in_a_comparison_requiring_them = true
+
+[sealed_finalize.guard]
+guarded_policies = [
+  "mean_nine_diversity_one",
+  "mean_nine_novelty_one",
+  "mixed_eight_diversity_one_novelty_one",
+]
+guarded_track_count = 60
+allowed_statuses = ["passed", "exact_mean_fallback"]
+passed_requires_final_guard_evaluation_passed_and_no_fallback_reason = true
+exact_mean_fallback_requires_selected_ids_equal_mean_control_ids_final_fallback_evaluation_passed_and_nonnull_fallback_reason = true
+repair_before_a_passing_final_guard_is_allowed = true
+all_other_policies_have_guard_status = "not_applicable"
+promotion_item_six_requires_all_60_statuses_allowed = true
+
+[sealed_finalize.schemas]
+rotation_metric_row = [
+  "schema_version:integer_equal_1",
+  "run:exact_protocol_policy_run_row",
+  "target_metrics:exact_target_metric_summary",
+  "next_round_outer_top10_mean_reward_hex:binary64_hex",
+  "queried_outcome_mean_reward_hex:null_only_for_no_query_else_binary64_hex",
+  "queried_unique_diversity_components:nonnegative_integer",
+  "queried_mean_pairwise_feature_cosine_distance_hex:null_only_for_no_query_else_binary64_hex",
+  "queried_metric_null_reason:null_unless_no_query_else_string_equal_no_query_has_empty_acquisition",
+  "revealed_context_count:nonnegative_integer",
+  "per_target_revealed_context_counts:exact_seven_target_nonnegative_integer_object",
+  "guard_status:string_enum_not_applicable_passed_exact_mean_fallback",
+  "outer_selected_unique_component_count:integer_between_5_and_10",
+  "outer_selected_max_component_occupancy:integer_between_1_and_2",
+]
+target_metric_summary = [
+  "target_order:exact_canonical_seven_target_array",
+  "by_target:exact_seven_target_object_of_census_values_and_undefined_reason",
+  "macro:exact_brier_nll_roc_auc_average_precision_ece_10_binary64_hex_object",
+  "defined_targets:exact_metric_to_canonical_ordered_target_array_object",
+  "defined_target_counts:exact_metric_to_positive_integer_object",
+  "nll_probability_clip_hex:string_equal_0x1.203af9ee75616p-50",
+  "ece_bins:string_equal_[0,.1),[.1,.2),...,[.8,.9),[.9,1]",
+]
+aggregate_metric_object = [
+  "macro_brier_hex:binary64_hex",
+  "macro_negative_log_likelihood_hex:binary64_hex",
+  "macro_roc_auc_hex:binary64_hex",
+  "macro_average_precision_hex:binary64_hex",
+  "macro_ece_10_hex:binary64_hex",
+  "next_round_outer_top10_mean_reward_hex:binary64_hex",
+  "queried_outcome_mean_reward_hex:null_only_for_no_query_else_binary64_hex",
+  "queried_unique_diversity_components_hex:binary64_hex",
+  "queried_mean_pairwise_feature_cosine_distance_hex:null_only_for_no_query_else_binary64_hex",
+  "revealed_context_count_hex:binary64_hex",
+]
+policy_rotation_metric_row = [
+  "schema_version:integer_equal_1",
+  "rotation:exact_protocol_rotation_row",
+  "policy:string_in_frozen_policy_order",
+  "contributing_track_count:integer_equal_5_for_random_else_1",
+  "contributing_track_ids_sha256:ordered_id_stream_sha256",
+  "metrics:aggregate_metric_object",
+]
+outer_fold_unit_row = [
+  "schema_version:integer_equal_1",
+  "policy:string_in_frozen_policy_order",
+  "outer_fold:integer_0_to_4",
+  "contributing_rotation_count:integer_equal_4",
+  "contributing_rotation_ids_sha256:ordered_id_stream_sha256",
+  "metrics:aggregate_metric_object",
+]
+policy_point_estimate_row = [
+  "schema_version:integer_equal_1",
+  "policy:string_in_frozen_policy_order",
+  "outer_fold_unit_count:integer_equal_5",
+  "metrics:aggregate_metric_object",
+]
+paired_comparison_row = [
+  "schema_version:integer_equal_1",
+  "comparison_id:string_in_frozen_comparison_order",
+  "candidate_policy:string",
+  "control_policy:string",
+  "metric:string",
+  "difference:string_equal_candidate_minus_control",
+  "outer_fold_differences_hex:array_length_5_of_binary64_hex",
+  "point_hex:binary64_hex",
+  "lower_hex:binary64_hex",
+  "upper_hex:binary64_hex",
+  "improved_outer_fold_count:integer_0_to_5_under_metric_direction",
+  "replicates:integer_equal_10000",
+  "seed:integer_equal_20260905",
+  "resample_indices_sha256:sha256_equal_frozen_bootstrap_digest",
+]
+promotion_gate_requirement_document = [
+  "requirement_id:string_unique_within_gate_item",
+  "operator:string_enum_lt_le_gt_ge_eq",
+  "observed_hex:null_or_binary64_hex",
+  "observed_integer:null_or_exact_integer",
+  "threshold_hex:null_or_binary64_hex",
+  "threshold_integer:null_or_exact_integer",
+  "numeric_representation:exactly_one_matching_observed_and_threshold_pair_is_nonnull",
+  "passed:boolean_equal_operator_applied_to_observed_and_threshold",
+]
+promotion_gate_item_document = [
+  "item_id:string_in_frozen_six_item_order",
+  "requirements:nonempty_ordered_array_of_promotion_gate_requirement_document",
+  "passed:boolean_equal_all_requirements_passed",
+]
+promotion_decision_document = [
+  "schema_version:integer_equal_1",
+  "artifact:string_equal_sequential_v2_promotion_decision_v1",
+  "items:exact_six_ordered_gate_item_documents",
+  "all_items_required:boolean_true",
+  "promising_for_prospective_followup:boolean_equal_all_items_passed",
+  "disposition:string_enum_v2_no_go_promising_for_new_prospective_or_chronological_evaluation",
+  "authorizes_final_50000_library:boolean_false",
+  "authorizes_final_top_100:boolean_false",
+  "authorizes_uncertainty_quota:boolean_false",
+]
+summary_document = [
+  "schema_version:integer_equal_1",
+  "artifact:string_equal_sequential_v2_finalize_summary_v1",
+  "rotation_metric_count:integer_equal_220",
+  "policy_rotation_metric_count:integer_equal_140",
+  "outer_fold_unit_count:integer_equal_35",
+  "policy_point_estimate_count:integer_equal_7",
+  "paired_comparison_count:integer_equal_7",
+  "guarded_track_count:integer_equal_60",
+  "valid_guarded_track_count:integer_equal_60",
+  "bootstrap_indices_sha256:sha256_equal_frozen_bootstrap_digest",
+  "rotation_metrics_sha256:sha256",
+  "policy_rotation_metrics_sha256:sha256",
+  "outer_fold_units_sha256:sha256",
+  "policy_point_estimates_sha256:sha256",
+  "paired_comparisons_sha256:sha256",
+  "promotion_decision_sha256:sha256",
+  "promising_for_prospective_followup:boolean",
+]
+
+[sealed_finalize.attestation]
+payload_free = true
+maximum_canonical_result_bytes = 1048576
+emitted_only_after_worker_fully_verifies_and_publishes_finalize_global = true
+contains_phase_seal_or_payload_bytes = false
+contains_context_sequence_selected_id_label_probability_or_outcome = false
+fields = [
+  "campaign",
+  "publication_identity",
+  "protocol_seal_sha256",
+  "stage_global_seal_sha256",
+  "prepare_global_seal_sha256",
+  "selection_global_seal_sha256",
+  "reveal_global_seal_sha256",
+  "update_global_seal_sha256",
+  "outer_selection_global_seal_sha256",
+  "finalize_global_seal_sha256",
+  "payload_sha256",
+  "predecessor_count",
+  "rotation_metric_count",
+  "policy_rotation_metric_count",
+  "outer_fold_unit_count",
+  "policy_point_estimate_count",
+  "paired_comparison_count",
+  "promising_for_prospective_followup",
+]
+campaign = { schema_version = 1, scope_id = "global", rotation_count = 20, policy_run_count = 220 }
+summary_digest_reconstructed_from_safe_counts_and_payload_digests = true
+finalize_seal_reconstructed_from_exact_payload_digests_receipt_and_927_predecessors = true
+supervisor_requires_exact_role_positive_pid_output_inventory_and_marker = true
+supervisor_relocates_verified_worker_output_with_no_replace_semantics = true
+supervisor_retains_private_worker_outbox_on_failure = true
+
+[artifact_row_order]
+stage_contexts = "ascending_example_id"
+stage_rotations = "frozen_outer_major_pool_minor_rotation_order"
+protocol_rotations = "frozen_outer_major_pool_minor_rotation_order"
+protocol_policy_runs = "frozen_track_order"
+base_models = "frozen_rotation_order"
+diversity_transforms = "frozen_rotation_order"
+prepare_base_contexts = "frozen_rotation_order_then_ascending_example_id"
+pool_predictions = "frozen_rotation_order_then_ascending_sequence_id"
+pool_novelty = "frozen_rotation_order_then_ascending_sequence_id"
+pool_components = "frozen_rotation_order_then_ascending_diversity_component_id"
+prediction_bearing_pool_candidates = "frozen_rotation_order_then_ascending_sequence_id"
+random_minimal_pool_candidates = "frozen_rotation_order_then_ascending_sequence_id"
+prepare_index = "frozen_rotation_order_then_evidence_base-update_prediction-view_random-minimal-view"
+prediction_selector_commitments = "frozen_track_order_filtered_to_prediction_policies"
+random_selector_commitments = "frozen_track_order_filtered_to_random_policy"
+ceiling_selector_commitments = "frozen_track_order_filtered_to_ceiling_policy"
+pool_commitments = "frozen_track_order"
+pool_reveals = "frozen_track_order_then_ascending_example_id"
+rotation_commitment_indices = "frozen_rotation_order"
+reveal_index = "frozen_track_order"
+updated_models = "frozen_track_order"
+update_training_example_ids = "frozen_track_order_then_ascending_example_id"
+outer_context_predictions = "frozen_track_order_then_ascending_example_id"
+outer_components = "frozen_rotation_order_then_ascending_diversity_component_id"
+outer_sequence_predictions = "frozen_track_order_then_ascending_sequence_id"
+outer_candidates = "frozen_track_order_then_ascending_sequence_id"
+update_index = "all_states_frozen_track_order_then_components_frozen_rotation_order_then_outer_views_frozen_track_order_then_outer_evidence_frozen_track_order"
+outer_commitments = "frozen_track_order"
+outer_selected_sequence_ids = "frozen_track_order_then_selector_order"
+outer_selection_index = "frozen_track_order"
+rotation_metrics = "frozen_track_order"
+policy_rotation_metrics = "frozen_rotation_order_then_frozen_policy_order_with_random_seed_averaged"
+outer_fold_units = "frozen_policy_order_then_outer_fold_zero_through_four"
+policy_point_estimates = "frozen_policy_order"
+paired_comparisons = "sealed_finalize_frozen_comparison_order"
+
+[metrics]
+primary = ["macro_brier", "macro_negative_log_likelihood"]
+secondary = [
+  "macro_roc_auc",
+  "macro_average_precision",
+  "macro_ece_10",
+  "next_round_outer_top10_mean_reward",
+]
+descriptive = [
+  "queried_outcome_mean_reward",
+  "queried_unique_diversity_components",
+  "queried_mean_pairwise_feature_cosine_distance",
+  "revealed_context_count",
+  "per_target_revealed_context_count",
+]
+aggregation = "average_random_seeds_within_rotation_then_acquisition_rotations_within_outer_fold"
+test_scope = "all_outer_fold_contexts_grouped_by_canonical_target"
+context_weighting = "one_equal_weight_per_accepted_assay_context"
+outer_context_row_order = "ascending_example_id_before_target_masks_and_reductions"
+metric_reduction_dtype = "numpy_float64"
+brier_defined_if_target_rows_at_least = 1
+negative_log_likelihood_defined_if_target_rows_at_least = 1
+ece_defined_if_target_rows_at_least = 1
+roc_auc_requires_both_classes = true
+average_precision_requires_positive_count_at_least = 1
+undefined_targets_are_explicit = true
+macro_aggregation = "arithmetic_mean_over_defined_targets_with_defined_count_and_list"
+fail_if_metric_has_no_defined_target = true
+negative_log_likelihood_clip = 1e-15
+ece_bin_edges = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+ece_bin_intervals = "left_closed_right_open_except_final_bin_closed_on_right"
+observed_sequence_reward = "equal_arithmetic_mean_of_three_observed_sequence_objectives"
+acquired_batch_pairwise_feature_cosine_distance = "arithmetic_mean_of_upper_triangle_clipped_one_minus_cosine_with_zero_vector_similarity_zero"
+acquired_batch_unique_component_count = "cardinality_of_selected_diversity_component_ids"
+outer_top10_policy = "raw_mean_control_under_strict_outer_component_cap_two_from_label_free_refit_predictions"
+roc_auc = "pairwise_positive_greater_than_negative_plus_half_equal_probability_ties"
+average_precision = "sum_over_descending_equal_probability_groups_of_group_positive_fraction_times_precision_at_group_end"
+ece_arithmetic = "binary64_count_weighted_sum_of_absolute_bin_mean_probability_minus_bin_mean_label"
+metric_key_mapping = "brier_to_macro_brier_nll_to_macro_negative_log_likelihood_roc_auc_to_macro_roc_auc_average_precision_to_macro_average_precision_ece_10_to_macro_ece_10"
+random_seed_aggregation = "mean_five_seeds_within_each_rotation_before_any_biological_comparison"
+pool_rotation_aggregation = "mean_four_acquisition_pool_rotations_within_each_outer_fold"
+point_estimate = "arithmetic_mean_of_five_complete_outer_fold_units"
+biological_comparison_units = 5
+bootstrap_replicates = 10000
+bootstrap_seed = 20260905
+bootstrap_rng = "numpy.random.Generator_PCG64"
+bootstrap_unit = "paired_complete_outer_fold"
+bootstrap_sample_size = 5
+bootstrap_common_resample_matrix_for_all_comparisons = true
+bootstrap_input = "mapping_of_exact_outer_fold_integer_keys_zero_through_four_to_finite_values"
+bootstrap_index_matrix_dtype = "little_endian_signed_int64_for_sha256"
+bootstrap_index_matrix_sha256 = "5c3c5db8a262e5b29cd65b5334049e81f2659d47817d8815cf0720ed5114a2b3"
+deterministic_aggregation_input = "exactly_one_metric_value_per_twenty_rotation_ids"
+random_aggregation_input = "exactly_one_metric_value_per_twenty_rotation_ids_and_each_of_five_frozen_seeds"
+aggregation_operates_on = "completed_metric_values_not_probabilities"
+bootstrap_interval_probabilities = [0.025, 0.975]
+bootstrap_quantile_method = "numpy_linear"
+
+[promotion_gate]
+brier_point_difference_mixed_minus_mean_strictly_below = 0.0
+brier_outer_folds_improved_minimum = 3
+brier_95pct_ci_upper_noninferiority = 0.005
+nll_95pct_ci_upper_noninferiority = 0.01
+next_round_reward_95pct_ci_lower_noninferiority = -0.01
+feature_cosine_diversity_point_difference_strictly_above = 0.0
+unique_component_difference_minimum = 0.0
+require_brier_point_better_than_no_query = true
+require_brier_point_better_than_random = true
+all_items_required = true
+
+[leakage_guards]
+selection_process_receives_outcomes = false
+outer_fold_outcomes_used_for_fit_or_selection = false
+outer_fold_label_free_metadata_used_only_after_all_eleven_matching_rotation_state_leaves_are_verified = true
+update_state_worker_accepts_outer_fold_metadata = false
+update_state_worker_exits_and_closes_input_descriptors_before_outer_projection = true
+outer_component_worker_accepts_state_attestations_and_digests_but_not_model_payloads = true
+outer_projection_worker_accepts_only_matching_state_component_and_outer_metadata_capabilities = true
+acquisition_outcomes_opened_before_selection_commit = false
+all_pool_commitments_precede_any_pool_role_outcome_open = true
+unselected_acquisition_outcomes_used_for_refit = false
+feature_or_novelty_transform_uses_nonbase_fold = false
+outer_predictions_and_views_contain_labels = false
+outer_view_contains_context_predictions_model_state_or_component_table = false
+outer_selector_receives_outer_evidence_or_state_payload = false
+outer_role_outcomes_opened_before_all_outer_top10_commitments = false
+rotation_role_membership_reconstructed_independently = true
+uncertainty_available = false
+uncertainty_quota = 0
+legacy_v1_disagreement_is_uncertainty = false
+legacy_v1_result_is_prior_information_only = true

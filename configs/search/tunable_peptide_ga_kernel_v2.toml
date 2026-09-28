@@ -1,0 +1,71 @@
+schema_version = 2
+artifact = "tunable_peptide_ga_kernel_v2"
+status = "engineering_kernel_only_no_selected_tuning_result"
+oracle_execution_implemented = false
+tuning_study_executed = false
+scientific_evidence_accepted = false
+production_eligible = false
+
+[kernel]
+alphabet = "ACDEFGHIKLMNPQRSTVWY"
+min_length = 8
+max_length = 50
+proposal_attempt_cap = 65536
+candidate_prefix_size = 256
+elite_fraction = 0.25
+elite_parent_probability = 0.5
+objective_names = ["gram_positive_activity", "gram_negative_activity"]
+objective_weights = [0.5, 0.5]
+operator_order = ["substitution", "insertion", "deletion", "two_parent_crossover"]
+offspring_order = "accepted_attempt_order_no_hidden_oracle_or_posterior_reranking"
+parent_order = "descending_observed_fitness_then_ascending_sequence_sha256"
+infeasible_operator_policy = "remove_then_exact_rational_renormalization"
+rng = "existing_v1_sha256_counter_rejection_numeric_stream"
+round_seed = "sha256_amp_tunable_peptide_ga_round_seed_v2_canonical_root_seed_round_index_first8bytes_big_endian_mask63"
+stream_binding = "v2_contract_config_ordered_charge_index_sequence_status_objectives_exclusions_round_semantic_sha256"
+transport_identity_affects_randomness = false
+full_provenance_seal_retains_query_and_response_receipt_ids = true
+propensity_scope = "realized_conditional_decision_trace_not_marginal_child_probability"
+
+[[configurations]]
+id = "ga_t3_default"
+tournament_size = 3
+operator_rates = [0.45, 0.15, 0.15, 0.25]
+
+[[configurations]]
+id = "ga_t3_mutation_heavy"
+tournament_size = 3
+operator_rates = [0.7, 0.1, 0.1, 0.1]
+
+[[configurations]]
+id = "ga_t5_default"
+tournament_size = 5
+operator_rates = [0.45, 0.15, 0.15, 0.25]
+
+[[configurations]]
+id = "ga_t5_mutation_heavy"
+tournament_size = 5
+operator_rates = [0.7, 0.1, 0.1, 0.1]
+
+[prospective_study]
+status = "design_only_not_an_executable_study_or_budget_grant"
+seeds = [71017, 71042, 71091, 71137, 71271]
+screen_seeds_excluded = [17, 42, 91, 137, 271]
+configuration_count = 4
+seed_count = 5
+run_count = 20
+common_initial_charges_per_run = 64
+adaptive_batches = 28
+charged_positions_per_batch = 16
+method_positions_per_batch = 14
+controller_private_reserve_positions_per_batch = 2
+matched_unique_charges_per_run = 512
+matched_scientific_wall_seconds_per_run = 7200
+logical_charges = 10240
+maximum_physical_unique_calls_with_shared_initial = 9280
+maximum_total_a100_hours_including_shared_initial = 41.25
+maximum_concurrent_gpus = 2
+automatic_retries = 0
+selection_metric = "mean_paired_seed_feasible_two_objective_hypervolume_auc_after_validated_objective_contract"
+exact_tie_order = ["ga_t3_default", "ga_t3_mutation_heavy", "ga_t5_default", "ga_t5_mutation_heavy"]
+missing_validated_objective_contract = "no_tuning_execution_or_selected_configuration"

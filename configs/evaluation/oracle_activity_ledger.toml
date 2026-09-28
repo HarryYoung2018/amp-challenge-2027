@@ -1,0 +1,15 @@
+schema_version = 1
+member_models = ["descriptor_logistic", "homology_knn"]
+minimum_observations = 1
+
+[[objective]]
+name = "broad_spectrum"
+grams = ["positive", "negative"]
+
+[[objective]]
+name = "gram_positive"
+grams = ["positive"]
+
+[[objective]]
+name = "gram_negative"
+grams = ["negative"]

@@ -1,0 +1,73 @@
+schema_version = 1
+artifact = "native_diffusion_baseline_operators_v1"
+qualification = "engineering_defaults_not_tuned_or_published_method_reproduction"
+oracle_execution_implemented = false
+scientific_evidence_accepted = false
+production_eligible = false
+
+[neural]
+epsilon = 0.001
+learning_rate = 0.01
+gradient_norm_limit = 1.0
+microbatch_rows = 16
+maximum_rows = 128
+maximum_parameters = 8000000
+maximum_levels = 64
+mask_level_law = "uniform_discrete_1_through_model_levels_per_row"
+mask_position_law = "uniform_fixed_cosine_count_subset_per_row"
+objective = "global_weighted_row_balanced_epsilon_mixture_masked_nll"
+
+[replay]
+generator_anchor_mass = 0.5
+revealed_mass = 0.5
+generator_rows = 64
+maximum_revealed_rows = 64
+row_selection = "seeded_semantic_hash_order_not_transport_identity"
+reward_temperature = 0.1
+reward_log_weight_clip = 5.0
+reward_weights = "exp_clip_score_minus_max_over_temperature_negative_clip_to_zero"
+iterative_activity_threshold = 0.5
+iterative_weight_floor = 0.05
+iterative_weights = "clip_normalized_scalar_activity_floor_to_one"
+missing_successes_or_filter_pass = "explicit_no_update_never_anchor_only"
+failed_censored_partial_timeout_values_are_training_labels = false
+
+[updates]
+reward_initial_attempts = 1
+reward_subsequent_updates = 0
+reward_maximum_backtracks = 8
+reward_local_mean_limit = 0.01
+reward_local_p99_limit = 0.02
+reward_reference_mean_limit = 0.05
+reward_reference_p99_limit = 0.02
+reference_scope = "fixed_active_anchor_transition_only_not_path_or_global_kl"
+iterative_steps_per_completed_adaptive_wave = 4
+iterative_initial_updates = 0
+iterative_kl_enforcement = false
+iterative_kl_diagnostics = true
+terminal_wave_updates = false
+nonfinite_failure = "raise_without_committing_partial_update"
+rejected_reward_update = "freeze_original_policy_with_explicit_rejection"
+
+[generation]
+start_level = "model_levels_all_residues_masked_no_fitness_parent_conditioning"
+length_law = "empirical_accepted_initializer_training_sequences_only"
+ensemble_assignment = "seeded_round_robin_equal_weight_ten_checkpoint_mixture"
+batch_rows = 128
+adaptive_prefix_size = 256
+frozen_pool_size = 2048
+attempt_cap = 65536
+exact_training_and_charged_overlap = "reject_retain_attempt_identity"
+duplicates = "reject_retain_first_attempt_identity"
+pool_order = "accepted_attempt_order_controller_posthoc_scoring_separate"
+frozen_stream = "one_pool_before_any_adaptive_response_then_immutable"
+adaptive_total_identities = 448
+method_controlled_identities = 392
+private_reserve_identities = 56
+full_identity_plan_owner = "outer_controller_before_first_adaptive_response_for_frozen_arms"
+
+[testing]
+cpu_probability_atol = 0.000001
+cpu_probability_rtol = 0.00001
+gpu_experiments = 0
+oracle_calls = 0

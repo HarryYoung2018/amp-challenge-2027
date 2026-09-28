@@ -1,0 +1,43 @@
+schema_version = 2
+artifact = "native_no_counterfactual_credit_v2"
+status = "prospective_component_amendment"
+arm_id = "ablation_no_counterfactual_credit"
+variant = "no_counterfactual"
+extends_configuration_sha256 = "e1d7e314fec9f66580c07e07b6bcd98e4ef4b32f457730b889e4cd6455f0f324"
+historical_protocol_sha256 = "579d071fac1d70bf514761ff98e6d2019730fbdad484e548f9b672fda1a001af"
+supersedes = "historical_no_counterfactual_equal_branch_allocation_and_paired_replay_semantics_only"
+global_successor_protocol_adopted = false
+scientific_evidence_accepted = false
+
+[allocation]
+counterfactual_credit = 1.0
+charged_descendants = "matched_charged_descendants_in_next_sealed_batch_including_unsuccessful_or_ineligible"
+useful_descendants = "successful_context_eligible_scalarized_observation_strictly_above_point_five"
+yield_alpha = "1_plus_useful"
+yield_beta = "1_plus_charged_minus_useful"
+score = "beta_mean_plus_beta_standard_deviation"
+attempts_per_student_stage = 24
+minimum_attempts_per_branch_stage = 2
+remainder = "sixteen_by_largest_remainder_descending_fraction_then_branch_index"
+equal_student_total_preserved = true
+equal_branch_allocation_required = false
+
+[teacher]
+child_admission = "feasible_current_absolute_posterior_mean_utility_strictly_above_point_five"
+child_metric = "current_absolute_posterior_mean_half_half_utility"
+paired_contrast_used_for_selection_or_weights = false
+rebuilt_contrast = "none"
+log_weight = "clip_metric_minus_selected_child_max_over_point_one_between_minus_log_two_and_zero"
+parent_metric = 0.0
+parent_group_selection_and_target_caps = "unchanged_native_v1"
+minimum_protected_children = 40
+anchors_replay_ess_propensity_and_version_guards = "unchanged_native_v1"
+
+[preserved]
+paired_presubmission_diagnostics = true
+posterior_uncertainty_and_frozen_thompson_moves = true
+joint_kg_and_positivity_guards = true
+four_step_endpoint_update_and_kl_guards = true
+feature_query_and_time_limits = "unchanged_native_v1"
+other_five_native_variants = "unchanged_native_v1"
+real_capacity_evaluator_and_global_release = "separate_unresolved_prerequisites"

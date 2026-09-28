@@ -1,21 +1,112 @@
 [project]
-name = "amp-challenge-2027"
+name = "amp-challenge"
 version = "0.1.0"
-description = "Minimal example repository"
+description = "Reproducible antimicrobial-peptide generation and portfolio selection for the AMP Challenge"
 readme = "README.md"
-authors = [
-    { name = "your name", email = "username@domain.com" }
+authors = [{ name = "Yonghan Yang" }]
+license = "MIT"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+    "numpy>=2.2.6,<3",
+    "rapidfuzz>=3.14.6,<4",
+    "scipy>=1.16.1,<1.17",
+    "torch==2.14.0",
+    "safetensors>=0.6,<0.7",
+    "fair-esm==2.0.0",
+    "scikit-learn==1.7.2",
+    "lightgbm==4.6.0",
+    "joblib==1.5.2",
+    "threadpoolctl==3.6.0",
 ]
 
-requires-python = ">=3.10"
-dependencies = [
-    "levenshtein>=0.27.3",
-    "numpy>=2.2.6",
+[project.optional-dependencies]
+data = [
+    "openpyxl>=3.1,<4",
+]
+dev = [
+    "openpyxl>=3.1,<4",
+    "pytest>=8.4,<9",
+    "pytest-cov>=6.2,<7",
+    "ruff>=0.12,<0.13",
+]
+diffusion = [
+    "packaging>=26.3,<27",
+    "safetensors>=0.6,<0.7",
+    "torch==2.14.0",
 ]
 
 [project.scripts]
-generate = "amp_challenge_2027.generate:main"
+amp-run-native-screen = "amp_challenge.generators.search.native_screen_launcher:main"
+amp-run-native-baseline-campaign = "amp_challenge.generators.search.native_static_campaign_cli:main"
+amp-run-native-mp2d-campaign = "amp_challenge.generators.search.native_mp2d_campaign_cli:main"
+amp-run-native-evolution-campaign = "amp_challenge.generators.search.native_evolution_campaign_cli:main"
+amp-run-common-initial-source = "amp_challenge.generators.search.common_initial_source_cli:main"
+amp-run-ga-endpoint-campaign = "amp_challenge.generators.search.ga_endpoint_campaign_cli:main"
+amp-run-eligible-ga-campaign = "amp_challenge.generators.search.eligible_ga_campaign_cli:main"
+generate = "amp_challenge.workflows.generate:main"
+amp-prepare = "amp_challenge.data.prepare:main"
+amp-fetch-data = "amp_challenge.data.fetch:main"
+amp-prepare-starter = "amp_challenge.data.starter:main"
+amp-prepare-dramp = "amp_challenge.data.dramp:main"
+amp-build-endpoint-context = "amp_challenge.data.endpoint_context:main"
+amp-build-homology-study-split = "amp_challenge.data.homology_study_split:main"
+amp-audit-normalized = "amp_challenge.data.audit_normalized:main"
+amp-export-normalized-fasta = "amp_challenge.data.export_fasta:main"
+amp-benchmark-oracle = "amp_challenge.benchmarks.oracle_gate1:main"
+amp-benchmark-oracle-union = "amp_challenge.benchmarks.oracle_gate1_union:main"
+amp-benchmark-apex-oof = "amp_challenge.benchmarks.apex_oof:main"
+amp-benchmark-apex-union-oof = "amp_challenge.benchmarks.apex_union_oof:main"
+amp-verify-apex-union-oof = "amp_challenge.benchmarks.verify_apex_union_oof:main"
+amp-benchmark-ensemble-oof = "amp_challenge.benchmarks.ensemble_oof:main"
+amp-benchmark-esm-union-ensemble = "amp_challenge.benchmarks.esm_union_ensemble_oof:main"
+amp-verify-esm-union-ensemble = "amp_challenge.benchmarks.verify_esm_union_ensemble_oof:main"
+amp-build-diffusion-corpus = "amp_challenge.generators.diffusion.corpus:main"
+amp-verify-diffusion-corpus = "amp_challenge.generators.diffusion.verify_corpus:main"
+amp-build-candidate-pool = "amp_challenge.generators.candidate_pool:main"
+amp-build-native-diffusion-v1-projection = "amp_challenge.generators.diffusion.v1.projection:main"
+amp-verify-native-diffusion-v1-projection = "amp_challenge.generators.diffusion.v1.verify_projection:main"
+amp-stage-native-diffusion = "amp_challenge.generators.diffusion.data:main"
+amp-train-native-diffusion = "amp_challenge.generators.diffusion.train:main"
+amp-evaluate-native-diffusion = "amp_challenge.generators.diffusion.run_evaluation:main"
+amp-verify-native-diffusion = "amp_challenge.generators.diffusion.verify_evaluation:main"
+amp-verify-native-diffusion-reinference = "amp_challenge.generators.diffusion.verify_reinference:main"
+amp-export-gate1-fasta = "amp_challenge.benchmarks.esm_oof:export_main"
+amp-export-union-esm-fasta = "amp_challenge.benchmarks.export_union_esm_fasta:main"
+amp-verify-union-esm-fasta = "amp_challenge.benchmarks.verify_union_esm_fasta:main"
+amp-package-union-esm-embeddings = "amp_challenge.benchmarks.package_union_esm_embeddings:main"
+amp-verify-union-esm-embeddings = "amp_challenge.benchmarks.verify_union_esm_embeddings:main"
+amp-benchmark-esm-oof = "amp_challenge.benchmarks.esm_oof:main"
+amp-build-replay-ledger = "amp_challenge.evaluation.oracle_ledger:main"
+amp-build-union-replay-ledger = "amp_challenge.evaluation.union_oracle_ledger:main"
+amp-run-union-replay-bundle = "amp_challenge.evaluation.union_replay_bundle:main"
+amp-verify-union-replay-bundle = "amp_challenge.evaluation.verify_union_replay_bundle:main"
+amp-run-sequential-v2 = "amp_challenge.evaluation.sequential_v2_supervisor:main"
+amp-verify-sequential-v2-finalize = "amp_challenge.evaluation.verify_sequential_v2_finalize:main"
+amp-score-candidate-activity = "amp_challenge.workflows.candidate_activity_scoring:main"
+amp-verify-candidate-activity = "amp_challenge.workflows.verify_candidate_activity_scoring:main"
+amp-build-candidate-activity-mean-ledger = "amp_challenge.workflows.candidate_activity_mean_ledger:main"
+amp-verify-candidate-activity-mean-ledger = "amp_challenge.workflows.verify_candidate_activity_mean_ledger:main"
+amp-build-candidate-diversity-novelty = "amp_challenge.workflows.candidate_diversity_novelty:main"
+amp-verify-candidate-diversity-novelty = "amp_challenge.workflows.verify_candidate_diversity_novelty:main"
+amp-select = "amp_challenge.workflows.select:main"
+amp-select-final = "amp_challenge.workflows.final_portfolio:main"
+amp-replay = "amp_challenge.evaluation.replay:main"
+amp-audit = "amp_challenge.workflows.audit:main"
+amp-search-smoke = "amp_challenge.workflows.search_smoke:main"
+amp-search-batch-plan = "amp_challenge.workflows.search_batch_plan:main"
 
 [build-system]
 requires = ["uv_build>=0.9.18,<0.10.0"]
 build-backend = "uv_build"
+
+[tool.pytest.ini_options]
+addopts = "-ra --strict-markers"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
+ignore = ["E501"]

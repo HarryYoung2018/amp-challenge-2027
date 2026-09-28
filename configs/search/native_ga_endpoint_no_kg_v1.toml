@@ -1,0 +1,61 @@
+schema_version = 1
+artifact = "native_ga_endpoint_no_kg_v1"
+method_id = "ga_endpoint_distillation_no_kg"
+scientific_evidence_accepted = false
+production_eligible = false
+campaign_eligible = false
+selected_tuning_result_available = false
+
+[proposals]
+ga_prefix_size = 256
+unaltered_ga_branch = 128
+native_refinement_branch = 128
+native_parent_source = "remaining128_raw_GA_prefix_entries_cycled_in_order"
+native_start_level = 32
+native_model_levels = 64
+checkpoint_assignment = "all_ten_seeded_global_attempt_ordinal_round_robin_including_rejections"
+maximum_joint_ga_and_native_attempts = 65536
+maximum_final_pool = 256
+native_rejection_replenishment = "within_fixed_joint_attempt_and_wall_caps_only"
+ga_configuration = "same_future_verified_selected_configuration_as_plain_GA_not_an_assumed_tuned_default"
+
+[selection]
+representation = "esm320_plus_normalized_length"
+posterior = "charged_only_learner_explicitly_clipped_normalized_mean_pairs"
+weights = [0.5, 0.5]
+order = "feasible_descending_posterior_mean_then_observed_GA_parent_fitness_then_sequence_id"
+method_seats = 14
+outer_private_reserve_seats = 2
+reserve_inventory_exposed_to_worker = false
+kg = false
+counterfactual_credit = false
+thompson_draw = false
+spectral_features = false
+adaptive_branch_yield = false
+
+[targets]
+source = "successful_finite_context_eligible_charged_sequences_only_no_hidden_teacher_predictions"
+eligibility = "controller_bound_query_ID_subset_of_exact_current_history"
+order = "top64_observed_equal_weight_mean_then_sequence_id"
+temperature = 0.1
+logweight = "clip((fitness-max_fitness)/0.1,-ln2,0)"
+minimum = 40
+maximum = 64
+initial_common_only_update = false
+update_before_rounds = "2_through28_after_complete_previous_adaptive_wave"
+terminal_round29_update = false
+
+[runtime]
+native_oracle_calls = 0
+feature_rows_per_wave = 256
+maximum_candidate_feature_rows_28_waves = 7168
+historical_feature_row_ceiling = 512
+posterior_rows_per_request = 128
+method_wave_seconds = 180
+scientific_seconds = 7200
+total_charged_calls = 512
+initial_charged_calls = 64
+adaptive_rounds = 28
+failed_charges_replaced = false
+clock_reset = false
+scientific_campaign_execution = false

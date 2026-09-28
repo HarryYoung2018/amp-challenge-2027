@@ -1,0 +1,25 @@
+schema_version = 1
+selection_config = "../acquisition/replay_small.toml"
+objectives = [
+  "broad_spectrum",
+  "gram_positive",
+  "gram_negative",
+  "mdr_eskape",
+  "selectivity",
+]
+policies = ["mixed", "lcb", "mean", "random"]
+seeds = [17, 42, 91]
+
+group_column = "replay_round"
+prediction_scope_column = "prediction_scope"
+required_prediction_scope = "out_of_fold"
+prediction_fold_column = "prediction_fold"
+outcome_fold_column = "outcome_fold"
+
+# Inputs are higher-is-better calibrated utilities, not natural MIC/HC50 units.
+[outcome_thresholds]
+broad_spectrum = 0.5
+gram_positive = 0.5
+gram_negative = 0.5
+mdr_eskape = 0.5
+selectivity = 0.5

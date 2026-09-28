@@ -1,0 +1,79 @@
+schema_version = 2
+method = "mp2d_style_equal_ten_inference_search"
+scientific_evidence_accepted = false
+production_eligible = false
+campaign_eligible = false
+oracle_calls = 0
+base_commit = "581ef95c8f7c6f806754c15ee39fe91883bb7701"
+original_adapter_source = "1adebda198cfe9b9cafc0e7af4eb24cb89f63ad8"
+original_adapter_config_sha256 = "e93ea6425335ffa035cce7802c13f1cbae3afa1860967d8f517e33c2bda33727"
+supersedes_untested_v2_config_sha256 = "6b3be1349e700a4e6accfe4a58ccd1aa7a8f45ff37ea02fa6b89c68ead253aed"
+pre_execution_correction = "ineligible_values_excluded_from_numerical_rng_full_provenance_retained"
+
+[schedule]
+checkpoint_count = 10
+starts = 10
+bootstrap_balanced_round_cap = 55
+global_passes = 2
+expansions_per_tree = 2
+children_per_checkpoint_stage = [11, 12, 12, 12]
+child_slots_per_checkpoint = 47
+total_child_slots = 470
+maximum_bootstrap_slots = 550
+maximum_assigned_slots = 1020
+unused_attempt_remainder = 4
+root_score_delay = "first_stage_10_roots_plus_up_to_110_children"
+posterior_stage_row_caps = [120, 120, 120, 120]
+posterior_request_opportunities_per_wave = 4
+posterior_row_cap = 128
+actual_unique_scored_rows_cap = 480
+original_attempt_cap = 1024
+original_posterior_unique_cap = 1024
+native_batch_rows = 128
+native_microbatch_rows = 16
+shortlist_cap = 256
+receipt_bytes_cap = 134217728
+checkpoint_assignment = "seeded_permutation_interleaved_round_robin_no_quota_donation"
+numerical_history = "charge_index_sequence_status_eligibility_only_eligible_objective_values_no_transport"
+blocked_slot = "explicit_clean_parent_identity_no_neural_call_not_completed_native_rollout"
+partial_prefix = "not_a_completed_balanced_wave"
+
+[unchanged_numerics]
+direction_bank_size = 64
+directions_per_wave = 20
+ucb_exploration = 0.1
+angle_initial_degrees = 45.0
+angle_minimum_degrees = 15.0
+angle_maximum_degrees = 75.0
+rejection_ema_initial = 0.3
+rejection_ema_old_weight = 0.5
+rejection_target = 0.3
+mpi_lambda = 1.0
+mpi_rank_direction_equals_tree_direction = true
+epsilon = 0.001
+sampling = "uniform_subset_independent_gumbel_categorical"
+rollout = "deterministic_complete_event_MAP_base_model_probabilities_not_rollout_likelihoods"
+
+[limits]
+wave_seconds = 120.0
+original_scientific_seconds = 7200
+gpus = 1
+cpus = 8
+host_gib = 32
+gpu_peak_gib = 16
+output_gib = 5
+clock_reset_on_resume = false
+reserve_features = "outer_private_common_initial_budget_only_disclosed_charged_rows_released"
+
+[validation]
+partition = "standard"
+account = "bio"
+cpus = 2
+host_gib = 8
+seconds = 900
+gpus = 0
+oracle_calls = 0
+event_log_probability_rtol = 0.00001
+event_log_probability_atol = 0.000001
+full_engine_cpu_replay = "exact_same_arithmetic_not_independent_algorithm_authorship"
+delayed_root_scoring = "same_first_stage_native_actions_states_directions_and_final_decisions_as_immediate_cached_scores"

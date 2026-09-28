@@ -1,0 +1,38 @@
+schema_version = 1
+artifact = "candidate_activity_mean_ledger_v1"
+status = "predeclared_development_mean_only_handoff"
+automatic_production_eligible = false
+
+expected_candidates = 115536
+expected_examples = 2492
+folds = 5
+targets = 7
+objectives = [
+  "broad_spectrum_activity",
+  "gram_positive_activity",
+  "gram_negative_activity",
+]
+allowed_consumer = "mean_only_selection_control_only"
+eligibility_scope = "accepted_candidate_pool_library_eligible_flag_v1"
+uncertainty_status = "unavailable"
+diagnostic_scope = "population_sd_across_five_outer_fold_complement_refits_diagnostic_not_uncertainty_not_selectable"
+prediction_scope = "declared_seven_target_activity_panel"
+training_scope = "all_2492_accepted_gate1_contexts_after_recipe_freeze"
+calibration_scope = "none_raw_logistic_probability"
+
+[accepted_scoring]
+producer_job_id = 225374
+audit_job_id = 225375
+git_commit = "acecc557b255382ea41d3610aef6db2858bee768"
+config_sha256 = "e6f9e91ef0a1b294981652c66d7bc2910e96c5ab40eb2291cde747331d092f9d"
+publication_top_sha256 = "8bf246eee26380573c673986806e7928c81cdaf51533f22f7f02c7d92da01e27"
+publication_tree_sha256 = "cdbd61b935cde7d2ef4065be06032b63124077f6ef640f3c981485c9c144d851"
+manifest_sha256 = "9fc51a40bb173eb5c82800978fa3e8d473ce0a2e076cf42ce08c3728783cf42d"
+candidate_scores_sha256 = "5189a2e5539dcbfd18f77498838ee31e4779c337077d2a7abdedd729771aaa81"
+fold_tensor_sha256 = "0a12ed10921e27a6f943bfb6132affe72f464ae5d8581fb044a84831f5a07f0a"
+fold_tensor_raw_data_sha256 = "1c553786d56636e58196ce2d5c3ab445c513d25f800ce67ed18ea532a943143e"
+model_states_sha256 = "98bdb74cd26b7652d18feb476f926eadfb9e4ac80369bb92b0c2608420473ab6"
+model_release_id = "98bdb74cd26b7652d18feb476f926eadfb9e4ac80369bb92b0c2608420473ab6"
+oof_reproduction_sha256 = "be54ac77809e9acf2bfb26c59a759e7af648f64c9562fb98d3a14ec83d705094"
+independent_verification_sha256 = "c30e458caf7d0d6be73bfd34d962c7bf5dcef9ee20dddda641c143563f7e125a"
+operational_audit_sha256 = "1672d852386d0f127ffe78b0b7a2ee4cb362bc37e51d1950dbcf468fdebde339"

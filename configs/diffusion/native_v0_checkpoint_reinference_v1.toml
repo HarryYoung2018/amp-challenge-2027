@@ -1,0 +1,137 @@
+schema_version = 1
+artifact = "native_v0_checkpoint_origin_reinference_v1"
+evidence_doc = "docs/benchmarks/native_v0_checkpoint_reinference_v1.md"
+
+[status]
+before_execution = "predeclared_not_run"
+evidence_invalid = "invalid_reinference"
+exact_reproduction = "checkpoint_origin_exactly_reproduced_v1"
+
+[scope]
+purpose = "close_native_v0_checkpoint_and_proposal_origin_limitations"
+changes_native_v0_scientific_decision = false
+native_v0_decision = "reproducible_no_go_v0"
+automatic_production_eligible = false
+independent_model_implementation = false
+comparison = "byte_and_mode_exact"
+numeric_tolerance = 0.0
+
+[code]
+current_supervisor_branch = "main"
+legacy_git_commit = "3e81822a1e2fa2c5b0bfcbd6527d1e9ea31a8474"
+legacy_tracked_files = 299
+legacy_code_sha256sums_sha256 = "a2510fdc489f622016d44a39bcc755b19b8a1934e5f2868ea17cbf7813f4fd0c"
+legacy_uv_lock_sha256 = "75d80f72a22dfc74b1da083615cebbe7c87d1438ba21d8967787c8c0b8bf36bb"
+historical_tracking_ref = "private_capsule_only"
+live_remote_ref_mutation = false
+loader_weakening_allowed = false
+
+[environment]
+base_extra = "diffusion"
+base_install = "uv_sync_locked_offline_no_editable_legacy_capsule"
+compatibility_install = "uv_pip_offline_no_deps_only_binary_require_hashes"
+compatibility_package = "packaging"
+compatibility_requirement_sha256 = "baf6a8f5ae8296f8449019a6e611c67633ff83d8cfb34321accf15d33a2ca268"
+compatibility_source = "legacy_uv_lock_dev_edge_hashed_wheel"
+compatibility_version = "26.3"
+compatibility_wheel_sha256 = "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c"
+
+[inputs]
+v0_contract_sha256 = "8242e589db8f35710e44fd63343444c3d5ce0f30626933be37561c4cbb49d764"
+accepted_corpus_sha256 = "c03595a8650b732307ada7e030f996d65345238efaea55d25925ac433bec8bc7"
+training_projection_sha256 = "127a0eb88c5dc10c94904dcc5a3e98ff75a55890dc29af807e99f3f93c61ae46"
+organizer_reference_sha256 = "cbbeac64ba95746d87961e8ad9dd0849ae8058d15a300b2e7f6990730ca521e9"
+seed42_audit_receipt_sha256 = "9484a2047924ac720fceda2fb1ba005fa452b531ad33be429f07314c574b4639"
+accepted_evaluation_independent_receipt_sha256 = "02f81ef97e52237f39035f91c2151b50fc79e2698e777065e67a8ed19dbe3e7b"
+accepted_evaluation_operational_receipt_sha256 = "1a105b6a4e3c1e0bfa0bb5ed98426c21dcadd0f83aba9973c2e84a86d582267e"
+
+[checkpoints.seed42_primary]
+seed = 42
+manifest_sha256 = "0dbc65c0af94847120e29ac4134adc17a4277c17214cc0474ab69f9f3d2d23bb"
+file_sha256 = "1468704c71999982d769cd09abfb2775e99ca830b53c57fefd9f3c2aa9ae4405"
+logical_state_sha256 = "fa439e72ed6dba2b6545adb111f76d77922b8c484ae6c67f43e43747e4d3e7b4"
+contract_bound_logical_sha256 = "21effb759ac6c104d7ad5c612d68cd070328fac10807a19cd5780e0ffb76b6f7"
+
+[checkpoints.seed42_twin]
+seed = 42
+manifest_sha256 = "0dbc65c0af94847120e29ac4134adc17a4277c17214cc0474ab69f9f3d2d23bb"
+file_sha256 = "1468704c71999982d769cd09abfb2775e99ca830b53c57fefd9f3c2aa9ae4405"
+logical_state_sha256 = "fa439e72ed6dba2b6545adb111f76d77922b8c484ae6c67f43e43747e4d3e7b4"
+contract_bound_logical_sha256 = "21effb759ac6c104d7ad5c612d68cd070328fac10807a19cd5780e0ffb76b6f7"
+
+[checkpoints.seed43]
+seed = 43
+manifest_sha256 = "e1d9dce1a1db38e5ad26b28bc3e6d01d9d8279fda96b728b8e1f7964294fc669"
+file_sha256 = "0c9f4b8d3954d0f83f48f6379fdcd47a4fb36281822a3500d2d373f388a29fac"
+logical_state_sha256 = "897e761499d94e24655d4a94f95576c588100436b8cd81336f9d5ee6b860d7ed"
+contract_bound_logical_sha256 = "3909cf358dbd87ed923e52ea786d1e0bffa183cd48b6a45062e45d5c07cb7740"
+
+[checkpoints.seed44]
+seed = 44
+manifest_sha256 = "ef4648947909ede6471bbd7c38c53e261ab4bf0d76cf8deb4fb414b0d15a6e8b"
+file_sha256 = "32fbd8bd9bbfbbc7bd4dd1c030e7e00e9a42981e0c1d2d28a14d6fe9152cf719"
+logical_state_sha256 = "7ee9417347e74f1240258de922919f708c628c0724647e3ebc990deda67cde36"
+contract_bound_logical_sha256 = "d518e9b7632b8c1e0b8f37c5489d0ca9851d299e4660ad24f0f5b6dcd37d63b4"
+
+[accepted_evaluation]
+manifest_sha256 = "cf53ef4b23f17ca6e38b9f7a7d491ca9ef6aac754647be8881a58dc743f521b5"
+logical_sha256 = "744f73d7fbe000687148c91f49e48d6a726f2fb7f819dcf14766f482448aa70e"
+tree_sha256 = "e5d9d2a65a4d4d87584e5b3941eb4feb1b89e70bfadf3809576a47b482702a1a"
+decision_status = "reproducible_no_go_v0"
+validation_sequences = 199
+corruption_cases = 50944
+selected_tokens = 607976
+raw_proposals_per_method_seed = 2048
+total_raw_proposals = 18432
+
+[accepted_evaluation.files]
+"baseline_metrics.json" = "f78fcf761b79c76248d6f4a5d4f7ea53e7c56a4ce2df04e12cd7dac2c48ea2ed"
+"candidate_ledger.jsonl" = "cd26499d827b755eefaa6895a49b0e55a5a31452b9b057f0cb92a0fce7764e58"
+"contract.toml" = "8242e589db8f35710e44fd63343444c3d5ce0f30626933be37561c4cbb49d764"
+"length_plan.json" = "1e211d84326338b9f91fd3537c1054a3994e18da98f1ffad208b244e14e4b6d8"
+"manifest.json" = "cf53ef4b23f17ca6e38b9f7a7d491ca9ef6aac754647be8881a58dc743f521b5"
+"raw_proposals.fasta" = "95215a042ed53676cf2c75f923eef11bd8bc03f60e4cceb1fde5dfa9176b7d28"
+"sampling_metrics.json" = "939302d943671022a5c8d3b037fd0add021241f40c02da9d823757085effccc1"
+"training_bundle.sha256" = "58cee997dc5249eaf6ad5e9545595f8770585afa7d62b3992333df5af4db7d79"
+"validation_corruptions.npz" = "0072a3d1f8e057592af3dab7908e5632374ad55dec2cbcd37c33ea68194c0881"
+"validation_metrics.json" = "190c4bac252d3cdd8bacfafdb614cbc1cc4121a3619610997e8122b9825a3e11"
+"validation_token_stats.npz" = "ac4053ed82a0473646cf71bad2620a586a2fed74be397238d23bb92e9ef4b8b7"
+
+[execution]
+producer_nodes = 2
+producer_tasks = 2
+tasks_per_node = 1
+cpus_per_task = 8
+memory_gib_per_node = 32
+gpus_per_task = 1
+gpu = "NVIDIA A100-SXM4-80GB"
+evaluation_batch_sequences = 256
+worker0_seed42_primary = "seed42_primary"
+worker0_seed42_twin = "seed42_twin"
+worker1_seed42_primary = "seed42_twin"
+worker1_seed42_twin = "seed42_primary"
+seed42_physical_bundle_roots_distinct = true
+seed42_physical_checkpoint_lustre_fids_distinct = true
+accepted_evaluation_supplied_to_producer = false
+legacy_capsule_import_probe_before_gpu = true
+single_exact_srun = true
+
+[audit]
+cpu_partition = "standard"
+cpus = 8
+memory_gib = 32
+third_node_distinct_from_producers = true
+rerun_twins_byte_identical = true
+rerun_twins_mode_identical = true
+accepted_bundle_byte_identical = true
+accepted_bundle_mode_identical = true
+receipt_files = ["independent-verification.json", "operational-receipt.json"]
+
+[decision]
+pass_requires_all_checks = true
+pass_closes_checkpoint_statistics_origin_limitation = true
+pass_closes_native_proposal_origin_limitation = true
+pass_closes_count_control_reexecution = true
+pass_promotes_native_v0 = false
+pass_authorizes_fold4_tuning = false
+pass_authorizes_final_library_share = false

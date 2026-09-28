@@ -1,0 +1,71 @@
+schema_version = 2
+artifact = "native_tr2d2_replay_v2"
+evidence_class = "engineering_replay_adaptation_only"
+source_base = "581ef95"
+legacy_tree_config_sha256 = "a27fa602333f3370fc631c7bdf45a3ce109aeb8ddd76483dbe5980cbcebdabd4"
+frozen_campaign_protocol_sha256 = "579d071fac1d70bf514761ff98e6d2019730fbdad484e548f9b672fda1a001af"
+campaign_eligible = false
+scientific_evidence_accepted = false
+production_eligible = false
+
+[collection]
+implementation = "unchanged_native_tr2d2_v1_tree_and_proposal_shortlist"
+maximum_students = 10
+iterations_per_student = 10
+children_per_expansion = 8
+maximum_attempts = 800
+maximum_evaluator_calls = 100
+shortlist_cap = 256
+legacy_front_only20_buffers = "retained_as_old_collector_evidence_not_used_for_v2_training"
+replacement_proposals_or_hidden_refills = false
+
+[replay]
+source = "same_frozen_generation_first_seen_feasible_nontraining_noncharged_unique_attempts_per_student"
+selection = "successive_pareto_layers_then_descending_context_scalar_then_sequence_id"
+maximum_unique_rows_per_student = 64
+minimum_unique_rows_per_student = 40
+raw_log_weight = "posterior_scalar_reward_over_point_one_plus_frozen_reference_minus_behavior_complete_conditional_path_logp"
+minimum_relative_log_weight = -10.0
+weight_formula_changed_from_v1 = false
+minimum_ess_fraction = 0.20
+maximum_normalized_weight = 0.05
+checks_before_any_sgd = true
+pooling_students_or_duplicate_rows = false
+failed_gate = "explicit_student_no_update_no_refill_no_weight_flattening"
+exact_importance_sampling = false
+selection_propensity_correction = false
+source_generation = "immediately_preceding_complete_collected_generation"
+maximum_policy_version_lag = 1
+behavior_versions = "actual_committed_update_counters_not_round_numbers"
+
+[training]
+steps = 4
+learning_rate = 0.01
+gradient_clip = 1.0
+epsilon = 0.001
+microbatch_rows = 16
+weights_frozen_across_steps = true
+fresh_corruption = "unchanged_v1_semantic_weighted_replay_seed_and_ordinal"
+commit = "atomic_whole_tuple_after_receipt_serialization_source_and_deadline_checks"
+failed_students = "unchanged_in_atomic_tuple"
+terminal_round29_update = false
+kl = "finite_active_anchor_diagnostic_only_not_campaign_guard"
+
+[resources]
+scientific_seconds = 7200
+wave_seconds = 180
+maximum_record_bytes = 67108864
+maximum_run_output_gib = 5
+clock_reset = false
+retry_after_partial_failure = false
+gpu_or_oracle_experiments = false
+cpu_validation_cpus = 2
+cpu_validation_memory_gib = 8
+cpu_validation_minutes = 15
+
+[remaining_campaign_gates]
+actual_operator_path_kl = "unmet"
+matched_public_feasibility_drop = "unmet"
+full_feature_request_capacity = "unmet"
+scientifically_acceptable_oracle = "unmet"
+external_transport_timing_and_durable_resume = "unmet"

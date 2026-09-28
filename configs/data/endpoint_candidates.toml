@@ -1,0 +1,42 @@
+schema_version = 1
+reviewed_at = "2026-09-03"
+
+# Candidate endpoint datasets are deliberately separate from the approved
+# snapshot allowlist.  Neither entry may be consumed by a production training
+# command until every gate below has an auditable artifact.
+
+[[dataset]]
+name = "ampbench_mt"
+repository = "https://huggingface.co/datasets/ZihengZhou06/AMPBench-MT"
+paper = "https://arxiv.org/abs/2607.25518"
+source_revision = "eed782a910d546b1a3fddc501ea5dddd78415d14"
+status = "internal_pilot_only"
+declared_license = "custom non-commercial research terms; upstream source terms prevail"
+public_weight_redistribution = "unresolved"
+independent_evaluation = false
+required_gates = [
+  "written_author_or_organizer_permission",
+  "immutable_artifact_checksums",
+  "row_level_source_and_publication_provenance",
+  "challenge_reference_overlap_audit",
+  "global_homology_and_study_group_resplit",
+]
+
+[[dataset]]
+name = "pathomic"
+repository = "https://anonymous.4open.science/r/PathoMIC-546D/"
+paper = "https://arxiv.org/abs/2608.26228"
+source_revision = "unpublished"
+status = "quarantine"
+declared_license = "unresolved"
+public_weight_redistribution = "unresolved"
+independent_evaluation = false
+required_gates = [
+  "stable_public_release",
+  "explicit_reuse_and_redistribution_license",
+  "immutable_artifact_checksums",
+  "exact_schema_and_split_manifest",
+  "row_level_source_provenance",
+  "challenge_reference_overlap_audit",
+  "global_peptide_homology_and_study_group_resplit",
+]

@@ -1,0 +1,15 @@
+batch_size = 3
+risk_beta = 1.0
+ucb_beta = 1.0
+quality_floor_quantile = 0.0
+diversity_quality_weight = 0.35
+max_per_cluster = 1
+strict_cluster_cap = true
+seed = 42
+
+[strategy_mix]
+exploit = 0.34
+pareto = 0.33
+diversity = 0.33
+
+[specialist_quotas]

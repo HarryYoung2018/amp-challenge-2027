@@ -1,0 +1,132 @@
+schema_version = 1
+normalized_parser_id = "amp_challenge.data.dramp:v7"
+normalized_schema_version = 2
+
+# This sidecar is bound to the accepted CC0 DRAMP 2.0 source snapshot. It does
+# not alter parser-v7 assay values or admit a new row.
+source_name = "dramp_general_v2"
+source_sha256 = "b726a633634257e382545db5da62df75b5c284c03e49a26e03d8d5fc96fbad41"
+source_version = "doi:10.6084/m9.figshare.8006309.v1"
+normalized_sequences_sha256 = "76305e284ce3689970c89e3f2b45c4adc0ceef2375e74dfcddc50882d8b14884"
+normalized_assays_sha256 = "ca33b3ae0a4895513f898dab109a3297263b99a404c0a4ab4b43d86cc9e3d0bd"
+normalized_summary_sha256 = "55f9e3268650d123a044aa2006172ba784ff279055796290816cb4e658404301"
+expected_unique_sequences = 1113
+expected_assay_observations = 6079
+activity_threshold_um = 16.0
+
+# Study keys are grouping-only metadata. Strict decimal PMID tokens take
+# precedence. A whitespace-normalized (Reference, Title) hash is used only when
+# no valid PMID exists; a missing citation receives a unique source-row key.
+pubmed_delimiter = "##"
+citation_missing_values = [
+  "",
+  "-",
+  "unknown",
+  "not found",
+  "no reference found",
+  "n/a",
+  "na",
+  "none",
+]
+
+# These are frozen APEX-support mappings, not a complete taxonomy. A literal
+# with multiple apparent taxon mentions is ambiguous even when every mention
+# belongs to the same configured species.
+mapping_version = "apex-supported-species-v1"
+blood_organism_mapping_version = "dramp-blood-organism-exact-alias-v1"
+
+# Exact, reviewed corrections only. The raw parser fields remain unchanged and
+# the ledger records that this resolution came from the alias table. Generic
+# spelling correction and fuzzy matching are forbidden.
+[[blood_organism_alias]]
+source_target = "huamn red blood cells"
+canonical_organism = "human"
+
+# Reviewed source anomalies remain conservative unions. They are annotations,
+# never heuristic corrections or permission to detach a study edge.
+[[study_anomaly]]
+scope = "key"
+selector = "pmid:25558400"
+code = "discordant_citation_metadata"
+policy = "retain_conservative_union"
+expected_source_record_ids = ["DRAMP18377", "DRAMP18378", "DRAMP18379", "DRAMP18380"]
+expected_study_keys = ["pmid:25558400"]
+discordant_source_record_ids = ["DRAMP18377"]
+expected_observations = 10
+
+[[study_anomaly]]
+scope = "record"
+selector = "DRAMP03870"
+code = "multi_pmid_citation_delimiter_missing"
+policy = "retain_all_pmid_keys_conservative_union"
+expected_source_record_ids = ["DRAMP03870"]
+expected_study_keys = ["pmid:16041366", "pmid:17052614"]
+discordant_source_record_ids = []
+expected_observations = 7
+
+# These source strain/accession tokens occur under contradictory taxon names.
+# They remain literal metadata only: no row is relabeled and no strain-level
+# claim may be made until a reference-backed identifier table is reviewed.
+[[strain_identifier_review]]
+identifier = "ATCC2592"
+target_regex = '(?i)\bATCC\s*2592\b'
+code = "identifier_used_with_multiple_taxa"
+policy = "annotate_only_source_literal_no_strain_resolution"
+
+[[strain_identifier_review]]
+identifier = "ATCC25923"
+target_regex = '(?i)\bATCC\s*25923\b'
+code = "identifier_used_with_multiple_taxa"
+policy = "annotate_only_source_literal_no_strain_resolution"
+
+[[strain_identifier_review]]
+identifier = "ATCC29213"
+target_regex = '(?i)\bATCC\s*29213\b'
+code = "identifier_used_with_multiple_taxa"
+policy = "annotate_only_source_literal_no_strain_resolution"
+
+[[strain_identifier_review]]
+identifier = "ATCC8530"
+target_regex = '(?i)\bATCC\s*8530\b'
+code = "identifier_used_with_multiple_taxa"
+policy = "annotate_only_source_literal_no_strain_resolution"
+
+[expected_endpoint_counts]
+mic = 5903
+hc50 = 37
+hemolysis_percent = 139
+
+[[target]]
+name = "acinetobacter_baumannii"
+strain_regex = '(?i)(?:^|[^A-Za-z])(?:Acinetobacter|A\.)\s+baumannii\b'
+expected_gram = "negative"
+
+[[target]]
+name = "escherichia_coli"
+strain_regex = '(?i)(?:^|[^A-Za-z])(?:Escherichia|E\.)\s+coli\b'
+expected_gram = "negative"
+
+[[target]]
+name = "klebsiella_pneumoniae"
+strain_regex = '(?i)(?:^|[^A-Za-z])(?:Klebsiella|K\.)\s+pneumoniae\b'
+expected_gram = "negative"
+
+[[target]]
+name = "pseudomonas_aeruginosa"
+strain_regex = '(?i)(?:^|[^A-Za-z])(?:Pseudomonas|P\.)\s+aeruginosa\b'
+expected_gram = "negative"
+
+[[target]]
+name = "staphylococcus_aureus"
+strain_regex = '(?i)(?:^|[^A-Za-z])(?:Staphylococcus|S\.)\s+aureus\b'
+expected_gram = "positive"
+
+[[target]]
+name = "enterococcus_faecalis"
+strain_regex = '(?i)(?:^|[^A-Za-z])(?:Enterococcus|E\.)\s+faecalis\b'
+expected_gram = "positive"
+
+[[target]]
+name = "enterococcus_faecium"
+strain_regex = '(?i)(?:^|[^A-Za-z])(?:Enterococcus|E\.)\s+faecium\b'
+expected_gram = "positive"

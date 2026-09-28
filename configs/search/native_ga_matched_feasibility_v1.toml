@@ -1,0 +1,47 @@
+schema_version = 1
+artifact = "native_ga_matched_feasibility_v1_20260914"
+extends_configuration_sha256 = "445525aa693ece3dad07359a5864043c6d55235034b5ca59ea5f517e9b1ecd29"
+historical_configuration_unchanged = true
+scientific_evidence_accepted = false
+global_successor_protocol_adopted = false
+measure = "conditional_legal_ga_partial_native_attempt_not_selected_pool"
+pairs = 160
+start_level = 32
+total_levels = 64
+candidate_indices = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+sampling = "iid_uniform_legal_generation_ordinals_with_replacement_then_exact_checkpoint_parent_map"
+pairing = "same_parent_and_model_independent_remask_path_uniforms"
+predicate = "fixed_public_context_only_no_oracle_or_organizer_veto"
+bound = "upper_loss_mean_minus_lower_gain_mean_binary_KL_inversion_log360_over160"
+maximum_drop = 0.05
+confidence = "nominal95_percent_simultaneous_per_frozen_nine_candidate_update"
+no_kl = "feasibility_gate_remains_required"
+unchanged = "exact_identical_policy_no_training_no_sampling"
+private_proposal_is_acceptance = false
+all_kl_caps_unchanged = true
+outer_seconds = 7200
+wave_seconds = 180
+deadline_reset = false
+
+[additional_work]
+sampled_paths_per_candidate = 320
+maximum_candidates = 9
+row_forwards = 92160
+forward_calls = 10944
+backward_calls = 0
+independent_row_forwards = 92160
+independent_forward_calls = 5760
+
+[combined_work]
+wrapper_row_forwards = 482560
+wrapper_forward_calls = 39824
+wrapper_backward_calls = 320
+independent_row_forwards = 410880
+independent_forward_calls = 25680
+independent_backward_calls = 320
+inline_row_forwards = 893440
+inline_forward_calls = 65504
+inline_backward_calls = 640
+unchanged_native_proposal_row_forward_cap = 2088960
+unchanged_native_proposal_forward_call_cap = 2088960
+real_capacity_qualified = false

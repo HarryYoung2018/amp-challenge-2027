@@ -1,0 +1,158 @@
+schema_version = 1
+artifact = "generator_oracle_namespace_split_v1"
+status = "predeclared_non_authorizing_data_preparation_only"
+execution_authorized = false
+oracle_calls_authorized = false
+scientific_evidence_accepted = false
+production_input_eligible = false
+biological_superiority_claim_allowed = false
+
+[policy]
+partition = "whole_union_component_to_oracle_if_any_member_has_hc50_or_hemolysis_percent_observation_else_generator"
+partition_information = "endpoint_availability_only_never_measurement_relation_bound_or_value"
+safety_endpoints = ["hc50", "hemolysis_percent"]
+generator_fold_count = 5
+generator_fold_order = "union_components_sorted_by_descending_sequence_count_then_union_component_id"
+generator_fold_assignment = "assign_to_smallest_current_sequence_count_then_smallest_fold_index"
+downstream_checkpoint_training_fold_triples = ["012", "013", "014", "023", "024", "034", "123", "124", "134", "234"]
+source_fold_roles_used = false
+source_sampling_weights_used = false
+endpoint_values_used = false
+
+[limits]
+maximum_input_file_bytes = 33554432
+maximum_input_records = 10000
+maximum_output_file_bytes = 16777216
+maximum_output_records = 4096
+maximum_study_keys_per_sequence = 64
+maximum_json_depth = 16
+maximum_json_containers = 4096
+maximum_json_string_bytes = 65536
+
+[authorities]
+parser_v7_job = 222995
+endpoint_context_job = 223141
+endpoint_context_audit_job = 223143
+homology_study_split_job = 223222
+homology_study_split_audit_job = 223225
+categorical_corpus_job = 223443
+categorical_corpus_audit_job = 223445
+gate1_union_job = 223248
+gate1_union_audit_job = 223250
+
+[expected]
+total_sequences = 1113
+total_assay_observations = 6079
+total_endpoint_ledger_rows = 6079
+total_union_components = 278
+total_homology_components = 597
+total_study_keys = 435
+total_study_membership_rows = 1136
+total_gate1_contexts = 2492
+total_gate1_sequences = 952
+total_gate1_union_components = 213
+generator_sequences = 698
+generator_union_components = 226
+generator_homology_components = 417
+generator_study_keys = 307
+generator_study_membership_rows = 713
+oracle_sequences = 415
+oracle_union_components = 52
+oracle_homology_components = 180
+oracle_study_keys = 128
+oracle_study_membership_rows = 423
+generator_fold_sequences = [140, 140, 140, 139, 139]
+generator_fold_union_components = [45, 45, 46, 45, 45]
+generator_fold_homology_components = [66, 82, 104, 86, 79]
+generator_fold_study_keys = [67, 66, 61, 60, 53]
+activity_contexts = 858
+activity_sequences = 371
+activity_union_components = 45
+activity_homology_components = 159
+activity_positive = 635
+activity_negative = 223
+activity_gram_positive = 372
+activity_gram_negative = 486
+hc50_observations = 37
+hc50_sequences = 29
+hc50_union_components = 10
+hc50_homology_components = 21
+hemolysis_percent_observations = 139
+hemolysis_percent_sequences = 95
+hemolysis_percent_union_components = 44
+hemolysis_percent_homology_components = 64
+any_safety_sequences = 124
+any_safety_union_components = 52
+hc50_hemolysis_sequence_overlap = 0
+
+[expected.activity_targets]
+enterococcus_faecalis = 20
+enterococcus_faecium = 1
+escherichia_coli = 382
+klebsiella_pneumoniae = 29
+pseudomonas_aeruginosa = 75
+staphylococcus_aureus = 351
+
+[inputs.parser_manifest]
+sha256 = "c83e446f89bbf48a4c3c2fea9a397328147267b231cafad6f913badb7c6c3379"
+bytes = 912
+
+[inputs.sequences]
+sha256 = "76305e284ce3689970c89e3f2b45c4adc0ceef2375e74dfcddc50882d8b14884"
+bytes = 2266355
+
+[inputs.assays]
+sha256 = "ca33b3ae0a4895513f898dab109a3297263b99a404c0a4ab4b43d86cc9e3d0bd"
+bytes = 15651836
+
+[inputs.endpoint_manifest]
+sha256 = "3a3722e685470a37ec9e5fb31aa2652cae9742966a3be3d29133692737054ae8"
+bytes = 680
+
+[inputs.endpoint_ledger]
+sha256 = "acd2ca8bfdf23588532463b399ffcf4a8068986aa28d75170cbf71b93c18f9f6"
+bytes = 13110213
+
+[inputs.study_membership]
+sha256 = "9bcf564f95bad6f4ddd49ddfcdf6c72f552fbd662c31693502b33e25b5c4ffaf"
+bytes = 977967
+
+[inputs.endpoint_receipt]
+sha256 = "0ac4f8b876c644ce6b568826094baafc5828ebe098f30b7d8b28b3fdb8bef3ca"
+bytes = 1426
+
+[inputs.split_manifest]
+sha256 = "420bfa5a23475b17090b8af0ff36b67171df21b968b5f3197a28672a2fe530eb"
+bytes = 622
+
+[inputs.assignments]
+sha256 = "a8149e03bf2cdf15c70de723613f4b5367db5b7fc887a05b621d3b77834a56a0"
+bytes = 322770
+
+[inputs.split_receipt]
+sha256 = "7786970354ad0c7f260f86931ec2b9b0b38360fc85f94327aa8bcae91d9055a6"
+bytes = 9041
+
+[inputs.corpus_manifest]
+sha256 = "ef4384be07ac6cccd68acb19bbe083d21a768df6363d2c6bd86a33a381b2af64"
+bytes = 3045
+
+[inputs.corpus]
+sha256 = "c03595a8650b732307ada7e030f996d65345238efaea55d25925ac433bec8bc7"
+bytes = 457439
+
+[inputs.corpus_receipt]
+sha256 = "6ae50c58098fbfeae3ec28035cf409df14f7818d978b160e68d2326e46c3e2c5"
+bytes = 2146
+
+[inputs.gate1_manifest]
+sha256 = "4e259cfb43033c069598d42fd54fec49a67ba55bfbb5c1e77eeef4887815fe2f"
+bytes = 871
+
+[inputs.gate1_examples]
+sha256 = "d3eecbf3014fd78cf7021818466893d292315b6e90e77cea85d4e1fbd5bec520"
+bytes = 1460469
+
+[inputs.gate1_receipt]
+sha256 = "1f6a6ce811d3fbecdbbbe7463e6052dc7766130372926d29952c70be65743e81"
+bytes = 7879

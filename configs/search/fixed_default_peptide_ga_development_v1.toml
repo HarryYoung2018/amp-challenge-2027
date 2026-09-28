@@ -1,0 +1,53 @@
+schema_version = 1
+artifact = "fixed_default_peptide_ga_development_config_v1"
+status = "development_only_blocked_on_tuning_and_campaign_assets"
+execution_authorized = false
+scientific_evidence_accepted = false
+automatic_production_eligible = false
+biological_superiority_claim_allowed = false
+tuning_study_accepted = false
+
+[support]
+alphabet = "ACDEFGHIKLMNPQRSTVWY"
+min_length = 8
+max_length = 50
+exact_training_overlap_forbidden = true
+
+[composition]
+method_controlled_seats = 14
+controller_private_reserve_seats = 2
+candidate_prefix_size = 256
+controller_owns_oracle_query_identity = true
+adapter_emits_reserve_seats = false
+adapter_observes_private_reserve_identities = false
+controller_candidate_consumption = "privately_veto_collisions_then_take_first_14_in_frozen_prefix_order"
+
+[search]
+proposal_attempt_cap = 65536
+tournament_size = 3
+elite_fraction = 0.25
+elite_parent_probability = 0.5
+rng = "sha256-rejection-counter-v1"
+resume = "attempt_index_and_retained_prefix_exact_replay"
+
+[search.operator_rates]
+substitution = 0.45
+insertion = 0.15
+deletion = 0.15
+two_parent_crossover = 0.25
+
+[fitness.objective_weights]
+gram_positive_activity = 0.5
+gram_negative_activity = 0.5
+
+[evidence]
+accepted_tuning_study = "missing_execution_blocking"
+accepted_training_sequences = "missing_execution_blocking"
+successor_training_homology_exclusion = "missing_execution_blocking"
+successor_training_homology_enforced_by_adapter = false
+successor_v2_namespace_composition_receipt = "missing_execution_blocking"
+accepted_campaign_archive = "missing_execution_blocking"
+accepted_controller_private_reserve_receipt = "missing_execution_blocking"
+accepted_objective_truth_mapping = "missing_execution_blocking"
+oracle_or_model_execution = "not_permitted_by_this_adapter"
+current_v1_resource_allocation = "zero_adapter_tuning_calls_and_zero_adapter_tuning_gpu_hours"

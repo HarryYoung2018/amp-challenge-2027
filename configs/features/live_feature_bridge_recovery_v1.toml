@@ -1,0 +1,85 @@
+schema_version = 1
+artifact = "live_feature_bridge_recovery_v1"
+status = "prospective_engineering_overlay_not_job_authorization"
+declared_date = "2026-09-10"
+repaired_source_commit = "f328aeb2189bdb13b59ea93467485b44bd905f99"
+original_contract_sha256 = "650a13cbf6a82bee8c799a006af2d34b4eea71bc7558fe463c20cbb0abb01744"
+original_document_sha256 = "8ab74d73d64a213968f5fbd29d7e1af120cdc15f5587b552567c00b9295486a6"
+retained_failure_document_sha256 = "914a925b8ec23daf56e1073bd1ffcc9ac972c07c238afbe2311930bc53e30de8"
+supersession_scope = "engineering_job_sequence_and_explicit_additional_recovery_allocation_only"
+original_declaration_result = "failed_not_reclassified"
+numerical_recipe_schedule_runtime_and_artifact_limits_unchanged = true
+original_four_launchers_unchanged = true
+oracle_calls = 0
+model_fits = 0
+scientific_evidence_accepted = false
+production_eligible = false
+
+[retained_failure]
+job_id = "234321"
+executed_commit = "b956dd512ec3ee5fb993f26d0cdf66e40167bea0"
+state = "FAILED"
+exit_code = "1:0"
+requested_cpu_seconds = 600
+actual_cpu_seconds = 34
+stdout_sha256 = "2ebd85ed094ffbcf0b325d64ac23a4b8facf2b68416bb524633f13d94a2a16a8"
+stderr_sha256 = "b0ba787a109f650b1e1b0b5c558eaaa8b65774df7bf1b0e6aa5b9fda912c066b"
+spool_sha256 = "391123d042c4998ffff952a5dd2af7a3728f1e5037dda6b9c6d00b91230aac55"
+
+[recovery]
+jobs_max = 1
+launcher = "cluster/slurm/recover_live_feature_bridge_v1.sbatch"
+job_name = "amp-live-feature-recovery"
+account = "bio"
+partition = "standard"
+nodes = 1
+tasks = 1
+cpus = 2
+memory_gib = 8
+gpu_count = 0
+wall_seconds = 240
+wall_minutes = 4
+format_scope = ["cluster/slurm/qualify_live_feature_bridge_v1.py", "cluster/slurm/audit_live_feature_bridge_v1.py", "tests/test_live_feature_bridge_qualification_v1.py"]
+safe_ruff_fixes_and_format_only = true
+test_scope = "all_seven_original_whole_test_files_collect_then_execute_no_exclusions"
+test_count_status = "238_source_prediction_not_observed_collection_or_pass"
+historical_array_reads = 0
+real_worker_requests = 0
+runtime_fit_within_cap_proven = false
+failure_policy = "retain_stop_no_automatic_retry_extension_or_downstream_submission"
+
+[allocation_ledger]
+original_requested_cpu_seconds = 4200
+additional_recovery_requested_cpu_seconds = 480
+five_job_requested_cpu_seconds_max = 4680
+requested_gpu_seconds_max = 600
+actual_cpu_seconds_so_far = 34
+future_requested_cpu_seconds = 4080
+actual_so_far_plus_future_requested_planning_subtotal = 4114
+planning_subtotal_is_original_ceiling_compliance = false
+planning_subtotal_is_hard_actual_cap = false
+failed_requests_refunded = false
+actual_acceptance_cpu_seconds_max = 4680
+actual_usage_includes_failures_and_termination_grace = true
+pre_submission_actual_plus_next_request_must_fit_acceptance_ceiling = true
+unexpected_overrun_policy = "retain_record_stop_no_acceptance_or_cap_extension"
+central_and_previous_component_allowances_reused = false
+
+[acceptance]
+required_success_sequence = ["RECOVERY", "EXACT", "GPU", "AUDIT"]
+retained_original_dev_failure_required = true
+original_all_four_jobs_green_claim_allowed = false
+exact_cpu_requested_seconds = 300
+gpu_requested_seconds = 600
+audit_cpu_requested_seconds = 300
+each_job_requires_separate_root_exact_source_and_launcher_approval = true
+recovery_requires_reviewed_clean_committed_overlay_and_launcher = true
+exact_requires_independent_recovery_scheduler_spool_logs_source_and_format_diff_review = true
+exact_requires_post_recovery_source_clean_reviewed_committed = true
+exact_gpu_audit_source_commit_must_match = true
+gpu_requires_authenticated_central_234275_and_exact_green = true
+gpu_requires_external_root_recovery_acceptance_gate = true
+audit_requires_external_root_gpu_artifact_pins = true
+overlay_job_chain_gate_is_external_to_original_numerical_auditor = true
+final_acceptance_requires_independent_numerical_audit_and_root_job_chain_audit = true
+installation_requeue_restart_automatic_followup_or_further_retry = false

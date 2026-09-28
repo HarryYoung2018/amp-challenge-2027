@@ -1,0 +1,160 @@
+schema_version = 1
+name = "equiformer_v3_residue_small"
+status = "research_probe"
+seed = 42
+evidence_doc = "docs/equiformer_v3_notes.md"
+
+[task]
+# Isolate the geometry backbone before attempting joint sequence generation.
+mode = "coordinate_denoising"
+observed_residue_identities = true
+generate_sequence = false
+coordinate_target = "normalized_epsilon"
+protocol_family = "multiscale_coordinate_diffusion_not_dens"
+
+[representation]
+granularity = "residue"
+coordinate_atom = "C_alpha"
+alphabet = "ACDEFGHIKLMNPQRSTVWY"
+min_length = 8
+max_length = 50
+center_coordinates = true
+use_pbc = false
+directed_sequence_edges = true
+sequence_edge_offsets = [-2, -1, 1, 2]
+
+[graph]
+use_radius_edges = true
+radius_angstrom = 10.0
+max_radius_neighbors = 64
+# Length is at most 50, so this cap exceeds the 49 possible non-self neighbors.
+# The graph audit must confirm that top-k truncation and cap swaps are absent.
+audit_neighbor_cap_swaps = true
+max_observed_neighbor_cap_swaps = 0
+smooth_cutoff_radius_edges_only = true
+permanent_sequence_edges_unattenuated = true
+radial_basis = "gaussian"
+num_radial_basis = 64
+use_smooth_cutoff = true
+envelope_exponent = 5
+
+[model]
+kind = "equiformer_v3_residue"
+initialization = "random"
+allow_material_checkpoint = false
+lmax = 2
+mmax = 2
+num_blocks = 4
+channels = 64
+attention_hidden_channels = 32
+attention_heads = 4
+attention_alpha_channels = 16
+attention_value_channels = 16
+ffn_hidden_channels = 256
+normalization = "merge_layer_norm"
+attention_activation = "sep-merge_gates2_swiglu"
+ffn_activation = "sep-merge_gates2_swiglu"
+# Appendix C does not tabulate Lmax=2/Mmax=2 attention. These values require a
+# local FP32 full-model equivariance test.
+attention_grid_phi = 8
+attention_grid_theta = 8
+# Appendix C Table 6 supports 8x8 for an Lmax=2 SwiGLU-S2 FFN (~1e-6 error).
+ffn_grid_phi = 8
+ffn_grid_theta = 8
+time_embedding = "fourier_log_sigma"
+time_embedding_dim = 64
+# P5 is the scientific reference. P6 enables these engineering switches on the
+# identical frozen P5 weights in a separate equivalence/throughput run.
+use_fused_edge_rotations = false
+torch_compile = false
+dynamic_shapes = false
+gradient_checkpointing = false
+
+[noise]
+# This is intentionally multi-scale; official DeNS uses fixed sigma and is not diffusion.
+distribution = "log_uniform"
+sigma_min_angstrom = 0.02
+sigma_max_angstrom = 5.0
+corrupt_all_valid_residues = true
+normalize_epsilon_target = true
+loss = "mse"
+
+[data]
+split = "accepted_homology_study_union"
+bucket_by_length = true
+sample_one_conformer_per_sequence_per_epoch = true
+require_standard_residues = true
+require_complete_ca_trace = true
+conformer_manifest_required = true
+assign_union_fold_before_conformer_expansion = true
+preserve_accepted_union_assignments = true
+predicted_structure_role = "excluded_from_denoising_training"
+predicted_structures_are_experimental_ground_truth = false
+provenance_status_required = true
+unknown_template_provenance_policy = "quarantine"
+cross_role_template_match_policy = "quarantine"
+force_conditioning = false
+num_workers = 8
+pin_memory = true
+
+[training]
+precision = "float32"
+optimizer = "adamw"
+learning_rate = 0.0002
+weight_decay = 0.001
+lr_schedule = "cosine"
+warmup_steps = 500
+max_steps = 20000
+batch_node_budget = 1024
+gradient_accumulation_steps = 2
+gradient_clip_norm = 1.0
+ema_decay = 0.999
+checkpoint_every_steps = 1000
+validate_every_steps = 1000
+wallclock_checkpoint_minutes = 15
+
+[ablation]
+reference_variant = "P5"
+parameter_match_tolerance_percent = 2.0
+screen_seed = 42
+confirmation_seeds = [17, 42, 91]
+screen_max_gpu_hours_per_variant = 2
+total_pilot_gpu_hours = 40
+data_and_fp32_invariance_gate_required = true
+initial_smoke_max_gpu_hours = 2
+match_by = "measured_trainable_parameters"
+report_a100_seconds_per_update = true
+
+[promotion]
+max_rotation_equivariance_relative_l2 = 0.0001
+max_invariant_output_absolute_change = 0.00001
+min_rmsd_improvement_over_p0_percent = 5.0
+min_geometry_valid_fraction = 0.95
+geometry_validity_scope = "ca_trace_spacing_clash_and_pseudotorsion_only"
+backbone_frames_required_for_chirality_or_peptide_bond_claims = true
+max_validity_drop_from_p0_fraction = 0.01
+max_peak_gpu_memory_gib = 72
+min_throughput_ratio_to_p0 = 0.50
+max_cutoff_slope_to_interior_p99_ratio = 2.0
+min_cutoff_jump_reduction_vs_p2_percent = 90.0
+min_ensemble_relative_improvement_percent = 2.0
+max_ece_increase = 0.01
+initial_ensemble_weight = 0.0
+initial_acquisition_quota = 0.0
+
+[paths]
+# The launcher resolves this environment variable; large artifacts never go in Git.
+scratch_root_env = "AMP_CHALLENGE_SCRATCH"
+run_subdir = "geometry/equiformer_v3_residue_small"
+
+[slurm]
+account = "bio"
+partition = "gpumid"
+nodes = 1
+ntasks = 1
+gres = "gpu:1"
+cpus_per_task = 8
+memory = "32G"
+time = "04:00:00"
+output = "logs/%x-%j.out"
+error = "logs/%x-%j.err"

@@ -1,0 +1,95 @@
+schema_version = 1
+artifact = "candidate_activity_scoring_development_v1"
+status = "predeclared_development_candidate_scoring_only"
+automatic_production_eligible = false
+
+expected_candidates = 115536
+expected_examples = 2492
+folds = 5
+batch_size = 2048
+oof_absolute_tolerance = 1e-12
+
+objectives = [
+  "broad_spectrum_activity",
+  "gram_positive_activity",
+  "gram_negative_activity",
+]
+target_aggregation = "equal_target_arithmetic_mean_within_declared_scope_v1"
+calibration_scope = "none_raw_logistic_probability"
+fit_sensitivity_semantics = "population_sd_across_five_outer_fold_complement_refits_diagnostic_not_posterior_or_aleatoric_uncertainty"
+training_scope = "all_2492_accepted_gate1_contexts_after_recipe_freeze"
+historical_method_choice_used_fold4 = true
+organizer_reference_used_for_model_fit = false
+forbidden_claims = [
+  "aleatoric_uncertainty",
+  "calibrated_uncertainty",
+  "epistemic_uncertainty",
+  "final_ranking",
+  "hemolysis_risk",
+  "mdr_eskape_activity",
+  "out_of_distribution",
+  "posterior_draws",
+  "production_ensemble",
+  "quality_probability",
+  "selectivity",
+]
+
+[candidate_pool]
+producer_job_id = 225275
+git_commit = "50435d805a73ec4756cde1f7db1e6e7a06d30eb4"
+publication_top_sha256 = "d248fe898629f83b9b0c5fc478a0d859dec46c95a82de663812a4b107eb2174c"
+manifest_sha256 = "2f6ec8de3d65f9580aef12bbe9bf4b414f13a831e76b8dbc7504c158a3d91990"
+candidates_sha256 = "77315bfbec533f5587123714199c2dd2eb2a51a16d95957ab53927494983dbf2"
+validation_summary_sha256 = "58e93fd08f670b0e8e8118bbd29a1a7c1378081fc17a646e87d3082abfbb135c"
+final_publication_check_sha256 = "ae8d5d9ecfcfbd3d5007715a52cab0e7f2f598e1f709eda6468ba5385af91296"
+
+[gate1]
+producer_job_id = 223248
+audit_job_id = 223250
+git_commit = "0468cc2cbc0b7c3b2a50f7866da1b1083c8ef1a8"
+publication_top_sha256 = "4e259cfb43033c069598d42fd54fec49a67ba55bfbb5c1e77eeef4887815fe2f"
+semantic_top_sha256 = "556e06fd2b1af1e678de88008bc1b87434fb8cf1179f38c897de7ee2c9fd779d"
+examples_sha256 = "d3eecbf3014fd78cf7021818466893d292315b6e90e77cea85d4e1fbd5bec520"
+oof_sha256 = "11eea907a242606b78261a9b37107647ce393db743be95c146cbbe5caced137c"
+independent_receipt_sha256 = "1f6a6ce811d3fbecdbbbe7463e6052dc7766130372926d29952c70be65743e81"
+
+[descriptor_logistic]
+l2 = 0.10
+max_iterations = 100
+tolerance = 1e-9
+prior_strength = 2.0
+
+[model_weights]
+descriptor_logistic = 1.0
+homology_knn = 0.0
+apex = 0.0
+esm_supervised = 0.0
+geometry = 0.0
+
+[[target]]
+name = "acinetobacter_baumannii"
+gram = "negative"
+
+[[target]]
+name = "enterococcus_faecalis"
+gram = "positive"
+
+[[target]]
+name = "enterococcus_faecium"
+gram = "positive"
+
+[[target]]
+name = "escherichia_coli"
+gram = "negative"
+
+[[target]]
+name = "klebsiella_pneumoniae"
+gram = "negative"
+
+[[target]]
+name = "pseudomonas_aeruginosa"
+gram = "negative"
+
+[[target]]
+name = "staphylococcus_aureus"
+gram = "positive"

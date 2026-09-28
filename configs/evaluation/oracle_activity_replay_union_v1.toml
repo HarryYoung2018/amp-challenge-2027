@@ -1,0 +1,20 @@
+schema_version = 1
+selection_config = "../acquisition/replay_union_v1_mixed.toml"
+objectives = ["broad_spectrum", "gram_positive", "gram_negative"]
+
+# The mixed policy is compared on the same fold candidates, diversity-component
+# cap, and seeds against LCB, descriptor-mean-only exploitation, and pure random.
+# replay.py makes the random control pure by zeroing all model values first.
+policies = ["mixed", "lcb", "mean", "random"]
+seeds = [17, 42, 91, 137, 271]
+
+group_column = "replay_round"
+prediction_scope_column = "prediction_scope"
+required_prediction_scope = "out_of_fold"
+prediction_fold_column = "prediction_fold"
+outcome_fold_column = "outcome_fold"
+
+[outcome_thresholds]
+broad_spectrum = 0.5
+gram_positive = 0.5
+gram_negative = 0.5

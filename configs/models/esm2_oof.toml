@@ -1,0 +1,48 @@
+schema_version = 1
+
+# Freeze this benchmark to the accepted parser-v4 DRAMP Gate-1 OOF artifact.
+metadata_model = "descriptor_logistic"
+expected_base_oof_sha256 = "5d03102366466ef0f47221584460c1366241be39906f4203f0796e9ca9a30ae8"
+expected_base_manifest_sha256 = "bb1e3a5d293f5b36ab41f0f01993cf358749ca2fba7bd2ac48a08ece29a843cf"
+
+# These are the model/cache/environment pins already used by AMP-Diffusion.
+expected_embedding_model = "esm2_t6_8M_UR50D"
+expected_model_checkpoint_sha256 = "46f002a9870c9bdecd0ea887acb1f9a38a6b561e8f8bf8a6990b679b9d31b928"
+expected_contact_regression_sha256 = "8f7a4557d57713b97ba0e484303007efb7230d25299c0ac47a0a1b12a87bbb9d"
+expected_environment_lock_sha256 = "aaf37baa3adf5070dd3090c43527daa2696741a7e3057c72c78d51a80af9e234"
+expected_trust_manifest_sha256 = "5e62db4fd3241e1fa6bbd83cc0f26e299c6d16e9fa1e449304fab2e4c98fd9ff"
+expected_embedding_worker_sha256 = "34fdb77e87aaa44044960655259cc60fb20b165bfb87c38ba19bee21565f2cba"
+expected_benchmark_code_sha256 = "d28c918b1e61f28a1873b456088b98be9a5067f44cf0952426ef8f1798597276"
+expected_python_version = "3.10.19"
+expected_torch_version = "2.5.1+cu121"
+expected_fair_esm_version = "2.0.0"
+expected_numpy_version = "2.2.6"
+expected_cuda_runtime = "12.1"
+expected_cudnn_version = 90100
+expected_device_type = "cuda"
+representation_layer = 6
+embedding_dimension = 320
+embedding_batch_size = 128
+
+# Reuse the frozen outer folds. No hyperparameter is selected on OOF outcomes.
+folds = 5
+homology_identity_threshold = 0.80
+similarity_bin_edges = [0.0, 0.4, 0.6, 0.8]
+context_features = "gram_one_hot"
+l2 = 0.10
+prior_strength = 2.0
+max_iterations = 100
+tolerance = 1e-9
+calibration_bins = 10
+bootstrap_replicates = 1000
+seed = 20260902
+
+# Predeclared before the first real ESM2 run. Blends operate only on outer-OOF
+# probabilities and have no fitted weights.
+comparison_base_models = [
+  "descriptor_logistic",
+  "homology_knn",
+  "equal_weight_ensemble",
+]
+promotion_reference = "equal_weight_ensemble"
+promotion_rule = "paired_cluster_bootstrap_95ci_all_metrics"

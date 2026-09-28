@@ -1,0 +1,33 @@
+# Natural endpoint units and signs. Production weights/risk penalties are fit
+# exclusively from homology-clustered out-of-fold predictions.
+
+[[endpoint]]
+name = "broad_spectrum_activity"
+direction = "maximize"
+objective_weight = 1.0
+risk_penalty = 1.0
+
+[[endpoint]]
+name = "gram_positive_activity"
+direction = "maximize"
+objective_weight = 1.0
+risk_penalty = 1.0
+
+[[endpoint]]
+name = "gram_negative_activity"
+direction = "maximize"
+objective_weight = 1.0
+risk_penalty = 1.0
+
+[[endpoint]]
+name = "mdr_eskape_activity"
+direction = "maximize"
+objective_weight = 1.0
+risk_penalty = 1.2
+
+[[endpoint]]
+name = "hemolysis_risk"
+direction = "minimize"
+objective_weight = 1.0
+risk_penalty = 1.2
+

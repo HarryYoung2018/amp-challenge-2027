@@ -1,0 +1,421 @@
+{
+  "evaluation": "existing_homology_study_grouped_five_fold_predictions_not_biological_validation",
+  "rows": 2492,
+  "unique_sequences": 952,
+  "embedding_checkpoint_sha256": "46f002a9870c9bdecd0ea887acb1f9a38a6b561e8f8bf8a6990b679b9d31b928",
+  "examples_sha256": "d3eecbf3014fd78cf7021818466893d292315b6e90e77cea85d4e1fbd5bec520",
+  "ensemble_weights": {
+    "random_forest": 0.3333333333333333,
+    "lightgbm": 0.3333333333333333,
+    "cosine_neighbors": 0.3333333333333333
+  },
+  "metrics": {
+    "embedding_ensemble": {
+      "rows": 2492,
+      "positive_rate": 0.6946227929373997,
+      "brier": 0.20072627806065446,
+      "log_loss": 0.5856637851116133,
+      "roc_auc": 0.6750509188933955,
+      "average_precision": 0.8261434492922717
+    },
+    "random_forest": {
+      "rows": 2492,
+      "positive_rate": 0.6946227929373997,
+      "brier": 0.19922592265610212,
+      "log_loss": 0.5802723729831348,
+      "roc_auc": 0.6724539224818207,
+      "average_precision": 0.827260743340838
+    },
+    "lightgbm": {
+      "rows": 2492,
+      "positive_rate": 0.6946227929373997,
+      "brier": 0.22892017730452496,
+      "log_loss": 0.6978316342688433,
+      "roc_auc": 0.6622257344808399,
+      "average_precision": 0.817133771220254
+    },
+    "cosine_neighbors": {
+      "rows": 2492,
+      "positive_rate": 0.6946227929373997,
+      "brier": 0.20674690421055633,
+      "log_loss": 0.6065932276065508,
+      "roc_auc": 0.6510937978017006,
+      "average_precision": 0.8054080113935218
+    },
+    "linear_embedding": {
+      "rows": 2492,
+      "positive_rate": 0.6946227929373997,
+      "brier": 0.23358786646681162,
+      "log_loss": 0.727349281788365,
+      "roc_auc": 0.6471132802091565,
+      "average_precision": 0.8064920716908947
+    },
+    "descriptor_logistic": {
+      "rows": 2492,
+      "positive_rate": 0.6946227929373997,
+      "brier": 0.1966243731756166,
+      "log_loss": 0.5807445352847428,
+      "roc_auc": 0.6843480294027667,
+      "average_precision": 0.8185496840049213
+    }
+  },
+  "by_target": {
+    "acinetobacter_baumannii": {
+      "embedding_ensemble": {
+        "rows": 5,
+        "positive_rate": 0.6,
+        "brier": 0.3067097220367761,
+        "log_loss": 0.8200878086062884,
+        "roc_auc": 0.5,
+        "average_precision": 0.6388888888888888
+      },
+      "random_forest": {
+        "rows": 5,
+        "positive_rate": 0.6,
+        "brier": 0.31114883422851564,
+        "log_loss": 0.8334457758753488,
+        "roc_auc": 0.16666666666666666,
+        "average_precision": 0.5333333333333333
+      },
+      "lightgbm": {
+        "rows": 5,
+        "positive_rate": 0.6,
+        "brier": 0.3125,
+        "log_loss": 0.8317766166719343,
+        "roc_auc": 0.25,
+        "average_precision": 0.6
+      },
+      "cosine_neighbors": {
+        "rows": 5,
+        "positive_rate": 0.6,
+        "brier": 0.29793548012311877,
+        "log_loss": 0.7988990259450767,
+        "roc_auc": 0.5,
+        "average_precision": 0.6388888888888888
+      },
+      "linear_embedding": {
+        "rows": 5,
+        "positive_rate": 0.6,
+        "brier": 0.5030965278807512,
+        "log_loss": 1.7629258024654888,
+        "roc_auc": 0.3333333333333333,
+        "average_precision": 0.7
+      },
+      "descriptor_logistic": {
+        "rows": 5,
+        "positive_rate": 0.6,
+        "brier": 0.34224545314028265,
+        "log_loss": 0.9080361219380734,
+        "roc_auc": 0.16666666666666666,
+        "average_precision": 0.5333333333333333
+      }
+    },
+    "enterococcus_faecalis": {
+      "embedding_ensemble": {
+        "rows": 93,
+        "positive_rate": 0.6129032258064516,
+        "brier": 0.2963166863561181,
+        "log_loss": 0.800203343849229,
+        "roc_auc": 0.30409356725146197,
+        "average_precision": 0.5032018543748258
+      },
+      "random_forest": {
+        "rows": 93,
+        "positive_rate": 0.6129032258064516,
+        "brier": 0.2790203801085607,
+        "log_loss": 0.7581940240997922,
+        "roc_auc": 0.3425925925925926,
+        "average_precision": 0.5158094335999648
+      },
+      "lightgbm": {
+        "rows": 93,
+        "positive_rate": 0.6129032258064516,
+        "brier": 0.36350097059241737,
+        "log_loss": 1.0586896017772598,
+        "roc_auc": 0.35477582846003897,
+        "average_precision": 0.5313294495794276
+      },
+      "cosine_neighbors": {
+        "rows": 93,
+        "positive_rate": 0.6129032258064516,
+        "brier": 0.28565390317702605,
+        "log_loss": 0.7795067327010459,
+        "roc_auc": 0.28118908382066277,
+        "average_precision": 0.502041823361544
+      },
+      "linear_embedding": {
+        "rows": 93,
+        "positive_rate": 0.6129032258064516,
+        "brier": 0.3301345661045434,
+        "log_loss": 1.01270962866916,
+        "roc_auc": 0.4137426900584795,
+        "average_precision": 0.5778542057922607
+      },
+      "descriptor_logistic": {
+        "rows": 93,
+        "positive_rate": 0.6129032258064516,
+        "brier": 0.25013057760025464,
+        "log_loss": 0.7243781943400174,
+        "roc_auc": 0.5584795321637427,
+        "average_precision": 0.6364506757411068
+      }
+    },
+    "enterococcus_faecium": {
+      "embedding_ensemble": {
+        "rows": 5,
+        "positive_rate": 0.8,
+        "brier": 0.29260674732118286,
+        "log_loss": 0.8142274507244359,
+        "roc_auc": 0.0,
+        "average_precision": 0.6791666666666667
+      },
+      "random_forest": {
+        "rows": 5,
+        "positive_rate": 0.8,
+        "brier": 0.26347802734375003,
+        "log_loss": 0.7372705483430766,
+        "roc_auc": 0.125,
+        "average_precision": 0.7250000000000001
+      },
+      "lightgbm": {
+        "rows": 5,
+        "positive_rate": 0.8,
+        "brier": 0.28600000000000003,
+        "log_loss": 0.7824046010856293,
+        "roc_auc": 0.125,
+        "average_precision": 0.7250000000000001
+      },
+      "cosine_neighbors": {
+        "rows": 5,
+        "positive_rate": 0.8,
+        "brier": 0.3347179382598483,
+        "log_loss": 1.018754721727112,
+        "roc_auc": 0.0,
+        "average_precision": 0.6791666666666667
+      },
+      "linear_embedding": {
+        "rows": 5,
+        "positive_rate": 0.8,
+        "brier": 0.4077267366380582,
+        "log_loss": 2.1048908587893798,
+        "roc_auc": 0.125,
+        "average_precision": 0.6791666666666667
+      },
+      "descriptor_logistic": {
+        "rows": 5,
+        "positive_rate": 0.8,
+        "brier": 0.353803293594975,
+        "log_loss": 0.9277292605844567,
+        "roc_auc": 0.125,
+        "average_precision": 0.6791666666666667
+      }
+    },
+    "escherichia_coli": {
+      "embedding_ensemble": {
+        "rows": 974,
+        "positive_rate": 0.7053388090349076,
+        "brier": 0.17015177784378127,
+        "log_loss": 0.5099447084851251,
+        "roc_auc": 0.7785808113851569,
+        "average_precision": 0.8902364097976485
+      },
+      "random_forest": {
+        "rows": 974,
+        "positive_rate": 0.7053388090349076,
+        "brier": 0.17584135290465358,
+        "log_loss": 0.5222267076344665,
+        "roc_auc": 0.7612809315866085,
+        "average_precision": 0.8865174837516208
+      },
+      "lightgbm": {
+        "rows": 974,
+        "positive_rate": 0.7053388090349076,
+        "brier": 0.18653442547058566,
+        "log_loss": 0.5773913359348327,
+        "roc_auc": 0.7633654377716579,
+        "average_precision": 0.8780807885949307
+      },
+      "cosine_neighbors": {
+        "rows": 974,
+        "positive_rate": 0.7053388090349076,
+        "brier": 0.1781721781949118,
+        "log_loss": 0.5383028072196215,
+        "roc_auc": 0.7481196334109318,
+        "average_precision": 0.8633931169470468
+      },
+      "linear_embedding": {
+        "rows": 974,
+        "positive_rate": 0.7053388090349076,
+        "brier": 0.195144688469649,
+        "log_loss": 0.6165664295857363,
+        "roc_auc": 0.7360690575090404,
+        "average_precision": 0.8619200812340351
+      },
+      "descriptor_logistic": {
+        "rows": 974,
+        "positive_rate": 0.7053388090349076,
+        "brier": 0.17679003411831695,
+        "log_loss": 0.5282662818101898,
+        "roc_auc": 0.7536580294062454,
+        "average_precision": 0.8709653671577834
+      }
+    },
+    "klebsiella_pneumoniae": {
+      "embedding_ensemble": {
+        "rows": 73,
+        "positive_rate": 0.684931506849315,
+        "brier": 0.22548901615340614,
+        "log_loss": 0.6402926835855453,
+        "roc_auc": 0.5930434782608696,
+        "average_precision": 0.785552752514735
+      },
+      "random_forest": {
+        "rows": 73,
+        "positive_rate": 0.684931506849315,
+        "brier": 0.2207370279435809,
+        "log_loss": 0.6268720849575876,
+        "roc_auc": 0.5852173913043478,
+        "average_precision": 0.7903657644505239
+      },
+      "lightgbm": {
+        "rows": 73,
+        "positive_rate": 0.684931506849315,
+        "brier": 0.2694203085238668,
+        "log_loss": 0.8197457217172316,
+        "roc_auc": 0.6173913043478262,
+        "average_precision": 0.8157465695730052
+      },
+      "cosine_neighbors": {
+        "rows": 73,
+        "positive_rate": 0.684931506849315,
+        "brier": 0.23228531721851153,
+        "log_loss": 0.6563235232153894,
+        "roc_auc": 0.557391304347826,
+        "average_precision": 0.7487355066046296
+      },
+      "linear_embedding": {
+        "rows": 73,
+        "positive_rate": 0.684931506849315,
+        "brier": 0.2686588597635621,
+        "log_loss": 0.8493757355706383,
+        "roc_auc": 0.6104347826086957,
+        "average_precision": 0.8035889812117003
+      },
+      "descriptor_logistic": {
+        "rows": 73,
+        "positive_rate": 0.684931506849315,
+        "brier": 0.2141551153416126,
+        "log_loss": 0.6384390520619498,
+        "roc_auc": 0.6156521739130434,
+        "average_precision": 0.7616658708314414
+      }
+    },
+    "pseudomonas_aeruginosa": {
+      "embedding_ensemble": {
+        "rows": 494,
+        "positive_rate": 0.7044534412955465,
+        "brier": 0.2319012614053341,
+        "log_loss": 0.6665884548834754,
+        "roc_auc": 0.5747028027082349,
+        "average_precision": 0.7794329202318266
+      },
+      "random_forest": {
+        "rows": 494,
+        "positive_rate": 0.7044534412955465,
+        "brier": 0.21126369613330875,
+        "log_loss": 0.6130899136008865,
+        "roc_auc": 0.6176684774051331,
+        "average_precision": 0.7880798489575372
+      },
+      "lightgbm": {
+        "rows": 494,
+        "positive_rate": 0.7044534412955465,
+        "brier": 0.2932725571176215,
+        "log_loss": 0.9341808399972661,
+        "roc_auc": 0.5509860651865848,
+        "average_precision": 0.7605955873638811
+      },
+      "cosine_neighbors": {
+        "rows": 494,
+        "positive_rate": 0.7044534412955465,
+        "brier": 0.22859675596223636,
+        "log_loss": 0.6688928915006008,
+        "roc_auc": 0.569969296173831,
+        "average_precision": 0.7851913102838606
+      },
+      "linear_embedding": {
+        "rows": 494,
+        "positive_rate": 0.7044534412955465,
+        "brier": 0.26424512938959877,
+        "log_loss": 0.8755475212993884,
+        "roc_auc": 0.6050523539600063,
+        "average_precision": 0.7921033334275823
+      },
+      "descriptor_logistic": {
+        "rows": 494,
+        "positive_rate": 0.7044534412955465,
+        "brier": 0.1867462273747835,
+        "log_loss": 0.5640125503168495,
+        "roc_auc": 0.7076149425287357,
+        "average_precision": 0.8339976915881759
+      }
+    },
+    "staphylococcus_aureus": {
+      "embedding_ensemble": {
+        "rows": 848,
+        "positive_rate": 0.6863207547169812,
+        "brier": 0.20390105874524236,
+        "log_loss": 0.5945300195103952,
+        "roc_auc": 0.6518874505852259,
+        "average_precision": 0.7923245599426452
+      },
+      "random_forest": {
+        "rows": 848,
+        "positive_rate": 0.6863207547169812,
+        "brier": 0.20743092328087323,
+        "log_loss": 0.601882352423216,
+        "roc_auc": 0.6363847763739245,
+        "average_precision": 0.7914693310437891
+      },
+      "lightgbm": {
+        "rows": 848,
+        "positive_rate": 0.6863207547169812,
+        "brier": 0.22104025404608924,
+        "log_loss": 0.6471243628530072,
+        "roc_auc": 0.6479084308709919,
+        "average_precision": 0.801782751420028
+      },
+      "cosine_neighbors": {
+        "rows": 848,
+        "positive_rate": 0.6863207547169812,
+        "brier": 0.21469443165234428,
+        "log_loss": 0.6219295854811729,
+        "roc_auc": 0.6116192543213704,
+        "average_precision": 0.7645526839438985
+      },
+      "linear_embedding": {
+        "rows": 848,
+        "positive_rate": 0.6863207547169812,
+        "brier": 0.24366063091313445,
+        "log_loss": 0.7122319868031104,
+        "roc_auc": 0.5979026173681627,
+        "average_precision": 0.768102599781163
+      },
+      "descriptor_logistic": {
+        "rows": 848,
+        "positive_rate": 0.6863207547169812,
+        "brier": 0.21599775651982914,
+        "log_loss": 0.6260728464660069,
+        "roc_auc": 0.5862497739193344,
+        "average_precision": 0.7321603041116418
+      }
+    }
+  },
+  "uncertainty": "member_disagreement_is_not_calibrated_uncertainty",
+  "unsupported_endpoints": [
+    "continuous_MIC",
+    "hemolysis",
+    "MDR_strain_specific_activity"
+  ],
+  "oracle_sha256": "87bbe47b38d1503a3977b856ca0db63270bf848b937eb8420890642f6ad95b55"
+}

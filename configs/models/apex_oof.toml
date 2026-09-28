@@ -1,0 +1,56 @@
+schema_version = 1
+metadata_model = "descriptor_logistic"
+expected_member_count = 8
+calibration_l2 = 0.1
+calibration_prior_strength = 2.0
+calibration_max_iterations = 100
+calibration_tolerance = 1e-9
+calibration_bins = 10
+bootstrap_replicates = 500
+seed = 20260902
+activity_threshold_um = 16.0
+
+[[target]]
+name = "acinetobacter_baumannii"
+strain_regex = '(?i)(?:^|[^A-Za-z])(?:Acinetobacter|A\.)\s+baumannii\b'
+endpoints = ["apex_mic_um__a_baumannii_atcc_19606"]
+
+[[target]]
+name = "escherichia_coli"
+strain_regex = '(?i)(?:^|[^A-Za-z])(?:Escherichia|E\.)\s+coli\b'
+endpoints = [
+  "apex_mic_um__e_coli_atcc_11775",
+  "apex_mic_um__e_coli_aic221",
+  "apex_mic_um__e_coli_aic222",
+]
+
+[[target]]
+name = "klebsiella_pneumoniae"
+strain_regex = '(?i)(?:^|[^A-Za-z])(?:Klebsiella|K\.)\s+pneumoniae\b'
+endpoints = ["apex_mic_um__k_pneumoniae_atcc_13883"]
+
+[[target]]
+name = "pseudomonas_aeruginosa"
+strain_regex = '(?i)(?:^|[^A-Za-z])(?:Pseudomonas|P\.)\s+aeruginosa\b'
+endpoints = [
+  "apex_mic_um__p_aeruginosa_pa01",
+  "apex_mic_um__p_aeruginosa_pa14",
+]
+
+[[target]]
+name = "staphylococcus_aureus"
+strain_regex = '(?i)(?:^|[^A-Za-z])(?:Staphylococcus|S\.)\s+aureus\b'
+endpoints = [
+  "apex_mic_um__s_aureus_atcc_12600",
+  "apex_mic_um__s_aureus_atcc_baa_1556_mrsa",
+]
+
+[[target]]
+name = "enterococcus_faecalis"
+strain_regex = '(?i)(?:^|[^A-Za-z])(?:Enterococcus|E\.)\s+faecalis\b'
+endpoints = ["apex_mic_um__vancomycin_resistant_e_faecalis_atcc_700802"]
+
+[[target]]
+name = "enterococcus_faecium"
+strain_regex = '(?i)(?:^|[^A-Za-z])(?:Enterococcus|E\.)\s+faecium\b'
+endpoints = ["apex_mic_um__vancomycin_resistant_e_faecium_atcc_700221"]

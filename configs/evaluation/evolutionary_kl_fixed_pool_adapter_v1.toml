@@ -1,0 +1,106 @@
+schema_version = 1
+artifact = "evolutionary_kl_fixed_pool_adapter_v1"
+status = "preflight_only_blocked_on_authenticated_filtered_census"
+evidence_class = "retrospective_real_label_fixed_pool_activity_only"
+decision_date = "2026-09-08"
+execution_authorized = false
+oracle_reveal_authorized = false
+automatic_production_eligible = false
+independent_audit_accepted = false
+scientific_evidence_accepted = false
+activity_only = true
+de_novo_claim_allowed = false
+generator_or_search_claim_allowed = false
+biological_superiority_claim_allowed = false
+rotation_count = 20
+outer_inference_units = 5
+outer_folds = [0, 1, 2, 3, 4]
+objectives = [
+  "broad_spectrum_activity",
+  "gram_positive_activity",
+  "gram_negative_activity",
+]
+aggregation = "equal_context_weight_binary_activity_mean_source_observations_audit_only"
+tentative_unique_sequence_budget_to_check = 96
+tentative_unique_sequence_budget_status = "not_assumed_and_not_authorized_until_authenticated_filtered_census_passes"
+
+[sequence_filter]
+alphabet = "ACDEFGHIKLMNPQRSTVWY"
+min_length = 8
+max_length = 50
+canonical_sequence_function = "amp_challenge.sequences.canonicalize_sequence"
+free_termini_and_modification_compliance_established = false
+chemical_metadata_status = "not_available_in_gate1_union"
+
+[representations]
+descriptor_enabled = false
+descriptor_status = "blocked_missing_frozen_descriptor_schema_and_authenticated_producer"
+accepted_esm_feature_count = 320
+accepted_esm_use = "known_sequence_representation_input_only"
+esm_pretraining_membership_independence_established = false
+spectral_contact_enabled = false
+spectral_contact_status = "blocked_missing_accepted_contact_matrix_producer"
+
+[gate1]
+producer_job_id = 223248
+audit_job_id = 223250
+git_commit = "0468cc2cbc0b7c3b2a50f7866da1b1083c8ef1a8"
+publication_top_sha256 = "4e259cfb43033c069598d42fd54fec49a67ba55bfbb5c1e77eeef4887815fe2f"
+semantic_top_sha256 = "556e06fd2b1af1e678de88008bc1b87434fb8cf1179f38c897de7ee2c9fd779d"
+examples_sha256 = "d3eecbf3014fd78cf7021818466893d292315b6e90e77cea85d4e1fbd5bec520"
+folds_sha256 = "37e035d488634e50ad95dfefe01d235474867aeb96b8205b543d22c25fdc9988"
+independent_receipt_sha256 = "1f6a6ce811d3fbecdbbbe7463e6052dc7766130372926d29952c70be65743e81"
+expected_contexts = 2492
+expected_sequences = 952
+expected_support_sequences = 650
+expected_support_by_fold = [202, 126, 112, 97, 113]
+expected_support_ids_sha256 = "990ef4b248f7d95a9864fef7da5bc648a5e6468c1adc74ba87c3af38dedb21c9"
+expected_support_esm_id_row_pairs_sha256 = "e5db5f6bbb17c6af789bcd85abbf2e54ad0f7d4479b40994ade90fd498763807"
+
+[esm]
+producer_job_id = 223330
+audit_job_id = 223334
+git_commit = "753652df2cf9ca9f7e98dc53f3a1884d1f0a75f6"
+publication_top_sha256 = "3f6ed4bb54554fa5793e545c67553b48860e954d29ffeb4998460a54883aa603"
+semantic_top_sha256 = "938b7cb80d47f6f68b4d357019d3b7a1cdf9d7e3bf12c98a40af3a950585fa1e"
+index_sha256 = "3d72d71f729c31984c2d69aad1c3f70104a3abdf0f0ee47afbdb99326a282ebe"
+manifest_sha256 = "1b3ed56beebbec67ebb99110bc5b710a205dd86fab88b3f66552684fb942cc6f"
+matrix_sha256 = "1a5846487921c2e7498693918c12da57f354de7db1b79912c29e723984d05f8c"
+tensor_data_sha256 = "91ab5a36dbc02222ddf62dbecced3263c357e1ecd65a6420162946c575558c58"
+sequence_ids_sha256 = "45a704812a51d51876b8e32e86c8890db5b7d6aa52de1b1f35634e797acd3f03"
+independent_receipt_sha256 = "a5465d69a81e56e13d0b850b71de1df91e6e780260045d09c69b01680b5e94dc"
+records = 952
+dimensions = 320
+
+[provenance]
+gate1_twins_required = true
+esm_twins_required = true
+independent_receipts_required = true
+stage_global_seal_required_at_runtime = true
+controller_stage_and_prepare_authority_required_at_publish_and_verify = true
+prepare_role = "prepare-capability"
+pool_outcome_role = "pool-outcome-vault"
+preflight_publication_is_path_free = true
+preflight_publication_requires_no_replace_phase_seal = true
+
+[claims]
+conditional_successor = [
+  "authenticated_sequence_filtered_pool_census_after_controller_bound_production_and_independent_audit",
+  "retrospective_within_pool_activity_label_efficiency_after_separate_preregistration_and_oracle_protocol",
+]
+conditional_successor_prerequisites = [
+  "controller_authoritative_stage_digest_and_exact_prepare_leaf_inventory",
+  "producer_independent_excluded_node_preflight_reconstruction_accepted",
+  "separate_preregistration_before_any_outcome_reveal",
+  "append_only_logical_oracle_call_ledger_and_matched_wall_time_budget",
+  "terminal_outer_commitment_and_abstention_contract",
+]
+forbidden = [
+  "de_novo_generation_quality",
+  "diffusion_proposal_operator_performance",
+  "trajectory_or_endpoint_kl_effectiveness",
+  "endpoint_distillation_effectiveness",
+  "toxicity_selectivity_or_safety",
+  "biological_superiority",
+  "generator_mixture_or_production_promotion",
+]

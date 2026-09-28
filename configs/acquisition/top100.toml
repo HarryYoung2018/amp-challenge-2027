@@ -1,0 +1,35 @@
+# Final wet-lab portfolio policy. These are locked guardrails, not tuned on the
+# final candidate pool. Posterior rewards must already be normalized to [0, 1]
+# and oriented so larger is better.
+schema_version = 1
+objectives = [
+  "broad_spectrum_activity",
+  "gram_positive_activity",
+  "gram_negative_activity",
+  "mdr_eskape_activity",
+  "selectivity",
+]
+
+[portfolio]
+portfolio_size = 100
+uniform_sample_size = 25
+cvar_alpha = 0.10
+panel_draws = 10000
+panel_seed = 20260903
+# This second design is consulted once, after search, and can only force S0 fallback.
+confirmation_panel_draws = 10000
+confirmation_panel_seed = 20260904
+objective_weights = [0.20, 0.20, 0.20, 0.20, 0.20]
+mean_tolerance = 0.01
+cvar_tolerance = 0.01
+category_tolerances = [0.02, 0.02, 0.02, 0.02, 0.02]
+novelty_weight = 0.25
+novelty_cap = 1.0
+minimum_modifier_gain = 1e-10
+maximum_swaps = 25
+diversity_saturation_fraction = 0.95
+minimum_candidate_quality = 0.90
+minimum_portfolio_quality = 0.95
+addition_shortlist_size = 256
+removal_shortlist_size = 100
+maximum_proposals_per_step = 4096

@@ -1,0 +1,125 @@
+{
+  "generator": "six_layer_evolutionary_exact_checkpoint_mixture",
+  "release": "/lustre/scratch/users/yonghan.yang/amp_challenge/competition-20260920/evolutionary_kl-no-updates-73121",
+  "checkpoint_index_sha256": "c4aad66f723a7103bd49d814ec89481938a8042a56c8caa23f117945473a5232",
+  "oracle_sha256": "87bbe47b38d1503a3977b856ca0db63270bf848b937eb8420890642f6ad95b55",
+  "seed": 42,
+  "library_size": 50000,
+  "top_size": 100,
+  "raw_proposals": 50000,
+  "accepted_search_updates": 0,
+  "submission_scored_sequences": 50000,
+  "search_evaluations_separate": 1024,
+  "library_sha256": "da5a539e0c87d96e619b35cc4797f87c98f17299a1e74748bee32ea3522262af",
+  "top_sha256": "9468806fa0de304844e6b7fa89be34f59916e8688844e7834626bf08bbd79958",
+  "sampling": "one_exact_mixture_component_per_trajectory_half_full_mask_half_level16_top100_paid_parents",
+  "five_percent_bound_claimed_for_selected_library": false,
+  "target_names": [
+    "acinetobacter_baumannii",
+    "enterococcus_faecalis",
+    "enterococcus_faecium",
+    "escherichia_coli",
+    "klebsiella_pneumoniae",
+    "pseudomonas_aeruginosa",
+    "staphylococcus_aureus"
+  ],
+  "library_target_quantiles": [
+    [
+      0.5928671965051722,
+      0.4644658013531983,
+      0.7913418182903988,
+      0.4754467505233669,
+      0.5375695769015608,
+      0.3209823573651085,
+      0.5419124235166387
+    ],
+    [
+      0.6012014113697528,
+      0.7486005506153002,
+      0.7929542513252136,
+      0.9016980699948987,
+      0.8379675863957379,
+      0.8367897899419807,
+      0.8191682068269632
+    ],
+    [
+      0.6096098819630894,
+      0.8633394698945706,
+      0.7947863337032395,
+      0.9816073213513733,
+      0.9405890998187607,
+      0.9789936518749691,
+      0.9576705239135259
+    ]
+  ],
+  "library_descriptor_names": [
+    "length",
+    "net_charge_proxy",
+    "charge_density",
+    "hydrophobic_fraction",
+    "mean_hydrophobicity",
+    "hydrophobic_moment",
+    "aromatic_fraction",
+    "proline_fraction",
+    "glycine_fraction",
+    "entropy_fraction",
+    "max_residue_fraction",
+    "synthesis_proxy"
+  ],
+  "library_descriptor_quantiles": [
+    [
+      27.0,
+      1.0,
+      0.034482758620689655,
+      0.3103448275862069,
+      -0.47896551724137926,
+      0.10214541973426837,
+      0.034482758620689655,
+      0.0,
+      0.034482758620689655,
+      0.6714148380549089,
+      0.1724137931034483,
+      0.6065306597126334
+    ],
+    [
+      29.0,
+      8.0,
+      0.27586206896551724,
+      0.4482758620689655,
+      -0.18370370370370367,
+      0.38373314585612117,
+      0.10344827586206896,
+      0.0,
+      0.10344827586206896,
+      0.7379876669687716,
+      0.2222222222222222,
+      0.8740172969508997
+    ],
+    [
+      29.0,
+      12.0,
+      0.41379310344827586,
+      0.5517241379310345,
+      0.19862068965517243,
+      0.673374301973452,
+      0.18518518518518517,
+      0.07407407407407407,
+      0.20689655172413793,
+      0.8127111774132312,
+      0.3103448275862069,
+      1.0
+    ]
+  ],
+  "descriptor_scope": "physicochemical_and_synthesis_proxies_not_measured_safety",
+  "top_reference_similarity_quantiles": [
+    0.5416666666666667,
+    0.5773504273504273,
+    0.6046511627906976
+  ],
+  "top_mean_activity": 0.8789702574770645,
+  "top_lower_decile_activity": 0.8670992661777916,
+  "top_mean_pairwise_indel_similarity": 0.5146351583707905,
+  "top_max_pairwise_indel_similarity": 0.8620689655172413,
+  "eligible_top": 100,
+  "warning": "Internal activity predictions, not official aggregation score, biological efficacy, or safety validation."
+}

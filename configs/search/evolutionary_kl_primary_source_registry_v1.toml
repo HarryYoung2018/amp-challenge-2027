@@ -1,0 +1,233 @@
+schema_version = 1
+artifact = "evolutionary_kl_primary_source_registry_v1"
+audit_date = "2026-09-09"
+status = "source_review_only_non_authorizing"
+execution_authorized = false
+oracle_calls_authorized = false
+scientific_evidence_accepted = false
+production_change_authorized = false
+transfer_claim_allowed = false
+
+[scope]
+successor_protocol = "configs/search/evolutionary_kl_successor_protocol_v2.toml"
+reviewed_successor_protocol_sha256 = "579d071fac1d70bf514761ff98e6d2019730fbdad484e548f9b672fda1a001af"
+superseded_unexecuted_successor_protocol_sha256 = "ae6ae49506fb7c2b81521feec70b5535a6d5316d5079caa01ee2b8464fd750b6"
+protocol_composition_status = "corrected_before_campaign_execution_independently_reviewed_non_authorizing"
+purpose = "freeze_primary_source_facts_and_adapter_boundaries_before_implementation"
+style_adaptations_are_reproductions = false
+published_results_transfer_to_amp_challenge = false
+source_defaults_override_matched_campaign_budget = false
+successor_protocol_tr2d2_tree_lifecycle_requires_amendment = false
+
+[[sources]]
+id = "arcadiamp"
+kind = "paper_and_official_repository"
+paper_url = "https://www.nature.com/articles/s41467-026-75030-8"
+paper_version = "nature_communications_17_2026_article_8396"
+paper_pdf_sha256 = "a4a8e0d24d01072a5f0d3b2ac2df36dd283b64e47cc7d83eac816f8072398c88"
+paper_license = "CC-BY-4.0"
+repository_url = "https://github.com/IBPA/ARCADIAMP"
+repository_commit = "70448c14a176399640a26095782e870b7204c338"
+repository_license = "Apache-2.0"
+campaign_method_id = "arcadiamp_style_iterative_d3pm"
+reproduction_claim_allowed = false
+transfer_reason = "different_data_model_scale_classifier_oracle_and_campaign_budget"
+
+[sources.observed_method]
+initial_training_sequences = 13950
+initialization = "random_not_pretrained"
+initial_weights = "equal"
+first_generated_candidates_approx = 100000
+first_generated_length = 20
+first_augmented_candidates = 16334
+first_augmented_predicted_mic_upper_ug_ml = 32
+first_augmented_predicted_mic_comparator = "strictly_less_than"
+first_augmented_similarity_upper_fraction = 0.50
+total_training_iterations = 5
+augmentation_rounds = 4
+later_dataset_growth = "approximately_double_each_round"
+later_length_range = [10, 50]
+later_activity_probability_min = 0.99998
+later_identity_max = 0.50
+later_similarity_max = 0.45
+short_length_range = [10, 13]
+short_activity_probability_min = 0.999975
+short_similarity_max = 0.70
+therapeutic_index = "log10_lc50_minus_log10_mic"
+unmeasured_augmented_mic_default_log10 = 2.0
+unmeasured_augmented_lc50_default_log10 = 2.4
+public_end_to_end_notebook_contains_training_augmentation_loop = false
+
+[sources.adapter_boundary]
+native_amino_acid_d3pm_required = true
+generator_namespace_only_initial_training = true
+revealed_responses_only_for_adaptive_weights = true
+unmeasured_predictions_may_be_logged_as_measured_truth = false
+hidden_surrogate_oracle_may_score_unsubmitted_tree_rollouts = false
+fixed_update_steps_and_failure_rule_required = true
+
+[[sources]]
+id = "tr2d2"
+kind = "arxiv_paper_and_official_repository"
+paper_url = "https://arxiv.org/abs/2509.25171v1"
+paper_version = "arxiv_2509.25171v1"
+paper_pdf_sha256 = "1cc5491662165722260dcd15e51a4d538e10139fa2a3c711d70e01905097fb66"
+paper_license = "CC-BY-NC-ND-4.0"
+repository_url = "https://github.com/sophtang/TR2-D2"
+repository_commit = "b5a3d097f38b6cc11dfafbaed9fca71ca4bf9ac6"
+repository_license = "MIT"
+campaign_method_id = "tr2d2_style_tree_offpolicy"
+reproduction_claim_allowed = false
+transfer_reason = "published_peptide_path_uses_peptune_smiles_model_and_noncanonical_chemistry"
+
+[sources.observed_method]
+peptide_backbone = "peptune_masked_diffusion_over_peptide_smiles"
+peptide_pretraining_sequences_approx = 11000000
+peptide_pretraining_count_is_rounded = true
+peptide_smiles_vocabulary_tokens = 581
+peptide_special_tokens = 5
+peptide_total_vocabulary_tokens = 586
+paper_diffusion_steps = 128
+paper_children = 50
+paper_tree_iterations = 20
+paper_exploration_coefficient = 0.1
+paper_wdce_replicates = 16
+paper_reward_temperature_alpha = 0.1
+paper_buffer_resample_epochs = 20
+paper_buffer_size = 20
+paper_finetuning_epochs = 1000
+paper_tree_persists_within_one_buffer_generation = true
+paper_tree_resets_before_each_buffer_generation = true
+paper_replay_buffer_emptied_and_repopulated_each_generation = true
+repository_peptide_launcher_tree_iterations = 10
+repository_peptide_launcher_buffer_resample_epochs = 10
+repository_peptide_launcher_tree_reset_interval = 1
+multiobjective_tree_selection = "uniform_from_pareto_nondominated_ucb_children"
+buffer_retention = "pareto_nondominated_terminal_rollouts"
+importance_weight_includes_model_path_ratio_and_terminal_reward = true
+importance_weight_explicitly_includes_tree_selection_and_buffer_retention = false
+
+[sources.adapter_boundary]
+native_amino_acid_diffusion_required = true
+tree_persistence_within_one_buffer_generation_required = true
+tree_reset_before_each_buffer_generation_required = true
+tree_persistence_across_buffer_generations_required = false
+replay_buffer_replacement_each_generation_required = true
+successor_protocol_lifecycle_amendment_required = false
+successor_protocol_lifecycle_alignment_status = "aligned_to_corrected_pre_execution_protocol_v2"
+behavior_model_path_probabilities_required = true
+tree_selection_and_retention_propensities_required_in_ledger = true
+exact_importance_sampling_claim_allowed = false
+objective_label = "tree_guided_offpolicy_search_distillation"
+hidden_surrogate_oracle_may_score_unsubmitted_tree_rollouts = false
+task_specific_resource_preflight_required = true
+
+[[sources]]
+id = "mp2d"
+kind = "arxiv_paper_only"
+paper_url = "https://arxiv.org/abs/2605.05829v1"
+paper_version = "arxiv_2605.05829v1"
+paper_pdf_sha256 = "4cc22fd0aab283f80d71c3206dba63e901bf552a29e6870f5470e57459622056"
+paper_license = "CC-BY-NC-ND-4.0"
+official_code_status = "not_located_at_audit_freeze"
+campaign_method_id = "mp2d_style_inference_search"
+reproduction_claim_allowed = false
+transfer_reason = "paper_derived_port_with_different_generator_evaluators_and_budget"
+
+[sources.observed_method]
+generator_training_during_search = false
+diffusion_steps = 10
+direction_vectors = 64
+ucb_exploration_coefficient = 0.1
+children = 30
+initial_angular_threshold_degrees = 45
+minimum_angular_threshold_degrees = 15
+maximum_angular_threshold_degrees = 75
+rejection_rate_ema_coefficient = 0.5
+target_rejection_rate = 0.3
+rejection_rate_ema_initialization = "target_rejection_rate"
+rejection_rate_ema_update = "zeta_times_previous_ema_plus_one_minus_zeta_times_raw_rejection_rate"
+global_refinement_iterations = 100
+global_seed_population = 100
+tree_rollout_budget_is_numerically_specified = false
+child_diversity = "independent_token_logit_gumbel_noise"
+fallback = "threshold_then_positive_improvement_halfspace_then_parent"
+
+[sources.adapter_boundary]
+frozen_generator_required = true
+clean_room_adapter_required = true
+paper_expression_or_pseudocode_copy_allowed = false
+pareto_direction_constraint_required = true
+global_partial_remask_refinement_required = true
+task_specific_rollout_budget_must_be_predeclared = true
+hidden_surrogate_oracle_may_score_unsubmitted_tree_rollouts = false
+method_posterior_is_cheap_tree_evaluator = true
+submitted_queries_only_receive_hidden_surrogate_truth = true
+
+[[sources]]
+id = "mol_ga_criterion"
+kind = "arxiv_paper_and_reference_repository"
+paper_url = "https://arxiv.org/abs/2310.09267v1"
+paper_version = "arxiv_2310.09267v1"
+paper_pdf_sha256 = "2f1fcb31547f2f7f9f07421c5cb20ffa2822bcf4341a3fff81f1c52a9669ea5c"
+paper_license = "CC-BY-4.0"
+repository_url = "https://github.com/AustinT/mol_ga"
+repository_commit = "11a47e0098c77796f616da53cddf3bf9821b7a12"
+repository_license = "MIT"
+campaign_method_id = "tuned_peptide_ga"
+reproduction_claim_allowed = false
+transfer_reason = "reference_operators_are_molecular_graph_operations_not_peptide_edits"
+
+[sources.observed_method]
+parent_sampling = "uniform_within_log_spaced_top_quantiles"
+sampling_log10_top_fraction_min = -3
+sampling_log10_top_fraction_max = 0
+implementation_quantile_grid_points = 25
+population_selection = "greedy_highest_score"
+pmo_oracle_budget = 10000
+pmo_offspring_per_generation = 5
+
+[sources.adapter_boundary]
+amino_acid_mutation_and_crossover_required = true
+offline_generator_namespace_only_tuning_required = true
+screen_oracle_namespace_or_outcomes_may_tune = false
+quantile_sampling_must_be_in_tuning_search_space = true
+matched_unique_oracle_call_budget_required = true
+immutable_selected_configuration_receipt_required = true
+
+[[sources]]
+id = "equiformer_v3"
+kind = "arxiv_paper_and_official_repository"
+paper_url = "https://arxiv.org/abs/2604.09130v1"
+paper_version = "arxiv_2604.09130v1"
+paper_pdf_sha256 = "5e65064b4da5f7b8e7cb67d297b98d5f3c81339f429b5a67bd47699d3a686140"
+paper_license = "CC-BY-4.0"
+repository_url = "https://github.com/atomicarchitects/equiformer_v3"
+repository_commit = "a7300c58df683dc99cb48027d5bfd4c887486c48"
+repository_license = "MIT"
+campaign_method_id = "none_geometry_pilot_only"
+reproduction_claim_allowed = false
+transfer_reason = "published_tasks_are_atomistic_energy_force_stress_and_materials_not_amp_sequence_search"
+
+[sources.observed_method]
+model_class = "se3_equivariant_atomistic_graph_attention_transformer"
+published_tasks = ["OC20_S2EF", "OMat24_energy_force_stress", "Matbench_Discovery"]
+published_contact_laplacian_evidence = false
+published_antimicrobial_peptide_evidence = false
+published_sequence_generator_evidence = false
+
+[sources.adapter_boundary]
+competition_critical_path_allowed = false
+campaign_or_production_quota = 0.0
+conformer_source_and_invariance_gate_required = true
+parameter_matched_sequence_baseline_required = true
+laplacian_representation_validation_transfers_from_equiformer = false
+
+[cross_cutting]
+all_expensive_hidden_surrogate_evaluations_are_charged = true
+unsubmitted_proposals_use_method_posterior_only = true
+all_generated_sequences_use_canonical_amino_acid_alphabet = true
+all_generated_sequence_lengths = [8, 50]
+all_method_specific_search_and_update_compute_is_inside_scientific_clock = true
+source_defaults_are_context_not_campaign_authority = true
+missing_source_hyperparameters_fail_closed_until_predeclared = true

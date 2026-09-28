@@ -1,0 +1,699 @@
+schema_version = 1
+artifact = "native_categorical_diffusion_v1_r128_seed42_pilot_execution"
+evidence_doc = "docs/benchmarks/native_categorical_diffusion_v1.md"
+
+[parent]
+artifact = "native_categorical_diffusion_unconditional_v1"
+config_path = "configs/diffusion/unconditional_v1.toml"
+config_sha256 = "4a13952a606e154b652f8bbc1e8f698b5993ee1a41181867c979729709573d40"
+status_before_pilot = "predeclared_not_run"
+
+[inheritance]
+scheme = "native_diffusion_v1_authenticated_parent_child_no_merge_v1"
+entire_parent_document_normative = true
+normative_parent_tables = ["status", "prior_evidence", "input", "development", "model", "models", "diffusion", "training", "calibration", "recipe_selection", "baselines", "count_prior", "sampling", "evaluation", "gates", "confirmation", "determinism", "environment", "compute", "telemetry", "artifacts", "leakage"]
+type_exact_relation_ids = ["child_parent_identity", "r128_variant_and_architecture", "seed42_four_outer_fit_scope", "checkpoint_grid_and_fixed_horizon", "single_corruption_replicate", "parent_diffusion_and_loss_reductions", "training_recipe", "count_prior_algorithm", "louco_calibration_and_grids", "parent_calibration_zero_lambda_ties_and_ece", "parent_bootstrap", "pilot_gate", "parent_rng_environment_and_determinism", "resource_caps", "parent_artifact_canonicalization_and_independent_audit", "artifact_and_leakage_policy"]
+omitted_parent_execution_fields = "normative_from_exact_authenticated_parent_bytes"
+allowed_parent_overrides = []
+pilot_phase_narrowing_ids = ["select_R128_from_parent_pilot_variants", "select_parent_seed42", "execute_parent_outer_folds_0_through_3_once_each", "select_parent_pilot_single_corruption_replicate"]
+inactive_deferred_parent_scopes = ["models.R96", "models.D128", "development.full_variants", "development.full_corruption_replicates_per_sequence_level", "sampling", "evaluation", "gates.denoising", "gates.sampling", "confirmation", "recipe_selection.final_seed42_distinct_node_twins", "recipe_selection.fold4_evaluation_twins", "determinism.require_exact_seed42_twin", "determinism.require_distinct_node_seed42_twin", "determinism.training_twin_equality_scope", "determinism.evaluation_twin_equality_scope"]
+narrowings_are_not_parent_overrides = true
+deferred_twin_scope = "final_all_development_fit_and_fold4_evaluation_only"
+
+[contract_io]
+maximum_bytes = 262144
+require_regular_file = true
+require_single_link = true
+reject_symlink_ancestors = true
+digest_before_toml_parse = true
+
+[status]
+before_execution = "predeclared_not_run"
+fold_complete = "pilot_fold_complete_pending_selection"
+evidence_invalid = "invalid_run"
+pilot_no_go = "development_no_go_v1_pilot"
+pilot_continue = "development_continue_v1_full_matrix_authorized"
+missing_or_incomplete_fold = "invalid_run"
+evidence_invalid_is_scientific_no_go = false
+scientific_no_go_requires_valid_complete_pilot = true
+continuation_grants_candidate_status = false
+continuation_grants_proposal_or_library_rights = false
+
+[projection]
+artifact = "native_categorical_diffusion_v1_development_projection"
+producer_job_id = 224105
+audit_job_id = 224106
+execution_git_commit = "68dd1c70e0277090ad1a3d4a02c7593238855915"
+scratch_root_env = "AMP_CHALLENGE_SCRATCH"
+canonical_twin_slot = 0
+verified_twin_slots = [0, 1]
+canonical_bundle_relative_path = "diffusion/native-categorical-unconditional-v1/development-projections/224105/0"
+independent_receipt_relative_path = "diffusion/native-categorical-unconditional-v1/development-projection-audits/224105/224106/independent-verification.json"
+operational_receipt_relative_path = "diffusion/native-categorical-unconditional-v1/development-projection-audits/224105/224106/operational-receipt.json"
+bundle_top_manifest_sha256 = "4c0f627990f7f4fa43ebbe969a8422089dbc45a3317869a28035a0af24596657"
+bundle_tree_sha256 = "c693be7465c5ab2d227bc46378b10c5a407f5f4f5068e2a6046a5f13c1e3e75c"
+manifest_sha256 = "421241b4fc01387df32f19f14900ff926a41aa3fc5c0d498f77250758035dd81"
+summary_sha256 = "696125cc8b7c4c9654fecc92d0390b05e518d50b8cbc9c8a602c620153a85769"
+independent_receipt_sha256 = "9f4de72ed96de76de1537303ef7b48d351ea1e1a816481ac940a2ad007b12bfd"
+operational_receipt_sha256 = "df98d251a4bcdcfeec1bd984525cd06c7a64c22a6498a3ab1bdd0338c87275b4"
+bundle_file_mode = "0444"
+bundle_directory_mode = "0555"
+fold4_sequence_rows = 0
+
+[folds."0"]
+outer_fold = 0
+fit_folds = [1, 2, 3]
+train_path = "folds/0/train.jsonl"
+train_sha256 = "03dcf8b53e266ee6142e1892dc769f40c858328ae63c98fd5382d970f4db6787"
+train_rows = 609
+train_homology_components = 340
+train_union_components = 170
+score_path = "folds/0/score.jsonl"
+score_sha256 = "b810118d92fed2ea11aae84fa405ad042037708328e8c77497b2f703679a59ae"
+score_rows = 305
+score_homology_components = 131
+score_union_components = 51
+score_cases = 19520
+score_selected_tokens = 272385
+score_selected_tokens_by_timestep_bin = [10338, 45080, 92494, 124473]
+fit_identity_sha256 = "5a3461fce78e34fa0a08b739e7f32d0a830c8cafa775e3d22ab4911fb902b4a8"
+
+[folds."1"]
+outer_fold = 1
+fit_folds = [0, 2, 3]
+train_path = "folds/1/train.jsonl"
+train_sha256 = "50540f534dfffab9993aabfeb46c23b8c3d6654b4e970c25a77a8b908b88856b"
+train_rows = 705
+train_homology_components = 333
+train_union_components = 165
+score_path = "folds/1/score.jsonl"
+score_sha256 = "c73890843038b34a152449ae4086bc01244ee1c3e6e53b1a9e84feb0238a5d22"
+score_rows = 209
+score_homology_components = 138
+score_union_components = 56
+score_cases = 13376
+score_selected_tokens = 163489
+score_selected_tokens_by_timestep_bin = [6457, 27123, 55465, 74444]
+fit_identity_sha256 = "8d7eeae81688d7a1c118e981a360ac8a2ccdcf3f43f2bfb7d6b71c18d7a87a69"
+
+[folds."2"]
+outer_fold = 2
+fit_folds = [0, 1, 3]
+train_path = "folds/2/train.jsonl"
+train_sha256 = "e8e31f98222ffc7982fbdeebc8764abf8d8ca5781db43c0d1d5db70bcbb0a74b"
+train_rows = 715
+train_homology_components = 384
+train_union_components = 164
+score_path = "folds/2/score.jsonl"
+score_sha256 = "551f0a2e6bb9aa414a9b07a2e46590f0533da39842e2f13e0377e380da4780fb"
+score_rows = 199
+score_homology_components = 87
+score_union_components = 57
+score_cases = 12736
+score_selected_tokens = 134208
+score_selected_tokens_by_timestep_bin = [5551, 22377, 45458, 60822]
+fit_identity_sha256 = "fedd90011393ad3b3a5122c2adc0b75ba3808de3fe7b122b6b97b3ba3f947627"
+
+[folds."3"]
+outer_fold = 3
+fit_folds = [0, 1, 2]
+train_path = "folds/3/train.jsonl"
+train_sha256 = "6198eff45d57559dedec5c9acb138cbb9666cd26216cb4710da28d3e81eb30a6"
+train_rows = 713
+train_homology_components = 356
+train_union_components = 164
+score_path = "folds/3/score.jsonl"
+score_sha256 = "f5665608235132b45a6ded5850751653d42a1667a82078ce02ba722938480d76"
+score_rows = 201
+score_homology_components = 115
+score_union_components = 57
+score_cases = 12864
+score_selected_tokens = 144102
+score_selected_tokens_by_timestep_bin = [5808, 23981, 48847, 65466]
+fit_identity_sha256 = "dcf45e9941c5836382c22a0f8ddcfe2ecfa5d18cbae48ee7aa66c69434982a04"
+
+[pilot]
+variant = "R128"
+output_mode = "residual_over_fold_local_length_relative_position_log_probability"
+selection_seed = 42
+outer_folds = [0, 1, 2, 3]
+fit_count = 4
+replicas_per_outer_fold = 1
+corruption_replicates_per_sequence_level = 1
+diffusion_levels = 64
+checkpoint_steps = [250, 500, 1000, 2000, 4000]
+max_steps = 4000
+checkpoint_selection_rule = "earliest_checkpoint_within_one_bootstrap_standard_error_of_best_R128_cross_calibrated_nll"
+all_four_outer_fits_required = true
+reuse_exact_fold_bundles_in_full_matrix = true
+exact_seed42_twins_required_for_pilot = false
+exact_seed42_twins_scope = "final_all_development_fit_and_fold4_evaluation_only"
+stops_before_sampling = true
+proposal_sampling_enabled = false
+expected_proposal_count = 0
+
+[model]
+kind = "bidirectional_pre_layer_norm_transformer"
+alphabet = "ACDEFGHIKLMNPQRSTVWY"
+min_length = 8
+max_length = 50
+special_tokens = ["PAD", "MASK"]
+layers = 2
+hidden_dim = 128
+attention_heads = 4
+ffn_dim = 384
+expected_trainable_parameters = 354068
+dropout = 0.20
+layer_norm_epsilon = 0.00001
+activation = "gelu"
+tie_residue_input_output_weights = true
+prediction_classes = 20
+initialization = "normal_std_0.02_bias_zero_norm_scale_one"
+residual_training_logits = "log(clipped_renormalized_fold_local_C0)+raw_residual_logits"
+residual_training_lambda = 1.0
+residual_training_temperature = 1.0
+property_conditioning = false
+self_conditioning = false
+geometry_conditioning = false
+
+[training]
+batch_sequences = 128
+sample_with_replacement = true
+sampling_weight_application = "weighted_draw_only"
+optimizer = "adamw_unfused"
+learning_rate = 0.0002
+betas = [0.90, 0.95]
+epsilon = 0.00000001
+weight_decay = 0.05
+adamw_fused = false
+adamw_foreach = false
+adamw_amsgrad = false
+adamw_capturable = false
+adamw_differentiable = false
+adamw_maximize = false
+weight_decay_includes = ["matrices", "all_embeddings", "tied_residue_embedding"]
+exclude_from_weight_decay = ["bias", "normalization"]
+parameter_group_order = ["ascending_name_decay", "ascending_name_zero_decay"]
+warmup_steps = 200
+lr_schedule = "linear_warmup_cosine_decay"
+final_learning_rate = 0.00002
+learning_rate_step_index = "one_indexed_optimizer_step_s_in_1_through_4000"
+learning_rate_equation = "s_le_200:0.0002*s/200;else:0.00002+(0.0002-0.00002)*0.5*(1+cos(pi*(s-200)/(4000-200)))"
+learning_rate_assignment = "assign_all_parameter_group_lr_immediately_before_zero_grad_and_forward_for_step_s"
+schedule_digest_domain = "utf8_amp-native-diffusion-learning-rate-schedule-v1_then_terminal_nul"
+schedule_digest_step_encoding = "uint64_big_endian_for_steps_1_through_4000"
+schedule_digest_rate_encoding = "python_float_hex_ascii_framed_by_uint64_big_endian_length"
+gradient_clip_norm = 1.0
+gradient_clip_operation = "torch.nn.utils.clip_grad_norm_parameter_iteration_order_max_norm_1_error_if_nonfinite_true_foreach_false_after_backward_before_step"
+label_smoothing = 0.05
+visible_context_dropout = 0.15
+visible_context_dropout_changes_loss_mask = false
+gradient_accumulation_steps = 1
+zero_grad_set_to_none = true
+optimizer_step_order = ["assign_learning_rate", "zero_grad_set_to_none", "forward_float32", "loss_float32", "backward", "clip_gradient_norm", "adamw_step", "seal_checkpoint_if_scheduled"]
+validation_during_training = false
+training_log_interval_steps = 50
+ema = false
+amp = false
+tf32 = false
+torch_compile = false
+resume_from_checkpoint_allowed = false
+partial_or_unsealed_checkpoint_promotion_allowed = false
+
+[count_prior]
+name = "C0_length_relative_position_frequency"
+input_path = "fold_contract.train_path_exact_folds/{outer_fold}/train.jsonl"
+input_sha256 = "fold_contract.train_sha256_verified_before_jsonl_parse"
+algorithm_source_commit = "3e81822a1e2fa2c5b0bfcbd6527d1e9ea31a8474"
+algorithm_source_path = "src/amp_challenge/generators/diffusion/evaluation.py"
+algorithm_source_sha256 = "96d7e0c644242ffe9b87fb1bddc3d357a67318631a3ac01ba10ded8c36e735c1"
+fit_rows = "exact_outer_training_projection_sorted_by_sequence_id"
+effective_count_scale = "number_of_fit_rows"
+row_weight = "1/(fit_homology_component_count*fit_component_size)"
+residue_contribution = "effective_count_scale_times_row_weight_divided_by_sequence_length"
+unigram_pseudocount_per_residue = 0.5
+unigram_normalization = "normalize_20_counts_after_pseudocount"
+length_edges = [8, 15, 20, 25, 33, 51]
+length_bin = "searchsorted_right_minus_one"
+relative_position_bins = 10
+relative_position_bin = "min_9_floor_10_times_zero_based_position_divided_by_length"
+relative_position_prior_mass = 20.0
+relative_position_prior = "prior_mass_times_normalized_unigram_probability"
+relative_position_normalization = "normalize_each_length_position_cell_over_20_residues"
+log_floor = 0.000000000001
+log_floor_rule = "elementwise_max_with_floor_then_renormalize_over_20_residues"
+relative_position_probability_output = "post_log_floor_rule_clipped_and_renormalized_probability_float64"
+log_relative_position_probability = "numpy_log_of_post_floor_renormalized_relative_position_probability_float64"
+production_order = "before_model_initialization_optimizer_creation_and_first_minibatch_draw"
+trainer_output_path = "count_prior.npz"
+evaluator_reuse = "read_exact_trainer_bundle_bytes_verified_by_physical_sha256"
+recomputation_during_evaluation_allowed = false
+
+[count_prior.training_bridge]
+source_member = "log_relative_position_probability"
+source_dtype = "<f8"
+source_shape = [5, 10, 20]
+source_order = "C_contiguous_length_bin_relative_position_bin_residue_index"
+load_allow_pickle = false
+validation = "exact_dtype_shape_order_finite_and_sha256_bound_to_checkpoint_before_conversion"
+numpy_to_torch = "torch.from_numpy_exact_loaded_array_without_intermediate_cast"
+torch_conversion = "tensor.to(device=training_device,dtype=torch.float32,non_blocking=false,copy=true,memory_format=torch.contiguous_format)"
+float64_to_float32_rounding = "IEEE_754_roundTiesToEven_once_per_fit"
+conversion_count_per_fit = 1
+conversion_timing = "after_count_prior_seal_before_model_initialization_optimizer_creation_and_first_forward"
+gather_index_order = ["length_bin", "relative_position_bin", "residue_index"]
+gathered_count_logit_dtype = "torch.float32"
+residual_logit_dtype = "torch.float32"
+addition_dtype = "torch.float32_no_autocast"
+loss_dtype = "torch.float32_no_autocast"
+
+[evaluation]
+evaluation_seed = 20260905
+batch_sequences = 256
+levels = 64
+replicates_per_sequence_level = 1
+timestep_bins = ["1_to_16", "17_to_32", "33_to_48", "49_to_64"]
+calibration_crossfit = "leave_one_union_component_out_within_each_outer_score_fold"
+residual_lambda_grid = [0.125, 0.25, 0.50, 0.75, 1.00]
+temperature_grid = [1.00, 1.25, 1.50, 2.00, 3.00]
+primary_metric = "component_balanced_masked_token_nll_nats"
+outer_fold_aggregation = "equal_arithmetic_mean"
+bootstrap_unit = "union_component_id_stratified_by_fold"
+bootstrap_replicates = 10000
+bootstrap_seed = 20260905
+bootstrap_rng = "numpy_pcg64dxsm_2.4.6"
+bootstrap_standard_error = "sample_standard_deviation_ddof1_of_bootstrap_mean_nll_without_division_by_sqrt_replicates"
+calibration_choices_are = "score_only_not_deployed_or_averaged"
+score_rows_may_select_checkpoint = true
+score_rows_may_change_training = false
+
+[gate]
+candidate = "R128"
+comparator = "strongest_of_C0_and_C0T"
+minimum_mean_relative_nll_improvement = 0.02
+minimum_bootstrap_lower_bound_improvement = 0.0
+bootstrap_lower_bound_comparator = "strictly_greater_than"
+maximum_fold_relative_nll_regression = 0.01
+maximum_timestep_bin_relative_nll_regression = 0.01
+maximum_ece = 0.10
+maximum_ece_regression = 0.02
+ece_scope = "every_outer_fold_and_equal_fold_aggregate"
+require_all_four_outer_fits = true
+on_failure = "development_no_go_v1_pilot"
+on_pass = "development_continue_v1_full_matrix_authorized"
+
+[dtypes]
+model_parameter = "torch.float32"
+model_activation = "torch.float32"
+model_logit = "torch.float32"
+loss_and_gradient = "torch.float32"
+encoded_token = "torch.int64"
+attention_mask = "torch.bool"
+sequence_length = "torch.int64"
+timestep = "torch.int64"
+scheduled_mask = "torch.bool"
+target_token = "torch.int64"
+numpy_sampling_probability = "<f8"
+numpy_metric_accumulator = "<f8"
+checkpoint_tensor = "F32"
+score_count_log_probability = "<f8"
+score_residual_logit_storage = "<f4"
+score_residual_logit_calibration_compute = "<f8"
+score_residual_logit_cast_rule = "lossless_float32_to_float64_before_softmax_calibration_and_metric_reductions"
+count_prior_archive_log_probability = "<f8"
+count_prior_bridge_source_tensor = "torch.float64"
+count_prior_training_tensor = "torch.float32"
+count_prior_gathered_logit = "torch.float32"
+count_prior_residual_addition = "torch.float32"
+allow_implicit_dtype_coercion = false
+allow_nonfinite = false
+
+[rng]
+derivation = "sha256_namespace_to_uint64_v1"
+training_root_seed = 42
+evaluation_root_seed = 20260905
+bootstrap_root_seed = 20260905
+training_namespaces = ["initialization", "minibatch", "timestep", "corruption", "context_dropout", "model_dropout"]
+initialization_key = ["fit_identity_sha256", "model"]
+minibatch_key = ["fit_identity_sha256", "global_draw_ordinal"]
+timestep_key = ["fit_identity_sha256", "global_draw_ordinal", "rejection_counter"]
+corruption_key = ["fit_identity_sha256", "global_draw_ordinal", "sequence_id", "level"]
+context_dropout_key = ["fit_identity_sha256", "global_draw_ordinal", "sequence_id", "level"]
+model_dropout_key = ["fit_identity_sha256", "optimizer_step"]
+validation_namespace = "validation"
+validation_key = ["parent_contract_sha256", "sequence_id", "level", "replicate"]
+bootstrap_namespace = "bootstrap"
+bootstrap_key = ["parent_contract_sha256", "replicate", "outer_fold"]
+fit_identity_fields = ["parent_contract_sha256", "variant", "output_mode", "seed", "fit_folds", "fit_projection_sha256"]
+fit_identity_serialization = "utf8_canonical_json_sorted_keys_compact_separators_allow_nan_false_single_lf"
+global_draw_ordinal = "zero_based_optimizer_step_minus_one_times_batch_sequences_plus_zero_based_batch_row_index"
+minibatch_rng = "sha256_counter_uniform_weighted_draw_v1"
+timestep_rng = "sha256_rejection_bounded_integer_v1"
+corruption_rng = "numpy_pcg64_2.4.6"
+context_dropout_rng = "numpy_pcg64_one_uniform_per_valid_position_in_ascending_position_order"
+model_dropout_rng = "torch_global_generator_reseeded_immediately_before_each_training_forward"
+validation_rng = "sha256_counter_by_contract_sequence_timestep_replicate_v1"
+checkpoint_restores_mutable_rng_state = false
+seed_domain_utf8_without_terminal_nul = "amp-challenge/native-categorical-diffusion/stateless-seed/v1"
+seed_domain_terminal_nul = true
+seed_hash = "sha256"
+seed_framing_length = "uint64_big_endian_byte_length"
+root_seed_encoding = "tag_r_then_uint64_big_endian"
+namespace_encoding = "tag_n_then_utf8"
+string_part_encoding = "tag_s_then_utf8"
+integer_part_encoding = "tag_i_then_canonical_base10_ascii"
+seed_output = "first_8_sha256_digest_bytes_as_unsigned_uint64_big_endian"
+uniform_conversion = "binary64_(uint64_right_shift_11)/2**53_in_half_open_0_1"
+minibatch_probability_normalization = "python_math_fsum_then_ascending_sequence_id_float64_division"
+minibatch_cumulative_sum = "numpy_cumsum_float64_ascending_sequence_id_then_force_last_to_1"
+minibatch_search = "numpy_searchsorted_side_right_then_clamp_to_last_index"
+bounded_integer_rejection = "accept_uint64_below_2**64-(2**64_mod_upper_bound)_then_modulo;append_zero_based_retry_as_final_integer_part"
+corruption_consumption = "for_each_row_construct_numpy_Generator_PCG64_row_seed_then_choice_ascending_valid_positions_size_exact_mask_count_replace_false"
+context_dropout_consumption = "one_PCG64_float64_uniform_for_every_valid_position_in_ascending_position_order;mask_only_scheduled_visible_positions_with_u_lt_0.15;scheduled_loss_mask_unchanged"
+model_dropout_consumption = "reseed_torch_global_generator_from_model_dropout_key_immediately_before_each_training_forward"
+validation_row_seed = "namespaced_seed(evaluation_root_seed,validation,parent_contract_sha256,sequence_id,level,replicate)"
+case_id_domain_utf8_without_terminal_nul = "amp-challenge/native-categorical-diffusion/validation-case/v1"
+case_id_domain_terminal_nul = true
+case_id_fields = ["parent_contract_sha256_ascii", "sequence_id_ascii", "level_uint16_big_endian", "replicate_uint16_big_endian", "row_seed_uint64_big_endian"]
+case_id_framing = "each_field_prefixed_by_uint64_big_endian_byte_length"
+case_id_output = "lowercase_sha256_hex"
+
+[checkpoints]
+steps = [250, 500, 1000, 2000, 4000]
+relative_paths = ["checkpoints/step_000250.safetensors", "checkpoints/step_000500.safetensors", "checkpoints/step_001000.safetensors", "checkpoints/step_002000.safetensors", "checkpoints/step_004000.safetensors"]
+metadata_relative_paths = ["checkpoints/step_000250.metadata.json", "checkpoints/step_000500.metadata.json", "checkpoints/step_001000.metadata.json", "checkpoints/step_002000.metadata.json", "checkpoints/step_004000.metadata.json"]
+format = "safetensors"
+tensor_dtype = "F32"
+save_moment = "after_completed_optimizer_step_before_next_minibatch_draw"
+state_scope = "model_state_dict_only"
+tensor_name_order = "ascending_lexicographic"
+optimizer_state_serialized = false
+rng_state_serialized = false
+pickle_allowed = false
+evaluate_in_ascending_step_order = true
+all_checkpoints_sealed_before_score_open = true
+producer_gpu_reinference = "reload_each_sealed_checkpoint_and_byte_compare_archived_float32_residual_logits"
+producer_gpu_reinference_comparison = "rtol_0_atol_0_and_identical_little_endian_float32_bytes"
+producer_gpu_reinference_timing = "after_score_logits_archived_before_producer_A100_allocation_ends"
+
+[checkpoint_metadata]
+schema_version = 1
+fields = ["schema_version", "artifact", "child_contract_sha256", "parent_contract_sha256", "fit_identity_sha256", "outer_fold", "checkpoint_step", "variant", "output_mode", "model_config", "count_prior_file_sha256", "optimizer_step_completed", "checkpoint_file", "checkpoint_file_sha256", "checkpoint_logical_state_sha256", "tensors"]
+checkpoint_step_key_order = [250, 500, 1000, 2000, 4000]
+optimizer_step_completed = "must_equal_checkpoint_step_after_optimizer_step_returns"
+count_prior_binding = "physical_sha256_of_sealed_trainer_count_prior_npz"
+model_binding_fields = ["variant", "output_mode", "model_config"]
+model_config_fields = ["kind", "alphabet", "min_length", "max_length", "special_tokens", "layers", "hidden_dim", "attention_heads", "ffn_dim", "expected_trainable_parameters", "dropout", "layer_norm_epsilon", "activation", "tie_residue_input_output_weights", "prediction_classes", "initialization", "residual_training_logits", "residual_training_lambda", "residual_training_temperature", "property_conditioning", "self_conditioning", "geometry_conditioning"]
+model_config_binding = "recursive_type_exact_canonical_json_object_equal_to_child_model_table"
+bindings = [
+    { field = "artifact", source = "child.artifact" },
+    { field = "child_contract_sha256", source = "child.CONFIG_SHA256" },
+    { field = "parent_contract_sha256", source = "parent.CONFIG_SHA256" },
+    { field = "fit_identity_sha256", source = "folds.{outer_fold}.fit_identity_sha256" },
+    { field = "outer_fold", source = "assigned_worker_outer_fold_exact_integer" },
+    { field = "checkpoint_step", source = "checkpoints.steps_and_relative_path_step" },
+    { field = "variant", source = "pilot.variant" },
+    { field = "output_mode", source = "pilot.output_mode" },
+    { field = "model_config", source = "child.model_recursive_type_exact" },
+    { field = "count_prior_file_sha256", source = "sha256_of_sealed_trainer_count_prior.npz" },
+    { field = "optimizer_step_completed", source = "checkpoint_step_after_optimizer_step_returns" },
+    { field = "checkpoint_file", source = "checkpoints.relative_paths_for_checkpoint_step" },
+    { field = "checkpoint_file_sha256", source = "sha256_of_complete_safetensors_bytes" },
+    { field = "checkpoint_logical_state_sha256", source = "checkpoint_metadata.logical_hash" },
+    { field = "tensors", source = "checkpoint_metadata.tensors_exact_order" },
+]
+physical_hash = "lowercase_sha256_of_complete_safetensors_file_bytes"
+logical_hash = "canonical_model_logical_hash_over_parent_R128_config_and_sorted_logical_tensor_state"
+tensor_order = "ascending_lexicographic_name"
+tensor_dtype = "F32"
+tensor_count = 31
+tensors = [
+    { name = "encoder.layers.0.linear1.bias", dtype = "F32", shape = [384] },
+    { name = "encoder.layers.0.linear1.weight", dtype = "F32", shape = [384, 128] },
+    { name = "encoder.layers.0.linear2.bias", dtype = "F32", shape = [128] },
+    { name = "encoder.layers.0.linear2.weight", dtype = "F32", shape = [128, 384] },
+    { name = "encoder.layers.0.norm1.bias", dtype = "F32", shape = [128] },
+    { name = "encoder.layers.0.norm1.weight", dtype = "F32", shape = [128] },
+    { name = "encoder.layers.0.norm2.bias", dtype = "F32", shape = [128] },
+    { name = "encoder.layers.0.norm2.weight", dtype = "F32", shape = [128] },
+    { name = "encoder.layers.0.self_attn.in_proj_bias", dtype = "F32", shape = [384] },
+    { name = "encoder.layers.0.self_attn.in_proj_weight", dtype = "F32", shape = [384, 128] },
+    { name = "encoder.layers.0.self_attn.out_proj.bias", dtype = "F32", shape = [128] },
+    { name = "encoder.layers.0.self_attn.out_proj.weight", dtype = "F32", shape = [128, 128] },
+    { name = "encoder.layers.1.linear1.bias", dtype = "F32", shape = [384] },
+    { name = "encoder.layers.1.linear1.weight", dtype = "F32", shape = [384, 128] },
+    { name = "encoder.layers.1.linear2.bias", dtype = "F32", shape = [128] },
+    { name = "encoder.layers.1.linear2.weight", dtype = "F32", shape = [128, 384] },
+    { name = "encoder.layers.1.norm1.bias", dtype = "F32", shape = [128] },
+    { name = "encoder.layers.1.norm1.weight", dtype = "F32", shape = [128] },
+    { name = "encoder.layers.1.norm2.bias", dtype = "F32", shape = [128] },
+    { name = "encoder.layers.1.norm2.weight", dtype = "F32", shape = [128] },
+    { name = "encoder.layers.1.self_attn.in_proj_bias", dtype = "F32", shape = [384] },
+    { name = "encoder.layers.1.self_attn.in_proj_weight", dtype = "F32", shape = [384, 128] },
+    { name = "encoder.layers.1.self_attn.out_proj.bias", dtype = "F32", shape = [128] },
+    { name = "encoder.layers.1.self_attn.out_proj.weight", dtype = "F32", shape = [128, 128] },
+    { name = "encoder.norm.bias", dtype = "F32", shape = [128] },
+    { name = "encoder.norm.weight", dtype = "F32", shape = [128] },
+    { name = "length_embedding.weight", dtype = "F32", shape = [43, 128] },
+    { name = "position_embedding.weight", dtype = "F32", shape = [50, 128] },
+    { name = "residue_output_bias", dtype = "F32", shape = [20] },
+    { name = "timestep_embedding.weight", dtype = "F32", shape = [65, 128] },
+    { name = "token_embedding.weight", dtype = "F32", shape = [22, 128] },
+]
+
+[barrier]
+execution_topology = "single_allocation_one_srun_four_gpu_tasks_on_four_distinct_nodes"
+training_stage_receives_score_paths = false
+trainer_input_staging = "node_local_train_only_copy_verified_by_sha256"
+trainer_environment_exposes_projection_root = false
+readiness_condition = "trainer_bundle_manifest_and_all_five_checkpoints_sealed_and_hashes_receipted"
+readiness_receipt_relative_path = "control/checkpoint-ready/{outer_fold}.json"
+readiness_receipt_fields = ["schema_version", "artifact", "child_contract_sha256", "parent_contract_sha256", "git_commit", "outer_fold", "fit_identity_sha256", "trainer_bundle_sha256", "count_prior_file_sha256", "checkpoint_digest_by_step", "checkpoint_digest_map_sha256", "node_name", "device_uuid"]
+checkpoint_digest_key_order = ["000250", "000500", "001000", "002000", "004000"]
+checkpoint_digest_value_fields = ["checkpoint_file_sha256", "checkpoint_logical_state_sha256", "checkpoint_metadata_sha256"]
+readiness_checkpoint_digest_map_schema = { exact_keys = ["000250", "000500", "001000", "002000", "004000"], additional_keys = false, value_type = "object", value_fields = ["checkpoint_file_sha256", "checkpoint_logical_state_sha256", "checkpoint_metadata_sha256"], digest_fields = ["checkpoint_file_sha256", "checkpoint_logical_state_sha256", "checkpoint_metadata_sha256"], digest_type = "lowercase_ascii_sha256_hex_64", value_additional_fields = false }
+required_readiness_receipts = 4
+coordinator_verifies_distinct_outer_folds = true
+coordinator_verifies_all_checkpoint_hashes = true
+score_release_condition = "all_four_valid_readiness_receipts_observed_and_rechecked"
+score_release_relative_path = "control/score-release.json"
+score_release_fields = ["schema_version", "artifact", "child_contract_sha256", "parent_contract_sha256", "git_commit", "readiness_receipt_sha256_by_fold", "readiness_receipt_digest_map_sha256"]
+release_digest_key_order = ["0", "1", "2", "3"]
+release_readiness_digest_map_schema = { exact_keys = ["0", "1", "2", "3"], additional_keys = false, value_type = "lowercase_ascii_sha256_hex_64" }
+digest_map_serialization = "utf8_canonical_json_sorted_keys_compact_separators_allow_nan_false_single_lf"
+digest_map_sha256_rule = "lowercase_sha256_of_complete_canonical_digest_map_bytes"
+score_stage_inputs_materialized_after_release = true
+score_stage_opens_only_own_outer_fold = true
+score_stage_starts_after_release = true
+barrier_failure_status = "invalid_run"
+
+[resources]
+account = "bio"
+partition = "gpumid"
+gpu_type = "A100_80GB"
+allocation_nodes = 4
+worker_tasks = 4
+maximum_concurrent_fit_tasks = 4
+nodes_per_fit = 1
+tasks_per_node = 1
+gpus_per_task = 1
+cpus_per_task = 8
+memory_gib_per_task = 32
+wall_minutes_per_fit = 60
+maximum_pilot_a100_hours = 4.0
+maximum_peak_allocated_memory_gib = 16.0
+maximum_total_allocated_gpu_seconds = 14400
+maximum_peak_allocated_memory_bytes = 17179869184
+bare_exclusive_allowed = false
+execution_command = "uv run --locked --no-sync"
+run_subdir = "diffusion/native-categorical-unconditional-v1/pilot-executions"
+require_clean_synchronized_commit = true
+
+[audit]
+account = "bio"
+partition = "standard"
+nodes = 1
+tasks = 1
+gpus = 0
+cpus_per_task = 8
+memory_gib_per_task = 32
+wall_minutes = 120
+third_node_required = true
+excluded_nodes = "all_four_gpu_producer_nodes"
+producer_gpu_reinference_required = true
+producer_gpu_reinference_scope = "all_four_folds_all_five_sealed_checkpoints_exact_float32_logit_bytes"
+cpu_exact_reconstruction = ["count_prior_from_train_jsonl", "corruption_ledgers_from_score_jsonl", "calibration_sufficient_statistics", "louco_choices", "bootstrap_draws", "metrics", "checkpoint_selection", "pilot_gate_decision"]
+cpu_checkpoint_verification = ["physical_sha256", "logical_state_sha256", "exact_31_tensor_schema", "finite_float32_tensor_values", "checkpoint_metadata_bindings"]
+cpu_neural_forward_pass = "not_performed_no_cross_backend_numeric_or_argmax_claim"
+independent_verifier_imports_producer = false
+independent_receipt_file = "independent-verification.json"
+operational_receipt_file = "operational-receipt.json"
+independent_receipt_fields = ["schema_version", "artifact", "decision_status", "child_contract_sha256", "parent_contract_sha256", "git_commit", "projection_evidence", "trainer_bundle_sha256_by_fold", "evaluator_bundle_sha256_by_fold", "pilot_bundle_sha256", "count_prior_sha256_by_fold", "checkpoint_digest_by_fold_and_step", "producer_gpu_reinference", "cpu_reconstruction", "metrics", "gates", "checks", "limitations"]
+operational_receipt_fields = ["schema_version", "artifact", "decision_status", "child_contract_sha256", "parent_contract_sha256", "git_commit", "producer_job", "producer_nodes", "audit_job", "audit_node", "slurm_accounting", "environment", "resources", "independent_receipt_sha256", "checks"]
+fold_digest_map_schema = { exact_keys = ["0", "1", "2", "3"], additional_keys = false, value_type = "lowercase_ascii_sha256_hex_64" }
+fold_digest_map_fields = ["trainer_bundle_sha256_by_fold", "evaluator_bundle_sha256_by_fold", "count_prior_sha256_by_fold"]
+checkpoint_digest_by_fold_and_step_schema = { exact_fold_keys = ["0", "1", "2", "3"], fold_additional_keys = false, exact_step_keys = ["000250", "000500", "001000", "002000", "004000"], step_additional_keys = false, value_fields = ["checkpoint_file_sha256", "checkpoint_logical_state_sha256", "checkpoint_metadata_sha256"], value_additional_fields = false, digest_fields = ["checkpoint_file_sha256", "checkpoint_logical_state_sha256", "checkpoint_metadata_sha256"], digest_type = "lowercase_ascii_sha256_hex_64" }
+producer_gpu_reinference_schema = { object_fields = ["by_fold_and_step", "all_fold_step_pairs_byte_equal"], object_additional_fields = false, exact_fold_keys = ["0", "1", "2", "3"], fold_additional_keys = false, exact_step_keys = ["000250", "000500", "001000", "002000", "004000"], step_additional_keys = false, value_fields = ["archived_residual_logit_slice_sha256", "reinferred_residual_logit_slice_sha256", "byte_equal"], value_additional_fields = false, digest_fields = ["archived_residual_logit_slice_sha256", "reinferred_residual_logit_slice_sha256"], digest_type = "lowercase_ascii_sha256_hex_64", digest_pair_must_match = true, equality_field = "byte_equal", equality_required_value = true, slice_bytes = "C_contiguous_little_endian_float32_selected_token_then_residue_order", aggregate_field = "all_fold_step_pairs_byte_equal", aggregate_required_value = true }
+receipt_map_serialization = "utf8_canonical_json_sorted_keys_compact_separators_allow_nan_false_single_lf"
+receipt_map_sha256_rule = "lowercase_sha256_of_complete_canonical_map_bytes_when_a_map_digest_is_named"
+receipt_file_mode = "0444"
+receipt_directory_mode = "0555"
+
+[outputs]
+schema_version = 1
+canonical_json = true
+reject_nonfinite_json = true
+file_mode = "0444"
+directory_mode = "0555"
+file_link_count = 1
+manifest_published_last = true
+publication = "atomic_no_replace"
+semantic_manifests_path_free = true
+bundled_contract_files = ["pilot_execution_v1.toml", "unconditional_v1.toml"]
+bundled_contract_hashes = ["child_contract_sha256", "parent_contract_sha256"]
+trainer_bundle_relative_path = "trainers/{outer_fold}"
+evaluator_bundle_relative_path = "evaluators/{outer_fold}"
+pilot_bundle_relative_path = "pilot"
+trainer_bundle_files = ["CODE_SHA256SUMS", "FROZEN_INPUT_SHA256SUMS", "pilot_execution_v1.toml", "unconditional_v1.toml", "count_prior.npz", "environment.json", "fit_identity.json", "rng.json", "training_schedule.sha256", "training_trace.jsonl", "train_metrics.json", "checkpoints/step_000250.safetensors", "checkpoints/step_000250.metadata.json", "checkpoints/step_000500.safetensors", "checkpoints/step_000500.metadata.json", "checkpoints/step_001000.safetensors", "checkpoints/step_001000.metadata.json", "checkpoints/step_002000.safetensors", "checkpoints/step_002000.metadata.json", "checkpoints/step_004000.safetensors", "checkpoints/step_004000.metadata.json", "manifest.json"]
+trainer_bundle_directories = [".", "checkpoints"]
+evaluator_bundle_files = ["CODE_SHA256SUMS", "FROZEN_INPUT_SHA256SUMS", "pilot_execution_v1.toml", "unconditional_v1.toml", "environment.json", "rng.json", "trainer_bundle.sha256", "count_prior.sha256", "score_corruptions.npz", "score_residual_logits.npz", "fold_metrics.json", "manifest.json"]
+evaluator_bundle_directories = ["."]
+pilot_bundle_files = ["CODE_SHA256SUMS", "FROZEN_INPUT_SHA256SUMS", "pilot_execution_v1.toml", "unconditional_v1.toml", "fold_bundles.sha256", "pilot_bootstrap.npz", "pilot_metrics.json", "decision.json", "manifest.json"]
+pilot_bundle_directories = ["."]
+trainer_manifest_fields = ["schema_version", "artifact", "child_contract_sha256", "parent_contract_sha256", "git_commit", "outer_fold", "fit_identity", "projection", "model", "rng", "training", "checkpoints", "artifacts"]
+evaluator_manifest_fields = ["schema_version", "artifact", "child_contract_sha256", "parent_contract_sha256", "git_commit", "outer_fold", "fit_identity_sha256", "trainer_bundle_sha256", "projection", "rng", "count_prior", "score", "status", "artifacts"]
+pilot_manifest_fields = ["schema_version", "artifact", "child_contract_sha256", "parent_contract_sha256", "git_commit", "fold_bundle_sha256", "checkpoint_selection", "comparator_selection", "bootstrap", "gates", "decision_status", "artifacts"]
+npz_archive_format = "zip_stored_npy_v1_0_dos_epoch_1980_member_order_v1"
+npz_allow_pickle = false
+npz_member_order = "schema_array_order"
+comparator_index_order = ["C0", "C0T"]
+score_row_order = "ascending_sequence_id"
+score_case_order = "ascending_sequence_id_then_level_1_to_64_then_replicate_0"
+score_selected_token_order = "score_case_order_then_ascending_position"
+checkpoint_axis_order = "ascending_checkpoint_steps"
+residue_axis_order = "alphabet_ACDEFGHIKLMNPQRSTVWY"
+count_prior_relative_position_axis_order = ["length_bin", "relative_position_bin", "residue_index"]
+count_prior_npz_schema = [
+    { name = "effective_count_scale", dtype = "<f8", shape = ["1"] },
+    { name = "unigram_probability", dtype = "<f8", shape = ["20"] },
+    { name = "length_edges", dtype = "|u1", shape = ["6"] },
+    { name = "relative_position_probability", dtype = "<f8", shape = ["5", "10", "20"] },
+    { name = "log_relative_position_probability", dtype = "<f8", shape = ["5", "10", "20"] },
+]
+score_corruptions_npz_schema = [
+    { name = "sequence_id", dtype = "|S64", shape = ["{score_rows}"] },
+    { name = "homology_component_id", dtype = "|S64", shape = ["{score_rows}"] },
+    { name = "union_component_id", dtype = "|S64", shape = ["{score_rows}"] },
+    { name = "length", dtype = "|u1", shape = ["{score_rows}"] },
+    { name = "sampling_weight", dtype = "<f8", shape = ["{score_rows}"] },
+    { name = "clean_tokens", dtype = "|u1", shape = ["{score_rows}", "50"] },
+    { name = "attention_mask", dtype = "|b1", shape = ["{score_rows}", "50"] },
+    { name = "case_id", dtype = "|S64", shape = ["{score_cases}"] },
+    { name = "row_index", dtype = "<u2", shape = ["{score_cases}"] },
+    { name = "level", dtype = "|u1", shape = ["{score_cases}"] },
+    { name = "replicate", dtype = "|u1", shape = ["{score_cases}"] },
+    { name = "row_seed", dtype = "<u8", shape = ["{score_cases}"] },
+    { name = "mask_count", dtype = "|u1", shape = ["{score_cases}"] },
+    { name = "corrupted_tokens", dtype = "|u1", shape = ["{score_cases}", "50"] },
+    { name = "selected_mask", dtype = "|b1", shape = ["{score_cases}", "50"] },
+]
+score_residual_logits_npz_schema = [
+    { name = "case_id", dtype = "|S64", shape = ["{score_cases}"] },
+    { name = "case_offsets", dtype = "<u8", shape = ["{score_cases_plus_one}"] },
+    { name = "position", dtype = "|u1", shape = ["{score_selected_tokens}"] },
+    { name = "target_token", dtype = "|u1", shape = ["{score_selected_tokens}"] },
+    { name = "count_log_probability", dtype = "<f8", shape = ["{score_selected_tokens}", "20"] },
+    { name = "checkpoint_step", dtype = "<u2", shape = ["5"] },
+    { name = "residual_logit", dtype = "<f4", shape = ["5", "{score_selected_tokens}", "20"] },
+]
+pilot_bootstrap_npz_schema = [
+    { name = "checkpoint_step", dtype = "<u2", shape = ["5"] },
+    { name = "r128_mean_nll", dtype = "<f8", shape = ["5"] },
+    { name = "c0_mean_nll", dtype = "<f8", shape = ["1"] },
+    { name = "c0t_mean_nll", dtype = "<f8", shape = ["1"] },
+    { name = "selected_comparator_index", dtype = "|u1", shape = ["1"] },
+    { name = "r128_bootstrap_mean_nll", dtype = "<f8", shape = ["5", "10000"] },
+    { name = "comparator_bootstrap_mean_nll", dtype = "<f8", shape = ["10000"] },
+    { name = "relative_improvement", dtype = "<f8", shape = ["5", "10000"] },
+]
+operational_telemetry_excluded_from_semantic_bundles = true
+independent_verifier_imports_producer = false
+independent_receipt_file = "independent-verification.json"
+operational_receipt_file = "operational-receipt.json"
+post_execution_third_node_audit_required = true
+
+[outputs.bundle_identity]
+schema = "path_free_exact_inventory_canonical_tree_map_v1"
+document_fields = ["schema_version", "entries"]
+document_additional_fields = false
+schema_version = 1
+entries_key = "entries"
+exact_paths = "bundle_kind_files_union_directories_including_dot_root"
+additional_paths = false
+path_format = "normalized_relative_posix_path_with_dot_as_the_only_root_spelling"
+entry_fields = ["type", "mode", "size", "sha256", "link_count"]
+entry_additional_fields = false
+allowed_types = ["file", "directory"]
+file_mode = "0444"
+file_size = "exact_complete_file_byte_length_nonnegative_integer"
+file_sha256 = "lowercase_sha256_of_complete_file_bytes"
+file_link_count = 1
+directory_mode = "0555"
+directory_size = "exact_direct_child_entry_count_nonnegative_integer"
+directory_sha256 = "lowercase_sha256_of_canonical_direct_child_name_to_type_map_bytes"
+directory_link_count = "2_plus_exact_direct_subdirectory_count_and_equal_to_lstat_st_nlink"
+directory_child_map = "exact_direct_children_only_name_to_file_or_directory_type"
+symlinks_allowed = false
+special_files_allowed = false
+canonical_json_bytes = "utf8_sort_keys_true_separators_comma_colon_ensure_ascii_false_allow_nan_false_single_lf"
+tree_sha256 = "lowercase_sha256_of_complete_canonical_tree_document_bytes"
+manifest_is_included_file = true
+snapshot_rule = "publish_manifest_last_atomic_no_replace_then_lstat_before_and_after_hashing_complete_immutable_tree_including_manifest"
+
+[outputs.sha256_sidecars]
+content = "exactly_64_lowercase_ascii_sha256_hex_bytes_plus_single_lf"
+byte_length = 65
+additional_whitespace_allowed = false
+training_schedule_sha256_target = "canonical_learning_rate_schedule_transcript_bytes"
+trainer_bundle_sha256_target = "canonical_sealed_trainer_bundle_tree_document_bytes"
+count_prior_sha256_target = "exact_sealed_trainer_count_prior_npz_file_bytes"
+fold_bundles_sha256_target = "canonical_exact_four_fold_trainer_evaluator_bundle_digest_map_bytes"
+fold_bundle_map_exact_keys = ["0", "1", "2", "3"]
+fold_bundle_map_additional_keys = false
+fold_bundle_value_fields = ["trainer_bundle_sha256", "evaluator_bundle_sha256"]
+fold_bundle_value_additional_fields = false
+fold_bundle_digest_type = "lowercase_ascii_sha256_hex_64"
+fold_bundle_map_serialization = "utf8_sort_keys_true_separators_comma_colon_ensure_ascii_false_allow_nan_false_single_lf"
+
+[leakage]
+trainer_allowed_roles = ["development_train"]
+trainer_allowed_fields = ["sequence_id", "sequence", "sampling_weight"]
+trainer_process_receives_score_path = false
+trainer_process_receives_projection_root = false
+score_opened_only_after_all_checkpoints_sealed = true
+validation_used_for_early_stopping = false
+fold4_visible = false
+fold4_path_allowed = false
+fold4_sequence_rows_allowed = 0
+labels_allowed = false
+provenance_allowed = false
+study_keys_allowed = false
+oracle_predictions_allowed = false
+structures_allowed = false
+organizer_reference_allowed = false
+proposal_sampling_allowed = false
+post_fold4_changes_require_new_version = true
+
+[acquisition_exclusions]
+acquisition_configs_allowed = false
+acquisition_outputs_allowed = false
+start_ids_allowed = false
+rollout_outputs_allowed = false
+reward_mean_allowed = false
+reward_uncertainty_allowed = false
+reward_ucb_allowed = false
+generator_uncertainty_allowed = false
+wet_lab_results_allowed = false
+memory_or_history_allowed = false
+ensemble_predictions_allowed = false
+excluded_scope = "trainer_evaluator_checkpoint_selection_and_pilot_gate"

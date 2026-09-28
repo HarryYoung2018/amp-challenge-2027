@@ -1,0 +1,64 @@
+schema_version = 1
+artifact = "union_gate1_activity_replay_ledger_v1"
+
+# The descriptor family is the strongest accepted transparent Gate-1 member.
+# kNN contributes only family disagreement; the derived ensemble is checked but
+# never counted as a third independent member.
+mean_model = "descriptor_logistic"
+disagreement_model = "homology_knn"
+ensemble_check_model = "equal_weight_ensemble"
+objectives = ["broad_spectrum", "gram_positive", "gram_negative"]
+minimum_observations = 1
+
+homology_identity_threshold = 0.80
+diversity_identity_threshold = 0.70
+diversity_algorithm = "global_alignment_identity_single_link_v1"
+
+expected_folds = 5
+expected_oof_rows = 7476
+expected_examples = 2492
+expected_sequences = 952
+expected_candidates = 650
+expected_candidate_contexts = 1967
+expected_candidate_source_observations = 2062
+expected_candidate_ids_sha256 = "990ef4b248f7d95a9864fef7da5bc648a5e6468c1adc74ba87c3af38dedb21c9"
+expected_unique_target_counts_2_to_7 = [364, 213, 56, 16, 0, 1]
+expected_examples_by_fold = [546, 486, 485, 487, 488]
+expected_candidates_by_fold = [202, 126, 112, 97, 113]
+
+[canonical_target_grams]
+acinetobacter_baumannii = "negative"
+enterococcus_faecalis = "positive"
+enterococcus_faecium = "positive"
+escherichia_coli = "negative"
+klebsiella_pneumoniae = "negative"
+pseudomonas_aeruginosa = "negative"
+staphylococcus_aureus = "positive"
+
+# Accepted context-level union Gate-1 producer 223248 and reconstruction audit
+# 223250. No homology-only OOF artifact may be substituted.
+[gate1]
+producer_job_id = 223248
+audit_job_id = 223250
+git_commit = "0468cc2cbc0b7c3b2a50f7866da1b1083c8ef1a8"
+publication_top_sha256 = "4e259cfb43033c069598d42fd54fec49a67ba55bfbb5c1e77eeef4887815fe2f"
+semantic_top_sha256 = "556e06fd2b1af1e678de88008bc1b87434fb8cf1179f38c897de7ee2c9fd779d"
+oof_sha256 = "11eea907a242606b78261a9b37107647ce393db743be95c146cbbe5caced137c"
+independent_receipt_sha256 = "1f6a6ce811d3fbecdbbbe7463e6052dc7766130372926d29952c70be65743e81"
+
+# Accepted 952 x 320 ESM2 union-panel matrix from producer 223330 and full
+# independent GPU re-extraction audit 223334. There is no descriptor fallback.
+[embeddings]
+producer_job_id = 223330
+audit_job_id = 223334
+git_commit = "753652df2cf9ca9f7e98dc53f3a1884d1f0a75f6"
+publication_top_sha256 = "3f6ed4bb54554fa5793e545c67553b48860e954d29ffeb4998460a54883aa603"
+semantic_top_sha256 = "938b7cb80d47f6f68b4d357019d3b7a1cdf9d7e3bf12c98a40af3a950585fa1e"
+index_sha256 = "3d72d71f729c31984c2d69aad1c3f70104a3abdf0f0ee47afbdb99326a282ebe"
+manifest_sha256 = "1b3ed56beebbec67ebb99110bc5b710a205dd86fab88b3f66552684fb942cc6f"
+matrix_sha256 = "1a5846487921c2e7498693918c12da57f354de7db1b79912c29e723984d05f8c"
+tensor_data_sha256 = "91ab5a36dbc02222ddf62dbecced3263c357e1ecd65a6420162946c575558c58"
+sequence_ids_sha256 = "45a704812a51d51876b8e32e86c8890db5b7d6aa52de1b1f35634e797acd3f03"
+independent_receipt_sha256 = "a5465d69a81e56e13d0b850b71de1df91e6e780260045d09c69b01680b5e94dc"
+records = 952
+dimensions = 320

@@ -1,0 +1,42 @@
+# Predeclared development-time sequential label-acquisition policy. This file
+# deliberately remains compatible with the generic selection-config loader, but
+# v2 is executed only by its separately frozen v2 selector; it does not claim
+# the generic mixer's ranking, seat-order, quality-floor, or random semantics.
+# This is not the production top-100 or 50k-library selector. It intentionally
+# assigns zero seats to uncertainty because no calibrated fold-local uncertainty
+# is accepted.
+objectives = [
+  "broad_spectrum_activity",
+  "gram_positive_activity",
+  "gram_negative_activity",
+]
+
+[selection]
+batch_size = 10
+# The v2-only selector interprets these as equal weights on raw probabilities,
+# so its scalar exploitation score is the arithmetic mean of the three values.
+objective_weights = [1.0, 1.0, 1.0]
+uncertainty_mode = "unavailable"
+risk_beta = 0.0
+ucb_beta = 0.0
+# The median raw scalar is a hard floor for either exploratory seat. It is never
+# relaxed; the v2 reward-repair/fallback contract handles an infeasible request.
+quality_floor_quantile = 0.50
+diversity_quality_weight = 0.50
+max_per_cluster = 2
+strict_cluster_cap = true
+# This loader-compatible seed does not define the random controls. Their five
+# keyed seeds and exact SHA-256 framing live in the evaluation contract.
+seed = 42
+
+# Largest-remainder allocation at B=10 is exactly 8/1/1. The v2-only selector
+# fills all exploit seats first, then diversity, then novelty. A separate
+# prediction-side loss guard may replace either exploratory seat or fall back
+# byte-exactly to the same-cap raw-mean control; it may never add an
+# uncertainty/UCB seat.
+[selection.strategy_mix]
+exploit = 0.80
+diversity = 0.10
+novelty = 0.10
+
+[selection.specialist_quotas]

@@ -1,0 +1,61 @@
+schema_version = 1
+artifact = "native_shared_endpoint_distillation_v1"
+scientific_evidence_accepted = false
+production_eligible = false
+campaign_eligible = false
+
+[teacher]
+maximum_unique_targets = 64
+minimum_unique_protected_targets = 40
+maximum_logweight_span = 0.6931471805599453
+source_groups_checked = ["protected_targets", "all_targets", "anchors", "combined"]
+minimum_ess_fraction = 0.2
+maximum_normalized_weight = 0.05
+target_mass = 0.5
+anchor_mass = 0.5
+unique_anchors_per_student = 64
+historical_endpoint_supervision = "fresh_forward_corruption_not_behavior_trajectory_importance_sampling"
+original_behavior_versions_preserved = true
+behavior_trajectory_lag_limit_applicable = false
+
+[training]
+students = 10
+steps = 4
+epsilon = 0.001
+learning_rate = 0.01
+gradient_clip = 1.0
+microbatch_rows = 16
+maximum_rows = 128
+corruption = "independent_semantic_keyed_uniform_native_level_and_uniform_fixed_count_subset"
+target_weights_frozen_across_steps = true
+backtracks = 8
+backtrack_scale = "2**(-b)_times_whole_four_step_displacement_shared_b_across_ten_students"
+atomic_ten_student_commit = true
+
+[guards]
+local_transition_mean = 0.01
+local_transition_p99 = 0.02
+reference_path_mean = 0.08
+reference_active_transition_p99 = 0.02
+reference_measure = "FULLMASK_GENERATOR_PATH"
+current_paths_per_student = 8
+length_law = "independent_uniform_generator_training_sequence_lengths_per_student"
+checkpoint_law = "equal_weight_ten_students"
+path_statistic = "sum_exact_complete_conditional_KL_per_current_candidate_path"
+path_mcse = "sample_standard_deviation_ddof1_divided_by_sqrt8"
+mixture_mcse = "sqrt_sum_per_student_mcse_squared_divided_by10"
+active_quantile = "inverse_empirical_CDF_no_empty_commit_dilution"
+enforce_per_student_and_equal_mixture = true
+actual_operator_guard = "optional_explicit_source_bound_callback_absence_is_noncampaign"
+no_kl = "disable_only_KL_acceptance_and_KL_only_stop_preserve_violations_and_other_guards"
+
+[resources]
+maximum_gpu_count = 1
+maximum_gpu_gib = 16
+maximum_cpu_count = 8
+maximum_host_gib = 32
+scientific_seconds = 7200
+wave_seconds = 180
+maximum_output_gib = 5
+clock_reset = false
+automatic_retry = false

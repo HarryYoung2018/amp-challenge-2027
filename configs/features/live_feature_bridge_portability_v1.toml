@@ -1,0 +1,107 @@
+schema_version = 1
+artifact = "live_feature_bridge_portability_v1"
+status = "prospective_engineering_overlay_not_job_authorization"
+declared_date = "2026-09-10"
+base_commit = "8d60994bd90f56afc3cd38f316b6a000b035ffd8"
+original_contract_sha256 = "650a13cbf6a82bee8c799a006af2d34b4eea71bc7558fe463c20cbb0abb01744"
+previous_recovery_contract_sha256 = "970be72060709aaa84ae6b38d7326b829a34311b3f599eb1ba5971b8dfe1179d"
+previous_recovery_result = "failed_gpu_launcher_before_driver_not_reclassified"
+supersession_scope = "portable_literal_log_gate_and_new_engineering_job_chain_only"
+all_902_predecessor_files_unchanged = true
+numerical_model_runtime_schedule_tests_and_artifact_limits_unchanged = true
+oracle_calls = 0
+model_fits = 0
+scientific_evidence_accepted = false
+production_eligible = false
+
+[retained_attempts]
+original_dev = "234321_FAILED_1:0_600_requested_cpu_34_actual_cpu"
+recovery = "234374_COMPLETED_0:0_480_requested_cpu_116_actual_cpu_238_tests_passed"
+exact = "234378_COMPLETED_0:0_600_requested_cpu_106_actual_cpu_238_tests_passed"
+gpu_job_id = "234379"
+gpu_state = "FAILED"
+gpu_exit_code = "127:0"
+gpu_failure = "rg_unavailable_at_launcher_line_132_before_driver_invocation"
+gpu_parent = "/lustre/scratch/users/yonghan.yang/amp_challenge/data/runs/live-feature-bridge-v1-20260910-rL64rC"
+gpu_parent_entries = 0
+gpu_spool_sha256 = "22b23e9b6acb2506da0b67056ea9b38456a647054faac967c1332d4103185fe6"
+gpu_stdout_sha256 = "6bdb4a7aa194414fd655ecee34d1dab8e913a2e9240b1b4d67801f1bbd0bd36b"
+gpu_stderr_sha256 = "f292c9193403a83c6c20891f0f1fc3e94833b05392c354b4b5fc693b38fc3941"
+gpu_requested_cpu_seconds = 2400
+gpu_requested_gpu_seconds = 600
+gpu_actual_cpu_seconds = 56
+gpu_actual_gpu_seconds = 14
+
+[source_scope]
+helper = "cluster/slurm/live_feature_bridge_literal_gate_v1.sh"
+exact_launcher = "cluster/slurm/validate_live_feature_bridge_portability_v1.sbatch"
+gpu_launcher = "cluster/slurm/qualify_live_feature_bridge_portability_v1.sbatch"
+helper_behavior = "bash_builtin_exact_literal_whole_line_match_on_pinned_existing_ascii_logs_no_rg_dependency"
+helper_tests = ["first_line", "middle_line", "last_line_without_newline", "literal_metacharacters", "leading_hyphen", "reject_substring", "reject_regex_variant", "reject_absent_line", "reject_missing_file", "reject_directory"]
+exact_scope = "original_seven_whole_test_files_plus_ten_shell_gate_cases_and_syntax_checks_of_all_seven_launchers_plus_helper_no_exclusions"
+gpu_scope = "original_gate_checks_and_driver_with_only_portable_matcher_and_new_exact_job_label_changed"
+formatting_or_original_file_edits = false
+historical_array_reads_during_cpu_validation = 0
+real_worker_requests_during_cpu_validation = 0
+runtime_dependencies_installed_or_downloaded = false
+
+[jobs]
+new_exact_jobs_max = 1
+new_gpu_jobs_max = 1
+retained_original_audit_jobs_max = 1
+cpu_account = "bio"
+cpu_partition = "standard"
+cpu_nodes = 1
+cpu_tasks = 1
+cpu_cpus = 2
+cpu_memory_gib = 8
+cpu_wall_seconds = 300
+gpu_account = "bio"
+gpu_partition = "gpumid"
+gpu_nodes = 1
+gpu_tasks = 1
+gpu_cpus = 4
+gpu_memory_gib = 16
+gpu_count = 1
+gpu_wall_seconds = 600
+bridge_operational_seconds = 540
+original_worker_operation_seconds = 120
+
+[allocation_ledger]
+previous_recovery_requested_cpu_ceiling = 4680
+previous_recovery_requested_gpu_ceiling = 600
+additional_requested_cpu_allowance = 3000
+additional_requested_gpu_allowance = 600
+seven_job_requested_cpu_seconds_max = 7680
+seven_job_requested_gpu_seconds_max = 1200
+already_requested_cpu_seconds = 4080
+already_requested_gpu_seconds = 600
+actual_cpu_seconds_so_far = 312
+actual_gpu_seconds_so_far = 14
+future_requested_cpu_seconds = 3600
+future_requested_gpu_seconds = 600
+actual_plus_future_cpu_planning_subtotal = 3912
+actual_plus_future_gpu_planning_subtotal = 614
+planning_subtotals_are_compliance_or_hard_limits = false
+failed_or_unused_requests_refunded = false
+actual_acceptance_cpu_seconds_max = 7680
+actual_acceptance_gpu_seconds_max = 1200
+failures_and_termination_grace_charged = true
+pre_submission_both_cumulative_requested_and_actual_plus_next_request_must_fit = true
+unused_original_audit_600_cpu_seconds_is_future_not_spent = true
+other_allowances_reused = false
+
+[acceptance]
+required_new_success_sequence = ["PORTABLE_EXACT", "PORTABLE_GPU", "ORIGINAL_AUDIT"]
+old_recovery_and_exact_green_evidence_retained = true
+both_original_dev_and_gpu_failures_retained = true
+all_original_or_previous_recovery_jobs_green_claim_allowed = false
+each_job_requires_separate_root_exact_clean_source_and_launcher_approval = true
+new_exact_gpu_audit_source_commit_must_match = true
+gpu_requires_independently_authenticated_new_exact_and_central_234275_green = true
+gpu_requires_new_empty_parent_never_reuse_failed_root = true
+audit_requires_root_gpu_pins_in_new_disjoint_audit_root = true
+numerical_auditor_does_not_establish_overlay_job_chain_acceptance = true
+final_acceptance_requires_independent_numerical_audit_and_root_reviewed_job_chain = true
+failure_policy = "retain_stop_no_retry_automatic_followup_extension_or_acceptance"
+scientific_protocol_or_production_gate_changes = false

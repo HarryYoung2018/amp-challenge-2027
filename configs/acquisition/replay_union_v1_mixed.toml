@@ -1,0 +1,26 @@
+objectives = ["broad_spectrum", "gram_positive", "gram_negative"]
+
+# Frozen non-start-aware development replay: exactly ten selections per held-out
+# union fold with a hard cap of two sequences per independently rebuilt 70%
+# identity diversity component.
+batch_size = 10
+objective_weights = [1.0, 1.0, 1.0]
+risk_beta = 1.0
+ucb_beta = 1.0
+quality_floor_quantile = 0.20
+diversity_quality_weight = 0.35
+max_per_cluster = 2
+strict_cluster_cap = true
+seed = 42
+
+# Largest-remainder allocation is exact at batch size ten:
+# exploit=5, diversity=2, pareto=1, uncertainty=1, random=1. The final seat is
+# the mixer's quality-tilted seeded-random arm, not the pure replay control.
+[strategy_mix]
+exploit = 0.50
+diversity = 0.20
+pareto = 0.10
+uncertainty = 0.10
+random = 0.10
+
+[specialist_quotas]

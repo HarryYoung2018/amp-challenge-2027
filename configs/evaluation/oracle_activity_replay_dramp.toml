@@ -1,0 +1,21 @@
+schema_version = 1
+
+# Frozen before reading the DRAMP oracle outputs. This reuses the repository's
+# original mixed-policy weights and evaluates ten selections per held-out fold.
+selection_config = "../acquisition/replay_small.toml"
+objectives = ["broad_spectrum", "gram_positive", "gram_negative"]
+policies = ["mixed", "lcb", "mean", "random"]
+seeds = [17, 42, 91, 137, 271]
+
+group_column = "replay_round"
+prediction_scope_column = "prediction_scope"
+required_prediction_scope = "out_of_fold"
+prediction_fold_column = "prediction_fold"
+outcome_fold_column = "outcome_fold"
+
+# Sequence-level outcomes are fractions of identifiable bacterial assays active
+# at the benchmark's frozen MIC <= 16 uM threshold.
+[outcome_thresholds]
+broad_spectrum = 0.5
+gram_positive = 0.5
+gram_negative = 0.5

@@ -1,0 +1,209 @@
+schema_version = 1
+
+# This manifest pins public organizer-baseline artifacts for reproducible audit
+# and license review. `review_required` means the bytes may be inspected but are
+# not admitted to the final training corpus until upstream terms are recorded.
+
+[[artifact]]
+name = "ampdiffusion_training_sequences"
+url = "https://raw.githubusercontent.com/szczurek-lab/ampdiffusion-starter-kit/1a862af9078e6b55c87d1fa576f3da81851ba94b/data/training/training.fasta"
+relative_path = "ampdiffusion-1a862af/data/training/training.fasta"
+sha256 = "4052e69584ca1ac2e28017935c2f373e7a47bbe0a61c580748add1ab63ccf255"
+bytes = 845524
+source_repository = "https://github.com/szczurek-lab/ampdiffusion-starter-kit"
+source_commit = "1a862af9078e6b55c87d1fa576f3da81851ba94b"
+license = "Redistributed by MIT-licensed starter kit; paper dataset CC-BY-4.0; upstream database terms require review"
+training_status = "review_required"
+description = "19,670 deduplicated DRAMP 3.0, APD3, and DBAASP sequences; 18,860 meet challenge length/alphabet constraints"
+
+[[artifact]]
+name = "ampdiffusion_experimental_mic"
+url = "https://raw.githubusercontent.com/szczurek-lab/ampdiffusion-starter-kit/1a862af9078e6b55c87d1fa576f3da81851ba94b/experimental/mic.csv"
+relative_path = "ampdiffusion-1a862af/experimental/mic.csv"
+sha256 = "3da5adb7814f00b5f331eedd3dc909c55ee66cc1561e1bf33d5c1753d30eb82d"
+bytes = 46598
+source_repository = "https://github.com/szczurek-lab/ampdiffusion-starter-kit"
+source_commit = "1a862af9078e6b55c87d1fa576f3da81851ba94b"
+license = "CC-BY-4.0 (Torres et al., Cell Biomaterials 2025)"
+training_status = "approved"
+description = "506 MIC observations for 46 synthesized peptides across 11 pathogens, with explicit right censoring"
+
+[[artifact]]
+name = "hydramp_training_mic"
+url = "https://raw.githubusercontent.com/szczurek-lab/hydramp-starter-kit/7804df862872ccc6d09fe01c41bafbca194cfa31/data/training/mic_data.csv"
+relative_path = "hydramp-7804df8/data/training/mic_data.csv"
+sha256 = "58e042011b340419daa0492b32eee4bc2cdc381d26ebcba6e548b11ce0f33d6c"
+bytes = 210748
+source_repository = "https://github.com/szczurek-lab/hydramp-starter-kit"
+source_commit = "7804df862872ccc6d09fe01c41bafbca194cfa31"
+license = "Redistributed by MIT-licensed starter kit; GRAMPA/upstream terms require review"
+training_status = "review_required"
+description = "4,546 E. coli measurements stored as log10(MIC/uM); 4,319 meet challenge sequence constraints"
+
+[[artifact]]
+name = "hydramp_unlabelled_positive"
+url = "https://raw.githubusercontent.com/szczurek-lab/hydramp-starter-kit/7804df862872ccc6d09fe01c41bafbca194cfa31/data/training/unlabelled_positive.csv"
+relative_path = "hydramp-7804df8/data/training/unlabelled_positive.csv"
+sha256 = "69e45c5e162dc0ee37489356cc6c5c759c35da9c47671b65dc00aebf6c51c088"
+bytes = 951843
+source_repository = "https://github.com/szczurek-lab/hydramp-starter-kit"
+source_commit = "7804df862872ccc6d09fe01c41bafbca194cfa31"
+license = "Redistributed by MIT-licensed starter kit; dbAMP/DRAMP/AMP Scanner terms require review"
+training_status = "review_required"
+description = "20,313 assumed AMP-positive sequences; requires constraint filtering and source-overlap audit"
+
+[[artifact]]
+name = "hydramp_unlabelled_negative"
+url = "https://raw.githubusercontent.com/szczurek-lab/hydramp-starter-kit/7804df862872ccc6d09fe01c41bafbca194cfa31/data/training/unlabelled_negative.csv"
+relative_path = "hydramp-7804df8/data/training/unlabelled_negative.csv"
+sha256 = "491bf203c4598c56ea19f9ed31cb5227af34970ccc4ebe1cc95afb3444f88642"
+bytes = 4930987
+source_repository = "https://github.com/szczurek-lab/hydramp-starter-kit"
+source_commit = "7804df862872ccc6d09fe01c41bafbca194cfa31"
+license = "Redistributed by MIT-licensed starter kit; UniProt terms require review"
+training_status = "review_required"
+description = "25,762 assumed non-AMP proteins; only four meet the competition 8-50 length constraint"
+
+[[artifact]]
+name = "hydramp_veltri_positive"
+url = "https://raw.githubusercontent.com/szczurek-lab/hydramp-starter-kit/7804df862872ccc6d09fe01c41bafbca194cfa31/data/training/veltri_positive.csv"
+relative_path = "hydramp-7804df8/data/training/veltri_positive.csv"
+sha256 = "fdaaad5714ffe48537506c30eb0d5a5a94767182433f52dcee311b2a11c7ef71"
+bytes = 90911
+source_repository = "https://github.com/szczurek-lab/hydramp-starter-kit"
+source_commit = "7804df862872ccc6d09fe01c41bafbca194cfa31"
+license = "Redistributed by MIT-licensed starter kit; AMP Scanner v2 terms require review"
+training_status = "review_required"
+description = "2,021 AMP-classifier positives"
+
+[[artifact]]
+name = "hydramp_veltri_negative"
+url = "https://raw.githubusercontent.com/szczurek-lab/hydramp-starter-kit/7804df862872ccc6d09fe01c41bafbca194cfa31/data/training/veltri_negative.csv"
+relative_path = "hydramp-7804df8/data/training/veltri_negative.csv"
+sha256 = "9ffd62bb6382084d7a1d4e2a824dfd610bcf1a28152d6828ca9874d8ec7be47e"
+bytes = 98083
+source_repository = "https://github.com/szczurek-lab/hydramp-starter-kit"
+source_commit = "7804df862872ccc6d09fe01c41bafbca194cfa31"
+license = "Redistributed by MIT-licensed starter kit; AMP Scanner v2/UniProt terms require review"
+training_status = "review_required"
+description = "1,897 AMP-classifier negatives"
+
+[[artifact]]
+name = "hydramp_dbaasp_clean"
+url = "https://raw.githubusercontent.com/szczurek-lab/hydramp-starter-kit/7804df862872ccc6d09fe01c41bafbca194cfa31/data/training/dbaasp/dbaasp_clean.fasta"
+relative_path = "hydramp-7804df8/data/training/dbaasp/dbaasp_clean.fasta"
+sha256 = "48c8ae33e2bdc12389aa38fbba1e45f4baf2532a4dafb7191245b8fa155afdec"
+bytes = 95338
+source_repository = "https://github.com/szczurek-lab/hydramp-starter-kit"
+source_commit = "7804df862872ccc6d09fe01c41bafbca194cfa31"
+license = "Redistributed by MIT-licensed starter kit; DBAASP terms require review"
+training_status = "review_required"
+description = "3,038 canonical DBAASP peptides of length 10-25"
+
+[[artifact]]
+name = "hydramp_dbaasp_high_ecoli"
+url = "https://raw.githubusercontent.com/szczurek-lab/hydramp-starter-kit/7804df862872ccc6d09fe01c41bafbca194cfa31/data/training/dbaasp/high_ecoli_activity.fasta"
+relative_path = "hydramp-7804df8/data/training/dbaasp/high_ecoli_activity.fasta"
+sha256 = "2349ef8daba9d4244d4a93270d556db8cdf2bde3213ed4e317c6ec05a20ce03d"
+bytes = 28751
+source_repository = "https://github.com/szczurek-lab/hydramp-starter-kit"
+source_commit = "7804df862872ccc6d09fe01c41bafbca194cfa31"
+license = "Redistributed by MIT-licensed starter kit; DBAASP terms require review"
+training_status = "review_required"
+description = "929 high-activity E. coli peptides"
+
+[[artifact]]
+name = "hydramp_dbaasp_low_ecoli"
+url = "https://raw.githubusercontent.com/szczurek-lab/hydramp-starter-kit/7804df862872ccc6d09fe01c41bafbca194cfa31/data/training/dbaasp/low_ecoli_activity.fasta"
+relative_path = "hydramp-7804df8/data/training/dbaasp/low_ecoli_activity.fasta"
+sha256 = "4d38a58eb18cac8b976655192d665fea28447c4f5b0df0079abc297e011d9bb5"
+bytes = 11892
+source_repository = "https://github.com/szczurek-lab/hydramp-starter-kit"
+source_commit = "7804df862872ccc6d09fe01c41bafbca194cfa31"
+license = "Redistributed by MIT-licensed starter kit; DBAASP terms require review"
+training_status = "review_required"
+description = "394 low-activity E. coli peptides"
+
+[[artifact]]
+name = "hydramp_dbaasp_high_saureus"
+url = "https://raw.githubusercontent.com/szczurek-lab/hydramp-starter-kit/7804df862872ccc6d09fe01c41bafbca194cfa31/data/training/dbaasp/high_saureus_activity.fasta"
+relative_path = "hydramp-7804df8/data/training/dbaasp/high_saureus_activity.fasta"
+sha256 = "798371b52a82b8e3678c161d8ab2aae202b9326baff64d4069b51393cc79c291"
+bytes = 18101
+source_repository = "https://github.com/szczurek-lab/hydramp-starter-kit"
+source_commit = "7804df862872ccc6d09fe01c41bafbca194cfa31"
+license = "Redistributed by MIT-licensed starter kit; DBAASP terms require review"
+training_status = "review_required"
+description = "586 high-activity S. aureus peptides"
+
+[[artifact]]
+name = "hydramp_dbaasp_low_saureus"
+url = "https://raw.githubusercontent.com/szczurek-lab/hydramp-starter-kit/7804df862872ccc6d09fe01c41bafbca194cfa31/data/training/dbaasp/low_saureus_activity.fasta"
+relative_path = "hydramp-7804df8/data/training/dbaasp/low_saureus_activity.fasta"
+sha256 = "c214585ae4b9c0a06bd59544941953d6ca06bfab552df76e3fa7035af2e746c0"
+bytes = 9184
+source_repository = "https://github.com/szczurek-lab/hydramp-starter-kit"
+source_commit = "7804df862872ccc6d09fe01c41bafbca194cfa31"
+license = "Redistributed by MIT-licensed starter kit; DBAASP terms require review"
+training_status = "review_required"
+description = "299 low-activity S. aureus peptides"
+
+[[artifact]]
+name = "hydramp_uniprot_train"
+url = "https://raw.githubusercontent.com/szczurek-lab/hydramp-starter-kit/7804df862872ccc6d09fe01c41bafbca194cfa31/data/training/Uniprot_0_25_train.csv"
+relative_path = "hydramp-7804df8/data/training/Uniprot_0_25_train.csv"
+sha256 = "1af551c81bb7252a88abf489083a226aba1d02b6049436171dffee672bd11c32"
+bytes = 9140400
+source_repository = "https://github.com/szczurek-lab/hydramp-starter-kit"
+source_commit = "7804df862872ccc6d09fe01c41bafbca194cfa31"
+license = "Redistributed by MIT-licensed starter kit; UniProt terms require review"
+training_status = "review_required"
+description = "180,194 biological-diversity/background sequences from the published HydrAMP split"
+
+[[artifact]]
+name = "hydramp_uniprot_validation"
+url = "https://raw.githubusercontent.com/szczurek-lab/hydramp-starter-kit/7804df862872ccc6d09fe01c41bafbca194cfa31/data/training/Uniprot_0_25_val.csv"
+relative_path = "hydramp-7804df8/data/training/Uniprot_0_25_val.csv"
+sha256 = "4c854b98795a19cc154b72b36d2ead8ab6c5c427a4e7050bae5065dacd550565"
+bytes = 1142856
+source_repository = "https://github.com/szczurek-lab/hydramp-starter-kit"
+source_commit = "7804df862872ccc6d09fe01c41bafbca194cfa31"
+license = "Redistributed by MIT-licensed starter kit; UniProt terms require review"
+training_status = "review_required"
+description = "22,524 biological-diversity/background validation sequences"
+
+[[artifact]]
+name = "hydramp_uniprot_test"
+url = "https://raw.githubusercontent.com/szczurek-lab/hydramp-starter-kit/7804df862872ccc6d09fe01c41bafbca194cfa31/data/training/Uniprot_0_25_test.csv"
+relative_path = "hydramp-7804df8/data/training/Uniprot_0_25_test.csv"
+sha256 = "903ca81d66b50f5af1860f6f69d7f6b8aa883cf92a4230d6fea9c5ead152efe8"
+bytes = 1142642
+source_repository = "https://github.com/szczurek-lab/hydramp-starter-kit"
+source_commit = "7804df862872ccc6d09fe01c41bafbca194cfa31"
+license = "Redistributed by MIT-licensed starter kit; UniProt terms require review"
+training_status = "review_required"
+description = "22,524 biological-diversity/background test sequences"
+
+[[artifact]]
+name = "hydramp_experimental_mic"
+url = "https://raw.githubusercontent.com/szczurek-lab/hydramp-starter-kit/7804df862872ccc6d09fe01c41bafbca194cfa31/experimental/mic.csv"
+relative_path = "hydramp-7804df8/experimental/mic.csv"
+sha256 = "7bc04593abd52da433be83c64e35443a02d7933fe77cc250ab172548cde70d27"
+bytes = 13937
+source_repository = "https://github.com/szczurek-lab/hydramp-starter-kit"
+source_commit = "7804df862872ccc6d09fe01c41bafbca194cfa31"
+license = "MIT repository redistribution; published subset Nat Commun 2023, unpublished follow-up included"
+training_status = "review_required"
+description = "187 MIC observations for 47 peptides, including assay-ceiling censoring"
+
+[[artifact]]
+name = "hydramp_experimental_hemolysis"
+url = "https://raw.githubusercontent.com/szczurek-lab/hydramp-starter-kit/7804df862872ccc6d09fe01c41bafbca194cfa31/experimental/hemolysis.csv"
+relative_path = "hydramp-7804df8/experimental/hemolysis.csv"
+sha256 = "cebdd3d4f30a4566499a489e713c66296041bf7d90328fc82e564c1227474b98"
+bytes = 1475
+source_repository = "https://github.com/szczurek-lab/hydramp-starter-kit"
+source_commit = "7804df862872ccc6d09fe01c41bafbca194cfa31"
+license = "MIT repository redistribution; published subset Nat Commun 2023, unpublished follow-up included"
+training_status = "review_required"
+description = "31 HC50 observations with assay-ceiling censoring"

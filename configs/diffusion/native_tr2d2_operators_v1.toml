@@ -1,0 +1,64 @@
+schema = "native-tr2d2-operators-v1"
+qualification = "engineering_only_pending_real_runtime_capacity_and_campaign_stopping_overlay"
+method = "tr2d2_style_tree_offpolicy"
+update_semantics = "tree_guided_offpolicy_search_distillation_not_exact_importance_sampling"
+paper = "https://arxiv.org/abs/2509.25171v1"
+official_source_commit = "b5a3d097f38b6cc11dfafbaed9fca71ca4bf9ac6"
+successor_protocol_sha256 = "579d071fac1d70bf514761ff98e6d2019730fbdad484e548f9b672fda1a001af"
+
+[search]
+maximum_checkpoints = 10
+iterations_per_checkpoint = 10
+children_per_expansion = 8
+maximum_expansions_per_generation = 100
+maximum_terminal_attempts_per_generation = 800
+maximum_evaluated_rows_per_generation = 800
+maximum_evaluator_calls_per_generation = 100
+maximum_native_states_per_batch = 128
+maximum_native_microbatch_rows = 16
+maximum_path_steps = 64
+maximum_shortlist = 256
+maximum_serialized_generation_bytes = 67108864
+checkpoint_assignment = "seeded_round_robin_expansions"
+root = "fully_masked_empirical_generator_training_length"
+selection = "uniform_among_pareto_positive_puct_children_with_expandable_descendants"
+exploration_coefficient = 0.1
+puct = "mean_vector_reward_plus_c_exp_complete_edge_logp_sqrt_parent_visits_over_1_plus_child_visits"
+visit_accounting = "one_visit_per_terminal_rollout_root_initially_zero"
+no_op = "record_all_zero_commit_events_without_neural_calls"
+posterior_representation = "esm320_plus_normalized_length"
+posterior_kind = "frozen_generation_vector_posterior_mean_not_thompson"
+tree_lifetime = "persist_within_generation_reset_before_next_generation"
+shortlist = "pareto_layers_then_descending_context_scalar_then_sequence_id"
+attempt_cap_underfill = "explicit_no_hidden_retry"
+
+[replay]
+maximum_endpoints_per_checkpoint = 20
+retention = "global_seen_feasible_unique_pareto_front_then_context_scalar_sequence_id_cap"
+retention_probability = "deterministic_conditional_on_observed_generation_not_marginal_inclusion_probability"
+log_weight = "frozen_posterior_scalar_reward_over_temperature_plus_log_pretrained_path_minus_log_behavior_path"
+temperature = 0.1
+minimum_relative_log_weight = -10.0
+steps_per_update = 4
+corruptions_per_endpoint_per_step = 1
+mask_levels = "uniform_1_through_native_levels_fixed_cosine_count"
+loss = "globally_weighted_row_balanced_epsilon_mixture_masked_nll"
+epsilon = 0.001
+learning_rate = 0.01
+gradient_norm_clip = 1.0
+kl_enforced = false
+kl_diagnostics = "finite_active_anchors_only_not_path_or_global_bound"
+empty_buffer = "explicit_no_update"
+schedule = "after_complete_adaptive_wave_before_next_tree_no_unused_terminal_round29_update"
+campaign_ess_fraction_minimum = 0.20
+campaign_maximum_normalized_weight = 0.05
+campaign_weight_rules_enforced_here = false
+
+[validation]
+probability_absolute_tolerance = 0.000001
+probability_relative_tolerance = 0.00001
+gradient_absolute_tolerance = 0.0000005
+gradient_relative_tolerance = 0.00002
+scientific_evidence_accepted = false
+campaign_eligible = false
+production_eligible = false

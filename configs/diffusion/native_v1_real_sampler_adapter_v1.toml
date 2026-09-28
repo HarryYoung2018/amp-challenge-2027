@@ -1,0 +1,90 @@
+schema_version = 1
+artifact = "native_categorical_diffusion_v1_real_sampler_adapter"
+status = "blocked_no_independently_accepted_checkpoint"
+evidence_class = "engineering_implementation_only"
+runtime_scope = "engineering_fixture_only"
+execution_authorized = false
+scientific_evidence_accepted = false
+production_input_eligible = false
+automatic_generator_mixture_eligible = false
+production_identity_construction_allowed = false
+production_provider_construction_allowed = false
+accepted_checkpoint_sets = []
+
+[native_v1]
+pilot_contract_sha256 = "9499e40d348ce2542f99f4363f34b790f7c09a75b2ebcb92d40fe4aad6e9457d"
+parent_contract_sha256 = "4a13952a606e154b652f8bbc1e8f698b5993ee1a41181867c979729709573d40"
+model_variant = "R128"
+output_mode = "residual"
+checkpoint_format = "safetensors"
+pickle_allowed = false
+checkpoint_tensor_dtype = "F32"
+checkpoint_tensor_count = 31
+count_prior_format = "deterministic_pickle_free_npz"
+
+[sampling]
+alphabet = "ACDEFGHIKLMNPQRSTVWY"
+minimum_length = 8
+maximum_length = 50
+diffusion_levels = 64
+cosine_offset = 0.008
+reverse_rule = "fixed_count_monotone_confidence_maskgit"
+calibrated_log_probability = "log_softmax_float32_of_count_log_probability_plus_lambda_bin_times_residual_divided_by_temperature_bin"
+backoff_log_probability = "float32_logaddexp_of_log_one_minus_epsilon_plus_calibrated_log_probability_and_log_epsilon_plus_count_log_softmax"
+calibration_bins = [[1, 16], [17, 32], [33, 48], [49, 64]]
+allowed_residual_lambdas = [0.125, 0.25, 0.5, 0.75, 1.0]
+allowed_temperatures = [1.0, 1.25, 1.5, 2.0, 3.0]
+allowed_backoff_epsilons = [0.0, 0.02, 0.05]
+rng = "numpy_pcg64dxsm_sha256_sampler_identity_seed_ordinal_level"
+rng_domain = "amp-challenge/native-categorical-diffusion-v1/real-sampler-draw/v1"
+batch_sequence_cap = 128
+proposal_count_cap = 65536
+output_order = "ascending_unique_uint64_ordinal"
+duplicates_preserved = true
+rejection_retry_filtering_deduplication = false
+
+[trust]
+schema_v1_acceptance_authority = "none"
+positive_checkpoint_loader_implemented = false
+acceptance_requires_new_adapter_contract_version = true
+
+[resources]
+execution_scope = "focused_engineering_fixture_only"
+slurm_account = "bio"
+cpu_partition = "standard"
+nodes = 1
+gpus = 0
+cpus = 8
+host_memory_gib = 32
+request_wall_seconds = 7200
+device = "cpu"
+
+[isolation]
+oracle_inputs_allowed = false
+oracle_imports_allowed = false
+labels_allowed = false
+activity_predictions_allowed = false
+toxicity_predictions_allowed = false
+organizer_reference_allowed = false
+training_rows_allowed = false
+sampler_inputs = ["length", "ordinal", "seed", "batch_size", "authenticated_native_contract", "authenticated_count_prior", "untrained_r128_fixture_state"]
+output_claim = "engineering_fixture_raw_unscored_unfiltered_peptide_proposal"
+
+[provenance]
+artifact = "native_categorical_diffusion_v1_engineering_runtime_provenance"
+observation_scope = "self_observed_engineering_only"
+bind_source_sha256_inventory = true
+bind_dependency_lock_sha256 = true
+bind_observed_runtime_versions = true
+bind_deterministic_runtime_sha256 = true
+independent_authority = false
+scientific_evidence_accepted = false
+
+[current_gate]
+reason = "native_v1_pilot_has_no_independently_accepted_checkpoint_or_recipe"
+public_loader_must_fail_before_opening_checkpoint_bundle_paths = true
+schema_v1_fixture_only = true
+production_serialization_allowed = false
+fixture_execution_is_scientific_evidence = false
+fixture_execution_is_production_input = false
+registry_or_generator_mixture_change_allowed = false

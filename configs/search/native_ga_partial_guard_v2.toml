@@ -1,0 +1,141 @@
+schema_version = 2
+artifact = "native_ga_endpoint_partial_guard_v2"
+base_commit = "77403abdfaa9309cf44bdccf05741a8ee7283a03"
+scientific_evidence_accepted = false
+production_eligible = false
+campaign_eligible = false
+selected_tuning_result_available = false
+legacy_source_and_configuration_unchanged = true
+
+[dependency]
+declaration_commit = "6590ac0d658ddd87e2b58069b054fba82456874e"
+deadline_clarification_commit = "bad050e655508824435b3411536fadee8796fc60"
+resume_evidence_clarification_commit = "61eb62f6604f5141b122177e1fbeadf5b5b5e34a"
+contract_configuration_sha256 = "39b0d86024be30c6277a18ab9fbfe482953bca1bd88d52f2417f6b964ae83123"
+kernel_input = "EligibleGAKernelInput"
+kernel_result = "EligibleGAPrefix"
+admission = "independently_verified_complete_prefix_bound_to_raw_history_exact_successful_eligible_subset_context_and_external_source_contract_pins"
+prefix_deadline = "exact_expected_deadline_monotonic_supplied_independently_to_verifier"
+kernel_rng_digest = "stream_sha256_preserves_all_eligible_v2_numerical_parity"
+guard_rng_digest = "semantic_sha256_excludes_transport_and_ineligible_objective_values"
+provenance_digest = "sha256_retains_complete_raw_charges_statuses_and_values"
+uncommitted_dependency_copy = false
+
+[proposals]
+prefix_size = 256
+unaltered_ga_count = 128
+native_parent_indices = "accepted_sequences[128:256]"
+native_refinement_count = 128
+native_start_level = 32
+native_total_levels = 64
+joint_attempt_cap = 65536
+checkpoint_order = "unchanged_seeded_global_ordinal_round_robin"
+parent_index = "(legal_native_ordinal-original_native_ordinal)%128"
+native_rng = "unchanged_v1_domain_with_eligible_kernel_stream_sha256"
+native_batch_rows = 128
+native_microbatch_rows = 16
+posterior_batches = 2
+posterior_batch_rows = 128
+method_seats = 14
+outer_private_reserve_seats = 2
+future_reserves_visible = false
+
+[guard_measure]
+name = "CONDITIONAL_LEGAL_GA_PARTIAL_REMASK_ATTEMPT_LAW"
+legal_ordinal_interval = "[original_native_ordinal,original_native_ordinal+65536-len(prefix.attempts))"
+student_parent_law = "uniform_legal_ordinals_assigned_to_student_then_exact_existing_parent_map"
+samples_per_student = 8
+sampling = "iid_with_replacement_no_deduplication_or_redraw"
+trace_ordinals = "unique_probe_replicates_0_through7_NOT_actual_generation_ordinals"
+legal_generation_ordinals = "recorded_separately_in_frozen_parent_plan"
+common_random_numbers = "same_parent_draws_and_role_keyed_path_uniforms_across_all_backtracks"
+old_and_candidate_path_namespaces = "separate_roles"
+local_occupancy = "eight_genuine_old_policy_partial32_paths_frozen_once"
+local_direction = "complete_transition_KL_old_to_candidate"
+reference_occupancy = "eight_genuine_candidate_policy_partial32_paths_per_backtrack"
+reference_direction = "sum_complete_transition_KL_candidate_to_frozen_reference"
+active_transition_mass = "equal_path_then_uniform_active_states_within_path"
+mixtures = ["equal_ten_students", "exact_legal_ordinal_student_mass"]
+mcse = "iid_path_sample_sd_ddof1_over_sqrt8_then_stratified_student_mixture"
+global_search_kl = false
+stopped_replenishment_distribution_kl = false
+endpoint_marginal_kl = false
+mcse_is_certified_bound = false
+
+[update]
+proposal = "unchanged_shared_four_step_PRIVATE_no_kl_proposal_once_not_an_arm_commit"
+backtrack_indices = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+backtrack_scale = "2**(-b)_times_same_whole_four_step_displacement"
+reuse_b0_existing_diagnostics = true
+local_mean_cap = 0.01
+local_p99_cap = 0.02
+reference_path_mean_cap = 0.08
+reference_active_transition_p99_cap = 0.02
+all_existing_shared_guards_retained = true
+all_old_and_new_per_student_equal_ten_legal_mass_gates = true
+acceptance = "first_common_passing_backtrack_all_ten_atomic_after_serialization_source_and_deadline_checks"
+no_kl = "ignore_only_KL_acceptance_and_KL_only_stops_keep_all_diagnostics_and_non_KL_gates"
+teacher = "same_charged_eligible_endpoint_teacher_cross_bound_to_exact_kernel_eligibility"
+teacher_support_ess_weight_caps_unchanged = true
+no_terminal_round29_training = true
+initial_and_short_teacher = "same_genuine_eight_path_b0_guard_unchanged_policy_no_SGD_or_version_increment"
+no_update_local_anchor = "analytic_identical_policy_zero_not_fabricated_anchor_rows"
+no_usable_prefix = "no_guard_or_generation"
+no_aliasing_or_injected_globals = true
+
+[work_upper_bounds]
+students = 10
+maximum_candidates = 9
+training_row_forwards = 5120
+training_forward_calls = 320
+training_backward_calls = 320
+existing_anchor_row_forwards = 34560
+existing_anchor_forward_calls = 2160
+existing_fullmask_row_forwards = 184320
+existing_fullmask_forward_calls = 14400
+old_partial_occupancy_row_forwards = 51200
+old_partial_occupancy_forward_calls = 3360
+candidate_partial_row_forwards = 115200
+candidate_partial_forward_calls = 8640
+wrapper_total_row_forwards = 390400
+wrapper_total_forward_calls = 28880
+wrapper_total_backward_calls = 320
+independent_reconstruction_row_forwards = 318720
+independent_reconstruction_forward_calls = 19920
+independent_reconstruction_backward_calls = 320
+inline_combined_row_forwards = 709120
+inline_combined_forward_calls = 48800
+inline_combined_backward_calls = 640
+unchanged_native_proposal_row_forward_cap = 2088960
+unchanged_native_proposal_conservative_forward_call_cap = 2088960
+sampled_partial_traces_only = 800
+sampled_partial_transition_visits_only = 25600
+sampled_trace_counts_are_not_total_work = true
+runtime_count = "all_actual_row_forwards_forward_calls_backward_calls_by_phase_plus_original_wall_clock"
+
+[resources]
+scientific_seconds = 7200
+wave_seconds = 180
+outer_deadline = "already_min_original_scientific_epoch_and_original_controller_wave_start_plus180_including_upstream_work"
+clock_reset = false
+automatic_retry = false
+gpus = 1
+cpus = 8
+host_gib = 32
+gpu_peak_gib = 16
+aggregate_diagnostic_receipt_mib = 128
+run_output_gib = 5
+real_capacity_qualified = false
+gpu_oracle_tuning_scientific_runs = false
+
+[validation]
+account = "bio"
+partition = "standard"
+cpus = 2
+host_gib = 8
+seconds = 900
+gpus = 0
+oracle_calls = 0
+native_probability_rtol = 0.00001
+native_probability_atol = 0.000001
+independent_reconstruction = "no_new_guard_or_wrapper_producer_calls_accepted_native_neural_primitives_shared"

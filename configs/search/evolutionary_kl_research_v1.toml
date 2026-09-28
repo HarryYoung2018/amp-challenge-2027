@@ -1,0 +1,565 @@
+schema_version = 1
+artifact = "evolutionary_kl_research_protocol_v1"
+status = "predeclared_blocked_on_prerequisites"
+decision_date = "2026-09-08"
+automatic_production_eligible = false
+execution_authorized = false
+evidence_class = "de_novo_hidden_computational_oracle_surrogate_only"
+biological_superiority_claim_allowed = false
+screen_seeds = [17, 42, 91, 137, 271]
+confirmation_seeds = [314, 577, 811, 1217, 2027]
+confirmation_seed_status = "published_unsequestered_development_only_not_confirmatory"
+screen_method_ids = [
+  "tuned_peptide_ga",
+  "categorical_diffusion_posthoc",
+  "diffusion_reward_kl_no_search",
+  "arcadiamp_style_iterative_d3pm",
+  "tr2d2_style_tree_offpolicy",
+  "mp2d_style_inference_search",
+  "ga_endpoint_distillation_no_kg",
+  "counterfactual_softkg_evolutionary_diffusion",
+  "ablation_no_spectral_representation",
+  "ablation_no_counterfactual_credit",
+  "ablation_singleton_kg",
+  "ablation_no_endpoint_distillation",
+  "ablation_no_kl_controls",
+]
+confirmation_method_ids = [
+  "tuned_peptide_ga",
+  "tr2d2_style_tree_offpolicy",
+  "counterfactual_softkg_evolutionary_diffusion",
+]
+
+[support]
+alphabet = "ACDEFGHIKLMNPQRSTVWY"
+min_length = 8
+max_length = 50
+linear_unmodified_free_termini = true
+canonical_sequence_function = "amp_challenge.sequences.canonicalize_sequence"
+exact_training_overlap_forbidden = true
+organizer_reference_role = "post_generation_compliance_only"
+organizer_reference_may_shape_generation = false
+organizer_reference_may_shape_model_fit_or_search_score = false
+organizer_reference_compliance_may_veto_shadow_or_production = true
+organizer_reference_validator_commit = "5c8a5d8e2551c8cf572d3d3bfcfe7633b109d91e"
+organizer_reference_similarity = "Levenshtein.ratio"
+organizer_reference_max_similarity = 0.8
+organizer_reference_set_receipt_status = "missing_execution_blocking"
+training_homology_exclusion_status = "missing_execution_blocking"
+generator_oracle_training_provenance_separation_status = "missing_execution_blocking"
+
+[cohorts]
+screen_unit = "one_method_seed_de_novo_hidden_oracle_run"
+confirmation_unit = "one_method_published_development_seed_de_novo_hidden_oracle_run"
+de_novo_rotation_dimension = "none"
+de_novo_rotation_count = 0
+de_novo_checkpoint_aggregation_status = "undefined_execution_blocking"
+retrospective_fixed_pool_protocol = "separate_content_pinned_protocol_required"
+retrospective_fixed_pool_rotations = 20
+retrospective_results_may_enter_de_novo_screen_or_confirmation = false
+retrospective_calls_in_de_novo_budget = 0
+published_confirmation_seeds_may_support_confirmatory_or_promotion_claim = false
+successor_hidden_confirmation_seed_count = 5
+confirmatory_seed_source = "successor_hidden_independent_reveal_after_code_model_protocol_freeze"
+confirmation_oracle_access = "successor_sequestered_independent_access_control_required"
+
+[design]
+initial_design_unique_calls = 64
+adaptive_batches = 28
+unique_calls_per_batch = 16
+method_controlled_seats_per_batch = 14
+random_reserve_seats_per_batch = 2
+total_unique_calls = 512
+proposal_attempt_cap = 65536
+kg_shortlist_cap = 256
+kg_joint_q_cap = 14
+kg_exact_pool_cap = 20
+kg_max_combinations = 65536
+kg_fantasies = 512
+oracle_service_batch_cap = 32
+terminal_rule = "posterior_mean_feasible_real_candidate_or_abstain"
+common_initial_design_within_seed = true
+common_random_reserve_within_seed = true
+common_initial_responses_delivered_before_scientific_clock = true
+common_initial_calls_charged_per_run = true
+cross_method_cache_is_charged_logically = true
+exact_same_run_identity_cache_replay_is_not_charged = true
+random_reserve_is_fixed_before_method_selection = true
+scheduled_common_reserve_scope = "all_28_batches_times_2_seats_prefrozen_per_seed_before_any_method_specific_load_or_compute"
+scheduled_common_reserve_proposal_exclusion = "all_56_scheduled_query_identities_excluded_from_every_arm_method_controlled_proposal_and_overflow_candidate"
+scheduled_common_reserve_submission_rule = "submit_the_same_two_prefrozen_query_identities_in_the_same_seat_order_for_every_arm_at_each_batch"
+timed_cross_method_cache_release_policy = "physical_cross_arm_cache_disabled_during_timed_adaptive_rounds"
+method_controlled_duplicate_rule = "skip_exact_query_identity_without_call_or_seat_advance_then_continue_frozen_proposal_order"
+method_controlled_exhaustion_rule = "fill_unfilled_method_seats_from_separate_frozen_overflow_reserve_after_scheduled_common_reserve_seats"
+overflow_reserve_scope = "separate_prefrozen_per_seed_stream_disjoint_from_all_56_scheduled_common_reserve_identities"
+overflow_reserve_attempt_cap_per_batch = 65536
+overflow_reserve_collision_rule = "skip_previously_submitted_or_current_batch_query_identity_in_frozen_order"
+overflow_reserve_exhaustion_rule = "hard_stop_algorithmic_failure_no_unfrozen_refill"
+
+[oracle_query_contract]
+status = "identity_frozen_oracle_semantics_missing_execution_blocking"
+query_identity_fields = [
+  "canonical_sequence_id",
+  "oracle_contract_sha256",
+  "evaluator_sha256",
+  "checkpoint_sha256",
+  "endpoint_context_sha256",
+  "transform_sha256",
+  "replicate_id",
+]
+logical_call_unit = "first_submission_of_one_exact_query_identity_within_one_run"
+all_required_endpoints_return_atomically = true
+cross_method_cache_hit_is_charged = true
+exact_same_run_identity_cache_replay_is_not_a_submission = true
+same_identity_resubmission_after_any_submission_is_forbidden = true
+transport_retry_may_only_poll_existing_submission = true
+new_replicate_id_is_new_identity_and_is_charged = true
+failed_submitted_call_is_charged = true
+missing_submitted_response_is_charged = true
+censored_submitted_response_is_charged = true
+partial_submitted_response_is_charged_and_ineligible = true
+timeout_after_submission_is_charged = true
+failed_or_ineligible_call_may_be_replaced_without_charge = false
+oracle_contract_sha256_status = "missing_execution_blocking"
+objective_constraint_semantics_status = "missing_execution_blocking"
+missing_censoring_semantics_status = "missing_execution_blocking"
+timed_cross_method_physical_cache_latency_advantage_allowed = false
+timed_cross_method_physical_cache_reuse_allowed = false
+generator_oracle_training_provenance_status = "missing_execution_blocking"
+
+[resources]
+slurm_account = "bio"
+cpu_partition = "standard"
+gpu_partition = "gpumid"
+gpu_type = "A100"
+nodes_per_run = 1
+gpus_per_gpu_run = 1
+cpus_per_run = 8
+host_memory_gib = 32
+max_peak_gpu_memory_gib = 16
+scientific_wall_seconds = 7200
+outer_allowance_seconds = 900
+scientific_clock_source = "monotonic_elapsed_seconds"
+scientific_clock_start = "after_common_inputs_and_64_charged_initial_responses_authenticated_and_delivered_before_method_specific_load_or_compute"
+scientific_clock_stop = "at_7200_seconds_or_terminal_status_of_512th_charged_submission_whichever_first"
+scientific_elapsed_accounting = "sum_authenticated_segment_elapsed_nanoseconds_across_initial_and_all_resumed_scientific_slurm_jobs_without_reset"
+outer_allowance_elapsed_accounting = "sum_authenticated_segment_elapsed_nanoseconds_across_all_sealing_slurm_jobs_without_reset"
+resume_clock_rule = "each_receipt_chains_to_the_prior_receipt_and_carries_exact_cumulative_scientific_and_outer_elapsed_nanoseconds"
+timing_receipt_authentication = "external_trusted_receipt_required_for_every_initial_or_resumed_slurm_job_segment"
+scientific_clock_includes = [
+  "method_specific_model_loading",
+  "generation",
+  "training_and_distillation",
+  "proposal_and_feature_computation",
+  "posterior_and_acquisition_computation",
+  "adaptive_oracle_queue_service_and_status_poll_time",
+]
+outer_allowance_scope = "sealing_integrity_checks_and_receipt_handoff_only_no_search_or_oracle"
+outer_allowance_execution = "cpu_only_followup_after_accelerator_release"
+outer_allowance_accelerator_hours = 0
+scientific_schedule = "seed_blocked_sha256_randomized_simultaneous_waves"
+scientific_schedule_seed = 20260908
+scientific_schedule_key = "sha256_utf8_decimal_schedule_seed_nul_phase_nul_decimal_run_seed_nul_configuration_id_ascending_then_configuration_id"
+scientific_schedule_wave_launch = "one_seed_block_at_a_time_each_wave_single_barrier_release"
+scientific_schedule_wave_size = 4
+array_concurrency_cap = 4
+max_output_gib_per_run = 5
+scratch_ceiling_gib = 1024
+screen_runs = 65
+screen_logical_unique_calls = 33280
+screen_a100_hour_ceiling = 130
+confirmation_runs = 15
+confirmation_logical_unique_calls = 7680
+confirmation_a100_hour_ceiling = 30
+scientific_runs = 80
+scientific_logical_unique_calls = 40960
+scientific_a100_hour_ceiling = 160
+reproduction_runs = 3
+reproduction_methods = [
+  "tuned_peptide_ga",
+  "tr2d2_style_tree_offpolicy",
+  "counterfactual_softkg_evolutionary_diffusion",
+]
+reproduction_seed_count = 1
+reproduction_seed_status = "successor_hidden_independent_reveal_after_scientific_campaign_sealed"
+reproduction_logical_unique_calls = 1536
+reproduction_scientific_wall_seconds_per_run = 7200
+reproduction_a100_hour_ceiling = 6
+reproduction_results_may_enter_screen_confirmation_or_promotion = false
+hard_evidence_and_reproduction_a100_hour_ceiling = 166
+common_initial_oracle_production_accelerator_accounting_status = "successor_separate_content_pinned_budget_required_outside_166_method_job_ceiling"
+adapter_or_tuning_work_authorized_by_v1 = false
+adapter_or_tuning_a100_hours_in_v1 = 0
+adapter_or_tuning_logical_calls_in_v1 = 0
+unallocated_resource_pool_allowed = false
+
+[batching]
+profile = "cluster_batch_first_v1"
+rollout_batch_size_cap = 128
+proposal_batch_size_cap = 65536
+surrogate_batch_size_cap = 8192
+kg_candidate_chunk_size_cap = 256
+kg_fantasy_chunk_size_cap = 512
+oracle_batch_size_cap = 32
+replay_sequence_batch_cap = 1024
+replay_token_batch_cap = 32768
+gradient_accumulation_steps = 8
+record_realized_sizes = true
+seed_order_invariant_to_batching = true
+
+[metrics]
+primary = "normalized_feasible_two_objective_hypervolume_auc_by_submitted_query_identity"
+objectives = [
+  "gram_positive_activity",
+  "gram_negative_activity",
+]
+objective_bounds = [0.0, 1.0]
+hypervolume_reference = [0.0, 0.0]
+hypervolume_auc_denominator_calls = 448
+primary_auc_quadrature = "trapezoidal_over_fixed_call_checkpoints_divided_by_call_span"
+primary_checkpoint_input = "nonempty_contiguous_authenticated_sealed_prefix_starting_at_call_64"
+primary_checkpoint_values = "finite_unit_interval_nondecreasing_incumbent_hypervolume"
+primary_value_source = "authenticated_hidden_oracle_response_never_method_posterior"
+primary_archive_domain = "same_run_submitted_identities_passing_canonical_support_exact_training_overlap_exclusion_accepted_successor_training_homology_exclusion_and_complete_finite_uncensored_oracle_objectives_and_all_frozen_constraints_observed_finite_and_pass"
+broad_spectrum_role = "secondary_derived_three_sevenths_gram_positive_plus_four_sevenths_gram_negative"
+pairwise_sequence_diversity_estimand = "mean_one_minus_global_sequence_identity_over_unordered_pairs_of_valid_unique_reference_safe_sequences"
+pairwise_embedding_diversity_estimand = "mean_one_minus_cosine_similarity_over_unordered_pairs_of_content_pinned_embeddings_for_same_sequence_set"
+pairwise_diversity_fewer_than_two_value = 0.0
+pairwise_embedding_nonfinite_or_zero_norm_value = "missing_not_imputed_descriptive_only"
+scalar_utility = "equal_arithmetic_mean_of_gram_positive_and_gram_negative"
+no_action_utility = 0.0
+call_checkpoint_start = 64
+call_checkpoint_step = 16
+call_checkpoint_count = 29
+wall_checkpoint_minutes = [0, 15, 30, 45, 60, 75, 90, 105, 120]
+secondary = [
+  "broad_spectrum_activity_secondary_only",
+  "top10_feasible_mean_utility_auc",
+  "terminal_posterior_mean_regret",
+  "terminal_abstention_rate_and_error",
+  "valid_canonical_unique_reference_safe_yield",
+  "hill2_effective_identity70_clusters",
+  "largest_identity70_cluster_share",
+  "pairwise_sequence_and_embedding_diversity",
+  "wall_time_auc",
+  "complete_transition_and_path_kl_summary",
+  "replay_ess_and_maximum_weight",
+  "posterior_calibration_and_covariance_rank",
+  "parent_child_contrast_accuracy_and_coverage",
+  "kg_monte_carlo_standard_error_and_rank_stability",
+]
+top10_feasible_mean_utility_checkpoint_estimand = "arithmetic_mean_of_up_to_ten_highest_oracle_scalar_utilities_in_the_primary_eligible_archive_at_each_call_checkpoint_or_no_action_utility_if_empty"
+top10_feasible_mean_utility_auc_estimand = "trapezoidal_integral_over_the_same_29_call_checkpoints_divided_by_448_calls_with_last_sealed_checkpoint_carried_after_early_stop"
+wall_time_auc_estimand = "trapezoidal_integral_of_sealed_primary_incumbent_hypervolume_at_fixed_wall_checkpoints_divided_by_120_minutes"
+wall_time_checkpoint_assignment = "include_only_authenticated_complete_batches_sealed_at_or_before_each_cumulative_scientific_elapsed_checkpoint_use_zero_before_first_eligible_archive_value_and_carry_last_value_after_stop"
+terminal_abstention_rate_estimand = "number_of_abstaining_runs_divided_by_all_exact_required_cohort_runs_with_any_missing_terminal_record_a_required_gate_failure"
+terminal_abstention_error_estimand = "among_abstaining_runs_fraction_whose_terminal_regret_domain_contains_a_feasible_oracle_utility_strictly_above_no_action_utility_zero_if_no_abstentions"
+parent_child_contrast_coverage_estimand = "submitted_adaptive_child_identities_with_exactly_one_ledger_bound_parent_complete_finite_uncensored_eligible_parent_and_child_oracle_utility_and_finite_presubmission_predicted_contrast_divided_by_all_such_children_with_eligible_parent_and_child_truth"
+parent_child_contrast_accuracy_estimand = "covered_pairs_with_predicted_and_realized_child_minus_parent_utility_signs_both_strictly_outside_1e_minus_12_and_equal_divided_by_covered_pairs_with_zero_or_tied_sign_counted_incorrect_missing_if_no_covered_pairs"
+
+[uncertainty]
+ece_equal_mass_bins = 10
+coverage_levels = [0.50, 0.80, 0.90, 0.95]
+paired_bootstrap_samples = 10000
+paired_bootstrap_seed = 20260908
+de_novo_paired_bootstrap_unit = "seed_block_resample_with_same_seed_index_shared_across_all_compared_methods"
+paired_bootstrap_statistic = "arithmetic_mean_of_five_paired_full_minus_comparator_seed_effects"
+paired_bootstrap_interval_level = 0.95
+paired_bootstrap_interval_type = "percentile_two_sided"
+paired_bootstrap_interval_quantiles = [0.025, 0.975]
+paired_bootstrap_quantile_convention = "sorted_B_replicates_linear_type7_h_equals_B_minus_1_times_p_interpolate_between_floor_and_ceil"
+retrospective_bootstrap_unit = "homology_study_union_component"
+retrospective_bootstrap_samples = 10000
+kg_fantasy_sensitivity_fantasies = 256
+kg_rank_stability_kendall_tau_min = 0.95
+kg_monte_carlo_se_fraction_of_top_two_gap_max = 0.05
+kg_rank_correlation = "kendall_tau_b"
+kg_top_two_gap_requirement = "strictly_positive_and_finite"
+kg_zero_or_tied_top_two_gap = "hard_stop_no_arbitrary_ranking"
+kg_nonfinite_score_se_or_rank_statistic = "hard_stop"
+coverage_reporting_scope = "pooled_and_each_seed_for_all_three_confirmation_methods_at_all_four_frozen_levels"
+coverage_interval_convention = "presubmission_equal_tailed_marginal_predictive_interval_with_inclusive_endpoints_for_each_query_objective_pair"
+coverage_missing_nonfinite_or_wrong_level_count = "missing_required_gate_failure"
+
+[terminal_evaluation]
+candidate_domain = "authenticated_oracle_responded_candidates_submitted_by_same_run_only"
+point_estimate = "final_sealed_same_run_posterior_arithmetic_mean_of_gram_positive_and_gram_negative_means"
+feasibility = "all_successor_content_pinned_oracle_constraints_observed_finite_and_pass"
+oracle_constraint_extension_at_runtime_allowed = false
+candidate_truth_eligibility = "canonical_support_exact_training_overlap_exclusion_accepted_successor_training_homology_exclusion_both_objectives_and_all_constraints_complete_finite_uncensored"
+recommendation_tie_break = "ascending_canonical_sequence_id"
+minimum_eligible_candidates = 100
+abstain_if = "fewer_than_minimum_eligible_candidates"
+regret_domain = "same_run_authenticated_oracle_responded_candidates_passing_candidate_truth_eligibility_only"
+regret_oracle_utility = "arithmetic_mean_of_oracle_gram_positive_and_gram_negative"
+regret = "max_no_action_and_best_feasible_oracle_utility_minus_recommendation_or_no_action_utility"
+empty_feasible_domain_oracle_utility = 0.0
+abstention_regret_uses_no_action_utility = true
+missing_censored_or_nonfinite_is_ineligible_not_imputed = true
+
+[stopping]
+stop_at_unique_calls_or_wall_seconds_whichever_first = true
+discard_unsealed_partial_batch = true
+carry_last_sealed_incumbent_to_later_checkpoints = true
+required_terminal_eligible_candidates = 100
+infrastructure_reruns_before_first_oracle_response = 1
+result_driven_reruns = 0
+resume_after_response_from_last_authenticated_round_only = true
+algorithmic_failure_is_retained = true
+max_local_complete_transition_kl_mean = 0.01
+max_local_complete_transition_kl_p99 = 0.02
+max_frozen_reference_path_kl_mean = 0.08
+max_frozen_reference_transition_kl_p99 = 0.02
+min_replay_ess_fraction = 0.20
+max_normalized_replay_weight = 0.05
+max_policy_version_lag = 1
+max_validity_drop_fraction = 0.05
+nonfinite_or_psd_support_failure = "hard_stop"
+forbidden_support_or_overlap = "hard_stop"
+unsealed_oracle_response = "hard_stop"
+no_kl_ablation_ignores_only_kl_thresholds = true
+kg_tie_or_numerical_instability = "hard_stop"
+
+[statistics]
+screen_is_descriptive_only = true
+screen_two_sided_exact_sign_test_minimum_p = 0.0625
+run_primary_missing_nonfinite_or_no_initial_checkpoint = "required_gate_failure"
+early_stop_primary_metric = "carry_last_sealed_hypervolume_through_remaining_call_checkpoints"
+screen_effect = "full_normalized_hv_auc_minus_comparator_normalized_hv_auc"
+screen_full_mean = "arithmetic_mean_over_exact_five_finite_seed_metrics"
+screen_full_unique_highest = "full_mean_strictly_greater_than_each_other_method_mean_plus_tolerance"
+screen_comparison_absolute_tolerance = 1e-12
+screen_pair_success = "finite_effect_strictly_greater_than_zero_plus_tolerance"
+screen_positive_pairs_required = 4
+screen_median_additive_margin = 0.05
+screen_core_ablation_gate = "for_each_ablation_at_least_four_pair_successes_and_median_effect_strictly_greater_than_margin_plus_tolerance"
+confirmation_primary_comparators = [
+  "tuned_peptide_ga",
+  "tr2d2_style_tree_offpolicy",
+]
+confirmation_effect = "full_normalized_hv_auc_minus_comparator_normalized_hv_auc"
+confirmation_additive_materiality_margin = 0.05
+confirmation_comparison_absolute_tolerance = 1e-12
+confirmation_pair_success = "finite_effect_strictly_greater_than_additive_margin_plus_tolerance"
+confirmation_missing_nonfinite_or_tie = "missing_nonfinite_or_effect_at_or_below_margin_plus_tolerance_is_pair_failure"
+confirmation_one_sided_alpha = 0.05
+confirmation_exact_sign_test_minimum_p = 0.03125
+confirmation_pairs_required_above_margin = 5
+confirmation_comparator_gate = "all_five_fixed_seed_pairs_are_successes_and_one_sided_exact_sign_p_at_most_alpha"
+confirmation_global_iut_gate = "both_primary_comparator_gates_must_pass"
+global_claim = "intersection_union_full_beats_both_primary_comparators"
+multiple_testing_adjustment_for_intersection_union = "none"
+combine_screen_and_confirmation_for_p_value = false
+report_hodges_lehmann = true
+hodges_lehmann_estimand = "median_of_all_15_walsh_averages_d_i_plus_d_j_over_2_for_1_less_than_or_equal_to_i_less_than_or_equal_to_j_less_than_or_equal_to_5"
+median_convention = "arithmetic_mean_of_two_central_sorted_values_when_even_otherwise_central_sorted_value"
+bootstrap_interval_is_descriptive = true
+ablations_are_exploratory = true
+ablation_p_values_are_confirmatory = false
+ablation_claim_requires_fresh_seed_preregistration = true
+
+[promotion]
+screen_requires_highest_mean_primary_metric_among_eight_methods = true
+screen_requires_each_core_ablation_positive_pairs = 4
+screen_requires_each_core_ablation_median_above_additive_margin = true
+confirmation_requires_all_pairs_above_additive_margin = true
+primary_missing_nonfinite_or_tied_required_gate_is_failure = true
+full_method_kl_replay_numerical_integrity_result_required = true
+yield_and_diversity_gate_comparators = "both_primary_comparators"
+yield_and_diversity_pairwise_gate_scope = "all_five_confirmation_seed_pairs_for_each_comparator"
+max_valid_unique_reference_safe_yield_additive_loss = 0.02
+max_hill2_effective_cluster_loss_fraction = 0.10
+max_largest_cluster_share_additive_increase = 0.02
+secondary_gate_comparison_absolute_tolerance = 1e-12
+valid_unique_reference_safe_yield_estimand = "distinct_canonical_sequences_passing_support_training_overlap_successor_homology_and_reference_rules_with_complete_finite_uncensored_truth_divided_by_charged_submitted_identities"
+yield_zero_charged_identity_value = "missing_required_gate_failure"
+identity70_metric = "amp_challenge.similarity.global_sequence_identity"
+identity70_threshold = 0.70
+identity70_linkage = "connected_components_single_linkage_edges_at_or_above_threshold"
+hill2_estimand = "inverse_sum_squared_cluster_proportions_over_valid_unique_reference_safe_sequences"
+hill2_zero_valid_sequence_value = 0.0
+hill2_zero_comparator_gate = "pass_if_full_is_finite_and_nonnegative"
+largest_cluster_share_estimand = "largest_identity70_component_size_divided_by_valid_unique_reference_safe_sequence_count"
+largest_cluster_share_zero_valid_sequence_value = 0.0
+yield_diversity_comparison_rule = "yield_full_at_least_comparator_minus_additive_loss_hill2_full_at_least_comparator_times_one_minus_fractional_loss_largest_share_full_at_most_comparator_plus_additive_increase_all_with_tolerance"
+max_ece = 0.10
+max_ece_additive_degradation = 0.02
+calibration_gate_scope = "pooled_authenticated_confirmation_queries_reported_also_per_seed"
+calibration_target = "pre_submission_joint_feasibility_probability_against_authenticated_complete_binary_constraint_truth"
+ece_estimand = "query_weighted_sum_over_equal_mass_bins_of_bin_fraction_times_absolute_mean_probability_minus_mean_truth"
+ece_equal_mass_bin_rule = "sort_by_probability_then_query_identity_assign_zero_based_rank_times_ten_floor_divided_by_total"
+ece_empty_or_incomplete_value = "missing_required_gate_failure"
+coverage90_estimand = "query_objective_pair_weighted_fraction_of_authenticated_truth_inside_pre_submission_equal_tailed_marginal_90_percent_predictive_interval"
+coverage90_empty_or_incomplete_value = "missing_required_gate_failure"
+calibration_comparison_rule = "full_ece_at_most_absolute_max_and_each_comparator_ece_plus_additive_degradation_and_full_coverage90_within_closed_bounds_all_with_tolerance"
+calibration_per_seed_report_required = true
+coverage90_lower = 0.85
+coverage90_upper = 0.95
+independent_chronological_or_assay_result_required = true
+surrogate_screen_max_shadow_generator_mixture_quota = 0.10
+surrogate_screen_max_production_generator_mixture_quota = 0.0
+shadow_candidates_may_enter_submission_or_top100 = false
+production_requires_confirmation_and_independent_result = true
+production_quota_requires_new_content_pinned_promotion_protocol = true
+surrogate_pass_guarantees_final_library_or_top100_seat = false
+no_go_on_failed_confirmation = true
+screen_failure_is_no_go = true
+unsequestered_confirmation_is_no_go = true
+independent_result_missing_or_failure_is_no_go = true
+any_required_gate_failure_is_no_go = true
+passing_research_gates_authorizes_v1_production = false
+
+[prerequisites]
+accepted_base_fold_native_policy_checkpoints = false
+required_base_fold_policy_checkpoints = 10
+accepted_de_novo_checkpoint_aggregation_contract = false
+accepted_training_homology_exclusion_contract = false
+accepted_generator_oracle_training_provenance_separation = false
+accepted_generated_sequence_oracle_adapter = false
+accepted_common_initial_oracle_resource_accounting = false
+accepted_content_pinned_hidden_oracle_contract = false
+accepted_oracle_objective_constraint_semantics = false
+accepted_oracle_missing_censoring_replicate_semantics = false
+accepted_terminal_evaluation_contract = false
+accepted_organizer_reference_set_receipt = false
+accepted_calibrated_joint_posterior = false
+accepted_generated_sequence_esm_contact_producer = false
+accepted_persistent_search_ledger = false
+accepted_all_eight_method_adapters = false
+accepted_independent_verifier = false
+accepted_manifest_hashed_telemetry_pipeline = false
+accepted_external_trusted_receipt_issuer = false
+accepted_hidden_confirmation_seed_reveal_contract = false
+accepted_sequestered_confirmation_oracle_access_control = false
+independent_biological_or_chronological_panel_available = false
+native_v0_is_usable_prior = false
+native_v1_currently_has_accepted_checkpoint = false
+current_activity_scorer_supplies_calibrated_uncertainty = false
+current_activity_scorer_supplies_toxicity_or_selectivity = false
+
+[[methods]]
+id = "tuned_peptide_ga"
+role = "primary_baseline"
+implementation = "native_style_pending"
+requires_diffusion = false
+adaptive_querying = true
+uses_endpoint_distillation = false
+
+[[methods]]
+id = "categorical_diffusion_posthoc"
+role = "baseline"
+implementation = "native_style_blocked_on_checkpoint"
+requires_diffusion = true
+adaptive_querying = false
+uses_endpoint_distillation = false
+
+[[methods]]
+id = "diffusion_reward_kl_no_search"
+role = "baseline"
+implementation = "native_style_blocked_on_checkpoint"
+requires_diffusion = true
+adaptive_querying = false
+uses_endpoint_distillation = true
+
+[[methods]]
+id = "arcadiamp_style_iterative_d3pm"
+role = "baseline"
+implementation = "activity_weighted_native_style_pending"
+source = "https://github.com/IBPA/ARCADIAMP/tree/70448c14a176399640a26095782e870b7204c338"
+requires_diffusion = true
+adaptive_querying = true
+uses_endpoint_distillation = true
+
+[[methods]]
+id = "tr2d2_style_tree_offpolicy"
+role = "primary_baseline"
+implementation = "same_backbone_algorithmic_port_pending"
+source = "https://github.com/sophtang/TR2-D2/tree/b5a3d097f38b6cc11dfabfaed9fca71ca4bf9ac6"
+requires_diffusion = true
+adaptive_querying = true
+uses_endpoint_distillation = true
+
+[[methods]]
+id = "mp2d_style_inference_search"
+role = "baseline"
+implementation = "paper_reimplementation_pending"
+source = "https://arxiv.org/abs/2605.05829v1"
+requires_diffusion = true
+adaptive_querying = true
+uses_endpoint_distillation = false
+
+[[methods]]
+id = "ga_endpoint_distillation_no_kg"
+role = "baseline"
+implementation = "native_style_pending"
+requires_diffusion = true
+adaptive_querying = true
+uses_endpoint_distillation = true
+
+[[methods]]
+id = "counterfactual_softkg_evolutionary_diffusion"
+role = "proposal"
+implementation = "math_only_real_adapters_pending"
+requires_diffusion = true
+adaptive_querying = true
+uses_endpoint_distillation = true
+
+[[ablations]]
+id = "ablation_no_spectral_representation"
+base_method = "counterfactual_softkg_evolutionary_diffusion"
+change = "remove_spectral_retain_esm320_and_log_length"
+
+[[ablations]]
+id = "ablation_no_counterfactual_credit"
+base_method = "counterfactual_softkg_evolutionary_diffusion"
+change = "remove_paired_and_historical_credit_retain_realized_yield_ucb"
+
+[[ablations]]
+id = "ablation_singleton_kg"
+base_method = "counterfactual_softkg_evolutionary_diffusion"
+change = "replace_joint_covariance_kg_with_singleton_diagonal_kg"
+
+[[ablations]]
+id = "ablation_no_endpoint_distillation"
+base_method = "counterfactual_softkg_evolutionary_diffusion"
+change = "freeze_generator_after_initialization"
+
+[[ablations]]
+id = "ablation_no_kl_controls"
+base_method = "counterfactual_softkg_evolutionary_diffusion"
+change = "zero_local_and_frozen_reference_kl_controls"
+
+[provenance]
+semantic_format = "canonical_utf8_lf_jsonl"
+manifest = "SHA256SUMS_written_last"
+file_mode = "0444"
+directory_mode = "0555"
+all_artifacts_including_operational_telemetry_manifest_hashed = true
+operational_telemetry_outside_semantic_equivalence_hashes_only = true
+log_all_rejected_and_unevaluated_proposals = true
+separate_query_and_terminal_recommendation_ids = true
+excluded_node_independent_verifier = true
+verifier_may_import_producer_or_search_implementation = false
+external_trusted_receipt_required = true
+trusted_receipt_location = "outside_producer_writable_artifact_tree"
+producer_may_write_or_replace_trusted_receipt = false
+trusted_receipt_binds = [
+  "manifest_sha256",
+  "git_commit",
+  "protocol_sha256",
+  "environment_lock_sha256",
+  "input_receipt_sha256s",
+  "oracle_contract_sha256",
+  "job_id",
+  "node_id",
+  "timing_chain_terminal_sha256",
+  "cumulative_scientific_elapsed_nanoseconds",
+  "cumulative_outer_elapsed_nanoseconds",
+]
+
+[evidence_boundaries]
+toy_smoke_is_scientific_evidence = false
+computational_oracle_can_establish_biological_superiority = false
+retrospective_fixed_pool_can_establish_de_novo_quality = false
+equiformer_v3_validates_laplacian_representation = false
+counterfactual_means_biological_causal_effect = false

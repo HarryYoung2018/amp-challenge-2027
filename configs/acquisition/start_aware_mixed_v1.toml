@@ -1,0 +1,35 @@
+# Predeclared development-time label-acquisition candidate. This is not the
+# production top-100 selector. Promotion requires leakage-safe replay on
+# untouched homology or chronological groups with a non-empty start_id column.
+objectives = [
+  "broad_spectrum",
+  "gram_positive",
+  "gram_negative",
+  "mdr_eskape",
+  "selectivity",
+]
+batch_size = 100
+risk_beta = 1.0
+ucb_beta = 1.0
+quality_floor_quantile = 0.20
+diversity_quality_weight = 0.35
+max_per_cluster = 5
+max_per_start = 1
+rollouts_per_start = 16
+strict_cluster_cap = true
+seed = 42
+objective_weights = [0.20, 0.20, 0.20, 0.20, 0.20]
+
+[strategy_mix]
+exploit = 0.25
+pareto = 0.15
+diversity = 0.15
+novelty = 0.10
+uncertainty = 0.10
+start_ucb = 0.15
+ucb = 0.05
+random = 0.05
+
+# Add specialist quotas only after every replay ledger contains independently
+# produced out-of-fold specialist scores.
+[specialist_quotas]

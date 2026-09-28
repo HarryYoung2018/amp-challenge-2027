@@ -1,0 +1,75 @@
+{
+  "artifact": "amp_challenge_public_submission_v1",
+  "control_package_manifest": {
+    "generation": "uv sync; uv run --no-sync generate",
+    "hardware": "CUDA GPU by default; --device cpu supported but cross-device byte identity is not asserted",
+    "oracle": "/lustre/scratch/users/yonghan.yang/amp_challenge/competition-20260920/oracle",
+    "publication": "local_package_only_not_uploaded_or_submitted",
+    "release": "/lustre/scratch/users/yonghan.yang/amp_challenge/competition-20260920/evolutionary_kl-no-updates-73121",
+    "source_commit": "0de732cc507de921ef5272e10caf6b553136c29b",
+    "training_data": "checkpoints/competition/training; original source and licensing documents retained under docs and data"
+  },
+  "default_entry_point": "uv run generate",
+  "default_entry_point_reproduces_shipped_submission": true,
+  "default_entry_point_reproduction": {
+    "library.fasta": {
+      "packaged_default_run_sha256": "da5a539e0c87d96e619b35cc4797f87c98f17299a1e74748bee32ea3522262af",
+      "shipped_submission_sha256": "da5a539e0c87d96e619b35cc4797f87c98f17299a1e74748bee32ea3522262af"
+    },
+    "top.fasta": {
+      "packaged_default_run_sha256": "9468806fa0de304844e6b7fa89be34f59916e8688844e7834626bf08bbd79958",
+      "shipped_submission_sha256": "9468806fa0de304844e6b7fa89be34f59916e8688844e7834626bf08bbd79958"
+    },
+    "top_metadata.json": {
+      "packaged_default_run_sha256": "97b78287e6781ce20ef46ac99ffb62adc001b009294146afcd1ac4adf8089a52",
+      "shipped_submission_sha256": "97b78287e6781ce20ef46ac99ffb62adc001b009294146afcd1ac4adf8089a52"
+    }
+  },
+  "default_generation_target": "checkpoints/competition/evolutionary (no-update frozen mixture)",
+  "default_seed": 42,
+  "excluded_from_public_tree": [
+    "AGENTS.md",
+    "CLAUDE.md",
+    "CONTRIBUTING.md",
+    "STATUS.md",
+    "README.md",
+    "cluster",
+    "tests",
+    "integrations",
+    "scripts",
+    "docs",
+    "generate",
+    "data/README.md"
+  ],
+  "library_sequences": 50000,
+  "public_tree_files": 491,
+  "public_tree_sha256": "c7bcd441f7faf12054e6c1baaf8fea6e6452837fb7d57980fa9b6cbec078bced",
+  "scope": "inference_deliverable_only_not_a_biological_validation_claim",
+  "submission_digests": {
+    "no-update-control": {
+      "audit.json": "d88633528651626dd6083d0f4ab7db93f67f233542696ea4efc62417244d3e27",
+      "library.fasta": "da5a539e0c87d96e619b35cc4797f87c98f17299a1e74748bee32ea3522262af",
+      "manifest.json": "c8a9fb52d2989ba527b6de0b7b461b8c92d8bd5a26bd5aec9092e36df94a062e",
+      "top.fasta": "9468806fa0de304844e6b7fa89be34f59916e8688844e7834626bf08bbd79958",
+      "top_metadata.json": "97b78287e6781ce20ef46ac99ffb62adc001b009294146afcd1ac4adf8089a52"
+    },
+    "updating-total-variation": {
+      "audit.json": "94d459a0e6173d6a8836064422b3d4eff2b725e835265a08d37dad6c84668c49",
+      "library.fasta": "6b79ea461e3f393b5082508e97054373ec70b1a92857821bdd00a154653bb805",
+      "manifest.json": "571c549e729cf539b8db64bee68d2aa09864e163f68cd5771957f010d9cf807d",
+      "top.fasta": "48759a2efa80ca8190b48b6d07298f43d036b6d8760deebe3762cb1ad3c5ad6b",
+      "top_metadata.json": "3314acc96effc444c28867af77302338d295b1f4fd9fd39de18eb10872372fc2"
+    }
+  },
+  "top_sequences": 100,
+  "updating_package_manifest": {
+    "adaptive_training_records": 63,
+    "generation": "uv sync; uv run --no-sync generate",
+    "hardware": "CUDA GPU by default; --device cpu supported but cross-device byte identity is not asserted",
+    "oracle": "/lustre/scratch/users/yonghan.yang/amp_challenge/competition-20260920/oracle",
+    "publication": "local_package_only_not_uploaded_or_submitted",
+    "release": "/lustre/scratch/users/yonghan.yang/amp_challenge/competition-20260920/evolutionary_total_variation-73121",
+    "source_commit": "a7a8521947d818af812f64a9dbac3ecfec6223a5",
+    "training_data": "checkpoints/competition/training; original source and licensing documents retained under docs and data"
+  }
+}

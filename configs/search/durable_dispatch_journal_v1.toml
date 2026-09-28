@@ -1,0 +1,128 @@
+schema_version = 1
+artifact = "durable_dispatch_journal_v1_prospective_contract"
+status = "declaration_only_pending_source_and_execution_review"
+base_commit = "e0765a4cea461b2263c5ae16e02894a567038d96"
+frozen_successor_protocol_sha256 = "579d071fac1d70bf514761ff98e6d2019730fbdad484e548f9b672fda1a001af"
+implementation_authorized_by_declaration = false
+execution_authorized = false
+oracle_calls_authorized = false
+scientific_evidence_accepted = false
+production_eligible = false
+diagnostic_proxy_route_selected = false
+
+[scope]
+mode = "single_arm_authenticated_common_initial_import_then_adaptive_dispatch_journal"
+producer = "src/amp_challenge/generators/search/durable_dispatch_journal.py"
+records = "src/amp_challenge/generators/search/durable_dispatch_journal_records.py"
+independent_verifier = "src/amp_challenge/generators/search/durable_dispatch_journal_verify.py"
+test_file = "tests/test_durable_dispatch_journal.py"
+shared_pieces = ["exact_record_types", "canonical_encoding", "audited_descriptor_bound_io_primitives"]
+verifier_may_call_producer_transitions = false
+existing_source_config_lock_or_sentinel_edits = false
+network_model_or_oracle_implementation = false
+full_runner_or_terminal_rule_implementation = false
+
+[schedule]
+initial_logical_charges = 64
+initial_new_physical_dispatches = 0
+initial_mode = "authenticated_same_seed_common_block_and_copy_receipt_import"
+initial_source_physical_work_accounting = "external_producer_ledger_not_waived"
+adaptive_waves = 28
+method_seats = 14
+reserve_seats = 2
+unique_logical_charge_limit = 512
+adaptive_dispatch_attempt_limit = 448
+reserve_schedule = "genesis_pinned_private_28_by_2_ordered_identities"
+sequence_and_identity_uniqueness = "entire_run_and_all_reserved_rows"
+wave_admission = "all_prior_wave_terminal_evidence_authenticated"
+automatic_overflow_replacement_or_resubmit = false
+
+[dispatch]
+events = ["initial_import", "wave_seal", "dispatch_intent", "submission_ack", "terminal_response", "dispatch_fault", "stop"]
+wave_and_intent_durable_before_transport = true
+intent_commits_irreversible_logical_charge = true
+intent_commits_conservative_attempt = true
+intent_attests_executed_physical_work = false
+post_intent_checkpoint = "required_external_original_deadline_and_permission_after_fsync_before_transport"
+denied_or_raised_checkpoint = "spent_unresolved_zero_transport_io_no_invented_timeout"
+transport_actual_io_deadline_check = "same_original_external_bound_rechecked_immediately_before_io"
+dispatch_token = "deterministic_exact_request_and_durable_intent_binding"
+transport_invocations_per_fresh_intent_maximum = 1
+loaded_intent_may_dispatch = false
+interrupted_or_invalid_ack_outcome = "spent_unresolved"
+missing_ack_may_be_invented = false
+external_ids_per_request = 1
+external_id_uniqueness_scope = "within_run_including_imported_initial_ids_not_across_same_seed_arm_copies"
+external_id_reconciliation = "caller_obtained_authenticated_same_token_and_exact_sole_external_id"
+polling_or_id_discovery_implemented = false
+exactly_once_delivery_claim = false
+terminal_statuses = ["succeeded", "failed", "missing", "censored", "partial", "timeout"]
+successful_history_status = "successful"
+timeout_history_status = "timed_out"
+all_terminal_statuses_remain_charged = true
+terminal_acceptance_order = "charged_seat_order"
+fault_events_per_intent_maximum = 1
+stopped_reuse_mutates_retained_state = false
+failed_status_objectives = "none"
+successful_objectives = "exact_tuple_of_two_finite_builtin_float_values_in_closed_unit_interval"
+receipt_authenticator = "separate_outer_supplied_source_bound_semantic_authenticator"
+self_hash_is_external_authentication = false
+callable_binding = "exact_externally_expected_transport_authenticator_and_permission_callable_identities_and_source_pins"
+binding_checks = "before_and_after_callbacks_checkpoints_publication_and_reconstruction"
+source_property_access_is_external_callback = true
+
+[storage]
+publication = "descriptor_relative_exclusive_no_follow_no_replace_synchronized_before_io"
+writer = "cooperative_single_writer_no_same_account_adversary_claim"
+events_append_only = true
+partial_or_failure_evidence_retained = true
+automatic_tail_truncation_or_overwrite = false
+resume = "independent_full_chain_reconstruction_and_external_exact_head_adoption"
+maximum_events = 2048
+maximum_canonical_event_bytes = 1048576
+maximum_individual_external_receipt_bytes = 65536
+maximum_total_journal_bytes = 268435456
+limits_include_incomplete_failure_files = true
+read_bounds_before_allocation = true
+file_hash_and_inventory_streamed = true
+oversized_evidence_action = "unsupported_retained_stop_no_split_to_evade"
+additional_campaign_storage_allowance = 0
+
+[handoff]
+type = "existing_VerifiedHistorySnapshot_and_VerifiedHistoryCallback"
+rows = "contiguous_authenticated_terminal_prefix_in_charged_order"
+round_index_range = [1, 29]
+expected_charge_count = "64_plus_16_times_round_index_minus_one"
+round_one_previous_wave_head = "authenticated_initial_import_event_seal"
+later_previous_wave_head = "immutable_request_wave_seal_of_adaptive_wave_round_index_minus_one"
+callback_expected_wave_head_and_count = "separately_caller_supplied_and_exactly_matched_to_fixed_reconstructed_round"
+mutable_journal_event_head_is_wave_head = false
+arbitrary_history_head_rebinding = false
+outstanding_and_unresolved = "separate_explicit_reconstruction_report_never_fabricated_history"
+short_prefix_is_completed_wave = false
+future_reserve_or_oracle_model_exposed = false
+context_eligibility_or_objective_meaning_inferred = false
+clock_issuer_or_epoch_owner = false
+timing_context = "externally_supplied_bound_and_retained_no_authenticity_invented"
+original_scientific_seconds = 7200
+terminal_clock_or_no_counterfactual_amendment = false
+
+[proposed_validation]
+allocations = 1
+separate_root_source_and_launcher_approval_required = true
+account = "bio"
+partition = "standard"
+nodes = 1
+tasks = 1
+cpus = 2
+host_memory_gib = 8
+wall_seconds = 900
+allocated_cpu_seconds_requested_maximum = 1800
+gpus = 0
+installs = 0
+automatic_retries = 0
+requeue = false
+safe_format_scope = "new_owned_python_files_only_after_explicit_job_approval"
+real_filesystem_and_child_crash_tests = true
+private_data_model_or_oracle_calls = false
+scientific_runs = 0

@@ -1,0 +1,691 @@
+schema_version = 1
+artifact = "evolutionary_kl_real_campaign_adapter_registry_v1"
+status = "preflight_only_blocked_on_real_campaign_adapters_and_assets"
+decision_date = "2026-09-08"
+protocol_sha256 = "ccbc55e5f20d851c3495413ff1f26f8ed2e0e0e818b076fde76641937c346463"
+execution_authorized = false
+oracle_calls_authorized = false
+scientific_evidence_accepted = false
+automatic_production_eligible = false
+biological_superiority_claim_allowed = false
+
+[resources]
+profile = "matched_a100_v1"
+slurm_account = "bio"
+cpu_partition = "standard"
+gpu_partition = "gpumid"
+gpu_type = "A100"
+nodes_per_run = 1
+gpus_per_run = 1
+cpus_per_run = 8
+host_memory_gib = 32
+max_peak_gpu_memory_gib = 16
+scientific_wall_seconds = 7200
+outer_allowance_seconds = 900
+unique_oracle_calls_per_run = 512
+oracle_batch_size_cap = 32
+array_concurrency_cap = 4
+
+[batching]
+rollout_batch_size_cap = 128
+proposal_batch_size_cap = 65536
+surrogate_batch_size_cap = 8192
+kg_candidate_chunk_size_cap = 256
+kg_fantasy_chunk_size_cap = 512
+replay_sequence_batch_cap = 1024
+replay_token_batch_cap = 32768
+gradient_accumulation_steps = 8
+
+[asset_policy]
+inventory_artifact = "evolutionary_kl_real_campaign_asset_inventory_v1"
+trusted_receipt_artifact = "evolutionary_kl_real_campaign_asset_trusted_receipt_v1"
+accepted_status = "accepted_for_real_campaign_input"
+accepted_evidence_class = "production_grade_real_campaign_input"
+allowed_origin_kinds = [
+  "real_campaign_control",
+  "real_hidden_oracle_control",
+  "real_peptide_data",
+  "real_peptide_model",
+]
+forbidden_origin_tokens = ["fixture", "placeholder", "smoke", "synthetic", "toy"]
+require_external_inventory_sha256 = true
+require_external_payload_sha256 = true
+require_external_trusted_receipt_sha256 = true
+require_independent_audit_acceptance = true
+require_production_input_eligibility = true
+require_read_only_single_link_regular_files = true
+reject_symbolic_link_chain = true
+reject_exact_sequence_overlap_across_namespaces = true
+maximum_asset_manifest_bytes = 16777216
+
+[[external_sources]]
+id = "arcadiamp"
+repository = "https://github.com/IBPA/ARCADIAMP"
+commit = "70448c14a176399640a26095782e870b7204c338"
+license_candidate = "Apache-2.0"
+source_authentication_status = "missing_independent_snapshot_and_license_receipt"
+adapter_status = "missing_native_sequence_style_adapter"
+reproduction_claim_allowed = false
+
+[[external_sources]]
+id = "tr2d2"
+repository = "https://github.com/sophtang/TR2-D2"
+commit = "b5a3d097f38b6cc11dfafbaed9fca71ca4bf9ac6"
+license_candidate = "MIT"
+source_authentication_status = "missing_independent_snapshot_and_license_receipt"
+adapter_status = "missing_native_sequence_style_adapter_original_peptide_arm_uses_smiles_peptune"
+reproduction_claim_allowed = false
+
+[[external_sources]]
+id = "mp2d"
+repository = "missing_official_code"
+commit = "missing_execution_blocking"
+license_candidate = "missing_execution_blocking"
+source_authentication_status = "paper_record_only_no_official_code_snapshot"
+adapter_status = "paper_derived_reimplementation_missing"
+reproduction_claim_allowed = false
+
+[[external_sources]]
+id = "equiformer_v3"
+repository = "https://github.com/atomicarchitects/equiformer_v3"
+commit = "a7300c58df683dc99cb48027d5bfd4c887486c48"
+license_candidate = "MIT"
+source_authentication_status = "missing_independent_snapshot_and_license_receipt"
+adapter_status = "separate_peptide_geometry_pilot_missing_task_specific_evidence"
+reproduction_claim_allowed = false
+
+[[required_assets]]
+id = "generator_training_sequence_inventory"
+required_phases = ["screen", "confirmation"]
+content_kind = "canonical_sequence_id_jsonl_v1"
+sequence_namespace = "generator_training"
+visibility_scope = "generator_training_only"
+required_by = ["all_configurations"]
+
+[[required_assets]]
+id = "oracle_training_sequence_inventory"
+required_phases = ["screen", "confirmation"]
+content_kind = "canonical_sequence_id_jsonl_v1"
+sequence_namespace = "oracle_training"
+visibility_scope = "controller_and_independent_verifier_only"
+required_by = ["all_configurations"]
+
+[[required_assets]]
+id = "screen_initial_and_reserve_sequence_inventory"
+required_phases = ["screen"]
+content_kind = "canonical_sequence_id_jsonl_v1"
+sequence_namespace = "screen_initial_and_reserve"
+visibility_scope = "controller_frozen_before_method_specific_load"
+required_by = ["all_configurations"]
+
+[[required_assets]]
+id = "confirmation_initial_and_reserve_sequence_inventory"
+required_phases = ["confirmation"]
+content_kind = "canonical_sequence_id_jsonl_v1"
+sequence_namespace = "confirmation_initial_and_reserve"
+visibility_scope = "sequestered_controller_frozen_after_development_seal"
+required_by = ["confirmation_methods"]
+
+[[required_assets]]
+id = "base_fold_native_policy_checkpoints"
+required_phases = ["screen", "confirmation"]
+content_kind = "canonical_json_manifest_v1"
+sequence_namespace = "none"
+visibility_scope = "all_method_workers_after_scientific_clock_start"
+required_by = ["diffusion_configurations"]
+
+[[required_assets]]
+id = "de_novo_checkpoint_aggregation_contract"
+required_phases = ["screen", "confirmation"]
+content_kind = "canonical_json_manifest_v1"
+sequence_namespace = "none"
+visibility_scope = "all_method_workers"
+required_by = ["diffusion_configurations"]
+
+[[required_assets]]
+id = "training_homology_exclusion_contract"
+required_phases = ["screen", "confirmation"]
+content_kind = "canonical_json_manifest_v1"
+sequence_namespace = "none"
+visibility_scope = "controller_and_independent_verifier_only"
+required_by = ["all_configurations"]
+
+[[required_assets]]
+id = "generator_oracle_training_provenance_separation_receipt"
+required_phases = ["screen", "confirmation"]
+content_kind = "canonical_json_manifest_v1"
+sequence_namespace = "none"
+visibility_scope = "controller_and_independent_verifier_only"
+required_by = ["all_configurations"]
+
+[[required_assets]]
+id = "organizer_reference_set_receipt"
+required_phases = ["screen", "confirmation"]
+content_kind = "canonical_json_manifest_v1"
+sequence_namespace = "none"
+visibility_scope = "post_generation_compliance_veto_only"
+required_by = ["all_configurations"]
+
+[[required_assets]]
+id = "hidden_oracle_contract"
+required_phases = ["screen", "confirmation"]
+content_kind = "canonical_json_manifest_v1"
+sequence_namespace = "none"
+visibility_scope = "controller_and_oracle_service_only"
+required_by = ["all_configurations"]
+
+[[required_assets]]
+id = "oracle_objective_constraint_semantics"
+required_phases = ["screen", "confirmation"]
+content_kind = "canonical_json_manifest_v1"
+sequence_namespace = "none"
+visibility_scope = "all_method_workers_and_verifier"
+required_by = ["all_configurations"]
+
+[[required_assets]]
+id = "oracle_missing_censoring_replicate_semantics"
+required_phases = ["screen", "confirmation"]
+content_kind = "canonical_json_manifest_v1"
+sequence_namespace = "none"
+visibility_scope = "all_method_workers_and_verifier"
+required_by = ["all_configurations"]
+
+[[required_assets]]
+id = "common_initial_oracle_resource_accounting_receipt"
+required_phases = ["screen", "confirmation"]
+content_kind = "canonical_json_manifest_v1"
+sequence_namespace = "none"
+visibility_scope = "controller_and_independent_verifier_only"
+required_by = ["all_configurations"]
+
+[[required_assets]]
+id = "calibrated_joint_posterior_bundle"
+required_phases = ["screen", "confirmation"]
+content_kind = "canonical_json_manifest_v1"
+sequence_namespace = "none"
+visibility_scope = "all_method_workers_after_scientific_clock_start"
+required_by = ["adaptive_configurations"]
+
+[[required_assets]]
+id = "generated_sequence_esm_contact_bundle"
+required_phases = ["screen", "confirmation"]
+content_kind = "canonical_json_manifest_v1"
+sequence_namespace = "none"
+visibility_scope = "all_method_workers_after_scientific_clock_start"
+required_by = ["spectral_configurations"]
+
+[[required_assets]]
+id = "persistent_search_ledger_contract"
+required_phases = ["screen", "confirmation"]
+content_kind = "canonical_json_manifest_v1"
+sequence_namespace = "none"
+visibility_scope = "all_method_workers_and_verifier"
+required_by = ["adaptive_configurations"]
+
+[[required_assets]]
+id = "terminal_evaluation_contract"
+required_phases = ["screen", "confirmation"]
+content_kind = "canonical_json_manifest_v1"
+sequence_namespace = "none"
+visibility_scope = "all_method_workers_and_verifier"
+required_by = ["all_configurations"]
+
+[[required_assets]]
+id = "independent_verifier_bundle"
+required_phases = ["screen", "confirmation"]
+content_kind = "canonical_json_manifest_v1"
+sequence_namespace = "none"
+visibility_scope = "independent_verifier_only"
+required_by = ["all_configurations"]
+
+[[required_assets]]
+id = "manifest_hashed_telemetry_contract"
+required_phases = ["screen", "confirmation"]
+content_kind = "canonical_json_manifest_v1"
+sequence_namespace = "none"
+visibility_scope = "all_workers_and_verifier"
+required_by = ["all_configurations"]
+
+[[required_assets]]
+id = "external_trusted_receipt_issuer_contract"
+required_phases = ["screen", "confirmation"]
+content_kind = "canonical_json_manifest_v1"
+sequence_namespace = "none"
+visibility_scope = "external_principal_only"
+required_by = ["all_configurations"]
+
+[[required_assets]]
+id = "hidden_confirmation_seed_reveal_contract"
+required_phases = ["confirmation"]
+content_kind = "canonical_json_manifest_v1"
+sequence_namespace = "none"
+visibility_scope = "sequestered_controller_only"
+required_by = ["confirmation_methods"]
+
+[[required_assets]]
+id = "sequestered_confirmation_oracle_access_control"
+required_phases = ["confirmation"]
+content_kind = "canonical_json_manifest_v1"
+sequence_namespace = "none"
+visibility_scope = "sequestered_controller_and_oracle_service_only"
+required_by = ["confirmation_methods"]
+
+[[required_assets]]
+id = "tuned_peptide_ga_adapter_bundle"
+required_phases = ["screen", "confirmation"]
+content_kind = "canonical_json_manifest_v1"
+sequence_namespace = "none"
+visibility_scope = "tuned_peptide_ga_worker_only"
+required_by = ["tuned_peptide_ga"]
+
+[[required_assets]]
+id = "categorical_diffusion_posthoc_adapter_bundle"
+required_phases = ["screen"]
+content_kind = "canonical_json_manifest_v1"
+sequence_namespace = "none"
+visibility_scope = "categorical_diffusion_posthoc_worker_only"
+required_by = ["categorical_diffusion_posthoc"]
+
+[[required_assets]]
+id = "diffusion_reward_kl_no_search_adapter_bundle"
+required_phases = ["screen"]
+content_kind = "canonical_json_manifest_v1"
+sequence_namespace = "none"
+visibility_scope = "diffusion_reward_kl_no_search_worker_only"
+required_by = ["diffusion_reward_kl_no_search"]
+
+[[required_assets]]
+id = "arcadiamp_style_iterative_d3pm_adapter_bundle"
+required_phases = ["screen"]
+content_kind = "canonical_json_manifest_v1"
+sequence_namespace = "none"
+visibility_scope = "arcadiamp_style_iterative_d3pm_worker_only"
+required_by = ["arcadiamp_style_iterative_d3pm"]
+
+[[required_assets]]
+id = "tr2d2_style_tree_offpolicy_adapter_bundle"
+required_phases = ["screen", "confirmation"]
+content_kind = "canonical_json_manifest_v1"
+sequence_namespace = "none"
+visibility_scope = "tr2d2_style_tree_offpolicy_worker_only"
+required_by = ["tr2d2_style_tree_offpolicy"]
+
+[[required_assets]]
+id = "mp2d_style_inference_search_adapter_bundle"
+required_phases = ["screen"]
+content_kind = "canonical_json_manifest_v1"
+sequence_namespace = "none"
+visibility_scope = "mp2d_style_inference_search_worker_only"
+required_by = ["mp2d_style_inference_search"]
+
+[[required_assets]]
+id = "ga_endpoint_distillation_no_kg_adapter_bundle"
+required_phases = ["screen"]
+content_kind = "canonical_json_manifest_v1"
+sequence_namespace = "none"
+visibility_scope = "ga_endpoint_distillation_no_kg_worker_only"
+required_by = ["ga_endpoint_distillation_no_kg"]
+
+[[required_assets]]
+id = "counterfactual_softkg_evolutionary_diffusion_adapter_bundle"
+required_phases = ["screen", "confirmation"]
+content_kind = "canonical_json_manifest_v1"
+sequence_namespace = "none"
+visibility_scope = "counterfactual_softkg_evolutionary_diffusion_and_ablation_workers_only"
+required_by = ["counterfactual_softkg_evolutionary_diffusion", "all_ablations"]
+
+[[reuse_assets]]
+id = "categorical_diffusion_corpus_v1"
+payload_sha256 = "c03595a8650b732307ada7e030f996d65345238efaea55d25925ac433bec8bc7"
+current_evidence_scope = "accepted_as_diffusion_training_input_v1"
+campaign_input_eligible = false
+reason = "successor_campaign_reacceptance_and_base_fold_projection_are_missing"
+
+[[reuse_assets]]
+id = "native_diffusion_v1_development_projection"
+payload_sha256 = "127a0eb88c5dc10c94904dcc5a3e98ff75a55890dc29af807e99f3f93c61ae46"
+current_evidence_scope = "accepted_leakage_safe_development_projection_only"
+campaign_input_eligible = false
+reason = "four_development_projections_are_not_ten_accepted_policy_checkpoints"
+
+[[reuse_assets]]
+id = "fold4_blind_candidate_pool_v1"
+payload_sha256 = "77315bfbec533f5587123714199c2dd2eb2a51a16d95957ab53927494983dbf2"
+current_evidence_scope = "production_size_score_free_candidate_input_only"
+campaign_input_eligible = false
+reason = "fixed_pool_is_not_de_novo_method_output_and_contains_no_campaign_oracle_contract"
+
+[[reuse_assets]]
+id = "candidate_activity_scoring_v1"
+payload_sha256 = "5189a2e5539dcbfd18f77498838ee31e4779c337077d2a7abdedd729771aaa81"
+current_evidence_scope = "development_descriptor_mean_scoring_only"
+campaign_input_eligible = false
+reason = "historical_method_choice_used_fold4_and_no_calibrated_joint_uncertainty_or_safety_endpoint_exists"
+
+[[reuse_assets]]
+id = "candidate_activity_mean_ledger_v1"
+payload_sha256 = "62d6a256caace067ec3ea46424e251461d87fc55775485392394de6f10d49fbc"
+current_evidence_scope = "authenticated_mean_only_handoff"
+campaign_input_eligible = false
+reason = "mean_only_fixed_pool_handoff_cannot_supply_posterior_or_hidden_oracle_responses"
+
+[[reuse_assets]]
+id = "candidate_diversity_novelty_v1"
+payload_sha256 = "04d7bd4840ad12b888a3238f04678d6dff450df091d073e4912186d0411b557d"
+current_evidence_scope = "authenticated_fixed_pool_descriptor_diversity_and_compliance"
+campaign_input_eligible = false
+reason = "fixed_pool_physicochemical_coordinates_are_not_generated_sequence_esm_or_contact_features"
+
+[[reuse_assets]]
+id = "union_activity_replay_v1"
+payload_sha256 = "78c10b4bc96fb6f755a8b5fff4b8fceede3ff372acdc70ea63f4408d82f4d867"
+current_evidence_scope = "retrospective_observed_context_development_replay"
+campaign_input_eligible = false
+reason = "retrospective_labels_are_not_a_content_pinned_hidden_generated_sequence_oracle"
+
+[[reuse_assets]]
+id = "known_sequence_esm320_v1"
+payload_sha256 = "1a5846487921c2e7498693918c12da57f354de7db1b79912c29e723984d05f8c"
+current_evidence_scope = "known_sequence_embedding_feature_input_only"
+campaign_input_eligible = false
+reason = "only_952_known_sequences_are_covered_and_contacts_were_not_produced"
+
+[[capabilities]]
+id = "canonical_sequence_support"
+status = "reusable_core_only"
+providers = ["amp_challenge.sequences:canonicalize_sequence"]
+scientific_campaign_ready = false
+
+[[capabilities]]
+id = "leakage_safe_diffusion_data_verification"
+status = "reusable_input_verifier_only"
+providers = [
+  "amp_challenge.generators.diffusion.verify_corpus:verify_corpus",
+  "amp_challenge.generators.diffusion.v1.verify_projection:verify_development_projection",
+]
+scientific_campaign_ready = false
+
+[[capabilities]]
+id = "native_diffusion_v1_contract_and_model_core"
+status = "reusable_core_no_accepted_checkpoint"
+providers = ["amp_challenge.generators.diffusion.v1.contract:load_unconditional_v1_contract"]
+scientific_campaign_ready = false
+
+[[capabilities]]
+id = "native_diffusion_real_sampler"
+status = "missing_real_campaign_adapter"
+providers = []
+scientific_campaign_ready = false
+
+[[capabilities]]
+id = "peptide_ga"
+status = "missing_real_campaign_adapter"
+providers = []
+scientific_campaign_ready = false
+
+[[capabilities]]
+id = "posthoc_calibrated_joint_scoring"
+status = "missing_real_campaign_adapter"
+providers = []
+scientific_campaign_ready = false
+
+[[capabilities]]
+id = "reward_kl_finetuning"
+status = "missing_real_campaign_adapter"
+providers = []
+scientific_campaign_ready = false
+
+[[capabilities]]
+id = "arcadiamp_iterative_d3pm"
+status = "missing_real_campaign_adapter"
+providers = []
+scientific_campaign_ready = false
+
+[[capabilities]]
+id = "tr2d2_tree_offpolicy_denoising"
+status = "missing_real_campaign_adapter"
+providers = []
+scientific_campaign_ready = false
+
+[[capabilities]]
+id = "mp2d_constrained_inference_search"
+status = "missing_real_campaign_adapter"
+providers = []
+scientific_campaign_ready = false
+
+[[capabilities]]
+id = "endpoint_distillation_training"
+status = "missing_real_campaign_adapter"
+providers = []
+scientific_campaign_ready = false
+
+[[capabilities]]
+id = "evolutionary_proposal_operators"
+status = "reusable_numpy_core_only"
+providers = [
+  "amp_challenge.generators.search.emitters:PartialRemaskEmitter",
+  "amp_challenge.generators.search.emitters:SubstitutionEmitter",
+]
+scientific_campaign_ready = false
+
+[[capabilities]]
+id = "counterfactual_parent_child_credit"
+status = "reusable_numpy_math_only"
+providers = ["amp_challenge.acquisition.counterfactual:linear_paired_contrast"]
+scientific_campaign_ready = false
+
+[[capabilities]]
+id = "branch_yield_allocation"
+status = "reusable_numpy_math_only"
+providers = ["amp_challenge.generators.search.frontier:branch_score"]
+scientific_campaign_ready = false
+
+[[capabilities]]
+id = "frozen_thompson_directions"
+status = "reusable_numpy_math_only"
+providers = ["amp_challenge.generators.search.thompson:sample_frozen_rollouts"]
+scientific_campaign_ready = false
+
+[[capabilities]]
+id = "covariance_aware_joint_softkg"
+status = "reusable_numpy_math_only_runtime_ceiling_not_accepted"
+providers = ["amp_challenge.acquisition.soft_kg:GaussianSoftKG"]
+scientific_campaign_ready = false
+
+[[capabilities]]
+id = "kl_provenance_records"
+status = "reusable_record_schema_only"
+providers = ["amp_challenge.generators.search.records:ProbabilityTrace"]
+scientific_campaign_ready = false
+
+[[capabilities]]
+id = "batching_and_in_memory_provenance"
+status = "reusable_core_not_persistent_campaign_ledger"
+providers = [
+  "amp_challenge.generators.search.batching:BatchExecutionPlan",
+  "amp_challenge.generators.search.ledger:SearchLedger",
+]
+scientific_campaign_ready = false
+
+[[capabilities]]
+id = "terminal_posterior_mean_recommendation"
+status = "reusable_numpy_math_only"
+providers = ["amp_challenge.acquisition.recommendation:recommend_posterior_mean"]
+scientific_campaign_ready = false
+
+[[capabilities]]
+id = "laplacian_spectral_density"
+status = "reusable_numpy_math_missing_generated_contact_producer"
+providers = ["amp_challenge.representations.laplacian:laplacian_log_spectral_densities"]
+scientific_campaign_ready = false
+
+[[capabilities]]
+id = "authenticated_phase_transport"
+status = "reusable_transport_tied_to_existing_protocols"
+providers = ["amp_challenge.evaluation.sequential_v2_seals:verify_phase_capability"]
+scientific_campaign_ready = false
+
+[[capabilities]]
+id = "retrospective_fixed_pool_bridge"
+status = "reusable_preflight_only_not_de_novo"
+providers = ["amp_challenge.evaluation.evolutionary_kl_fixed_pool_adapter:build_fixed_pool_preflight"]
+scientific_campaign_ready = false
+
+[[capabilities]]
+id = "generated_sequence_hidden_oracle"
+status = "missing_real_campaign_adapter"
+providers = []
+scientific_campaign_ready = false
+
+[[capabilities]]
+id = "calibrated_joint_posterior"
+status = "missing_real_campaign_adapter"
+providers = []
+scientific_campaign_ready = false
+
+[[capabilities]]
+id = "generated_sequence_esm_contacts"
+status = "missing_real_campaign_adapter"
+providers = []
+scientific_campaign_ready = false
+
+[[capabilities]]
+id = "persistent_campaign_ledger"
+status = "missing_real_campaign_adapter"
+providers = []
+scientific_campaign_ready = false
+
+[[capabilities]]
+id = "campaign_independent_verifier"
+status = "missing_real_campaign_adapter"
+providers = []
+scientific_campaign_ready = false
+
+[[capabilities]]
+id = "manifest_hashed_telemetry"
+status = "missing_real_campaign_adapter"
+providers = []
+scientific_campaign_ready = false
+
+[[capabilities]]
+id = "external_trusted_receipt_issuer"
+status = "missing_external_authority"
+providers = []
+scientific_campaign_ready = false
+
+[[methods]]
+id = "tuned_peptide_ga"
+implementation_status = "missing_real_campaign_adapter"
+adapter_providers = []
+reusable_capabilities = ["canonical_sequence_support"]
+missing_capabilities = ["peptide_ga", "generated_sequence_hidden_oracle", "calibrated_joint_posterior", "persistent_campaign_ledger", "campaign_independent_verifier", "manifest_hashed_telemetry", "external_trusted_receipt_issuer"]
+resource_profile = "matched_a100_v1"
+scientific_campaign_ready = false
+
+[[methods]]
+id = "categorical_diffusion_posthoc"
+implementation_status = "missing_real_campaign_adapter"
+adapter_providers = []
+reusable_capabilities = ["canonical_sequence_support", "leakage_safe_diffusion_data_verification", "native_diffusion_v1_contract_and_model_core"]
+missing_capabilities = ["native_diffusion_real_sampler", "posthoc_calibrated_joint_scoring", "generated_sequence_hidden_oracle", "calibrated_joint_posterior", "campaign_independent_verifier", "manifest_hashed_telemetry", "external_trusted_receipt_issuer"]
+resource_profile = "matched_a100_v1"
+scientific_campaign_ready = false
+
+[[methods]]
+id = "diffusion_reward_kl_no_search"
+implementation_status = "missing_real_campaign_adapter"
+adapter_providers = []
+reusable_capabilities = ["canonical_sequence_support", "leakage_safe_diffusion_data_verification", "native_diffusion_v1_contract_and_model_core", "kl_provenance_records"]
+missing_capabilities = ["native_diffusion_real_sampler", "reward_kl_finetuning", "endpoint_distillation_training", "generated_sequence_hidden_oracle", "calibrated_joint_posterior", "persistent_campaign_ledger", "campaign_independent_verifier", "manifest_hashed_telemetry", "external_trusted_receipt_issuer"]
+resource_profile = "matched_a100_v1"
+scientific_campaign_ready = false
+
+[[methods]]
+id = "arcadiamp_style_iterative_d3pm"
+implementation_status = "missing_real_campaign_adapter"
+adapter_providers = []
+reusable_capabilities = ["canonical_sequence_support", "leakage_safe_diffusion_data_verification", "native_diffusion_v1_contract_and_model_core"]
+missing_capabilities = ["arcadiamp_iterative_d3pm", "native_diffusion_real_sampler", "endpoint_distillation_training", "generated_sequence_hidden_oracle", "calibrated_joint_posterior", "persistent_campaign_ledger", "campaign_independent_verifier", "manifest_hashed_telemetry", "external_trusted_receipt_issuer"]
+resource_profile = "matched_a100_v1"
+scientific_campaign_ready = false
+
+[[methods]]
+id = "tr2d2_style_tree_offpolicy"
+implementation_status = "missing_real_campaign_adapter"
+adapter_providers = []
+reusable_capabilities = ["canonical_sequence_support", "native_diffusion_v1_contract_and_model_core", "batching_and_in_memory_provenance"]
+missing_capabilities = ["tr2d2_tree_offpolicy_denoising", "native_diffusion_real_sampler", "endpoint_distillation_training", "generated_sequence_hidden_oracle", "calibrated_joint_posterior", "persistent_campaign_ledger", "campaign_independent_verifier", "manifest_hashed_telemetry", "external_trusted_receipt_issuer"]
+resource_profile = "matched_a100_v1"
+scientific_campaign_ready = false
+
+[[methods]]
+id = "mp2d_style_inference_search"
+implementation_status = "missing_real_campaign_adapter"
+adapter_providers = []
+reusable_capabilities = ["canonical_sequence_support", "native_diffusion_v1_contract_and_model_core"]
+missing_capabilities = ["mp2d_constrained_inference_search", "native_diffusion_real_sampler", "generated_sequence_hidden_oracle", "calibrated_joint_posterior", "persistent_campaign_ledger", "campaign_independent_verifier", "manifest_hashed_telemetry", "external_trusted_receipt_issuer"]
+resource_profile = "matched_a100_v1"
+scientific_campaign_ready = false
+
+[[methods]]
+id = "ga_endpoint_distillation_no_kg"
+implementation_status = "missing_real_campaign_adapter"
+adapter_providers = []
+reusable_capabilities = ["canonical_sequence_support", "native_diffusion_v1_contract_and_model_core", "kl_provenance_records"]
+missing_capabilities = ["peptide_ga", "native_diffusion_real_sampler", "endpoint_distillation_training", "generated_sequence_hidden_oracle", "calibrated_joint_posterior", "persistent_campaign_ledger", "campaign_independent_verifier", "manifest_hashed_telemetry", "external_trusted_receipt_issuer"]
+resource_profile = "matched_a100_v1"
+scientific_campaign_ready = false
+
+[[methods]]
+id = "counterfactual_softkg_evolutionary_diffusion"
+implementation_status = "missing_real_campaign_composition_adapter"
+adapter_providers = []
+reusable_capabilities = ["canonical_sequence_support", "native_diffusion_v1_contract_and_model_core", "evolutionary_proposal_operators", "counterfactual_parent_child_credit", "branch_yield_allocation", "frozen_thompson_directions", "covariance_aware_joint_softkg", "kl_provenance_records", "batching_and_in_memory_provenance", "terminal_posterior_mean_recommendation", "laplacian_spectral_density", "authenticated_phase_transport"]
+missing_capabilities = ["native_diffusion_real_sampler", "endpoint_distillation_training", "generated_sequence_hidden_oracle", "calibrated_joint_posterior", "generated_sequence_esm_contacts", "persistent_campaign_ledger", "campaign_independent_verifier", "manifest_hashed_telemetry", "external_trusted_receipt_issuer"]
+resource_profile = "matched_a100_v1"
+scientific_campaign_ready = false
+
+[[ablations]]
+id = "ablation_no_spectral_representation"
+base_method = "counterfactual_softkg_evolutionary_diffusion"
+disabled_capability = "laplacian_spectral_density"
+implementation_status = "missing_real_campaign_composition_adapter"
+adapter_providers = []
+resource_profile = "matched_a100_v1"
+scientific_campaign_ready = false
+
+[[ablations]]
+id = "ablation_no_counterfactual_credit"
+base_method = "counterfactual_softkg_evolutionary_diffusion"
+disabled_capability = "counterfactual_parent_child_credit"
+implementation_status = "missing_real_campaign_composition_adapter"
+adapter_providers = []
+resource_profile = "matched_a100_v1"
+scientific_campaign_ready = false
+
+[[ablations]]
+id = "ablation_singleton_kg"
+base_method = "counterfactual_softkg_evolutionary_diffusion"
+disabled_capability = "covariance_aware_joint_softkg"
+implementation_status = "missing_real_campaign_composition_adapter"
+adapter_providers = []
+resource_profile = "matched_a100_v1"
+scientific_campaign_ready = false
+
+[[ablations]]
+id = "ablation_no_endpoint_distillation"
+base_method = "counterfactual_softkg_evolutionary_diffusion"
+disabled_capability = "endpoint_distillation_training"
+implementation_status = "missing_real_campaign_composition_adapter"
+adapter_providers = []
+resource_profile = "matched_a100_v1"
+scientific_campaign_ready = false
+
+[[ablations]]
+id = "ablation_no_kl_controls"
+base_method = "counterfactual_softkg_evolutionary_diffusion"
+disabled_capability = "kl_provenance_records"
+implementation_status = "missing_real_campaign_composition_adapter"
+adapter_providers = []
+resource_profile = "matched_a100_v1"
+scientific_campaign_ready = false

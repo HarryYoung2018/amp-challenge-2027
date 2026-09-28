@@ -1,0 +1,142 @@
+schema_version = 1
+artifact = "run_feature_cache_bridge_v1"
+status = "prospective_additive_engineering_contract_not_execution_authority"
+declared_date = "2026-09-10"
+base_commit = "0577c0293d5f7f727baf88cb061b81d3554c4118"
+existing_source_or_recipe_edits = false
+oracle_calls_authorized = false
+gpu_jobs_authorized = false
+scientific_evidence_accepted = false
+production_eligible = false
+all_thirteen_arm_campaign_integration_claim = false
+
+[composition]
+session_class = "amp_challenge.representations.warm_candidate_features.WarmCandidateFeatureSession"
+fixed_shape = true
+session_count = 1
+automatic_restart_or_fallback = false
+historical_live_cache_adoption = false
+raw_representations = ["esm_length", "esm_length_spectral"]
+raw_dimensions = [321, 353]
+checked_binding_aliases = ["esm_length=esm320_plus_normalized_length", "esm_length_spectral=esm320_plus_normalized_length_plus_spectral32"]
+native_binding_alias = "esm_length=esm320_plus_normalized_length"
+cache_contains_scores_or_transforms = false
+consumer_rows_max = 128
+consumer_duplicates = "visible_miss_first_seen_dedup_then_exact_order_scatter"
+private_unreleased_collision = "consumer_miss_independent_extraction_no_inventory_disclosure"
+private_noninterference_condition = "matched_prior_resource_deadline_admission_state_same_public_gates_pass"
+private_noninterference_waives_limits = false
+release_existing_visible = "require_feature_agreement_preserve_first_visible_origin"
+private_full_provenance_exposed_to_consumer = false
+privacy_claim = "trusted_controller_dataflow_not_same_account_cryptographic_or_timing_secrecy"
+
+[bindings]
+run = ["run_id", "arm_id", "seed", "original_epoch", "original_deadline", "arm_budget_sha256", "previous_ledger_head", "run_root", "session_root", "session_id", "job_id", "allocation_identity"]
+source = ["commit", "direct_source_file_sha256s", "bundle", "runtime", "model", "fixed_layout"]
+intent = ["purpose", "history_sha256", "objective_context_sha256", "round_index", "logical_ordinal", "expected_previous_head", "original_effective_deadline"]
+release = ["run_id", "history_sha256", "objective_context_sha256", "source_sha256", "receipt_sha256", "expected_previous_head", "exact_revealed_sequence_ids"]
+charged_assembly = ["exact_raw_history", "expected_history_sha256", "objective_context_sha256", "eligibility_source_sha256", "eligibility_receipt_sha256", "exact_successful_eligible_query_ids", "generator_transform_sha256"]
+row_origin = ["canonical_sequence_id", "request_sha256", "session_sha256", "response_sha256", "prior_response_head", "manifest_sha256", "row_offset", "source", "job", "model", "layout", "raw_numerical_sha256"]
+native_view = "raw321_existing_clipped_point_means_fixed_external_feasibility"
+evolution_view = "raw321_or353_existing_generator_transform_once_unclipped_joint_posterior"
+fit_oracle_or_generator_transform = false
+
+[limits]
+per_session_attempted_admissions_max = 128
+per_request_real_rows_max = 128
+fixed_shape_padded_rows = 128
+fixed_shape_token_width = 52
+acquired_row_origins_max = 16384
+per_session_regular_bytes_max = 2147483648
+per_session_descendant_entries_max = 10000
+aggregate_run_bytes_max = 5368709120
+run_budget_scope = "all_method_output_private_audit_cache_ledger_failed_work_and_final_markers"
+run_admission_bound = "externally_frozen_arm_specific_never_reset_by_preload_or_session"
+full_and_five_ablation_total_requests_max = 128
+full_candidate_requests_per_wave_max = 4
+universal_run_request_cap = false
+count_attempt_before_dispatch = true
+cache_hit_erases_consumer_logical_counter = false
+nonadmitted_input_counted_as_physical_attempt = false
+full_total_accounting = "existing_provider_opportunities_plus_auxiliary_admissions_not_already_represented"
+auxiliary_work_free = false
+tr2_complete_run_supported = false
+exhaustion = "terminal_partial_never_retry_or_campaign_completion"
+
+[metadata_admission]
+status = "new_prospective_fail_closed_engineering_representation_bound"
+canonical_operation_bytes_max = 16777216
+source_runtime_binding_json_bytes_max = 1048576
+hash_and_inventory_traversal = "streamed_with_metadata_growth_bound_no_whole_run_payload_read"
+oversized_valid_metadata = "unsupported_retained_stop_no_discard_split_evasion_or_cap_extension"
+pending_receipt_inventory = "exact_one_self_path_and_size_excluded_from_entries_no_self_hash_bytes_charged"
+receipt_size_fixed_point_iterations_max = 8
+post_write_actual_inventory_check = true
+all_arm_capacity_established = false
+
+[candidate_sizing_only]
+plain_ga = 0
+categorical_posthoc = 16
+reward_kl_no_search = 16
+arcadiamp = 56
+ga_endpoint = 56
+tr2 = 2800
+mp2d = 112
+each_full_method_arm = 112
+includes_preload_charged_terminal_or_failure = false
+assigns_new_physical_quota = false
+
+[timing]
+original_run_allowance_seconds = 7200
+session_operation_seconds = 120
+native_tr2_full_ga_endpoint_wave_seconds = 180
+native_mp2d_wave_seconds = 120
+universal_wave_cap = false
+clock_values = "exact_builtin_int_or_float_not_bool_finite_overflow_safe"
+check_original_deadline_at = ["entry", "constructor", "request", "reconstruct", "encode", "close", "final_callback_free_binding_guard"]
+hard_preemption_and_timing_authentication = "external_controller"
+epoch_reset_or_constructor_drift_credit = false
+terminal_refit_timing_reconciled = false
+free_cpu_fit_or_gpu_in_sealing_allowance = false
+
+[historical_audit]
+root = "/lustre/scratch/users/yonghan.yang/amp_challenge/data/runs/fixed-shape-feature-qualification-v2-20260909-J2PYPn"
+comparison_sha256 = "7f574c308002a2a0efae90818aa493a4dd6e7d88f34d382c76635b8becc89aff"
+historical_source_commit = "bb66665dfd67e182c77bd487c9698f4bad32c426"
+historical_run_id = "fixed-shape-feature-qualification-v2"
+session_complete_sha256s = ["4acd365eb801fed535821bfcf976ecdc2166aea64a2b618bf38607a3f8118447", "411bbbae9496f919be9e3a0e363df32b8e2cd84afedb399cd98dc15fe71fac84"]
+fixed_model_sha256 = "e98fbfe14027d4b3bf7136cc38cccddf1fd56bb2163d3f9d4101a30155062198"
+fixed_layout_sha256 = "6a2d727734ad58dad01ac842d497dd10602479c984c0512b6d334cd0ccdf7871"
+batches_max = 12
+unique_sequence_ids_max = 128
+historical_batch_sizes_per_session = [128, 128, 16, 128, 1, 1]
+stream_one_feature_batch_at_a_time = true
+historical_clock_reset_or_live_rebinding = false
+model_import_extraction_or_oracle_fit = false
+audit_import_boundary = "separate_subprocess_records_verifier_representations_no_transitive_native_or_torch"
+independent_reconstruction = "saved_requests_responses_manifests_rows_scatter_origins_ledgers_no_producer_or_live_worker"
+
+[engineering_validation]
+status = "proposed_each_job_requires_root_source_review_and_explicit_approval"
+development_jobs_max = 1
+exact_jobs_max = 1
+nodes = 1
+tasks = 1
+cpus_per_job = 2
+memory_gib = 8
+wall_seconds_per_job = 900
+allocated_cpu_seconds_total_max = 3600
+account = "bio"
+partition = "standard"
+gpus = 0
+install_or_requeue_or_retry = false
+extra_format_job = false
+development_format_scope = "safe_fix_format_new_owned_python_only_inside_sole_job"
+exact_source_policy = "clean_committed_source_actual_spool_and_all_changed_bytes_pre_post_no_edits"
+pytest_plugin_autoload = false
+pytest_addopts_and_plugins = "explicit_empty"
+ruff_cache = false
+complete_test_files = ["tests/test_run_feature_cache_bridge_v1.py", "tests/test_candidate_feature_worker.py", "tests/test_warm_candidate_features.py", "tests/test_fixed_shape_esm.py", "tests/test_real_peptide_features.py", "tests/test_charged_probability_learner.py"]
+test_exclusions = []
+historical_audits_per_job_max = 1
+failure_policy = "retain_all_evidence_stop_no_automatic_exact_retry_or_cap_extension"

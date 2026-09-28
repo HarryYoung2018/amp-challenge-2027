@@ -1,0 +1,14 @@
+# Copy to sources.toml only after verifying every license and checksum.
+
+[[source]]
+name = "example_amp_source"
+enabled = false
+path = "/lustre/scratch/users/USER/amp_challenge/raw/example.csv"
+format = "csv"
+sequence_column = "sequence"
+source_record_id_column = "record_id"
+source_version = "REQUIRED"
+license = "REQUIRED"
+retrieved_at = "YYYY-MM-DD"
+sha256 = "REQUIRED"
+

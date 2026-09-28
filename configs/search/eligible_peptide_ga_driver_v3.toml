@@ -1,0 +1,129 @@
+schema_version = 3
+artifact = "context_eligible_peptide_ga_driver_v3"
+status = "prospectively_reviewed_engineering_declaration_no_runtime_authority"
+oracle_execution_in_scope = false
+eligibility_issuer_in_scope = false
+external_clock_authentication_in_scope = false
+tuning_study_execution_in_scope = false
+selected_tuning_result_issued = false
+campaign_eligible = false
+scientific_evidence_accepted = false
+production_eligible = false
+
+[declaration_time_facts]
+implementation_available = false
+validation_executed = false
+dependency_import_performed = false
+
+[dependencies]
+base_main_commit = "9f757beba58c0b1f86f35f8dd9ff3852574836db"
+accepted_kernel_source_commit = "d023ffb21fc7c8dbcbcc043592ec8ed8306c11d0"
+accepted_kernel_evidence_commit = "77c11c845e1bb482d9839a89537abae672af5ae8"
+eligible_kernel_config_sha256 = "39b0d86024be30c6277a18ab9fbfe482953bca1bd88d52f2417f6b964ae83123"
+legacy_numerical_config_sha256 = "04cd4fd7d010baeb07bdf2965cc01f4b1816609df44e6b37f0b118b18d4e3f1c"
+legacy_source_and_artifact_formats_unchanged = true
+research_protocol_unchanged = true
+
+[method]
+configuration_ids = ["ga_t3_default", "ga_t3_mutation_heavy", "ga_t5_default", "ga_t5_mutation_heavy"]
+recipe_source = "accepted_four_configuration_kernel_without_override"
+candidate_prefix_size = 256
+proposal_attempt_cap_per_round = 65536
+candidate_order = "accepted_attempt_order_without_posterior_or_oracle_reranking"
+all_eligible_equivalence = "legacy_numerical_edits_factors_rejections_and_order_not_identical_provenance_seals"
+raw_history_rewrite = false
+ineligible_objective_numerical_use = false
+failed_or_missing_status_relabeling = false
+all_charged_sequences_remain_excluded = true
+training_sequence_key_cap = 65536
+
+[authority]
+resolver_input = "exact_raw_history_only_no_recorded_eligibility_or_claimed_subset"
+resolver_output = "GAContextEligibility_reconstructed_from_external_controller_owned_receipts"
+per_history_expectations = "exact_history_context_source_receipt_and_successful_query_id_frozenset"
+charged_learner_binding = "where_used_exact_independently_reconstructed_fit_query_ids_not_requested_mask"
+implicit_all_successful_default = false
+implicit_empty_subset_on_missing_authority = false
+same_history_authority_changes = "reject_not_restart_or_relabel"
+provider_identity_checked_before_and_after_calls = true
+issuer_source_authenticity = "external_not_proven_by_digest_shape_or_provider_attribute"
+historical_expectations_derived_from_current_subset = false
+expected_receipt_copied_from_recorded_phase = false
+provider_fit_or_oracle_calls_allowed = false
+
+[history_and_seats]
+initial_logical_charges = 64
+adaptive_rounds = 28
+logical_charges_per_wave = 16
+method_seats_per_wave = 14
+controller_private_reserves_per_wave = 2
+terminal_round_index = 29
+total_logical_charges = 512
+history_growth = "unchanged_ordered_raw_prefix_and_previous_wave_head_checks"
+following_wave_order = "previous_14_method_seats_then_2_distinct_controller_reserves"
+incomplete_or_outstanding_wave = "pause_without_generation_replacement_or_recharge"
+complete_history_without_eligible_parent = "abstained_no_eligible_parent"
+terminal_history = "budget_complete_pending_controller_terminal_not_recommendation"
+private_composition = "first_14_available_complete_wrapper_prefix_positions"
+future_reserve_input_to_kernel_or_rng_or_public_phase = false
+charged_private_key_cap = 512
+upcoming_private_reserve_key_cap = 56
+
+[resume_and_clock]
+scientific_wall_seconds_per_run = 7200
+deadline_source = "external_original_run_deadline_never_now_plus_duration"
+expected_deadline_required_for_producer_and_replay = true
+clock_epoch = "external_caller_owned_identity_no_cross_epoch_conversion"
+clock_and_deadline_value_types = "exact_builtin_int_or_float_excluding_bool_and_finite"
+finite_clock_reads_required = true
+work_and_encoding_and_publication_count_toward_original_deadline = true
+same_history_resume_identity = "full_input_source_contract_eligibility_deadline_and_actual_prior_wrapper"
+prior_resume_authentication = "exact_immediate_prior_matching_prefix_seal_count_and_replayed_attempt_prefix"
+unverified_prior_replay_count = "unknown_None_never_zero_or_new_quota"
+stopped_wrapper_exposes_sequences = false
+legacy_receipt_conversion_or_partial_run_migration = false
+hard_preemption_claimed = false
+unresolved_unpublished_work = "stop_outer_run_no_inferred_safe_retry"
+
+[publication]
+artifact = "context_eligible_peptide_ga_driver_phase_v3"
+payloads = ["context.json", "history.json", "eligibility.json", "prefix.json", "selection.json"]
+primitive = "existing_immutable_PhaseBuilder_and_verify_phase"
+maximum_phases = 128
+maximum_phase_bytes = 268435456
+maximum_run_bytes = 536870912
+receipt_and_checksum_bytes_count_toward_caps = true
+partial_or_unexpected_phase = "preserve_and_reject_without_seats"
+postpublication_deadline_or_source_failure = "preserve_evidence_no_seats_outer_terminal_failure"
+private_inventory_persisted = false
+method_seats_only_after_publication_and_reconstruction = true
+
+[review_gate]
+current_scope = "prospectively_reviewed_engineering_declaration_not_runtime_authority"
+implementation_requires_root_full_design_review = true
+final_declaration_commit_requires_root_review_of_exact_bytes = true
+tests_and_jobs_require_explicit_root_authorization = true
+model_fitting_authorized = false
+new_scientific_or_tuning_budget = 0
+production_or_campaign_gate_changes = false
+
+[engineering_validation]
+scope = "subsequently_authorized_bounded_cpu_engineering_checks_not_scientific_execution"
+account = "bio"
+partition = "standard"
+nodes = 1
+tasks = 1
+cpus_per_task = 2
+memory_gib = 8
+wall_seconds_per_job = 900
+gpus = 0
+oracle_calls = 0
+model_fits = 0
+tuning_runs = 0
+automatic_requeue = false
+automatic_resubmission = false
+environment = "existing_shared_amp_challenge_venv_unchanged_uv_run_locked_no_sync"
+environment_mutation = false
+development_failures = "retain_source_identity_job_ids_terminal_accounting_and_logs"
+exact_source_validation = "clean_frozen_commit_spooled_launcher_source_bytes_and_broader_regressions"
+central_full_validation = "separate_later_composition_and_authorization_not_claimed_here"

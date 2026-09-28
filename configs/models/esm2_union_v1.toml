@@ -1,0 +1,69 @@
+schema_version = 1
+
+# Accepted homology-and-study union Gate-1 production evidence (jobs 223248
+# and independent reconstruction 223250).  The exporter consumes no historical
+# homology-only Gate-1 panel and has no fallback cohort.
+gate1_publication_top_sha256 = "4e259cfb43033c069598d42fd54fec49a67ba55bfbb5c1e77eeef4887815fe2f"
+gate1_top_sha256 = "556e06fd2b1af1e678de88008bc1b87434fb8cf1179f38c897de7ee2c9fd779d"
+gate1_examples_sha256 = "d3eecbf3014fd78cf7021818466893d292315b6e90e77cea85d4e1fbd5bec520"
+gate1_folds_sha256 = "37e035d488634e50ad95dfefe01d235474867aeb96b8205b543d22c25fdc9988"
+gate1_oof_sha256 = "11eea907a242606b78261a9b37107647ce393db743be95c146cbbe5caced137c"
+gate1_manifest_sha256 = "b1cf4a2ad396d26776a824d4ec3cc077ba45bf9d2d47e00f8f2f482053b1f78e"
+gate1_split_receipt_sha256 = "63cf02d87cd4a9b9ec1afe9c40c2e0914fc75515a14a21e71f1e50dce0fd01a7"
+gate1_independent_receipt_sha256 = "1f6a6ce811d3fbecdbbbe7463e6052dc7766130372926d29952c70be65743e81"
+gate1_config_sha256 = "e4e420501efc1bf89c2b1fbd15db5adc1340d3c42963c005bf1eced23c9d0410"
+gate1_code_manifest_sha256 = "f770a656c4f300855c129ebc044cc753c3bd119cb0476ef14eae277f5b104e72"
+gate1_frozen_input_manifest_sha256 = "229e10ad276430136671cb7831f44e50c5a6d6a6f09ef3f16e58129771f53e60"
+gate1_git_commit = "0468cc2cbc0b7c3b2a50f7866da1b1083c8ef1a8"
+
+expected_examples = 2492
+expected_source_observations = 2592
+expected_sequences = 952
+expected_positive_examples = 1731
+expected_negative_examples = 761
+expected_examples_by_fold = [546, 486, 485, 487, 488]
+expected_positive_examples_by_fold = [392, 334, 333, 335, 337]
+expected_negative_examples_by_fold = [154, 152, 152, 152, 151]
+folds = 5
+homology_identity_threshold = 0.80
+
+# Frozen ESM2 extraction contract inherited from the accepted AMP-Diffusion
+# trust boundary.  Extraction itself remains a separate GPU job.
+embedding_model = "esm2_t6_8M_UR50D"
+representation_layer = 6
+embedding_dimension = 320
+embedding_batch_size = 128
+embedding_seed = 20260902
+model_checkpoint_sha256 = "46f002a9870c9bdecd0ea887acb1f9a38a6b561e8f8bf8a6990b679b9d31b928"
+contact_regression_sha256 = "8f7a4557d57713b97ba0e484303007efb7230d25299c0ac47a0a1b12a87bbb9d"
+environment_lock_sha256 = "aaf37baa3adf5070dd3090c43527daa2696741a7e3057c72c78d51a80af9e234"
+trust_manifest_sha256 = "5e62db4fd3241e1fa6bbd83cc0f26e299c6d16e9fa1e449304fab2e4c98fd9ff"
+embedding_worker_sha256 = "34fdb77e87aaa44044960655259cc60fb20b165bfb87c38ba19bee21565f2cba"
+python_version = "3.10.19"
+torch_version = "2.5.1+cu121"
+fair_esm_version = "2.0.0"
+numpy_version = "2.2.6"
+cuda_runtime = "12.1"
+cudnn_version = 90100
+device_type = "cuda"
+
+# These values capture a preliminary login-node observation about historical
+# assets.  This exporter does not read or verify those assets, so every value
+# is an unverified design hint, never accepted evidence or an exclusion rule.
+historical_design_hint_status = "unverified_historical_design_hint_not_evidence"
+historical_design_hint_input_fasta_sha256 = "1c01e87608042b8b9534c43eed3309e89b7a1bc2b639254ac95fb41ece7a9d7e"
+historical_design_hint_input_fasta_manifest_sha256 = "eab831e5de718363ebdaa7952b50e25fcc53a7eee49184ae99f057fc8afb08ec"
+historical_design_hint_embedding_records = 1086
+historical_design_hint_extra_embedding_sequence_ids = [
+  "004ac10e14ff6511cce8ff4149dee5eb79094e9b04013a9c0ab2845ff7b88e5b",
+  "098401b4a81824aa223e387fc207c9a79c13cf2e60695fd5750f324088c7a873",
+]
+historical_design_hint_extra_embedding_sequence_ids_sha256 = "e4217326d5bb38fc9ef1bfd1ff89cf3f82fbc80fb4380ee099368da2de2254eb"
+
+# These two modeled union IDs were reported missing in that unverified design
+# hint. Both remain required in the exact 952-sequence FASTA.
+historical_design_hint_missing_union_sequence_ids = [
+  "2c2ba086263d760152702d3a9f310cae06c103bfcd02cc64ced3ae8b6ab6ac36",
+  "9485a0d8421b2175c8e58ab6cf2a1afb59278b626d2b5a25751135c7c7cb0a47",
+]
+historical_design_hint_missing_union_sequence_ids_sha256 = "6c12f1a7e049bb5eebc414323053d3ee01c4117f0e02596a4383e45ec6187f2c"

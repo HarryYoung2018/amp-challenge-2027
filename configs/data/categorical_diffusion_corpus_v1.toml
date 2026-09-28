@@ -1,0 +1,33 @@
+schema_version = 1
+artifact = "categorical_diffusion_corpus_v1"
+
+# The generator-development partition reuses the accepted homology-and-study
+# union folds.  Fold 4 is held out from categorical-diffusion fitting.  Within
+# each role, sampling mass is equalized over homology components so redundant
+# sequence families cannot dominate the denoising objective.
+alphabet = "ACDEFGHIKLMNPQRSTVWY"
+min_length = 8
+max_length = 50
+folds = 5
+holdout_fold = 4
+component_weighting = "homology_component_equal_within_role_v1"
+
+# Accepted parser-v7 and homology-study split artifacts.
+sequences_sha256 = "76305e284ce3689970c89e3f2b45c4adc0ceef2375e74dfcddc50882d8b14884"
+assignments_sha256 = "a8149e03bf2cdf15c70de723613f4b5367db5b7fc887a05b621d3b77834a56a0"
+parser_top_manifest_sha256 = "c83e446f89bbf48a4c3c2fea9a397328147267b231cafad6f913badb7c6c3379"
+split_top_manifest_sha256 = "420bfa5a23475b17090b8af0ff36b67171df21b968b5f3197a28672a2fe530eb"
+split_independent_receipt_sha256 = "7786970354ad0c7f260f86931ec2b9b0b38360fc85f94327aa8bcae91d9055a6"
+
+# These are structural consequences of the already accepted inputs, frozen
+# before producing this training view.  They are not model-result gates.
+expected_sequences = 1113
+expected_train_sequences = 914
+expected_validation_sequences = 199
+expected_homology_components = 597
+expected_train_homology_components = 471
+expected_validation_homology_components = 126
+expected_union_components = 278
+expected_train_union_components = 221
+expected_validation_union_components = 57
+expected_sequences_by_fold = [305, 209, 199, 201, 199]

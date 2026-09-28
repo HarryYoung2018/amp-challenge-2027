@@ -1,0 +1,124 @@
+schema_version = 1
+artifact = "apex_context_activity_homology_study_union_v1"
+
+# Frozen context-level MIC16 panel and accepted union-fold evidence.
+activity_threshold_um = 16.0
+folds = 5
+homology_identity_threshold = 0.80
+calibration_bins = 10
+probability_clip_epsilon = 1e-6
+bootstrap_replicates = 1000
+bootstrap_seed = 42
+calibration_weighting = "context_equal_v1"
+bootstrap_weighting = "union_component_resample_context_multiplicity_v1"
+
+expected_examples = 2492
+expected_source_observations = 2592
+expected_positive_examples = 1731
+expected_negative_examples = 761
+expected_modeled_sequences = 952
+expected_modeled_homology_components = 485
+expected_modeled_union_components = 213
+expected_examples_by_fold = [546, 486, 485, 487, 488]
+expected_positive_examples_by_fold = [392, 334, 333, 335, 337]
+expected_negative_examples_by_fold = [154, 152, 152, 152, 151]
+expected_output_rows = 22428
+
+expected_union_sequence_ids_sha256 = "45a704812a51d51876b8e32e86c8890db5b7d6aa52de1b1f35634e797acd3f03"
+expected_base_publication_top_sha256 = "4e259cfb43033c069598d42fd54fec49a67ba55bfbb5c1e77eeef4887815fe2f"
+expected_base_semantic_top_sha256 = "556e06fd2b1af1e678de88008bc1b87434fb8cf1179f38c897de7ee2c9fd779d"
+expected_base_examples_sha256 = "d3eecbf3014fd78cf7021818466893d292315b6e90e77cea85d4e1fbd5bec520"
+expected_base_folds_sha256 = "37e035d488634e50ad95dfefe01d235474867aeb96b8205b543d22c25fdc9988"
+expected_base_oof_sha256 = "11eea907a242606b78261a9b37107647ce393db743be95c146cbbe5caced137c"
+expected_base_manifest_sha256 = "b1cf4a2ad396d26776a824d4ec3cc077ba45bf9d2d47e00f8f2f482053b1f78e"
+expected_base_split_receipt_sha256 = "63cf02d87cd4a9b9ec1afe9c40c2e0914fc75515a14a21e71f1e50dce0fd01a7"
+expected_base_independent_receipt_sha256 = "1f6a6ce811d3fbecdbbbe7463e6052dc7766130372926d29952c70be65743e81"
+expected_base_config_sha256 = "e4e420501efc1bf89c2b1fbd15db5adc1340d3c42963c005bf1eced23c9d0410"
+
+# Immutable raw APEX member inference. Calibration and metrics are deliberately
+# not reused from any historical homology-only benchmark.
+expected_apex_predictions_sha256 = "3500901750445540fe1cefdc576f7a68ce870a5d707380a587fcef98befdd514"
+expected_apex_manifest_sha256 = "ea881bf1cca6acafe3f0cd4897f3ef0c64287f93afc58d4ceef7d2a6049eeaa9"
+expected_apex_reconciliation_sha256 = "d87d3e7495bf6e735e740357ebc040fca0ab4406bfbb81ebd296a4cb60126546"
+expected_apex_sequence_ids_sha256 = "66c21d985b0b65539d9aa6a50637412c35e55ebfc0b3a703e82e1de864a07d33"
+expected_apex_source_commit = "1a862af9078e6b55c87d1fa576f3da81851ba94b"
+expected_apex_sequences = 1096
+expected_apex_extra_sequences = 144
+expected_member_count = 8
+expected_reconciliation_comparisons = 13152
+
+[calibration]
+l2 = 0.10
+prior_strength = 2.0
+max_iterations = 100
+tolerance = 1e-9
+
+[[target]]
+name = "acinetobacter_baumannii"
+endpoints = ["apex_mic_um__a_baumannii_atcc_19606"]
+
+[[target]]
+name = "escherichia_coli"
+endpoints = [
+  "apex_mic_um__e_coli_atcc_11775",
+  "apex_mic_um__e_coli_aic221",
+  "apex_mic_um__e_coli_aic222",
+]
+
+[[target]]
+name = "klebsiella_pneumoniae"
+endpoints = ["apex_mic_um__k_pneumoniae_atcc_13883"]
+
+[[target]]
+name = "pseudomonas_aeruginosa"
+endpoints = [
+  "apex_mic_um__p_aeruginosa_pa01",
+  "apex_mic_um__p_aeruginosa_pa14",
+]
+
+[[target]]
+name = "staphylococcus_aureus"
+endpoints = [
+  "apex_mic_um__s_aureus_atcc_12600",
+  "apex_mic_um__s_aureus_atcc_baa_1556_mrsa",
+]
+
+[[target]]
+name = "enterococcus_faecalis"
+endpoints = ["apex_mic_um__vancomycin_resistant_e_faecalis_atcc_700802"]
+
+[[target]]
+name = "enterococcus_faecium"
+endpoints = ["apex_mic_um__vancomycin_resistant_e_faecium_atcc_700221"]
+
+[[member]]
+member_id = "APEX_2&256&2048&1e-05&0.0&0.1"
+checkpoint_sha256 = "fccd356cbb901c08fe7d35663f3902a5d2d01a4c257203af931aabf02bdd7913"
+
+[[member]]
+member_id = "APEX_3&128&1024&1e-06&0.001&2.0"
+checkpoint_sha256 = "857e17d7703d771f82fe63dd82f15a86dd60a0b4f705577a56b88485d60a60c6"
+
+[[member]]
+member_id = "APEX_3&128&2048&1e-06&0.0&1.0"
+checkpoint_sha256 = "9db48419381d7bcdac2ad3154aa6b67327c6da47dce973bb8a0745e5632ff79a"
+
+[[member]]
+member_id = "APEX_3&128&2048&1e-06&0.001&0.1"
+checkpoint_sha256 = "9362c006ccc0e7ae3fd5210f2cbbe9ed02cec4ff6383f95a119acab9b020aea4"
+
+[[member]]
+member_id = "APEX_3&128&2048&1e-06&0.001&2.0"
+checkpoint_sha256 = "58b5eeb6c8c8c4b94d1d776c92f5c653177cfcf3b77ec41cf409839304c8cc80"
+
+[[member]]
+member_id = "APEX_3&256&2048&1e-05&0.001&0.1"
+checkpoint_sha256 = "6d3f2bd66c6b3f138e98fb13d1a3010ee94714b9ebf9673475192b365d388858"
+
+[[member]]
+member_id = "APEX_3&256&2048&1e-06&0.001&0.1"
+checkpoint_sha256 = "69f101c4e3a1309166493f96221a8c44e37c87bd7a988240b32e26819162c954"
+
+[[member]]
+member_id = "APEX_3&256&512&1e-06&0.0&2.0"
+checkpoint_sha256 = "d56b8153a4618620f3b3f91aeb204d6ba8ac38af2ab2f3dff77a28863bc49059"

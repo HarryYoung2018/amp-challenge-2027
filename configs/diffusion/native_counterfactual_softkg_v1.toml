@@ -1,0 +1,96 @@
+schema_version = 1
+artifact = "native_counterfactual_softkg_v1"
+evidence_class = "engineering_native_model_operator_only"
+oracle_transport = false
+production_input_eligible = false
+legacy_protocol_sha256 = "579d071fac1d70bf514761ff98e6d2019730fbdad484e548f9b672fda1a001af"
+legacy_ablation_compliance = false
+required_pre_execution_amendment = "credit_only_no_counterfactual_retains_observed_beta_yield_allocation"
+
+[search]
+checkpoint_count = 10
+attempts_per_checkpoint = 48
+stages = 2
+attempts_per_stage = 24
+branches_per_checkpoint = 4
+minimum_attempts_per_branch_stage = 2
+operator_names = ["single_site", "quarter_remask", "half_remask", "full_regeneration"]
+operator_probabilities = [0.25, 0.25, 0.25, 0.25]
+directions = [[1.0, 0.0], [0.6666666666666666, 0.3333333333333333], [0.3333333333333333, 0.6666666666666666], [0.0, 1.0]]
+allocation = "minimum_two_then_largest_remainder_of_credit_times_beta_mean_plus_beta_sd"
+yield_prior_alpha = 1.0
+yield_prior_beta = 1.0
+yield_success = "charged_successful_context_eligible_scalarized_observation_strictly_above_point_five"
+credit_floor = 0.25
+credit_ceiling = 4.0
+credit_decay = 0.9
+credit_temperature = 0.1
+risk_kappa = 1.0
+absolute_utility_floor = 0.5
+credit_scalarizer = [0.5, 0.5]
+proposal_batch_cap = 128
+native_microbatch = 16
+feature_request_rows = 128
+feature_requests_per_wave = 4
+feature_requests_per_run = 128
+shortlist_cap = 256
+kg_pool_cap = 20
+wave_deadline_seconds = 180
+scientific_deadline_seconds = 7200
+record_bytes_cap_per_wave = 134217728
+
+[acquisition]
+joint_q = 14
+fantasies = 512
+beam_width = 4
+group_cap = 768
+temperature = 0.25
+standard_error_multiplier = 1.0
+relative_eigenvalue_cutoff = 1e-10
+selected_group_standard_error_max = 0.02
+post_selection_check_fantasies = 1024
+agreement_standard_errors = 3.0
+agreement_absolute_tolerance = 1e-6
+post_selection_check_may_replace_ranking = false
+preference = [0.5, 0.5]
+pool_reduction = "alternate_posterior_mean_and_max_frozen_direction_value_then_sequence_id"
+
+[endpoint]
+minimum_positive_children = 40
+maximum_zero_advantage_parents = 8
+target_rows_cap = 64
+generator_anchor_rows = 64
+target_mass = 0.5
+logweight_temperature = 0.1
+logweight_lower_clip = -0.6931471805599453
+training_steps = 4
+learning_rate = 0.01
+epsilon = 0.001
+gradient_norm_limit = 1.0
+maximum_backtracks = 8
+fresh_forward_corruption = true
+exact_importance_sampling_claim = false
+minimum_ess_fraction = 0.20
+maximum_normalized_weight = 0.05
+local_transition_mean_max = 0.01
+local_transition_p99_max = 0.02
+frozen_reference_path_mean_max = 0.08
+frozen_reference_active_transition_p99_max = 0.02
+actual_operator_paths_per_operator_student = 2
+actual_operator_mixture_weights = [0.25, 0.25, 0.25, 0.25]
+actual_operator_measure = "current_candidate_conditional_paths_at_frozen_parent_quota_law_not_global_search_kl"
+
+[terminal]
+minimum_eligible = 100
+preference = [0.5, 0.5]
+outside_value = 0.0
+ranking = "unclipped_final_frozen_posterior_mean_only_real_same_run_submitted_eligible"
+
+[tests]
+scope = "actual_tiny_native_cpu_numerics_not_proposal_quality"
+native_probability_atol = 1e-6
+native_probability_rtol = 1e-5
+gaussian_atol = 1e-10
+gaussian_rtol = 1e-9
+gpu_bitwise_claim = false
+duplicate_scientific_execution = false

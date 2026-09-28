@@ -1,0 +1,37 @@
+schema_version = 1
+name = "candidate_pool_v1"
+status = "candidate_input_only_no_scientific_promotion"
+alphabet = "ACDEFGHIKLMNPQRSTVWY"
+minimum_length = 8
+maximum_length = 50
+
+[inputs]
+training_projection_sha256 = "127a0eb88c5dc10c94904dcc5a3e98ff75a55890dc29af807e99f3f93c61ae46"
+training_projection_rows = 914
+require_accepted_training_projection = true
+organizer_reference_sha256 = "cbbeac64ba95746d87961e8ad9dd0849ae8058d15a300b2e7f6990730ca521e9"
+organizer_reference_records = 39448
+organizer_reference_role = "compliance_only"
+
+[generation]
+baseline_generator = "transparent_physicochemical_baseline_v0"
+baseline_candidates = 50000
+baseline_seed = 42
+count_generator_methods = [
+  "component_weighted_unigram",
+  "component_weighted_forward_markov",
+]
+count_candidates_per_method = 32768
+count_seed = 42
+count_batch_size = 256
+length_plan_namespace = "candidate_pool_v1_shared_train_only_length_plan"
+
+[filtering]
+exclude_exact_training_overlap = true
+exclude_exact_organizer_reference_overlap = true
+
+[output]
+minimum_unique_candidates = 50000
+candidate_schema_version = 1
+write_prediction_fields = false
+write_acquisition_lineage = false

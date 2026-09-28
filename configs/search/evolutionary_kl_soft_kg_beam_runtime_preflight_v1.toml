@@ -1,0 +1,31 @@
+schema_version = 1
+
+[preflight]
+profile = "evolutionary_kl_beam_soft_kg_runtime_preflight_v1"
+seed = 420240909
+pool_size = 20
+decision_count = 20
+n_outputs = 2
+joint_size = 14
+n_fantasies = 512
+candidate_chunk_size = 64
+fantasy_chunk_size = 512
+beam_width = 4
+max_groups_scored = 768
+temperature = 0.25
+standard_error_multiplier = 1.0
+relative_eigenvalue_cutoff = 0.0000000001
+campaign_adaptive_invocations = 28
+campaign_wall_budget_seconds = 7200
+kernel_wall_budget_fraction = 0.5
+kernel_wall_budget_seconds = 64.0
+kernel_peak_rss_budget_gib = 16
+requested_cpus = 4
+requested_memory_gib = 32
+measurement_repetitions = 1
+cross_candidate_covariance = true
+approximation_required = true
+expected_approximation_status = "beam_pruned"
+dense_reference_evidence_status = "failed_no_go_unchanged"
+synthetic_only = true
+production_pins_modified = false

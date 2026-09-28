@@ -1,0 +1,20 @@
+schema_version = 1
+
+[batching]
+# Upper limits for the new research path. Workers may autotune downward to fit
+# memory, but they must record the realized sizes and preserve seeded order.
+profile = "cluster_batch_first_v1"
+rollout_batch_size = 128
+proposal_batch_size = 65536
+surrogate_batch_size = 8192
+kg_candidate_chunk_size = 256
+kg_fantasy_chunk_size = 512
+kg_max_joint_size = 16
+# Exact enumeration uses this guard only after a large-pool screening stage.
+kg_max_combinations = 65536
+# Keep the costly adaptive boundary smaller than the cheap compute batches.
+oracle_batch_size = 32
+replay_max_sequences = 1024
+replay_max_tokens = 32768
+replay_length_bucket_boundaries = [8, 16, 24, 32, 40, 50]
+gradient_accumulation_steps = 8

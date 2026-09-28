@@ -1,0 +1,143 @@
+schema_version = 1
+artifact = "esm_union_nested_ensemble_oof_v1"
+
+# Frozen before inspecting any prediction from the accepted 952 x 320 union
+# embedding matrix. Only the nested stack is a statistical candidate; the
+# remaining methods are fixed diagnostics.
+methods = [
+  "descriptor_logistic",
+  "homology_knn",
+  "equal_weight_ensemble",
+  "esm2_t6_8m_target_gram_logistic",
+  "descriptor_esm_probability_half_blend",
+  "base_family_esm_probability_half_blend",
+  "nested_union_base_esm_logistic_stack_v1",
+]
+promotion_reference = "descriptor_logistic"
+promotion_candidate = "nested_union_base_esm_logistic_stack_v1"
+stack_features = [
+  "descriptor_logistic",
+  "homology_knn",
+  "esm2_t6_8m_target_gram_logistic",
+]
+stack_input_transform = "clipped_logit"
+stack_scaling = "column_mean_std_on_nested_outer_training_features_only"
+probability_clip = 1e-6
+descriptor_esm_probability_half_blend = "0.5*descriptor_logistic+0.5*esm2_t6_8m_target_gram_logistic"
+base_family_esm_probability_half_blend = "0.5*equal_weight_ensemble+0.5*esm2_t6_8m_target_gram_logistic"
+
+# There is no grid search. Every scaler, label head, and stack is fit only on
+# the applicable outer or outer+inner training complement.
+esm_context_features = "fixed_canonical_target_one_hot_plus_gram_one_hot"
+esm_feature_order = "intercept_then_320_standardized_esm_then_targets_in_config_order_then_gram_classes_in_config_order"
+one_hot_convention = "full_one_hot_columns"
+ridge_penalty = "intercept_unpenalized_all_other_coefficients_equal_l2"
+fit_weighting = "context_equal_v1"
+scaler_weighting = "context_equal_v1"
+stack_scaler_weighting = "context_equal_v1"
+source_observations_used_as_weight = false
+hyperparameter_search_allowed = false
+similarity_gate_allowed = false
+unseen_target_policy = "known_target_column_coefficient_remains_zero_when_absent_from_training"
+inner_base_feature_source = "refit_on_folds_excluding_outer_and_inner_never_accepted_oof"
+outer_base_feature_source = "accepted_outer_oof_after_exact_refit_reproduction_check"
+canonical_targets = [
+  "acinetobacter_baumannii",
+  "enterococcus_faecalis",
+  "enterococcus_faecium",
+  "escherichia_coli",
+  "klebsiella_pneumoniae",
+  "pseudomonas_aeruginosa",
+  "staphylococcus_aureus",
+]
+gram_classes = ["negative", "positive"]
+esm_l2 = 0.1
+esm_prior_strength = 2.0
+esm_max_iterations = 100
+esm_tolerance = 1e-9
+stack_l2 = 0.1
+stack_prior_strength = 2.0
+stack_max_iterations = 100
+stack_tolerance = 1e-9
+
+folds = 5
+homology_identity_threshold = 0.8
+similarity_bin_edges = [0.0, 0.4, 0.6, 0.8]
+calibration_bins = 10
+bootstrap_replicates = 1000
+bootstrap_seed = 42
+bootstrap_unit = "union_component_resample_context_multiplicity_v1"
+
+# One primary candidate must show joint improvement over the descriptor
+# reference. Deltas are candidate minus reference; strict inequalities apply.
+promotion_auc_delta_lower_minimum = 0.0
+promotion_brier_delta_upper_maximum = 0.0
+promotion_log_loss_delta_upper_maximum = 0.0
+
+# Accepted context-level union Gate-1 evidence (producer 223248, audit 223250).
+base_producer_job_id = 223248
+base_audit_job_id = 223250
+base_publication_top_sha256 = "4e259cfb43033c069598d42fd54fec49a67ba55bfbb5c1e77eeef4887815fe2f"
+base_semantic_top_sha256 = "556e06fd2b1af1e678de88008bc1b87434fb8cf1179f38c897de7ee2c9fd779d"
+base_examples_sha256 = "d3eecbf3014fd78cf7021818466893d292315b6e90e77cea85d4e1fbd5bec520"
+base_folds_sha256 = "37e035d488634e50ad95dfefe01d235474867aeb96b8205b543d22c25fdc9988"
+base_oof_sha256 = "11eea907a242606b78261a9b37107647ce393db743be95c146cbbe5caced137c"
+base_manifest_sha256 = "b1cf4a2ad396d26776a824d4ec3cc077ba45bf9d2d47e00f8f2f482053b1f78e"
+base_split_receipt_sha256 = "63cf02d87cd4a9b9ec1afe9c40c2e0914fc75515a14a21e71f1e50dce0fd01a7"
+base_independent_receipt_sha256 = "1f6a6ce811d3fbecdbbbe7463e6052dc7766130372926d29952c70be65743e81"
+base_config_sha256 = "e4e420501efc1bf89c2b1fbd15db5adc1340d3c42963c005bf1eced23c9d0410"
+
+# Fresh exact-panel ESM evidence (producer 223330, third-node audit 223334).
+embedding_protocol_git_commit = "753652df2cf9ca9f7e98dc53f3a1884d1f0a75f6"
+embedding_producer_job_id = 223330
+embedding_audit_job_id = 223334
+embedding_publication_top_sha256 = "3f6ed4bb54554fa5793e545c67553b48860e954d29ffeb4998460a54883aa603"
+embedding_semantic_top_sha256 = "938b7cb80d47f6f68b4d357019d3b7a1cdf9d7e3bf12c98a40af3a950585fa1e"
+embedding_index_sha256 = "3d72d71f729c31984c2d69aad1c3f70104a3abdf0f0ee47afbdb99326a282ebe"
+embedding_manifest_sha256 = "1b3ed56beebbec67ebb99110bc5b710a205dd86fab88b3f66552684fb942cc6f"
+embedding_matrix_sha256 = "1a5846487921c2e7498693918c12da57f354de7db1b79912c29e723984d05f8c"
+embedding_tensor_data_sha256 = "91ab5a36dbc02222ddf62dbecced3263c357e1ecd65a6420162946c575558c58"
+embedding_independent_receipt_sha256 = "a5465d69a81e56e13d0b850b71de1df91e6e780260045d09c69b01680b5e94dc"
+embedding_config_sha256 = "52236d1466699c4bea9f38cee982d806c61d73a636bc6d7c1f0da81ad6ab75aa"
+embedding_model = "esm2_t6_8M_UR50D"
+embedding_representation_layer = 6
+embedding_dimension = 320
+embedding_dtype = "float32"
+embedding_records = 952
+
+# Exact accepted modeled census.
+expected_examples = 2492
+expected_source_observations = 2592
+expected_sequences = 952
+expected_positive_examples = 1731
+expected_negative_examples = 761
+expected_homology_components = 485
+expected_union_components = 213
+expected_examples_by_fold = [546, 486, 485, 487, 488]
+expected_positive_examples_by_fold = [392, 334, 333, 335, 337]
+expected_negative_examples_by_fold = [154, 152, 152, 152, 151]
+expected_sequence_ids_sha256 = "45a704812a51d51876b8e32e86c8890db5b7d6aa52de1b1f35634e797acd3f03"
+expected_outer_folds = 5
+expected_ordered_outer_inner_splits = 20
+expected_nested_feature_rows = 9968
+expected_outer_esm_fits = 5
+expected_nested_esm_fits = 20
+expected_outer_stack_fits = 5
+report_component_equal_metrics = true
+report_leave_largest_union_component_out = true
+expected_largest_union_component_contexts = 461
+expected_union_components_over_100_contexts = 4
+
+[production_policy]
+evaluation_status = "repeatedly_inspected_development_evidence"
+statistical_pass_status = "eligible_for_untouched_external_validation_only"
+production_eligible = false
+production_apex_weight = 0.0
+production_esm_weight = 0.0
+apex_feature_allowed = false
+statistical_gate_controls_production_eligibility = false
+blockers = [
+  "union_gate1_labels_have_been_repeatedly_inspected",
+  "untouched_external_confirmation_required",
+  "esm2_ur50d_exact_pretraining_sequence_membership_not_established",
+]

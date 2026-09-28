@@ -1,0 +1,49 @@
+schema_version = 1
+
+# Context-level MIC16 benchmark. Labels already come from the independently
+# accepted endpoint-context ledger; this value records the frozen endpoint.
+activity_threshold_um = 16.0
+homology_identity_threshold = 0.80
+folds = 5
+seed = 42
+
+# Resample the final homology-and-study union components, never individual rows.
+bootstrap_replicates = 1000
+calibration_bins = 10
+similarity_bin_edges = [0.0, 0.4, 0.6, 0.8]
+
+# Exact inputs accepted from production split twins 223222 and independent
+# verification 223225. No historical Gate-1 fold may be substituted.
+sequences_sha256 = "76305e284ce3689970c89e3f2b45c4adc0ceef2375e74dfcddc50882d8b14884"
+endpoint_context_ledger_sha256 = "acd2ca8bfdf23588532463b399ffcf4a8068986aa28d75170cbf71b93c18f9f6"
+split_assignments_sha256 = "a8149e03bf2cdf15c70de723613f4b5367db5b7fc887a05b621d3b77834a56a0"
+split_components_sha256 = "eee4763004db707e770471e66deffe995b29fa78bba3097c0b3ec9e836e3e6b1"
+split_manifest_sha256 = "58e5ad1bae7116c4a94023d0292ca70192d242953f9cc1e2d25fe0f5aecc9cf5"
+split_audit_sha256 = "ed7e838f7d9ae7622c055976f847c02da42d431607edc37fa5950d099ec1b227"
+split_top_manifest_sha256 = "420bfa5a23475b17090b8af0ff36b67171df21b968b5f3197a28672a2fe530eb"
+split_independent_receipt_sha256 = "7786970354ad0c7f260f86931ec2b9b0b38360fc85f94327aa8bcae91d9055a6"
+
+expected_sequences = 1113
+expected_ledger_rows = 6079
+expected_split_homology_components = 597
+expected_split_union_components = 278
+expected_examples = 2492
+expected_source_observations = 2592
+expected_modeled_sequences = 952
+expected_positive_examples = 1731
+expected_negative_examples = 761
+expected_examples_by_fold = [546, 486, 485, 487, 488]
+expected_positive_examples_by_fold = [392, 334, 333, 335, 337]
+expected_negative_examples_by_fold = [154, 152, 152, 152, 151]
+
+[descriptor_logistic]
+l2 = 0.10
+max_iterations = 100
+tolerance = 1e-9
+prior_strength = 2.0
+
+[homology_knn]
+neighbors = 7
+similarity_power = 4.0
+prior_strength = 2.0
+minimum_weight = 1e-6

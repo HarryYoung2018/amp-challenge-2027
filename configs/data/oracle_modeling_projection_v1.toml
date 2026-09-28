@@ -1,0 +1,30 @@
+schema_version = 1
+artifact = "oracle_only_modeling_projection_v1"
+status = "non_authorizing_data_preparation_only"
+namespace_receipt_sha256 = "c430c8704c853a90fd325765251ede189e0edfdb7226922f5234c1d095c09662"
+namespace_receipt_bytes = 32971
+namespace_config_sha256 = "ce7f5d28b6bbd8930fa78a9ff21a062bd04f3478ed5d8f7b8cab8ec38f07bffc"
+fold_count = 5
+fold_policy = "whole_oracle_union_descending_sequence_count_then_id_to_smallest_fold_then_index"
+activity_policy = "retain_accepted_mic16_contexts_without_relabeling_and_preserve_source_measurements"
+safety_policy = "retain_hc50_and_percent_hemolysis_with_original_censoring_organism_and_exposure"
+source_folds_used = false
+model_fitting_performed = false
+execution_authorized = false
+oracle_calls_authorized = false
+scientific_evidence_accepted = false
+production_input_eligible = false
+
+[expected]
+oracle_sequences = 415
+oracle_union_components = 52
+activity_contexts = 858
+activity_sequences = 371
+activity_positive = 635
+activity_negative = 223
+hc50_observations = 37
+hc50_sequences = 29
+hc50_union_components = 10
+hemolysis_percent_observations = 139
+hemolysis_percent_sequences = 95
+hemolysis_percent_union_components = 44

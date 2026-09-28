@@ -1,0 +1,65 @@
+schema_version = 1
+artifact = "gate1_union_esm2_embeddings_v1"
+
+# Independently accepted exact-panel producer and audit evidence.  This is the
+# only allowed extraction cohort; historical 950/952 observations are not an
+# input or fallback.
+panel_git_commit = "b63c47150e19fde0a8af8ce51830f3bccf652af4"
+panel_producer_job_id = 223287
+panel_audit_job_id = 223294
+panel_publication_top_sha256 = "8815e45b46bde98474e3a85711da082457da47102e1d73cf33ed1806932a1894"
+panel_top_sha256 = "0f56badbdebec55c24c799d62ce0358f5aec846a7675c9afccbf550c884a2ba8"
+panel_fasta_sha256 = "fd8b791687578c7a8b9ea7212b5319a3aaf8b46e03d8988706772ecc4d11e419"
+panel_manifest_sha256 = "bc04dbcc8e09cfd27dc83dbc9610fe4250b9b5b279495b324b8d6d4138d16900"
+panel_coverage_receipt_sha256 = "f3602885542fc319848e588a8eaffb5655f1afb167678f95772b9ff027132a2b"
+panel_independent_receipt_sha256 = "f3b121f30deea0d883f53a4a5a2d270b87d1e8726f0941bf5efaef7eb2215de8"
+expected_sequences = 952
+expected_sequence_ids_sha256 = "45a704812a51d51876b8e32e86c8890db5b7d6aa52de1b1f35634e797acd3f03"
+
+# Keep the extraction worker accepted by the panel receipt byte-for-byte.  A
+# private compatibility manifest adapts the accepted panel schema to this
+# worker; only path-free normalized artifacts may be published.
+embedding_model = "esm2_t6_8M_UR50D"
+representation_layer = 6
+embedding_dimension = 320
+pooling = "arithmetic mean over residue representations; BOS/EOS/padding excluded"
+embedding_dtype = "float32"
+embedding_batch_size = 128
+embedding_seed = 20260902
+embedding_worker_sha256 = "34fdb77e87aaa44044960655259cc60fb20b165bfb87c38ba19bee21565f2cba"
+trust_manifest_sha256 = "5e62db4fd3241e1fa6bbd83cc0f26e299c6d16e9fa1e449304fab2e4c98fd9ff"
+bundle_verification_receipt_sha256 = "ad9655f57cbb4d033c88fe38dfdfeffb56fd24274749c2caded890667e63e850"
+ampdiffusion_source_commit = "1a862af9078e6b55c87d1fa576f3da81851ba94b"
+model_checkpoint_sha256 = "46f002a9870c9bdecd0ea887acb1f9a38a6b561e8f8bf8a6990b679b9d31b928"
+contact_regression_sha256 = "8f7a4557d57713b97ba0e484303007efb7230d25299c0ac47a0a1b12a87bbb9d"
+environment_lock_sha256 = "aaf37baa3adf5070dd3090c43527daa2696741a7e3057c72c78d51a80af9e234"
+
+[runtime]
+python = "3.10.19"
+torch = "2.5.1+cu121"
+fair_esm = "2.0.0"
+numpy = "2.2.6"
+cuda_runtime = "12.1"
+cudnn = 90100
+device_type = "cuda"
+device_name = "NVIDIA A100-SXM4-80GB"
+device_capability = [8, 0]
+
+[determinism]
+cublas_workspace_config = ":4096:8"
+torch_deterministic_algorithms = true
+cudnn_benchmark = false
+cudnn_deterministic = true
+tf32 = false
+exact_twin_bytes_required = true
+independent_full_reextraction_required = true
+cuda_driver_policy = "producer_twins_and_independent_audit_exact_match"
+
+[acceptance]
+producer_status = "candidate_pending_independent_numerical_verification"
+verified_status = "accepted_for_downstream_embedding_feature_input_only"
+embeddings_verified_by_producer = false
+model_predictions_verified = false
+model_performance_evidence = false
+ensemble_weight_established = false
+pretraining_membership_independence_established = false

@@ -1,0 +1,18 @@
+schema_version = 1
+
+# Public primary deposits that have a sufficiently clear reuse license and
+# source schema to enter source-specific normalization. Approval is still
+# scoped: chemistry and assay rows that cannot be interpreted conservatively
+# are quarantined by their adapter.
+
+[[artifact]]
+name = "dramp_general_v2"
+url = "https://ndownloader.figshare.com/files/15926912"
+relative_path = "dramp-general-v2/DRAMP_general_amps.xlsx"
+sha256 = "b726a633634257e382545db5da62df75b5c284c03e49a26e03d8d5fc96fbad41"
+bytes = 1356701
+source_repository = "https://springernature.figshare.com/articles/dataset/The_general_antimicrobial_peptides_of_DRAMP_database/8006309/1"
+source_commit = "doi:10.6084/m9.figshare.8006309.v1"
+license = "CC0-1.0"
+training_status = "approved"
+description = "DRAMP 2.0 general AMP deposit: 5,084 entries with sequence, target/MIC prose, hemolysis, structure, source, and literature provenance"

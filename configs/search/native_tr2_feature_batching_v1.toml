@@ -1,0 +1,14 @@
+version = "native_tr2_feature_batching_v1"
+algorithm_configuration_sha256 = "a27fa602333f3370fc631c7bdf45a3ce109aeb8ddd76483dbe5980cbcebdabd4"
+iterations = 10
+maximum_checkpoint_groups = 10
+children_per_group = 8
+maximum_acquired_rows = 80
+fixed_physical_rows = 128
+score_group_rows = 8
+application_order = "original_rotated_checkpoint_then_child"
+randomness = "unchanged_semantic_expansion_and_child_ordinals"
+physical_run_limit = 128
+wave_seconds = 180
+scientific_seconds = 7200
+scientific_evidence_accepted = false

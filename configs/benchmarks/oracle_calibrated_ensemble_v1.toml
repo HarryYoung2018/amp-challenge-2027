@@ -1,0 +1,178 @@
+schema_version = 1
+artifact = "oracle_only_calibrated_ensemble_study_v1"
+scope = "exploratory_binary_MIC_le_16_micromolar_predictive_validation_not_search_superiority"
+base_commit = "bf95ca0abd9b074b183b03b70cd0dc29796780aa"
+projection_manifest_sha256 = "eabed8247a42928c054d1f88c956025d806b7d0c0f68117ae54774beab7f6089"
+feature_manifest_sha256 = "c6c49f570be0788496b04ce2c3248b23d5babeb560b046f6aef5b006d3b325f9"
+feature_verification_sha256 = "50aacc146c6ff25be92f2222f38552805a8ca14a52ae9e5fb175f213d087f23b"
+namespace_receipt_sha256 = "c430c8704c853a90fd325765251ede189e0edfdb7226922f5234c1d095c09662"
+old_520_attempt_budget_closed = true
+real_fitting_requires_root_source_config_review = true
+final_all_oracle_refit_authorized = false
+production_input_eligible = false
+search_superiority_accepted = false
+teacher_controller_private = true
+teacher_moments_available_to_adaptive_search = false
+generated_label_kind = "MODEL_PROXY"
+generated_query_count_kind = "unique_surrogate_oracle_calls_not_real_measurements"
+adaptive_training_inputs = "charged_revealed_records_and_explicitly_allowed_label_free_priors_only"
+continuous_MIC_inference_allowed = false
+learned_HC50_hard_constraint_allowed = false
+
+[models]
+views = ["descriptors_context", "esm_context"]
+mixture_weights = [0.5, 0.5]
+base_penalty = 1.0
+seeds = [310013, 310019, 310033, 310049, 310063]
+members_per_seed = 8
+pooled_members = 40
+outer_folds = 5
+inner_folds = 3
+inner_assignment = "all_outer_training_oracle_sequences_whole_union_descending_size_then_id_smallest_load_then_index"
+bootstrap = "strictly_positive_Exp1_weights_per_observed_training_union"
+bootstrap_rng = "numpy_PCG64_SeedSequence_seed_outer_fold_member_index"
+bootstrap_restriction = "same_outer_draw_restricted_to_current_training_or_eligible_calibration_groups_then_renormalized"
+row_weight = "restricted_group_mass_divided_by_number_of_current_rows_in_group"
+standardization = "current_training_bootstrap_weighted_mean_population_variance_exact_constant_scale_one"
+context_vocabulary = "current_training_only_target_and_Gram_onehot"
+objective = "weighted_binary_logloss_plus_lambda_over_2_nonintercept_coefficient_norm_squared"
+solver = "scipy_LBFGSB_analytic_gradient_zero_initialization"
+solver_maxiter = 1000
+solver_gtol = 1e-8
+solver_ftol = 1e-12
+solver_maxls = 50
+constant_training_labels = "no_solver_same_attempt_count_declared_context_prior_abstention"
+
+[calibration]
+input = "member_50_50_mixture_of_inner_whole_union_OOF_probabilities"
+mask = "exclude_inner_context_abstentions_and_inner_OOD_abstentions_from_calibrator_fitting_only"
+excluded_prediction = "retain_inner_training_hierarchical_prior_and_reason_in_saved_all_row_predictions"
+weighting = "outer_member_draw_restricted_to_eligible_calibration_groups_renormalized_then_equal_current_rows_within_group"
+map = "sigmoid_a_times_logit_p_plus_b"
+regularization = 0.1
+regularization_center = [1.0, 0.0]
+a_bounds = [0.05, 5.0]
+b_bounds = [-5.0, 5.0]
+logit_probability_clip = 1e-6
+minimum_unions = 10
+minimum_unions_per_label = 3
+insufficient_support = "identity_map_no_solver_same_attempt_count"
+failed_solver = "terminal_failure_no_retry_or_identity_fallback"
+final_prediction = "calibrated_full_outer_training_member_predictions_on_untouched_outer_holdout"
+
+[ood]
+features = "ESM_mean_and_length_over_50"
+training_sequences = "all_current_training_oracle_sequences_only_including_unlabeled_sequences"
+weighting = "fixed_equal_union_mass_equal_sequence_mass_within_union_not_bootstrap_or_label_weighted"
+standardization = "current_training_weighted_mean_population_variance_exact_constant_scale_one"
+distance = "Euclidean_distance_divided_by_sqrt_321"
+threshold = "training_sequence_nearest_OTHER_union_distance_weighted_95th_percentile_inverted_CDF"
+quantile = 0.95
+query_rule = "abstain_if_nearest_current_training_sequence_distance_strictly_above_threshold"
+inner_policy = "independently_recompute_from_each_inner_training_partition_without_inner_holdout_features"
+outer_policy = "recompute_from_full_outer_training_partition_without_outer_holdout_features"
+
+[prior]
+hierarchy = "matching_target_Gram_then_Gram_then_global_current_training_rows"
+smoothing = "sum_unweighted_union_mean_labels_plus_half_over_number_unions_plus_one"
+minimum_context_unions = 2
+constant_context_labels_abstain = true
+all_rows_scored = true
+unsupported_query_covariance = "unavailable_not_zero_confidence"
+
+[outputs]
+predictors = ["prior", "raw", "raw_ood", "calibrated", "calibrated_ood"]
+primary_predictor = "pooled40_calibrated_ood"
+save_all_inner_coefficients = true
+save_all_training_transforms = true
+save_all_group_draw_weights = true
+save_raw_and_calibrated_member_probability_matrices = true
+array_encoding = "bounded_float64_int64_bool_NPY_no_pickle_shared_index_JSON_ledgers"
+latent_probability_covariance = "centered_member_probability_Gram_divided_by_M_40_exact_finite_mixture"
+observation_noise = "separate_diagonal_mean_member_p_times_one_minus_p"
+binary_total_diagonal_identity = "latent_covariance_diagonal_plus_noise_equals_mean_p_times_one_minus_mean_p"
+member_selection = "none_all_40_equal_mass_no_seed_or_member_winner_selection"
+
+[pairs]
+construction = "before_model_fitting_and_without_reading_outcomes"
+target_priority = ["escherichia_coli", "staphylococcus_aureus"]
+gram_for_target = ["negative", "positive"]
+group_order = "sha256_pair_v1_outer_fold_target_union_id_then_union_id"
+context_choice = "smallest_sha256_context_v1_example_id_then_example_id"
+matching = "adjacent_available_groups_within_same_outer_fold_and_target_Gram_globally_one_pair_per_union"
+minimum_pairs = 15
+minimum_distinct_unions = 30
+dominant_stress = "up_to_16_disjoint_context_pairs_with_different_sequence_ids_within_dominant_union_descriptive_only"
+joint_distribution = "exact_equal_member_mixture_of_conditionally_independent_Bernoulli_events"
+comparison = "product_of_identical_marginal_means_no_new_fits"
+abstention = "retain_every_selected_pair_using_prior_fallback_members_and_zero_added_dependence"
+latent_epistemic_calibration_claim_allowed = false
+
+[evaluation]
+weighting = "each_observed_union_equal_mass_all_activity_rows_included"
+proper_scores = ["component_log_loss", "component_brier", "row_log_loss", "row_brier"]
+logloss_clip = 1e-12
+reliability_bin_edges = [0.0, 0.2, 0.4, 0.6, 0.8, 1.0]
+seed_results = "five_actual_stochastic_8_member_ensembles_descriptive_not_independent_biological_replicates"
+comparisons = ["calibrated_ood_minus_raw_ood_group_logloss", "calibrated_ood_minus_prior_group_logloss", "joint_mixture_minus_independent_marginals_pair_logloss"]
+family = "three_comparisons_Bonferroni_95_percent_quantiles_0_05_over_6_and_one_minus_0_05_over_6"
+bootstrap_replicates = 2000
+group_bootstrap_seed = 17009
+pair_bootstrap_seed = 17011
+group_bootstrap_unit = "whole_observed_union_conditional_on_fixed_OOF_predictions"
+pair_bootstrap_unit = "globally_disjoint_union_pair_conditional_on_fixed_OOF_predictions"
+mean_noninferiority_margin_vs_raw = 0.01
+mean_noninferiority_margin_vs_prior = 0.02
+dominant_logloss_margin_vs_prior = 0.03
+minimum_supported_row_coverage = 0.8
+joint_family_interval_upper_strictly_below = 0.0
+minimum_nonpositive_joint_seed_differences = 4
+gate_kind = "exploratory_engineering_qualification_not_biological_standard_or_production_authority"
+unsupported_joint_endpoint = "no_go_without_pair_reconstruction_retuning_or_extra_fits"
+stress = "dominant_union_holdout_and_excluding_dominant_union_plus_target_Gram_fold_support"
+
+[resources]
+base_fit_attempts_per_execution = 1600
+calibrator_attempts_per_execution = 200
+fit_attempts_per_execution = 1800
+maximum_executions = 2
+maximum_fit_attempts_total = 3600
+account = "bio"
+partition = "standard"
+cpus = 2
+memory_gib = 4
+wall_seconds_per_execution = 1200
+gpu_count = 0
+oracle_calls = 0
+maximum_output_bytes = 134217728
+automatic_retries = 0
+validation_audit_wall_seconds = 600
+
+[reproduction]
+exact = ["assignments", "training_and_calibration_IDs", "bootstrap_group_draws", "seeds_members_views", "calibration_support_masks", "OOD_support_decisions", "pair_inventory", "qualifications", "attempt_counts"]
+probability_metric_atol = 1e-10
+probability_metric_rtol = 0.0
+coefficient_transform_atol = 1e-8
+coefficient_transform_rtol = 1e-8
+adaptive_tolerance_changes_allowed = false
+
+[future_query_contract]
+final_mapping_authorized = false
+activity_event = "bacterial_MIC_less_than_or_equal_to_16_micromolar_not_16_micrograms_per_mL"
+canonical_targets = ["staphylococcus_aureus", "escherichia_coli"]
+grams = ["positive", "negative"]
+objective_names = ["mic16_probability_staphylococcus_aureus", "mic16_probability_escherichia_coli"]
+undefined_assay_averaging_allowed = false
+broad_Gram_activity_claim_allowed = false
+controller_private = true
+adaptive_search_receives = "charged_revealed_scalar_MODEL_PROXY_record_only_no_teacher_coefficients_or_member_moments"
+
+[expected]
+oracle_sequences = 415
+oracle_union_components = 52
+activity_contexts = 858
+activity_sequences = 371
+activity_union_components = 45
+activity_positive = 635
+activity_negative = 223
+dominant_union_sequences = 239

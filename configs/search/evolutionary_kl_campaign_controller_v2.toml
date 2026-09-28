@@ -1,0 +1,105 @@
+schema_version = 2
+artifact = "evolutionary_kl_campaign_controller_v2_engineering_contract"
+status = "execution_disabled_typed_transition_validator_only"
+evidence_class = "engineering_fixture_only_not_scientific_evidence"
+frozen_protocol_sha256 = "ccbc55e5f20d851c3495413ff1f26f8ed2e0e0e818b076fde76641937c346463"
+execution_authorized = false
+oracle_execution_authorized = false
+scientific_evidence_accepted = false
+automatic_production_eligible = false
+biological_superiority_claim_allowed = false
+network_transport_implemented = false
+durable_publication_implemented = false
+
+[identity]
+source_commit_format = "full_lowercase_git_sha1"
+source_tree_identity = "caller_supplied_sha256_bound_by_campaign_authority"
+environment_identity = "caller_supplied_uv_lock_sha256_bound_by_campaign_authority"
+asset_identity = "exact_sorted_role_payload_and_external_receipt_sha256_bindings"
+required_asset_roles = [
+  "calibrated_joint_posterior",
+  "checkpoint_aggregation",
+  "endpoint_context",
+  "external_timing_issuer",
+  "generated_sequence_contacts",
+  "generator_oracle_provenance",
+  "homology_exclusion",
+  "method_adapter",
+  "native_sampler",
+  "oracle_checkpoint",
+  "oracle_contract",
+  "oracle_evaluator",
+  "oracle_transform",
+  "telemetry_pipeline",
+  "terminal_contract",
+]
+
+[design]
+initial_design_unique_calls = 64
+adaptive_waves = 28
+calls_per_adaptive_wave = 16
+method_controlled_seats_per_wave = 14
+common_reserve_seats_per_wave = 2
+total_unique_logical_calls = 512
+method_proposal_attempt_cap_per_wave = 65536
+common_reserve_schedule = "exact_28_by_2_query_identity_matrix_frozen_in_authority"
+common_reserve_reuse_across_arms = "same_seed_authorities_must_bind_the_same_matrix_successor_cross_run_verifier_required"
+overflow_schedule = "single_frozen_ordered_stream_disjoint_from_initial_and_common_reserve"
+duplicate_method_identity_rule = "skip_without_call_or_seat_advance"
+scheduled_reserve_collision_rule = "hard_stop_contract_violation"
+overflow_exhaustion_rule = "algorithmic_stop_no_unfrozen_refill"
+
+[oracle_transport]
+implementation = "typed_deterministic_fake_only"
+request_seal_before_submit = true
+external_submission_ids_per_request = 1
+submission_order = "sealed_seat_positions_ascending_method_0_through_13_then_common_reserve_14_then_15"
+retry_operation = "poll_existing_external_submission_id_only"
+resubmission_allowed = false
+terminal_poll_order = "charged_requests_complete_in_sealed_seat_order_across_sequential_archived_waves"
+terminal_statuses = [
+  "succeeded",
+  "failed",
+  "missing",
+  "censored",
+  "partial",
+  "timeout",
+]
+all_terminal_statuses_are_charged = true
+only_complete_finite_succeeded_results_are_terminal_eligible = true
+
+[archive]
+initial_archive_calls = 64
+adaptive_archive_requires_all_16_terminal_responses = true
+unsealed_partial_wave_enters_scientific_archive = false
+submitted_calls_in_discarded_partial_wave_remain_charged = true
+storage = "path_free_in_memory_capability_only"
+reuse_note = "canonical_json_and_hash_domains_only_v1_labels_unchanged"
+
+[timing]
+scientific_deadline_nanoseconds = 7200000000000
+sealing_allowance_nanoseconds = 900000000000
+streams = ["scientific", "sealing"]
+receipt_chain = "strict_ordinal_predecessor_and_strictly_increasing_cumulative_monotonic_and_wall_elapsed"
+issuer = "authority_bound_engineering_fake_only"
+deadline_action = "discard_active_unarchived_wave_then_stop"
+
+[terminal]
+candidate_domain = "succeeded_complete_constraint_passing_requests_from_archived_same_run_waves_only"
+minimum_eligible_candidates = 100
+utility = "arithmetic_mean_of_final_posterior_gram_positive_and_gram_negative_means"
+tie_break = "ascending_canonical_sequence_id_then_query_identity_key"
+below_minimum_action = "abstain"
+posterior_snapshot_domain = "exactly_all_succeeded_requests_from_archived_same_run_waves"
+
+[remaining_blockers]
+durable_descriptor_bound_campaign_archive = true
+independent_verifier = true
+external_timing_and_resume_authority = true
+real_native_sampler_and_complete_trajectory = true
+generated_peptide_oracle_transport = true
+calibrated_joint_posterior_and_contacts = true
+all_method_and_ablation_adapters = true
+manifest_hashed_telemetry = true
+cross_run_common_reserve_verifier = true
+production_promotion_protocol = true

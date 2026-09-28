@@ -1,0 +1,1602 @@
+[
+  {
+    "rank": 1,
+    "sequence": "KRWLVKKLIRVARGLVKRFIRYTTGYIKK",
+    "objective": "broad",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6096156433886315,
+      "enterococcus_faecalis": 0.9240947192053272,
+      "enterococcus_faecium": 0.7944632493935467,
+      "escherichia_coli": 0.9811879449270703,
+      "klebsiella_pneumoniae": 0.9663960150671341,
+      "pseudomonas_aeruginosa": 0.9885369345522083,
+      "staphylococcus_aureus": 0.9637678724148858
+    },
+    "internal_utility": 0.8897231969926862,
+    "max_reference_ratio": 0.56
+  },
+  {
+    "rank": 2,
+    "sequence": "GWRLVKFIIRVAGFVVHRFAKRKGRYYRR",
+    "objective": "gram_positive",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6092658598002821,
+      "enterococcus_faecalis": 0.9527592991780466,
+      "enterococcus_faecium": 0.7958069409151759,
+      "escherichia_coli": 0.9643290690340702,
+      "klebsiella_pneumoniae": 0.9449164810238496,
+      "pseudomonas_aeruginosa": 0.9599323755330381,
+      "staphylococcus_aureus": 0.9521248997818784
+    },
+    "internal_utility": 0.8037855966698008,
+    "max_reference_ratio": 0.5333333333333333
+  },
+  {
+    "rank": 3,
+    "sequence": "GGHFFKRVLRWIGKILKRAWKIHKRKA",
+    "objective": "broad",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.608490081047448,
+      "enterococcus_faecalis": 0.9128992815526793,
+      "enterococcus_faecium": 0.7951349151829895,
+      "escherichia_coli": 0.9827753696036675,
+      "klebsiella_pneumoniae": 0.9639630116313799,
+      "pseudomonas_aeruginosa": 0.9826682221196629,
+      "staphylococcus_aureus": 0.9747730936502902
+    },
+    "internal_utility": 0.7922137346103355,
+    "max_reference_ratio": 0.6046511627906976
+  },
+  {
+    "rank": 4,
+    "sequence": "IGHFLTKWLIFAGRKLKKAYKKWKSKV",
+    "objective": "gram_negative",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6084477776587217,
+      "enterococcus_faecalis": 0.7940565786423094,
+      "enterococcus_faecium": 0.7943142929808867,
+      "escherichia_coli": 0.9916251863364635,
+      "klebsiella_pneumoniae": 0.9718951662943365,
+      "pseudomonas_aeruginosa": 0.9869105443841907,
+      "staphylococcus_aureus": 0.8883984420938106
+    },
+    "internal_utility": 0.7931935569098434,
+    "max_reference_ratio": 0.5531914893617021
+  },
+  {
+    "rank": 5,
+    "sequence": "GRWLHKGIIRGARFLVKRFIRYTGRYKKK",
+    "objective": "broad",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6092892334644323,
+      "enterococcus_faecalis": 0.918618478335108,
+      "enterococcus_faecium": 0.7946202554383285,
+      "escherichia_coli": 0.9816827469655419,
+      "klebsiella_pneumoniae": 0.9548568762565351,
+      "pseudomonas_aeruginosa": 0.9859898491050484,
+      "staphylococcus_aureus": 0.9755938380887835
+    },
+    "internal_utility": 0.79071294755222,
+    "max_reference_ratio": 0.5531914893617021
+  },
+  {
+    "rank": 6,
+    "sequence": "GRRLLKIIIRVARFLVKLFFKYLGRYIGK",
+    "objective": "gram_positive",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6074240913512003,
+      "enterococcus_faecalis": 0.9355653350297376,
+      "enterococcus_faecium": 0.7937872338030938,
+      "escherichia_coli": 0.9734075395761638,
+      "klebsiella_pneumoniae": 0.9140840523833909,
+      "pseudomonas_aeruginosa": 0.8551962715527032,
+      "staphylococcus_aureus": 0.9699527179637112
+    },
+    "internal_utility": 0.8029839835843795,
+    "max_reference_ratio": 0.5531914893617021
+  },
+  {
+    "rank": 7,
+    "sequence": "FGRGFKRLARWAIKIIFKAWKRWKRKY",
+    "objective": "broad",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6107043793041181,
+      "enterococcus_faecalis": 0.9133898859574244,
+      "enterococcus_faecium": 0.7947666548448741,
+      "escherichia_coli": 0.9783235549300002,
+      "klebsiella_pneumoniae": 0.9676152484076757,
+      "pseudomonas_aeruginosa": 0.9747868050696412,
+      "staphylococcus_aureus": 0.973341344013619
+    },
+    "internal_utility": 0.7895030678325431,
+    "max_reference_ratio": 0.5909090909090908
+  },
+  {
+    "rank": 8,
+    "sequence": "FGHKFKRVLRWAGKILTRAEKIWKGKA",
+    "objective": "gram_negative",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6074311696897186,
+      "enterococcus_faecalis": 0.7868673189640288,
+      "enterococcus_faecium": 0.7946854968121003,
+      "escherichia_coli": 0.9869111659002722,
+      "klebsiella_pneumoniae": 0.9831928357469755,
+      "pseudomonas_aeruginosa": 0.9856670459199863,
+      "staphylococcus_aureus": 0.8748054903799178
+    },
+    "internal_utility": 0.7929559277373267,
+    "max_reference_ratio": 0.6086956521739131
+  },
+  {
+    "rank": 9,
+    "sequence": "GWRLVKRIIRVARFLVKRKIRPLGRYIGK",
+    "objective": "broad",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6091961656160304,
+      "enterococcus_faecalis": 0.9259918489844444,
+      "enterococcus_faecium": 0.7943705481715949,
+      "escherichia_coli": 0.9782730053685548,
+      "klebsiella_pneumoniae": 0.9535753778356426,
+      "pseudomonas_aeruginosa": 0.9791743329806226,
+      "staphylococcus_aureus": 0.9708950667939424
+    },
+    "internal_utility": 0.7893062511901497,
+    "max_reference_ratio": 0.5769230769230769
+  },
+  {
+    "rank": 10,
+    "sequence": "GYIMFGFIIRVARRLAKRFFRKLGRYLRK",
+    "objective": "gram_positive",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6088822582259407,
+      "enterococcus_faecalis": 0.9331857496661273,
+      "enterococcus_faecium": 0.7949964344887537,
+      "escherichia_coli": 0.9547092486813629,
+      "klebsiella_pneumoniae": 0.9439835858419937,
+      "pseudomonas_aeruginosa": 0.9832871503228672,
+      "staphylococcus_aureus": 0.9693747308742777
+    },
+    "internal_utility": 0.8010820201771877,
+    "max_reference_ratio": 0.5423728813559322
+  },
+  {
+    "rank": 11,
+    "sequence": "GYRLVKTIIRVARFLVKRFAKFKGRRYIK",
+    "objective": "broad",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6096903052957955,
+      "enterococcus_faecalis": 0.9242048407643498,
+      "enterococcus_faecium": 0.7940121376987266,
+      "escherichia_coli": 0.9799474877514357,
+      "klebsiella_pneumoniae": 0.9591773684910064,
+      "pseudomonas_aeruginosa": 0.9843825533900253,
+      "staphylococcus_aureus": 0.9621818331605536
+    },
+    "internal_utility": 0.7891237269942195,
+    "max_reference_ratio": 0.5957446808510638
+  },
+  {
+    "rank": 12,
+    "sequence": "IRKFLHRWLRFAGRVAKKLYKAGKRKV",
+    "objective": "gram_negative",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6099048129678791,
+      "enterococcus_faecalis": 0.8549057622312347,
+      "enterococcus_faecium": 0.7943423067212417,
+      "escherichia_coli": 0.9916382749321352,
+      "klebsiella_pneumoniae": 0.9653213958569405,
+      "pseudomonas_aeruginosa": 0.9923994999450062,
+      "staphylococcus_aureus": 0.9192038893081912
+    },
+    "internal_utility": 0.7919196028596532,
+    "max_reference_ratio": 0.5555555555555556
+  },
+  {
+    "rank": 13,
+    "sequence": "GIRAVGFIIRVARFLVKRFAKHKGRYYRK",
+    "objective": "broad",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6085764247196496,
+      "enterococcus_faecalis": 0.9169123007418931,
+      "enterococcus_faecium": 0.794964447465432,
+      "escherichia_coli": 0.9801814554239604,
+      "klebsiella_pneumoniae": 0.9683224757698577,
+      "pseudomonas_aeruginosa": 0.9714480719195803,
+      "staphylococcus_aureus": 0.9726625635871171
+    },
+    "internal_utility": 0.7886548013493064,
+    "max_reference_ratio": 0.5531914893617021
+  },
+  {
+    "rank": 14,
+    "sequence": "GRWLMIRIIRVARALVKRFIRLTGRYIKK",
+    "objective": "gram_positive",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6071398182868339,
+      "enterococcus_faecalis": 0.9298693487685729,
+      "enterococcus_faecium": 0.7946499593421322,
+      "escherichia_coli": 0.9733925491911446,
+      "klebsiella_pneumoniae": 0.8970187357387019,
+      "pseudomonas_aeruginosa": 0.869966661376223,
+      "staphylococcus_aureus": 0.9710815262608915
+    },
+    "internal_utility": 0.7999450616534999,
+    "max_reference_ratio": 0.5384615384615384
+  },
+  {
+    "rank": 15,
+    "sequence": "RIRLFKRAARVVGKLVRRFFRYLTKYVGK",
+    "objective": "broad",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6102695494611861,
+      "enterococcus_faecalis": 0.9127612057438843,
+      "enterococcus_faecium": 0.7944640762847492,
+      "escherichia_coli": 0.9801844339527994,
+      "klebsiella_pneumoniae": 0.9496329981831945,
+      "pseudomonas_aeruginosa": 0.989256661378214,
+      "staphylococcus_aureus": 0.9707447146760003
+    },
+    "internal_utility": 0.788506254248152,
+    "max_reference_ratio": 0.6037735849056604
+  },
+  {
+    "rank": 16,
+    "sequence": "IWAFLKRWKRGAGRILKKAYHLWKRGV",
+    "objective": "gram_negative",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6082799306950742,
+      "enterococcus_faecalis": 0.8257959112795977,
+      "enterococcus_faecium": 0.7950299005428675,
+      "escherichia_coli": 0.9899324339694698,
+      "klebsiella_pneumoniae": 0.9776204584062488,
+      "pseudomonas_aeruginosa": 0.9855557168017417,
+      "staphylococcus_aureus": 0.8927220543302683
+    },
+    "internal_utility": 0.7915833473089559,
+    "max_reference_ratio": 0.5531914893617021
+  },
+  {
+    "rank": 17,
+    "sequence": "FRHFGIRALRWAGRIFKKARKIWKRKK",
+    "objective": "broad",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6137513495497547,
+      "enterococcus_faecalis": 0.9201165042096296,
+      "enterococcus_faecium": 0.7948016184699208,
+      "escherichia_coli": 0.98219429239298,
+      "klebsiella_pneumoniae": 0.9498998809652813,
+      "pseudomonas_aeruginosa": 0.9823034600833226,
+      "staphylococcus_aureus": 0.9628799298100009
+    },
+    "internal_utility": 0.7882554796569246,
+    "max_reference_ratio": 0.6046511627906976
+  },
+  {
+    "rank": 18,
+    "sequence": "GKRFAKRIIRVARFLVKHFIRYLGRYIGR",
+    "objective": "gram_positive",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.609837110599171,
+      "enterococcus_faecalis": 0.9362050425312606,
+      "enterococcus_faecium": 0.7949782475768644,
+      "escherichia_coli": 0.9690619305712157,
+      "klebsiella_pneumoniae": 0.9504215509833349,
+      "pseudomonas_aeruginosa": 0.9822075983828524,
+      "staphylococcus_aureus": 0.9626280740249857
+    },
+    "internal_utility": 0.7992560418719769,
+    "max_reference_ratio": 0.5714285714285714
+  },
+  {
+    "rank": 19,
+    "sequence": "FGHFFKRVVRWAGKILKKAKKIWKRNV",
+    "objective": "broad",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.610738979898498,
+      "enterococcus_faecalis": 0.9092779573188791,
+      "enterococcus_faecium": 0.7947074529433334,
+      "escherichia_coli": 0.9810200119870537,
+      "klebsiella_pneumoniae": 0.9684182319399627,
+      "pseudomonas_aeruginosa": 0.9834736418990614,
+      "staphylococcus_aureus": 0.9589553612067396
+    },
+    "internal_utility": 0.7879475216907804,
+    "max_reference_ratio": 0.5833333333333333
+  },
+  {
+    "rank": 20,
+    "sequence": "FKHNFKRVLRWAGKITKKAWKIWKRDV",
+    "objective": "gram_negative",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6090293986618881,
+      "enterococcus_faecalis": 0.8226473771996817,
+      "enterococcus_faecium": 0.7947315883914134,
+      "escherichia_coli": 0.9905550913747533,
+      "klebsiella_pneumoniae": 0.971707387599837,
+      "pseudomonas_aeruginosa": 0.9874551159099617,
+      "staphylococcus_aureus": 0.9105905660815835
+    },
+    "internal_utility": 0.7913503248426901,
+    "max_reference_ratio": 0.5909090909090908
+  },
+  {
+    "rank": 21,
+    "sequence": "KRWLVKRILRVARKLVKRFIFYGGRYITK",
+    "objective": "broad",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6091939581584577,
+      "enterococcus_faecalis": 0.9121004704389509,
+      "enterococcus_faecium": 0.794246286705056,
+      "escherichia_coli": 0.9772265410311073,
+      "klebsiella_pneumoniae": 0.9549613346037105,
+      "pseudomonas_aeruginosa": 0.9860015984815531,
+      "staphylococcus_aureus": 0.9719007166649426
+    },
+    "internal_utility": 0.7875419362395724,
+    "max_reference_ratio": 0.6
+  },
+  {
+    "rank": 22,
+    "sequence": "GRRFVKRIIRVARFLVKGFIHYTRRYKTK",
+    "objective": "gram_positive",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6087359339118279,
+      "enterococcus_faecalis": 0.9251664297991212,
+      "enterococcus_faecium": 0.794589552550285,
+      "escherichia_coli": 0.9772691628884891,
+      "klebsiella_pneumoniae": 0.9466823654409932,
+      "pseudomonas_aeruginosa": 0.9782605205030951,
+      "staphylococcus_aureus": 0.9704645142630808
+    },
+    "internal_utility": 0.7977828783227817,
+    "max_reference_ratio": 0.5777777777777777
+  },
+  {
+    "rank": 23,
+    "sequence": "GRWLFKRIIRVAAFKVKRFIRLTGRYIKK",
+    "objective": "broad",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6101064680629209,
+      "enterococcus_faecalis": 0.9084005756748149,
+      "enterococcus_faecium": 0.7941813072208714,
+      "escherichia_coli": 0.9836482839812227,
+      "klebsiella_pneumoniae": 0.9582630107803795,
+      "pseudomonas_aeruginosa": 0.9823632320918579,
+      "staphylococcus_aureus": 0.9656162685686374
+    },
+    "internal_utility": 0.7872858928988065,
+    "max_reference_ratio": 0.5769230769230769
+  },
+  {
+    "rank": 24,
+    "sequence": "TRHFIKRWKKFAGRIAKKAYILGKRGV",
+    "objective": "gram_negative",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6089247451515009,
+      "enterococcus_faecalis": 0.8341312418909093,
+      "enterococcus_faecium": 0.7944922487677516,
+      "escherichia_coli": 0.9882334839698707,
+      "klebsiella_pneumoniae": 0.9745968520609564,
+      "pseudomonas_aeruginosa": 0.9880534611498515,
+      "staphylococcus_aureus": 0.9011960105905087
+    },
+    "internal_utility": 0.7912232829912212,
+    "max_reference_ratio": 0.5714285714285714
+  },
+  {
+    "rank": 25,
+    "sequence": "GRWLKKRIIRVARGLVKRFIRYLGSHIGK",
+    "objective": "broad",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6081088649206235,
+      "enterococcus_faecalis": 0.8914054171928232,
+      "enterococcus_faecium": 0.7944575455788874,
+      "escherichia_coli": 0.9871601846992899,
+      "klebsiella_pneumoniae": 0.9580413264540483,
+      "pseudomonas_aeruginosa": 0.9870574861669447,
+      "staphylococcus_aureus": 0.9733506836858687
+    },
+    "internal_utility": 0.7870583749593831,
+    "max_reference_ratio": 0.5777777777777777
+  },
+  {
+    "rank": 26,
+    "sequence": "GRRLIKRIIRVGRKLVKLFTRYLTRYRFK",
+    "objective": "gram_positive",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6095992892254354,
+      "enterococcus_faecalis": 0.9254720951890246,
+      "enterococcus_faecium": 0.7933723926274835,
+      "escherichia_coli": 0.9673027302870061,
+      "klebsiella_pneumoniae": 0.9453323204781604,
+      "pseudomonas_aeruginosa": 0.9805326642125101,
+      "staphylococcus_aureus": 0.9696386506252822
+    },
+    "internal_utility": 0.7977161700594181,
+    "max_reference_ratio": 0.5833333333333333
+  },
+  {
+    "rank": 27,
+    "sequence": "GRRLFKKIIRVARKVVKLFTRYIGTWRGK",
+    "objective": "broad",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6085515290537683,
+      "enterococcus_faecalis": 0.896088700936215,
+      "enterococcus_faecium": 0.7947594280301683,
+      "escherichia_coli": 0.9800268407731728,
+      "klebsiella_pneumoniae": 0.9696723681103183,
+      "pseudomonas_aeruginosa": 0.9845337842409164,
+      "staphylococcus_aureus": 0.9652577359878044
+    },
+    "internal_utility": 0.7870424197166928,
+    "max_reference_ratio": 0.5531914893617021
+  },
+  {
+    "rank": 28,
+    "sequence": "FGHGFKRVLRWAGKIKKLAWTIWKKKV",
+    "objective": "gram_negative",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6087200644537342,
+      "enterococcus_faecalis": 0.8701695642884774,
+      "enterococcus_faecium": 0.7947920420540798,
+      "escherichia_coli": 0.9895067403819708,
+      "klebsiella_pneumoniae": 0.9706282313928555,
+      "pseudomonas_aeruginosa": 0.9907345112225685,
+      "staphylococcus_aureus": 0.9235216132291123
+    },
+    "internal_utility": 0.7910747257710431,
+    "max_reference_ratio": 0.5652173913043479
+  },
+  {
+    "rank": 29,
+    "sequence": "KRWLVKRIIRVARFLVKRFIRYTGKYIKK",
+    "objective": "broad",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6110890855041567,
+      "enterococcus_faecalis": 0.928404130095596,
+      "enterococcus_faecium": 0.7940132591826163,
+      "escherichia_coli": 0.9676335111291845,
+      "klebsiella_pneumoniae": 0.9484841794138251,
+      "pseudomonas_aeruginosa": 0.9849939716202711,
+      "staphylococcus_aureus": 0.9656661117918022
+    },
+    "internal_utility": 0.786949168056519,
+    "max_reference_ratio": 0.5853658536585367
+  },
+  {
+    "rank": 30,
+    "sequence": "GRRLVKHIIRVARGLVKYFIRYTGRVGYK",
+    "objective": "gram_positive",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6074097829559114,
+      "enterococcus_faecalis": 0.923067832291597,
+      "enterococcus_faecium": 0.7951306118655389,
+      "escherichia_coli": 0.9661282652448134,
+      "klebsiella_pneumoniae": 0.9620730380358471,
+      "pseudomonas_aeruginosa": 0.972946886059956,
+      "staphylococcus_aureus": 0.9678363802669318
+    },
+    "internal_utility": 0.7971237378128447,
+    "max_reference_ratio": 0.6
+  },
+  {
+    "rank": 31,
+    "sequence": "IKKRIKRWLKFAGRVAKLAYKLWWRKV",
+    "objective": "broad",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6108323011886673,
+      "enterococcus_faecalis": 0.922309763409853,
+      "enterococcus_faecium": 0.7948648010509545,
+      "escherichia_coli": 0.9846389469808288,
+      "klebsiella_pneumoniae": 0.9591102541412191,
+      "pseudomonas_aeruginosa": 0.9849001049466871,
+      "staphylococcus_aureus": 0.9394990515390408
+    },
+    "internal_utility": 0.7867401995213811,
+    "max_reference_ratio": 0.6
+  },
+  {
+    "rank": 32,
+    "sequence": "IGEFLKRWLRKAGRGLVKAYHKWKRKV",
+    "objective": "gram_negative",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6100459937345469,
+      "enterococcus_faecalis": 0.8171527367049111,
+      "enterococcus_faecium": 0.7950488877927112,
+      "escherichia_coli": 0.9866172938960758,
+      "klebsiella_pneumoniae": 0.9735326856557357,
+      "pseudomonas_aeruginosa": 0.9893992428251212,
+      "staphylococcus_aureus": 0.877978773884777
+    },
+    "internal_utility": 0.791061710392432,
+    "max_reference_ratio": 0.5957446808510638
+  },
+  {
+    "rank": 33,
+    "sequence": "GRWLAKKLIYRAYRAVKRFIRWLRRKRGG",
+    "objective": "broad",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6119572473352155,
+      "enterococcus_faecalis": 0.9101318214562678,
+      "enterococcus_faecium": 0.7951945030301477,
+      "escherichia_coli": 0.973783168596246,
+      "klebsiella_pneumoniae": 0.9579515765151809,
+      "pseudomonas_aeruginosa": 0.9791121065173054,
+      "staphylococcus_aureus": 0.9618007283242916
+    },
+    "internal_utility": 0.7866552471048132,
+    "max_reference_ratio": 0.6037735849056604
+  },
+  {
+    "rank": 34,
+    "sequence": "GRRLIKFIVRVARFIVKKFTRRSPRYLGK",
+    "objective": "gram_positive",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6079653295863223,
+      "enterococcus_faecalis": 0.9255276072844904,
+      "enterococcus_faecium": 0.7938047366856126,
+      "escherichia_coli": 0.9752786713288814,
+      "klebsiella_pneumoniae": 0.9453763739719109,
+      "pseudomonas_aeruginosa": 0.8984956925957494,
+      "staphylococcus_aureus": 0.9681860947145751
+    },
+    "internal_utility": 0.7969478756319144,
+    "max_reference_ratio": 0.5714285714285714
+  },
+  {
+    "rank": 35,
+    "sequence": "GRRLVKRIIRVAKFLVKSFIRYGGKYIGG",
+    "objective": "broad",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.608455725195434,
+      "enterococcus_faecalis": 0.913338279583462,
+      "enterococcus_faecium": 0.7944902347869943,
+      "escherichia_coli": 0.9848116250696576,
+      "klebsiella_pneumoniae": 0.9437770756481615,
+      "pseudomonas_aeruginosa": 0.9852785357425354,
+      "staphylococcus_aureus": 0.9655934003732517
+    },
+    "internal_utility": 0.7865552073551179,
+    "max_reference_ratio": 0.5862068965517242
+  },
+  {
+    "rank": 36,
+    "sequence": "FGHGFKNRLRWAGKILKRAWKDWKKKV",
+    "objective": "gram_negative",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6087571756953251,
+      "enterococcus_faecalis": 0.7992369670697229,
+      "enterococcus_faecium": 0.7944946620013619,
+      "escherichia_coli": 0.9899043142747695,
+      "klebsiella_pneumoniae": 0.9750741608186179,
+      "pseudomonas_aeruginosa": 0.9860484037456065,
+      "staphylococcus_aureus": 0.8375902813905164
+    },
+    "internal_utility": 0.7910073381932772,
+    "max_reference_ratio": 0.6046511627906976
+  },
+  {
+    "rank": 37,
+    "sequence": "FGHKFKRVLRWAGKILKRAKLIWKRGG",
+    "objective": "broad",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6092404378466519,
+      "enterococcus_faecalis": 0.881725570816842,
+      "enterococcus_faecium": 0.7942955364782008,
+      "escherichia_coli": 0.9848972994239081,
+      "klebsiella_pneumoniae": 0.9689658084832452,
+      "pseudomonas_aeruginosa": 0.9881904440749597,
+      "staphylococcus_aureus": 0.9709580085745286
+    },
+    "internal_utility": 0.7864748729263558,
+    "max_reference_ratio": 0.6363636363636364
+  },
+  {
+    "rank": 38,
+    "sequence": "GRWIWKRIIRVAKLLVKRFIRYTGRYRKK",
+    "objective": "gram_positive",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6083818242298422,
+      "enterococcus_faecalis": 0.91995874901556,
+      "enterococcus_faecium": 0.7940830125640371,
+      "escherichia_coli": 0.9841025984395793,
+      "klebsiella_pneumoniae": 0.9531643161464896,
+      "pseudomonas_aeruginosa": 0.8697500453920542,
+      "staphylococcus_aureus": 0.9734706214858795
+    },
+    "internal_utility": 0.7968462285961619,
+    "max_reference_ratio": 0.5777777777777777
+  },
+  {
+    "rank": 39,
+    "sequence": "GRWLVLRIIRGARFLVKRFKRYTGKYIKK",
+    "objective": "broad",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6096056613232078,
+      "enterococcus_faecalis": 0.9018248631905897,
+      "enterococcus_faecium": 0.7939577931895595,
+      "escherichia_coli": 0.9822621758989513,
+      "klebsiella_pneumoniae": 0.9546454700971778,
+      "pseudomonas_aeruginosa": 0.9860531198944479,
+      "staphylococcus_aureus": 0.9712657459626267
+    },
+    "internal_utility": 0.7863793030576596,
+    "max_reference_ratio": 0.5517241379310345
+  },
+  {
+    "rank": 40,
+    "sequence": "IRHFVKKWKRFAGQILKKAYKKWKRGV",
+    "objective": "gram_negative",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6095956961391905,
+      "enterococcus_faecalis": 0.8325670107611532,
+      "enterococcus_faecium": 0.7939992847254386,
+      "escherichia_coli": 0.9916694219184395,
+      "klebsiella_pneumoniae": 0.9700174422850582,
+      "pseudomonas_aeruginosa": 0.9880765053829778,
+      "staphylococcus_aureus": 0.9410205976295819
+    },
+    "internal_utility": 0.7909765621485747,
+    "max_reference_ratio": 0.5853658536585367
+  },
+  {
+    "rank": 41,
+    "sequence": "GLRLIKFIVRVARFLVKKFTRTLKRYLGK",
+    "objective": "broad",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.610349223373522,
+      "enterococcus_faecalis": 0.915810053363355,
+      "enterococcus_faecium": 0.7943084047859358,
+      "escherichia_coli": 0.9823453482347535,
+      "klebsiella_pneumoniae": 0.9397329612553657,
+      "pseudomonas_aeruginosa": 0.9848237318576502,
+      "staphylococcus_aureus": 0.9686674267795833
+    },
+    "internal_utility": 0.7862995371451121,
+    "max_reference_ratio": 0.6122448979591837
+  },
+  {
+    "rank": 42,
+    "sequence": "FGKWRIRVLRWAGKIAKALWKIFPRKV",
+    "objective": "gram_positive",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6069062695261396,
+      "enterococcus_faecalis": 0.9211663598882928,
+      "enterococcus_faecium": 0.7947597931439426,
+      "escherichia_coli": 0.9869922811707078,
+      "klebsiella_pneumoniae": 0.9240995359503444,
+      "pseudomonas_aeruginosa": 0.9769606966347757,
+      "staphylococcus_aureus": 0.9694510913139505
+    },
+    "internal_utility": 0.7967283096033063,
+    "max_reference_ratio": 0.5777777777777777
+  },
+  {
+    "rank": 43,
+    "sequence": "GIRLVKRIIRVARFGVKAFFRYLGKYRAK",
+    "objective": "broad",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6089147138510814,
+      "enterococcus_faecalis": 0.8975089527070531,
+      "enterococcus_faecium": 0.7943195476192481,
+      "escherichia_coli": 0.9828012353774763,
+      "klebsiella_pneumoniae": 0.9530943117058607,
+      "pseudomonas_aeruginosa": 0.9849869058671229,
+      "staphylococcus_aureus": 0.9742074495975892
+    },
+    "internal_utility": 0.7859803017525988,
+    "max_reference_ratio": 0.5777777777777777
+  },
+  {
+    "rank": 44,
+    "sequence": "TRHFIKKWKLFAGRILKKAAKLWKGKV",
+    "objective": "gram_negative",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6102105969978546,
+      "enterococcus_faecalis": 0.8258983015138499,
+      "enterococcus_faecium": 0.7945877160422833,
+      "escherichia_coli": 0.9919718828301217,
+      "klebsiella_pneumoniae": 0.9657240140224607,
+      "pseudomonas_aeruginosa": 0.9917464366309455,
+      "staphylococcus_aureus": 0.9341140710146849
+    },
+    "internal_utility": 0.7909234770768852,
+    "max_reference_ratio": 0.5909090909090908
+  },
+  {
+    "rank": 45,
+    "sequence": "GRHLVKLIIRHAKFLVARFIRYGGRYIKK",
+    "objective": "broad",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6080062015363689,
+      "enterococcus_faecalis": 0.9190894055114023,
+      "enterococcus_faecium": 0.795020731615195,
+      "escherichia_coli": 0.9749941308980233,
+      "klebsiella_pneumoniae": 0.9523875508293344,
+      "pseudomonas_aeruginosa": 0.9838478111114987,
+      "staphylococcus_aureus": 0.9582441255841712
+    },
+    "internal_utility": 0.7859308163097114,
+    "max_reference_ratio": 0.5454545454545454
+  },
+  {
+    "rank": 46,
+    "sequence": "GRWLLKRIIKVARFLVKRFIRYTGRPRFK",
+    "objective": "gram_positive",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6077311656040686,
+      "enterococcus_faecalis": 0.9117381201083617,
+      "enterococcus_faecium": 0.7937942939284609,
+      "escherichia_coli": 0.9754855721442528,
+      "klebsiella_pneumoniae": 0.9269194740086945,
+      "pseudomonas_aeruginosa": 0.8917018927098948,
+      "staphylococcus_aureus": 0.9819495559462276
+    },
+    "internal_utility": 0.7966221876597248,
+    "max_reference_ratio": 0.5714285714285714
+  },
+  {
+    "rank": 47,
+    "sequence": "RWRLFKRIARIAGKLVRRLGRYQRKYVGK",
+    "objective": "broad",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6098159593577027,
+      "enterococcus_faecalis": 0.9057788110126416,
+      "enterococcus_faecium": 0.794758707733196,
+      "escherichia_coli": 0.9776739923777983,
+      "klebsiella_pneumoniae": 0.9510018951344824,
+      "pseudomonas_aeruginosa": 0.9793551245253004,
+      "staphylococcus_aureus": 0.9736618265681097
+    },
+    "internal_utility": 0.7858941121948397,
+    "max_reference_ratio": 0.5833333333333333
+  },
+  {
+    "rank": 48,
+    "sequence": "IRHFLKRWARGLGRILKKAYKLGKTKV",
+    "objective": "gram_negative",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6078273134637174,
+      "enterococcus_faecalis": 0.825498749127877,
+      "enterococcus_faecium": 0.7942090654112736,
+      "escherichia_coli": 0.9919542978779153,
+      "klebsiella_pneumoniae": 0.9722173786590207,
+      "pseudomonas_aeruginosa": 0.9877167493007354,
+      "staphylococcus_aureus": 0.9355804543831513
+    },
+    "internal_utility": 0.7909222655699994,
+    "max_reference_ratio": 0.5777777777777777
+  },
+  {
+    "rank": 49,
+    "sequence": "GRWLVRRIIRGAKFLVKRFIRYRGRYKKK",
+    "objective": "broad",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6115028624013136,
+      "enterococcus_faecalis": 0.9156427208034609,
+      "enterococcus_faecium": 0.7940310124348638,
+      "escherichia_coli": 0.971741120435996,
+      "klebsiella_pneumoniae": 0.9513289036607117,
+      "pseudomonas_aeruginosa": 0.9803543374596958,
+      "staphylococcus_aureus": 0.9686899156514367
+    },
+    "internal_utility": 0.7858572281576413,
+    "max_reference_ratio": 0.5833333333333333
+  },
+  {
+    "rank": 50,
+    "sequence": "GLWLVKRIIRVAKFLVKRFLRYTGRYIGR",
+    "objective": "gram_positive",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6081813316853563,
+      "enterococcus_faecalis": 0.9246987289865399,
+      "enterococcus_faecium": 0.7949540052646195,
+      "escherichia_coli": 0.9675336173620931,
+      "klebsiella_pneumoniae": 0.9399266718871923,
+      "pseudomonas_aeruginosa": 0.9315875451923629,
+      "staphylococcus_aureus": 0.9672207068563536
+    },
+    "internal_utility": 0.7966055916896281,
+    "max_reference_ratio": 0.5660377358490566
+  },
+  {
+    "rank": 51,
+    "sequence": "FRHLIKRIIRWAGHIFKKARRLGKRKV",
+    "objective": "broad",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6104508930260946,
+      "enterococcus_faecalis": 0.9177717258105691,
+      "enterococcus_faecium": 0.7949418274918051,
+      "escherichia_coli": 0.9787392170142765,
+      "klebsiella_pneumoniae": 0.9429885819164504,
+      "pseudomonas_aeruginosa": 0.9793350606701475,
+      "staphylococcus_aureus": 0.9685792322692232
+    },
+    "internal_utility": 0.7857657520611325,
+    "max_reference_ratio": 0.5581395348837209
+  },
+  {
+    "rank": 52,
+    "sequence": "FGHKLKRVLRKAGAILKRAWKNNKRKV",
+    "objective": "gram_negative",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.609358212436284,
+      "enterococcus_faecalis": 0.8148430743109749,
+      "enterococcus_faecium": 0.7944234599698642,
+      "escherichia_coli": 0.9898705281910253,
+      "klebsiella_pneumoniae": 0.9668065153753788,
+      "pseudomonas_aeruginosa": 0.9910908323462913,
+      "staphylococcus_aureus": 0.9333669848761094
+    },
+    "internal_utility": 0.790872990214513,
+    "max_reference_ratio": 0.6046511627906976
+  },
+  {
+    "rank": 53,
+    "sequence": "VRRLFKRIIRVAKFLVKRFIRYTGRVISK",
+    "objective": "broad",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6101242100634889,
+      "enterococcus_faecalis": 0.9291081127159209,
+      "enterococcus_faecium": 0.7937479433155291,
+      "escherichia_coli": 0.974050082293563,
+      "klebsiella_pneumoniae": 0.9420990842503465,
+      "pseudomonas_aeruginosa": 0.9802554288999904,
+      "staphylococcus_aureus": 0.962338624392928
+    },
+    "internal_utility": 0.785759490998826,
+    "max_reference_ratio": 0.5853658536585367
+  },
+  {
+    "rank": 54,
+    "sequence": "FMRMVKIIIRVARFLAKRFFRYAGGYLRK",
+    "objective": "gram_positive",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6084571660555012,
+      "enterococcus_faecalis": 0.9256674693965922,
+      "enterococcus_faecium": 0.7947722495748443,
+      "escherichia_coli": 0.9714915447551817,
+      "klebsiella_pneumoniae": 0.9414114945726437,
+      "pseudomonas_aeruginosa": 0.9487459288102769,
+      "staphylococcus_aureus": 0.9658230069791273
+    },
+    "internal_utility": 0.7965412664366596,
+    "max_reference_ratio": 0.5333333333333333
+  },
+  {
+    "rank": 55,
+    "sequence": "MRWLVKRIARVAKKLVKRFIRYSGRYWKK",
+    "objective": "broad",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6113923203318868,
+      "enterococcus_faecalis": 0.9126655501928803,
+      "enterococcus_faecium": 0.7949301748274027,
+      "escherichia_coli": 0.9723969444324047,
+      "klebsiella_pneumoniae": 0.9576147557563007,
+      "pseudomonas_aeruginosa": 0.9815676891154025,
+      "staphylococcus_aureus": 0.9574809469180988
+    },
+    "internal_utility": 0.7856179717884846,
+    "max_reference_ratio": 0.56
+  },
+  {
+    "rank": 56,
+    "sequence": "IIHFLKKWKRGAGRILKKAYKLWKRGL",
+    "objective": "gram_negative",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6092300436580588,
+      "enterococcus_faecalis": 0.8051386440645931,
+      "enterococcus_faecium": 0.793968931533298,
+      "escherichia_coli": 0.9916044269505043,
+      "klebsiella_pneumoniae": 0.9711418572999967,
+      "pseudomonas_aeruginosa": 0.9866936531138629,
+      "staphylococcus_aureus": 0.958508176310591
+    },
+    "internal_utility": 0.7907317974840918,
+    "max_reference_ratio": 0.5833333333333333
+  },
+  {
+    "rank": 57,
+    "sequence": "GRWLVKRILRVARFLVKKFIRYTIRRIKL",
+    "objective": "broad",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6111955333800733,
+      "enterococcus_faecalis": 0.9229556535780153,
+      "enterococcus_faecium": 0.7938216881266591,
+      "escherichia_coli": 0.9704389295546082,
+      "klebsiella_pneumoniae": 0.944561960660308,
+      "pseudomonas_aeruginosa": 0.9804270310911366,
+      "staphylococcus_aureus": 0.9682202432757867
+    },
+    "internal_utility": 0.7856061192418797,
+    "max_reference_ratio": 0.5769230769230769
+  },
+  {
+    "rank": 58,
+    "sequence": "GYRMVKIIIRVARFLAKFFFRYLGRGLTK",
+    "objective": "gram_positive",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6050416547785559,
+      "enterococcus_faecalis": 0.9145761894457488,
+      "enterococcus_faecium": 0.7945111621386207,
+      "escherichia_coli": 0.966727881668787,
+      "klebsiella_pneumoniae": 0.9174810202936815,
+      "pseudomonas_aeruginosa": 0.8571684355466856,
+      "staphylococcus_aureus": 0.9752769535045221
+    },
+    "internal_utility": 0.7963294715700103,
+    "max_reference_ratio": 0.5333333333333333
+  },
+  {
+    "rank": 59,
+    "sequence": "IKHGLKRALRFAGRILKKAYIIWKRKG",
+    "objective": "broad",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6103191007088539,
+      "enterococcus_faecalis": 0.8901944732560615,
+      "enterococcus_faecium": 0.795151364652891,
+      "escherichia_coli": 0.9813700949625348,
+      "klebsiella_pneumoniae": 0.9650275510714404,
+      "pseudomonas_aeruginosa": 0.9833858610462581,
+      "staphylococcus_aureus": 0.9638396125735361
+    },
+    "internal_utility": 0.785598408231199,
+    "max_reference_ratio": 0.5957446808510638
+  },
+  {
+    "rank": 60,
+    "sequence": "IKHFLKRWLRFAGGVAKKANKLWKAKV",
+    "objective": "gram_negative",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6085002170412507,
+      "enterococcus_faecalis": 0.8009522292771871,
+      "enterococcus_faecium": 0.7945568205584784,
+      "escherichia_coli": 0.9892863937551585,
+      "klebsiella_pneumoniae": 0.9692022523086941,
+      "pseudomonas_aeruginosa": 0.9912468860186069,
+      "staphylococcus_aureus": 0.9168964562059414
+    },
+    "internal_utility": 0.79050090602205,
+    "max_reference_ratio": 0.5909090909090908
+  },
+  {
+    "rank": 61,
+    "sequence": "GWILFKGIIRVARKGVKLFTRYLGRYRGK",
+    "objective": "broad",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6092790794904149,
+      "enterococcus_faecalis": 0.8871121746124699,
+      "enterococcus_faecium": 0.7954677613373574,
+      "escherichia_coli": 0.9865079199607388,
+      "klebsiella_pneumoniae": 0.961669425281774,
+      "pseudomonas_aeruginosa": 0.9870697548643136,
+      "staphylococcus_aureus": 0.9620382660738999
+    },
+    "internal_utility": 0.7854710547263399,
+    "max_reference_ratio": 0.5818181818181818
+  },
+  {
+    "rank": 62,
+    "sequence": "GRRIVKRIIRVARFLVKFFIHYRGRYGGK",
+    "objective": "gram_positive",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6075028914773748,
+      "enterococcus_faecalis": 0.9225696683495918,
+      "enterococcus_faecium": 0.7940637145712408,
+      "escherichia_coli": 0.9761240940872952,
+      "klebsiella_pneumoniae": 0.9466978451508008,
+      "pseudomonas_aeruginosa": 0.9072348147386267,
+      "staphylococcus_aureus": 0.9680695914360774
+    },
+    "internal_utility": 0.7962789641143021,
+    "max_reference_ratio": 0.5384615384615384
+  },
+  {
+    "rank": 63,
+    "sequence": "IRAFIKRWIRFAGKILKKAYKLWKRGG",
+    "objective": "broad",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.610681624863633,
+      "enterococcus_faecalis": 0.8889287379467573,
+      "enterococcus_faecium": 0.7950533883873993,
+      "escherichia_coli": 0.9834338621752563,
+      "klebsiella_pneumoniae": 0.9685146012530198,
+      "pseudomonas_aeruginosa": 0.9839876614419834,
+      "staphylococcus_aureus": 0.9623271526276893
+    },
+    "internal_utility": 0.7854692776006106,
+    "max_reference_ratio": 0.5714285714285714
+  },
+  {
+    "rank": 64,
+    "sequence": "IRHFLKRWAKRAGRILKKAVKKWSRGN",
+    "objective": "gram_negative",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6113613833129224,
+      "enterococcus_faecalis": 0.8392541137741211,
+      "enterococcus_faecium": 0.7950530834918736,
+      "escherichia_coli": 0.9876298577837938,
+      "klebsiella_pneumoniae": 0.9733160680212428,
+      "pseudomonas_aeruginosa": 0.9832107250061976,
+      "staphylococcus_aureus": 0.9623631143807853
+    },
+    "internal_utility": 0.7904806227674448,
+    "max_reference_ratio": 0.5581395348837209
+  },
+  {
+    "rank": 65,
+    "sequence": "FKHFFKRVLRWAGKILKRAHFAGKRKV",
+    "objective": "broad",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6086120257745752,
+      "enterococcus_faecalis": 0.8996116516860475,
+      "enterococcus_faecium": 0.7942894226361661,
+      "escherichia_coli": 0.9794860326490659,
+      "klebsiella_pneumoniae": 0.9518140189194292,
+      "pseudomonas_aeruginosa": 0.9797913761077338,
+      "staphylococcus_aureus": 0.976924359857179
+    },
+    "internal_utility": 0.7854516530722403,
+    "max_reference_ratio": 0.5777777777777777
+  },
+  {
+    "rank": 66,
+    "sequence": "IRHFIKRWLRFAGRILKLAYKLNKRGR",
+    "objective": "gram_positive",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6080226470446449,
+      "enterococcus_faecalis": 0.9143540629483501,
+      "enterococcus_faecium": 0.7949670203596454,
+      "escherichia_coli": 0.9816927605764292,
+      "klebsiella_pneumoniae": 0.9587545688596449,
+      "pseudomonas_aeruginosa": 0.8981806616365536,
+      "staphylococcus_aureus": 0.9748894482297681
+    },
+    "internal_utility": 0.7962772531451976,
+    "max_reference_ratio": 0.56
+  },
+  {
+    "rank": 67,
+    "sequence": "GIRLFKRIARVARKVVKVFTRYLCRYRGK",
+    "objective": "broad",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6079742314736384,
+      "enterococcus_faecalis": 0.8966836812046424,
+      "enterococcus_faecium": 0.7944571337741451,
+      "escherichia_coli": 0.9853511113113971,
+      "klebsiella_pneumoniae": 0.9587574832331539,
+      "pseudomonas_aeruginosa": 0.984510763616116,
+      "staphylococcus_aureus": 0.9628836242372293
+    },
+    "internal_utility": 0.7854466710381554,
+    "max_reference_ratio": 0.5416666666666667
+  },
+  {
+    "rank": 68,
+    "sequence": "IRKFLKAWLRKAGRVAKKIYKLWSRKV",
+    "objective": "gram_negative",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6098373185985041,
+      "enterococcus_faecalis": 0.8235197218984717,
+      "enterococcus_faecium": 0.7940921629411015,
+      "escherichia_coli": 0.9902109737381641,
+      "klebsiella_pneumoniae": 0.9684206516179237,
+      "pseudomonas_aeruginosa": 0.9889460296623257,
+      "staphylococcus_aureus": 0.9660813225526432
+    },
+    "internal_utility": 0.7903754427565586,
+    "max_reference_ratio": 0.5957446808510638
+  },
+  {
+    "rank": 69,
+    "sequence": "TRRLFKRIIRVAAKLVRRFFRKLGRYVGV",
+    "objective": "broad",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6086675074577923,
+      "enterococcus_faecalis": 0.9232889776298876,
+      "enterococcus_faecium": 0.7938967246986205,
+      "escherichia_coli": 0.9734472165822418,
+      "klebsiella_pneumoniae": 0.9503578974504561,
+      "pseudomonas_aeruginosa": 0.9748385736606822,
+      "staphylococcus_aureus": 0.9667494230301416
+    },
+    "internal_utility": 0.7854147536620122,
+    "max_reference_ratio": 0.5531914893617021
+  },
+  {
+    "rank": 70,
+    "sequence": "GRRLVKRIIRAARFLVKLFIRLCGKYIGK",
+    "objective": "gram_positive",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6079224000037274,
+      "enterococcus_faecalis": 0.9248456612474713,
+      "enterococcus_faecium": 0.79446361943944,
+      "escherichia_coli": 0.9729966186739002,
+      "klebsiella_pneumoniae": 0.9247992387542735,
+      "pseudomonas_aeruginosa": 0.8937408122705931,
+      "staphylococcus_aureus": 0.9656551587851893
+    },
+    "internal_utility": 0.7961536633749656,
+    "max_reference_ratio": 0.56
+  },
+  {
+    "rank": 71,
+    "sequence": "GGRLVKFIIRAARFLVKRFFRYHKRRLGK",
+    "objective": "broad",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6096626986271815,
+      "enterococcus_faecalis": 0.9045358899900102,
+      "enterococcus_faecium": 0.7941759048605258,
+      "escherichia_coli": 0.980328406211349,
+      "klebsiella_pneumoniae": 0.9504818193007091,
+      "pseudomonas_aeruginosa": 0.9817313728103311,
+      "staphylococcus_aureus": 0.9696192647968487
+    },
+    "internal_utility": 0.7853690918320179,
+    "max_reference_ratio": 0.5660377358490566
+  },
+  {
+    "rank": 72,
+    "sequence": "IGHDLKRWLRTAGRILKKGYKKWVRKV",
+    "objective": "gram_negative",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.608937689013921,
+      "enterococcus_faecalis": 0.8210935192537011,
+      "enterococcus_faecium": 0.7948713706922427,
+      "escherichia_coli": 0.9889085711814296,
+      "klebsiella_pneumoniae": 0.9715746697459752,
+      "pseudomonas_aeruginosa": 0.9890400163098619,
+      "staphylococcus_aureus": 0.8996799999478547
+    },
+    "internal_utility": 0.79033752969762,
+    "max_reference_ratio": 0.6071428571428572
+  },
+  {
+    "rank": 73,
+    "sequence": "IIWLVKFIIRKARFIVWKFFRRAGRYVRK",
+    "objective": "broad",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6108009072453026,
+      "enterococcus_faecalis": 0.9159064169964898,
+      "enterococcus_faecium": 0.7946619633961108,
+      "escherichia_coli": 0.9701148793118403,
+      "klebsiella_pneumoniae": 0.9573712518631637,
+      "pseudomonas_aeruginosa": 0.9778628482078044,
+      "staphylococcus_aureus": 0.9590940839101473
+    },
+    "internal_utility": 0.7852736761853625,
+    "max_reference_ratio": 0.5365853658536586
+  },
+  {
+    "rank": 74,
+    "sequence": "GRRLIKFIVRVARLLVKRFTRFLGRYMGK",
+    "objective": "gram_positive",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.608832507364277,
+      "enterococcus_faecalis": 0.9208037600267253,
+      "enterococcus_faecium": 0.7941588734644367,
+      "escherichia_coli": 0.9709523896690456,
+      "klebsiella_pneumoniae": 0.943192559627308,
+      "pseudomonas_aeruginosa": 0.9171508589471881,
+      "staphylococcus_aureus": 0.9696841386547167
+    },
+    "internal_utility": 0.7960075106339208,
+    "max_reference_ratio": 0.5769230769230769
+  },
+  {
+    "rank": 75,
+    "sequence": "FGLGFKRVARWAIKIIKKAWKRWKRVR",
+    "objective": "broad",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6113630566901945,
+      "enterococcus_faecalis": 0.8871236147453748,
+      "enterococcus_faecium": 0.7947119335747748,
+      "escherichia_coli": 0.9861325462314015,
+      "klebsiella_pneumoniae": 0.9624469907977943,
+      "pseudomonas_aeruginosa": 0.977518151857133,
+      "staphylococcus_aureus": 0.9730295291333069
+    },
+    "internal_utility": 0.7852401384902061,
+    "max_reference_ratio": 0.5714285714285714
+  },
+  {
+    "rank": 76,
+    "sequence": "IKHFLKRWLRFAGRILKKAYKAGKGGV",
+    "objective": "gram_negative",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6077430574165341,
+      "enterococcus_faecalis": 0.8268211655598131,
+      "enterococcus_faecium": 0.7946929924923909,
+      "escherichia_coli": 0.9900332714733825,
+      "klebsiella_pneumoniae": 0.9716917258186868,
+      "pseudomonas_aeruginosa": 0.9885957683003238,
+      "staphylococcus_aureus": 0.9254472714634443
+    },
+    "internal_utility": 0.7902408388263105,
+    "max_reference_ratio": 0.5531914893617021
+  },
+  {
+    "rank": 77,
+    "sequence": "FRWIVKRGIRVAKFLVKRFIRKCGRYIGK",
+    "objective": "broad",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6098499480609695,
+      "enterococcus_faecalis": 0.9169446338546203,
+      "enterococcus_faecium": 0.7937620106203336,
+      "escherichia_coli": 0.9770679609440345,
+      "klebsiella_pneumoniae": 0.9508990385745949,
+      "pseudomonas_aeruginosa": 0.9796452083958959,
+      "staphylococcus_aureus": 0.9591422814383037
+    },
+    "internal_utility": 0.7851994109028464,
+    "max_reference_ratio": 0.5777777777777777
+  },
+  {
+    "rank": 78,
+    "sequence": "GLWLLKRIIRVARFLVKRFIRYAIRLIKK",
+    "objective": "gram_positive",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6103368938514131,
+      "enterococcus_faecalis": 0.927887054560145,
+      "enterococcus_faecium": 0.7945185482845293,
+      "escherichia_coli": 0.9670442941461642,
+      "klebsiella_pneumoniae": 0.9355391974853293,
+      "pseudomonas_aeruginosa": 0.8743915362727362,
+      "staphylococcus_aureus": 0.9618256898711942
+    },
+    "internal_utility": 0.7959026052552103,
+    "max_reference_ratio": 0.6046511627906976
+  },
+  {
+    "rank": 79,
+    "sequence": "GRRLAKWIIKVARFVVKRFIRYLFRYIGK",
+    "objective": "broad",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6096017485592592,
+      "enterococcus_faecalis": 0.919895798671917,
+      "enterococcus_faecium": 0.794778804752258,
+      "escherichia_coli": 0.9777426992176744,
+      "klebsiella_pneumoniae": 0.9486511273213046,
+      "pseudomonas_aeruginosa": 0.980716815979502,
+      "staphylococcus_aureus": 0.9574284744911843
+    },
+    "internal_utility": 0.7851643061121094,
+    "max_reference_ratio": 0.5652173913043479
+  },
+  {
+    "rank": 80,
+    "sequence": "FGKGIKRVLRWNGKILKSAWKIWKRGV",
+    "objective": "gram_negative",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6076604242812481,
+      "enterococcus_faecalis": 0.8386732493583385,
+      "enterococcus_faecium": 0.7940098415461009,
+      "escherichia_coli": 0.9869755018863661,
+      "klebsiella_pneumoniae": 0.973690247818921,
+      "pseudomonas_aeruginosa": 0.9862468258755528,
+      "staphylococcus_aureus": 0.937407026165841
+    },
+    "internal_utility": 0.7902343007870068,
+    "max_reference_ratio": 0.5909090909090908
+  },
+  {
+    "rank": 81,
+    "sequence": "GWWLVKRIIRVARFLVKRFIKYTGRVIGK",
+    "objective": "broad",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6096413230743352,
+      "enterococcus_faecalis": 0.9234477848894188,
+      "enterococcus_faecium": 0.7953291337291165,
+      "escherichia_coli": 0.9717499858107247,
+      "klebsiella_pneumoniae": 0.954644200134848,
+      "pseudomonas_aeruginosa": 0.9760328427930361,
+      "staphylococcus_aureus": 0.958526398395966
+    },
+    "internal_utility": 0.7851413538146019,
+    "max_reference_ratio": 0.56
+  },
+  {
+    "rank": 82,
+    "sequence": "FTRLVKHIVRVARFLVKIFIRYTGRVIGK",
+    "objective": "gram_positive",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6059603599704145,
+      "enterococcus_faecalis": 0.918791551837714,
+      "enterococcus_faecium": 0.7947615479915201,
+      "escherichia_coli": 0.9750957159465652,
+      "klebsiella_pneumoniae": 0.9306383540292361,
+      "pseudomonas_aeruginosa": 0.8612774606749536,
+      "staphylococcus_aureus": 0.9687991967675355
+    },
+    "internal_utility": 0.7958828808310031,
+    "max_reference_ratio": 0.6
+  },
+  {
+    "rank": 83,
+    "sequence": "RRRLVKGIIGYAGRLVKRFQKYLGRMAHK",
+    "objective": "broad",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.606954419987724,
+      "enterococcus_faecalis": 0.9007035948792478,
+      "enterococcus_faecium": 0.7947831759404512,
+      "escherichia_coli": 0.9766179424888856,
+      "klebsiella_pneumoniae": 0.9598619610352968,
+      "pseudomonas_aeruginosa": 0.9800937402738498,
+      "staphylococcus_aureus": 0.9654090525125337
+    },
+    "internal_utility": 0.7851176523612274,
+    "max_reference_ratio": 0.56
+  },
+  {
+    "rank": 84,
+    "sequence": "VGEGFKLVKRWAIKIIKRAWLRWKRKA",
+    "objective": "gram_negative",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6080160731233477,
+      "enterococcus_faecalis": 0.786266558944506,
+      "enterococcus_faecium": 0.7946501989299115,
+      "escherichia_coli": 0.9900096636421213,
+      "klebsiella_pneumoniae": 0.9751089189027203,
+      "pseudomonas_aeruginosa": 0.9817505843791644,
+      "staphylococcus_aureus": 0.9356812253924586
+    },
+    "internal_utility": 0.7902219824228449,
+    "max_reference_ratio": 0.6086956521739131
+  },
+  {
+    "rank": 85,
+    "sequence": "GRHFIQRILRWAARIFKKGRKLYKRKV",
+    "objective": "broad",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6099465752888195,
+      "enterococcus_faecalis": 0.9042005256184869,
+      "enterococcus_faecium": 0.7950508637488287,
+      "escherichia_coli": 0.9883547254332911,
+      "klebsiella_pneumoniae": 0.9602252276105573,
+      "pseudomonas_aeruginosa": 0.9856787806289778,
+      "staphylococcus_aureus": 0.9457816496240757
+    },
+    "internal_utility": 0.785110872809696,
+    "max_reference_ratio": 0.5957446808510638
+  },
+  {
+    "rank": 86,
+    "sequence": "GWRLVKFIRSVIRFVVKRFAKYGRRYYRK",
+    "objective": "gram_positive",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6108189070717374,
+      "enterococcus_faecalis": 0.9306142120105024,
+      "enterococcus_faecium": 0.7949913938027796,
+      "escherichia_coli": 0.9689061536533784,
+      "klebsiella_pneumoniae": 0.9576259075523592,
+      "pseudomonas_aeruginosa": 0.9633954763333795,
+      "staphylococcus_aureus": 0.9569854646464074
+    },
+    "internal_utility": 0.7955968906582807,
+    "max_reference_ratio": 0.5333333333333333
+  },
+  {
+    "rank": 87,
+    "sequence": "IRRFMFRWARIAGKILKKAYGLIKRKG",
+    "objective": "broad",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6098290135365444,
+      "enterococcus_faecalis": 0.888544159420832,
+      "enterococcus_faecium": 0.795060454587948,
+      "escherichia_coli": 0.9846576598848528,
+      "klebsiella_pneumoniae": 0.9630661654117457,
+      "pseudomonas_aeruginosa": 0.9838478105168512,
+      "staphylococcus_aureus": 0.964099260571076
+    },
+    "internal_utility": 0.7851027615235102,
+    "max_reference_ratio": 0.6428571428571428
+  },
+  {
+    "rank": 88,
+    "sequence": "IKTPLWRWARFAGRILKKAYKLGKRKV",
+    "objective": "gram_negative",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6098369932836436,
+      "enterococcus_faecalis": 0.8024324116997023,
+      "enterococcus_faecium": 0.7947750535398055,
+      "escherichia_coli": 0.9907715198341855,
+      "klebsiella_pneumoniae": 0.9684994455953769,
+      "pseudomonas_aeruginosa": 0.9879825435810735,
+      "staphylococcus_aureus": 0.9068793684237774
+    },
+    "internal_utility": 0.7901988311526049,
+    "max_reference_ratio": 0.5957446808510638
+  },
+  {
+    "rank": 89,
+    "sequence": "GYRMVKKIIRVARFLAWRFCRYLGRYLRK",
+    "objective": "broad",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6089480516007587,
+      "enterococcus_faecalis": 0.9124837840650946,
+      "enterococcus_faecium": 0.7951077817696706,
+      "escherichia_coli": 0.9754109484868888,
+      "klebsiella_pneumoniae": 0.9619522194935937,
+      "pseudomonas_aeruginosa": 0.9724852241073639,
+      "staphylococcus_aureus": 0.9603258622724254
+    },
+    "internal_utility": 0.7850876157318383,
+    "max_reference_ratio": 0.5283018867924528
+  },
+  {
+    "rank": 90,
+    "sequence": "GFRWFKFIIRVAIGLAKRFFRYLGRYLRK",
+    "objective": "gram_positive",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6080322809489478,
+      "enterococcus_faecalis": 0.9144970727845759,
+      "enterococcus_faecium": 0.7948721398417472,
+      "escherichia_coli": 0.9625576331194182,
+      "klebsiella_pneumoniae": 0.9413982158178545,
+      "pseudomonas_aeruginosa": 0.8904906920978296,
+      "staphylococcus_aureus": 0.9740835403491426
+    },
+    "internal_utility": 0.7955337483235227,
+    "max_reference_ratio": 0.5660377358490566
+  },
+  {
+    "rank": 91,
+    "sequence": "GGLFFIRVLRWAGKILKRARKIWKRKV",
+    "objective": "broad",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6097759214074666,
+      "enterococcus_faecalis": 0.8928338937427904,
+      "enterococcus_faecium": 0.7946526886549207,
+      "escherichia_coli": 0.9824349988592848,
+      "klebsiella_pneumoniae": 0.9472543493703495,
+      "pseudomonas_aeruginosa": 0.9873400906031105,
+      "staphylococcus_aureus": 0.9730658086562315
+    },
+    "internal_utility": 0.7850732992039726,
+    "max_reference_ratio": 0.6511627906976745
+  },
+  {
+    "rank": 92,
+    "sequence": "FAGKRKRVLGWAGAIAKRLWKIWKRKV",
+    "objective": "gram_negative",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6068063573989099,
+      "enterococcus_faecalis": 0.7579785797952091,
+      "enterococcus_faecium": 0.7940624539187892,
+      "escherichia_coli": 0.990310033448898,
+      "klebsiella_pneumoniae": 0.9704309656817732,
+      "pseudomonas_aeruginosa": 0.986517712911383,
+      "staphylococcus_aureus": 0.8890215100738895
+    },
+    "internal_utility": 0.7900408715810302,
+    "max_reference_ratio": 0.5909090909090908
+  },
+  {
+    "rank": 93,
+    "sequence": "GRWGVKRIIRRALFKVKRFIRYTGRYIKI",
+    "objective": "broad",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.609817459568235,
+      "enterococcus_faecalis": 0.9118938666635819,
+      "enterococcus_faecium": 0.7943213666503769,
+      "escherichia_coli": 0.9735870123659454,
+      "klebsiella_pneumoniae": 0.9589575607331872,
+      "pseudomonas_aeruginosa": 0.9775178715128683,
+      "staphylococcus_aureus": 0.9612163838251974
+    },
+    "internal_utility": 0.7849764775021096,
+    "max_reference_ratio": 0.5333333333333333
+  },
+  {
+    "rank": 94,
+    "sequence": "GYRMFKFIIRLARRLAIRFFRKLGRYLRK",
+    "objective": "gram_positive",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6109048931323865,
+      "enterococcus_faecalis": 0.9224439539629053,
+      "enterococcus_faecium": 0.7938287506383057,
+      "escherichia_coli": 0.9589582423820797,
+      "klebsiella_pneumoniae": 0.93096635887056,
+      "pseudomonas_aeruginosa": 0.9648178213703372,
+      "staphylococcus_aureus": 0.9650543982305811
+    },
+    "internal_utility": 0.7955023353699491,
+    "max_reference_ratio": 0.56
+  },
+  {
+    "rank": 95,
+    "sequence": "GGRLVKRIIRVAGFLVKRFIRKSGHYIGK",
+    "objective": "broad",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6086804927904947,
+      "enterococcus_faecalis": 0.9121368534910341,
+      "enterococcus_faecium": 0.7948228948697178,
+      "escherichia_coli": 0.9767809161723644,
+      "klebsiella_pneumoniae": 0.9582897676926972,
+      "pseudomonas_aeruginosa": 0.97616268408416,
+      "staphylococcus_aureus": 0.959488820123124
+    },
+    "internal_utility": 0.784928098020317,
+    "max_reference_ratio": 0.5573770491803278
+  },
+  {
+    "rank": 96,
+    "sequence": "FRHILKRWGRKAGRILKKAYILWKGKV",
+    "objective": "gram_negative",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6091310161059812,
+      "enterococcus_faecalis": 0.8402687284316267,
+      "enterococcus_faecium": 0.7943622246012908,
+      "escherichia_coli": 0.9865624312596903,
+      "klebsiella_pneumoniae": 0.9716683547771416,
+      "pseudomonas_aeruginosa": 0.9902711723487312,
+      "staphylococcus_aureus": 0.920813652034254
+    },
+    "internal_utility": 0.7899597452238304,
+    "max_reference_ratio": 0.5957446808510638
+  },
+  {
+    "rank": 97,
+    "sequence": "KRWLVKGIIRPARFLVKRFIRYTGRYIGK",
+    "objective": "broad",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6082065157261085,
+      "enterococcus_faecalis": 0.9114256682744708,
+      "enterococcus_faecium": 0.7946453510474587,
+      "escherichia_coli": 0.9769923230444562,
+      "klebsiella_pneumoniae": 0.960075635679542,
+      "pseudomonas_aeruginosa": 0.9651631957185827,
+      "staphylococcus_aureus": 0.9703454097142146
+    },
+    "internal_utility": 0.7849108352936573,
+    "max_reference_ratio": 0.5416666666666667
+  },
+  {
+    "rank": 98,
+    "sequence": "GKWLVGRIARVARFLVKRFIFYTGRVIGK",
+    "objective": "gram_positive",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6076647801313753,
+      "enterococcus_faecalis": 0.9261187845351113,
+      "enterococcus_faecium": 0.7952790926572734,
+      "escherichia_coli": 0.9755514458115053,
+      "klebsiella_pneumoniae": 0.9340897587302187,
+      "pseudomonas_aeruginosa": 0.970811237510229,
+      "staphylococcus_aureus": 0.9611505134707962
+    },
+    "internal_utility": 0.7953188895649832,
+    "max_reference_ratio": 0.5531914893617021
+  },
+  {
+    "rank": 99,
+    "sequence": "GRKLIKFIVRVARFLKKRFTRRYGRYLGR",
+    "objective": "broad",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6091300885183327,
+      "enterococcus_faecalis": 0.9015393629413723,
+      "enterococcus_faecium": 0.7934166471089856,
+      "escherichia_coli": 0.9823762245316594,
+      "klebsiella_pneumoniae": 0.9451099737759291,
+      "pseudomonas_aeruginosa": 0.9848618369159411,
+      "staphylococcus_aureus": 0.9715124349096559
+    },
+    "internal_utility": 0.7849084321052735,
+    "max_reference_ratio": 0.5660377358490566
+  },
+  {
+    "rank": 100,
+    "sequence": "FGHFFKRVKRWAAKIAKKAWKIGKRKS",
+    "objective": "gram_negative",
+    "target_predictions": {
+      "acinetobacter_baumannii": 0.6103790853807555,
+      "enterococcus_faecalis": 0.8471870233180216,
+      "enterococcus_faecium": 0.7943639572984539,
+      "escherichia_coli": 0.9845653522725272,
+      "klebsiella_pneumoniae": 0.9734387784964736,
+      "pseudomonas_aeruginosa": 0.9854447378383745,
+      "staphylococcus_aureus": 0.9195409841707985
+    },
+    "internal_utility": 0.7899016544308473,
+    "max_reference_ratio": 0.5833333333333333
+  }
+]

@@ -1,0 +1,96 @@
+schema_version = 3
+artifact = "context_eligible_peptide_ga_kernel_v3"
+status = "prospective_engineering_only"
+base_main = "77403abdfaa9309cf44bdccf05741a8ee7283a03"
+legacy_contract_sha256 = "04cd4fd7d010baeb07bdf2965cc01f4b1816609df44e6b37f0b118b18d4e3f1c"
+oracle_execution_implemented = false
+tuning_study_executed = false
+selected_tuning_result_available = false
+campaign_eligible = false
+scientific_evidence_accepted = false
+production_eligible = false
+
+[kernel]
+alphabet = "ACDEFGHIKLMNPQRSTVWY"
+min_length = 8
+max_length = 50
+candidate_prefix_size = 256
+proposal_attempt_cap = 65536
+elite_fraction = 0.25
+elite_parent_probability = 0.5
+objective_names = ["gram_positive_activity", "gram_negative_activity"]
+objective_weights = [0.5, 0.5]
+operator_order = ["substitution", "insertion", "deletion", "two_parent_crossover"]
+parent_order = "descending_eligible_observed_fitness_then_ascending_sequence_sha256"
+offspring_order = "accepted_attempt_order_without_posterior_reranking"
+infeasible_operator_policy = "remove_then_exact_rational_renormalization"
+propensity_scope = "realized_conditional_decision_trace_not_marginal_child_probability"
+
+[[configurations]]
+id = "ga_t3_default"
+tournament_size = 3
+operator_rates = [0.45, 0.15, 0.15, 0.25]
+
+[[configurations]]
+id = "ga_t3_mutation_heavy"
+tournament_size = 3
+operator_rates = [0.7, 0.1, 0.1, 0.1]
+
+[[configurations]]
+id = "ga_t5_default"
+tournament_size = 5
+operator_rates = [0.45, 0.15, 0.15, 0.25]
+
+[[configurations]]
+id = "ga_t5_mutation_heavy"
+tournament_size = 5
+operator_rates = [0.7, 0.1, 0.1, 0.1]
+
+[eligibility]
+required_query_ids_type = "exact_frozenset_of_strings"
+query_ids_support = "exact_external_subset_of_current_successful_charges"
+empty_subset = "valid_explicit_abstention_if_complete_nonterminal_history"
+implicit_all_eligible_default = false
+silent_trimming_or_intersection = false
+raw_charged_history_preserved = true
+all_charged_sequences_excluded = true
+failed_or_missing_status_relabeling = false
+ineligible_parent_selection = false
+ineligible_objective_numerical_use = false
+external_posterior_fit_authentication_implemented = false
+
+[identities]
+proposal_stream = "exact_legacy_v2_schema_domain_round_seed_with_ineligible_objectives_null_only_in_rng_document"
+all_eligible_parity = "exact_numerical_attempts_factors_rejections_and_accepted_order_not_receipt_identity"
+semantic_identity = "v3_context_membership_ordered_charge_sequence_status_eligible_objectives_config_exclusions_seed_round"
+full_provenance = "raw_verified_history_exact_eligible_query_ids_context_source_receipt_and_v3_contract"
+transport_identity_affects_randomness = false
+source_history_eligibility_checks = "before_work_after_work_and_after_encoding"
+expected_subset_verified_independently = true
+
+[handoff]
+special_statuses = ["paused_incomplete_history", "budget_complete_pending_controller_terminal", "abstained_no_eligible_parent", "stopped_deadline"]
+prefix_statuses_unchanged = ["complete", "in_progress", "attempt_cap_exhausted"]
+absolute_deadline_required = true
+resume_deadline_must_match_original = true
+verifier_expected_deadline_required = true
+prior_resume_claims_retained = true
+unverified_resume_stop_next_attempt_index = "unknown_none_never_zero_or_new_quota"
+prior_resume_claim_authentication = "outer_actual_prior_receipt_required_not_shape_or_producer_completion_flag"
+per_attempt_clock_check = true
+all_serialization_and_replay_time_charged = true
+hard_preemption_claimed = false
+durable_controller_rewrite = false
+legacy_source_changes = false
+
+[validation]
+account = "bio"
+partition = "standard"
+nodes = 1
+cpus_per_task = 2
+memory_gib = 8
+time_limit_seconds = 900
+gpu_count = 0
+fixtures = "synthetic_charged_peptide_histories_and_actual_pure_GA_edits_no_scientific_quality_claim"
+shared_environment_mutation = false
+automatic_retries = 0

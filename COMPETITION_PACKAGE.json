@@ -1,0 +1,9 @@
+{
+  "release": "/lustre/scratch/users/yonghan.yang/amp_challenge/competition-20260920/evolutionary_kl-no-updates-73121",
+  "oracle": "/lustre/scratch/users/yonghan.yang/amp_challenge/competition-20260920/oracle",
+  "source_commit": "0de732cc507de921ef5272e10caf6b553136c29b",
+  "generation": "uv sync; uv run --no-sync generate",
+  "hardware": "CUDA GPU by default; --device cpu supported but cross-device byte identity is not asserted",
+  "publication": "local_package_only_not_uploaded_or_submitted",
+  "training_data": "checkpoints/competition/training; original source and licensing documents retained under docs and data"
+}

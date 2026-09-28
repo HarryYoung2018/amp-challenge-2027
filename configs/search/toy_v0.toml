@@ -1,0 +1,58 @@
+schema_version = 1
+seed = 481
+alphabet = "ADKR"
+length = 8
+rounds = 1
+branches = 8
+proposals = 24
+evaluations = 4
+context_id = "balanced"
+fidelity = "toy-expensive"
+evaluator_version = "planted-additive-pair-v1"
+
+[batching]
+profile = "local_smoke_v1"
+rollout_batch_size = 1
+proposal_batch_size = 24
+surrogate_batch_size = 32
+kg_candidate_chunk_size = 8
+kg_fantasy_chunk_size = 16
+kg_max_joint_size = 7
+kg_max_combinations = 65536
+oracle_batch_size = 4
+replay_max_sequences = 8
+replay_max_tokens = 64
+replay_length_bucket_boundaries = [8]
+gradient_accumulation_steps = 1
+
+[kg]
+temperature = 0.20
+fantasies = 64
+standard_error_multiplier = 0.5
+toxicity_upper = 1.80
+max_violation_probability = 0.20
+
+[search]
+exploration_scale = 1.0
+branch_yield_reference = -1.5
+credit_mix = 0.35
+credit_floor = 0.5
+credit_ceiling = 2.0
+credit_decay = 0.8
+widening_coefficient = 32.0
+widening_exponent = 0.5
+thompson_scale = 1.25
+risk_kappa = 0.25
+random_evaluation_reserve = 1
+
+[replay]
+timestep = 1.0
+temperature = 0.5
+clip = 4.0
+learning_rate = 0.8
+preference_beta = 3.0
+preference_clip = 4.0
+local_kl_limit = 0.01
+reference_path_kl_limit = 0.08
+local_kl_p99_limit = 0.02
+reference_transition_kl_p99_limit = 0.02

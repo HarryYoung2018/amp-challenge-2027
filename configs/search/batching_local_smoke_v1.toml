@@ -1,0 +1,17 @@
+schema_version = 1
+
+[batching]
+# Deliberately tiny: this profile is for invariant checks on a laptop only.
+profile = "local_smoke_v1"
+rollout_batch_size = 1
+proposal_batch_size = 24
+surrogate_batch_size = 32
+kg_candidate_chunk_size = 8
+kg_fantasy_chunk_size = 16
+kg_max_joint_size = 7
+kg_max_combinations = 65536
+oracle_batch_size = 4
+replay_max_sequences = 8
+replay_max_tokens = 64
+replay_length_bucket_boundaries = [8]
+gradient_accumulation_steps = 1

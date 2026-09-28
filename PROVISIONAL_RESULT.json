@@ -1,0 +1,20 @@
+{
+  "scope": "provisional_no_update_control_not_final_updating_method",
+  "full_files_byte_identical": true,
+  "hashes": {
+    "library.fasta": "da5a539e0c87d96e619b35cc4797f87c98f17299a1e74748bee32ea3522262af",
+    "top.fasta": "9468806fa0de304844e6b7fa89be34f59916e8688844e7834626bf08bbd79958"
+  },
+  "audit": {
+    "library_count": 50000,
+    "top_count": 100,
+    "reference_count": 39448,
+    "issue_count": 0,
+    "issues": []
+  },
+  "direct_generation_job": 250523,
+  "packaged_generation_job": 250591,
+  "accepted_model_updates": 0,
+  "biological_validation": false,
+  "externally_submitted": false
+}

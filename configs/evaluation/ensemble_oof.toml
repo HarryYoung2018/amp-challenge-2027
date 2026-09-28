@@ -1,0 +1,31 @@
+schema_version = 1
+
+# Frozen before inspecting the final comparison metrics. Changing this list
+# defines a new experiment rather than an update to the current benchmark.
+methods = [
+  "descriptor_logistic",
+  "homology_knn",
+  "equal_weight_ensemble",
+  "apex_member_mean",
+  "equal_family_blend",
+  "nested_fold_local_logistic_stack",
+]
+stack_features = ["descriptor_logistic", "homology_knn", "apex_member_mean"]
+stack_input_transform = "logit"
+stack_evaluation_status = "nested_outer_inner_cross_fit"
+probability_clip = 1e-6
+stack_l2 = 0.1
+stack_prior_strength = 2.0
+stack_max_iterations = 100
+stack_tolerance = 1e-9
+calibration_bins = 10
+bootstrap_replicates = 500
+seed = 20260902
+
+# A new family is promoted only when paired cluster resampling supports both a
+# ranking improvement and improvements in two proper probability scores.
+promotion_reference = "equal_weight_ensemble"
+promotion_candidates = ["equal_family_blend", "nested_fold_local_logistic_stack"]
+promotion_auc_delta_lower_minimum = 0.0
+promotion_brier_delta_upper_maximum = 0.0
+promotion_log_loss_delta_upper_maximum = 0.0

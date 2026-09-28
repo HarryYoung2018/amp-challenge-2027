@@ -1,142 +1,111 @@
-# AMP Challenge 2027
+# AMP Challenge 2027 — frozen-mixture diffusion search under a distance budget
 
-> International competition for generative AI in antimicrobial peptide design.
+Submission entry for the [AMP Challenge 2027](https://github.com/szczurek-lab/amp-challenge-2027).
+See [ABSTRACT.md](ABSTRACT.md) for the method summary and
+[DATA_DISCLOSURE.md](DATA_DISCLOSURE.md) for the full training-data disclosure.
 
-Antimicrobial resistance is one of the most pressing global health challenges. This competition invites participants to develop generative models that design novel antimicrobial peptides (AMPs) with activity against a panel of clinically relevant bacterial strains, including multi-drug resistant ESKAPE pathogens.
+All activity values below are **internal model predictions**, not measured
+potency, selectivity or safety. No wet-lab validation is claimed.
 
-## Submission Requirements
-
-### Minimum (benchmark participation)
-- Abstract summarizing the method
-- Library of 50,000 designed AMPs
-- Ranked top-100 candidates with selection/ranking documentation
-- Short summary of training data, external databases, and any filters applied
-- GitHub repository (private is fine) with model weights and inference code; grant read access to [@RasmusML](https://github.com/RasmusML) and [@szymczakpau](https://github.com/szymczakpau)
-
-### Full (co-authorship eligibility)
-All of the above, plus:
-- Public GitHub repository with model weights, inference code, and usage docs
-- Permissive OSI-approved license (MIT, BSD-3-Clause, or Apache 2.0)
-- Uses **[`uv`](https://docs.astral.sh/uv/concepts/projects/init/#projects)** for dependency management (include `uv.lock` and a defined Python version)
-- Entry point runnable via `uv run generate` generating the 50,000-member library and top-100 list; any additional arguments must have defaults
-- Fixed default random seed (identical output on repeated runs)
-- Full training data disclosure; any non-public data must be released under a permissive license
-
-## Sequence Requirements
-
-Generated sequences must:
-
-- Use only the 20 standard proteinogenic amino acids (`ACDEFGHIKLMNPQRSTVWY`)
-- Be between 8 and 50 residues long
-- Be unique (no duplicates)
-- Be linear with free termini (no terminal modifications, including amidation)
-- Exclude noncanonical amino acids, stapled peptides, peptidomimetics, and chemically modified variants (lipidated, glycosylated, PEGylated, dendrimeric, etc.)
-
-The full 50,000-sequence library must additionally contain no sequences identical to known antibacterial peptides in `data/antibacterial.fasta`. The top-100 list is held to a stricter standard: no sequence may exceed 80% sequence identity (Levenshtein ratio) with any sequence in that reference set.
-
-## Getting Started
-
-This repository also serves as a working example — see [src/amp_challenge_2027/generate.py](src/amp_challenge_2027/generate.py) for a complete implementation that meets all requirements.
-
-The steps below walk through building a minimal submission. Replace `my-model` with your model name throughout.
-
-### 1. Initialize the project
+## Quick start
 
 ```bash
-uv init --package my-model
-cd my-model
-```
-
-### 2. Add the entry point
-
-In `pyproject.toml`, add a `[project.scripts]` section:
-
-```toml
-[project.scripts]
-generate = "my_model.generate:main"
-```
-
-Note: to add package dependencies, use `uv add <package>` instead of editing `pyproject.toml` directly.
-
-### 3. Implement `generate.py`
-
-Running the entry point produces two files in a `generate/` subdirectory:
-
-```
-generate/
-  library.fasta  ← full 50,000-sequence library
-  top.fasta      ← top-100 ranked sequences
-```
-
-
-See [src/amp_challenge_2027/generate.py](src/amp_challenge_2027/generate.py) for a complete example.
-
-### 4. Run locally
-
-Install dependencies and test your script:
-
-```bash
+uv sync
 uv run generate
 ```
 
-Optional arguments (must have defaults):
+That command needs no arguments and every argument has a default. It writes
+`generate/library.fasta` (50,000 peptides), `generate/top.fasta` (ranked top
+100), `generate/top_metadata.json` and `generate/manifest.json`, using the
+bundled no-update frozen mixture and fixed seed **42**. Repeated runs on the
+same device reproduce byte-identical output. A CUDA GPU is used by default;
+`--device cpu` works but cross-device byte identity is not asserted.
 
-| Flag | Default | Description |
-|------|---------|-------------|
-| `--n-sequences` | `50000` | Number of sequences to generate |
-| `--top-k` | `100` | Number of top-ranked sequences to write |
-| `--seed` | `42` | Random seed for reproducibility |
-| `--length` | `50` | Length of each generated sequence |
+To verify against the organizer's own checker, run `scripts/verify_submission.py`
+from the starter kit against this repository. It is not vendored here because it
+depends on the GPL-licensed `Levenshtein` package; this repository uses
+MIT-licensed RapidFuzz for the same normalized-indel ratio.
 
-### 5. Verify
+The pre-generated outputs are also committed under `submission/`, so the
+libraries can be inspected without running the model.
 
-Push your project (including `uv.lock`) to a **public** GitHub repository, then run the validator:
+## What is in this repository
 
-```bash
-uv run python scripts/verify_submission.py <github-url>
-```
+| Path | Contents |
+| --- | --- |
+| `submission/no-update-control/` | **Primary submission.** 50,000-peptide library and ranked top 100 from the frozen no-update mixture. |
+| `submission/updating-total-variation/` | Alternative submission from the total-variation updating run (63 accepted policy updates). |
+| `checkpoints/competition/evolutionary/` | The ten frozen generator policies used by the default entry point. |
+| `checkpoints/competition/oracle/` | Target-specific reward ensemble and its grouped out-of-fold report. |
+| `checkpoints/competition/embedding/` | Pretrained ESM-2 `esm2_t6_8M_UR50D` encoder (frozen). |
+| `checkpoints/competition/training/` | Exact training projections for every trained model. |
+| `src/amp_challenge/` | Generation, search, reward and selection code. |
+| `MANIFEST.json`, `CHECKSUMS.sha256` | Identities for every shipped file. |
 
+The 2.5 GB weight bundle for the updating run's 640-component mixture is
+attached to the tagged GitHub release rather than committed, together with that
+run's 63 adaptive update records.
 
-### 6. Submit
+## Method
 
-To submit, head to the Kaggle competition page: https://www.kaggle.com/competitions/amp-challenge
+Ten categorical discrete-diffusion generators (six Transformer layers, width
+128, four heads, feed-forward width 384, 64 diffusion levels, 1,015,572
+parameters each) are trained on a 698-peptide corpus. Search is evolutionary
+remasking: a parent is partially remasked at a scheduled noise level and
+denoised into children, which are scored by a target-specific reward ensemble
+over frozen mean-pooled ESM-2 embeddings (random forest, LightGBM and
+cosine-neighbour predictor, equally weighted, one model set per target).
 
-## Validation
+Policy updates are constrained twice over:
 
-Verify your submission with:
+- **Locally**, an updated policy's conditional distribution at forward-noised
+  replay anchors must stay within total variation 0.05 of the previous policy;
+  candidates are interpolated back toward the old policy until they pass.
+- **Globally**, an updated component enters the sampling mixture with at most
+  1/20 of the mass, and exactly one component is drawn per complete generation
+  trajectory. This makes `TV(P_new, P_old) <= 1/20` hold exactly for the
+  whole-peptide distribution, independent of any sampled probe.
 
-```bash
-uv run python scripts/verify_submission.py <github-url>
-```
+## Results
 
-This clones your repo, installs dependencies, generates the full library and ranked top-100 into `generate/library.fasta` and `generate/top.fasta`, verifies both files, then generates them again to confirm the output is reproducible.
+Both libraries pass the organizer's checks against all 39,448 reference records
+with **zero issues**: 50,000 unique sequences, canonical alphabet, length 8-50,
+and no top-100 sequence above 80% Levenshtein identity to any reference.
 
-| Argument | Default | Description |
-|----------|---------|-------------|
-| `url` | — | GitHub repository URL (required positional) |
-| `--branch` | repo default | Git branch to clone |
-| `--dir` | `submission/` | Directory to clone into |
-| `--extra` | — | Optional [uv](https://docs.astral.sh/uv/concepts/projects/init/#projects) extras to install (repeatable) |
-| `--antibacterial-fasta` | `data/antibacterial.fasta` | FASTA file of known antibacterial sequences to check for overlap |
+| | No-update control (default) | Updating total variation |
+| --- | ---: | ---: |
+| Library size | 50,000 | 50,000 |
+| Accepted policy updates | 0 | 63 |
+| Top-100 mean predicted activity | 0.878970 | 0.879875 |
+| Top-100 lower decile | 0.867099 | 0.866718 |
+| Top-100 mean pairwise Indel similarity | 0.514635 | 0.513374 |
+| Audit issues | 0 | 0 |
 
-## Starter Kits
+**Why the no-update mixture is the default.** The updating variant is ahead by
+0.0009 on top-100 mean and behind on the lower decile — well inside run-to-run
+noise. In our own matched three-seed search comparison the updating variant did
+not beat the no-update control on the primary endpoint. We therefore ship the
+simpler, fully frozen policy as the primary deliverable and publish the updating
+variant beside it rather than selecting the nominally higher number after the
+fact.
 
-The following starter kits are compatible with this submission format:
+## Honest limitations
 
-- [ampdiffusion-starter-kit](https://github.com/szczurek-lab/ampdiffusion-starter-kit)
-- [hydramp-starter-kit](https://github.com/szczurek-lab/hydramp-starter-kit)
+- Reported activity is a **model prediction**, on a binary per-target
+  probability scale. Continuous MIC, hemolysis and MDR-strain-specific activity
+  are explicitly unsupported endpoints.
+- Grouped out-of-fold, the reward ensemble does **not** clearly beat a plain
+  descriptor logistic-regression baseline (ensemble Brier 0.2007 / log loss
+  0.5857 / ROC-AUC 0.6751 / AP 0.8261; descriptor baseline 0.1966 / 0.5807 /
+  0.6843 / 0.8185). It is ahead on average precision and behind on the other
+  three. Treat it as a usable ranking surrogate, not a validated oracle.
+- The reward averages seven bacterial targets, and the available measured data
+  do not cover every one of them equally.
+- The whole-output 5% bound applies to the sampling policy mixture. It is **not**
+  claimed for the post-hoc selected 50,000-member library, which is filtered and
+  ranked after generation.
 
-## Project Structure
+## License
 
-```
-amp-challenge-2027/
-├── checkpoint/
-│   └── weights.csv          # Trained model weights
-├── scripts/
-│   └── verify_submission.py # Submission validator
-├── src/
-│   └── amp_challenge_2027/
-│       └── generate.py      # Entry point: sequence generation logic
-├── pyproject.toml
-└── uv.lock
-```
+MIT (see [LICENSE](LICENSE)). Third-party components and their terms are listed
+in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

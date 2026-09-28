@@ -1,0 +1,103 @@
+schema_version = 2
+artifact = "native_baseline_context_eligibility_v2"
+status = "prospective_engineering_declaration_before_implementation_or_tests"
+source_base = "9dce39212e1e58a1c4ab0129e7cab81083fcef66"
+legacy_numerical_config_sha256 = "7c11d94602d7fef0186df0c0ae733f2a16263266db7b537c567045e1d53fce16"
+methods = ["diffusion_reward_kl_no_search", "arcadiamp_style_iterative_d3pm"]
+categorical_posthoc_changed = false
+scientific_evidence_accepted = false
+campaign_eligible = false
+production_eligible = false
+oracle_execution_authorized = false
+
+[admission]
+history_type = "exact_VerifiedHistorySnapshot_unmodified"
+eligibility_fields = ["history_sha256", "objective_context_sha256", "source_sha256", "receipt_sha256", "query_ids"]
+query_ids = "exact_frozenset_of_current_successful_query_IDs"
+external_expectations = ["raw_history_sha256", "objective_context_sha256", "eligibility_source_sha256", "eligibility_receipt_sha256", "eligible_query_ids", "previous_wave_head_sha256", "previous_update_envelope_sha256"]
+expected_checks_before_idempotent_or_paused_return = true
+prior_membership = "immutable_for_all_prior_charged_rows_under_fixed_context_and_source"
+prior_eligible_removal = "reject"
+prior_ineligible_promotion = "reject"
+new_membership = "only_appended_charged_rows"
+raw_status_values_charge_order_and_collision_inventory_preserved = true
+incomplete_history = "no_training_retained_admission_prefix_not_new_allowance"
+
+[numerical_delta]
+selection_order = ["successful_and_context_eligible_membership", "legacy_scalarize", "legacy_AR_threshold_if_applicable", "legacy_per_step_semantic_hash_top64", "legacy_selected_row_weights"]
+reward_maximum_scope = "selected_eligible_top64_only"
+anchor_count_and_denominator = "actual_min_64_generator_corpus_count"
+anchor_revealed_mass = "unchanged_50_50"
+no_supported_rows = "legacy_explicit_no_update_never_anchor_only"
+all_other_numerics = "exact_legacy_numerical_config_and_native_primitives"
+reward_schedule = "one_attempt_at_initial_round1_then_frozen"
+iterative_schedule = "four_steps_at_complete_rounds2_through28_no_initial_or_terminal_update"
+row_order_seed_and_domain = "unchanged_native_baseline_replay_v1"
+corruption_seed_and_ordinal = "unchanged_native_training_seed_and_round_times4_plus_step"
+proposal_seed_ordinals_and_length_law = "unchanged_exact_inner_native_ensemble"
+eligibility_or_provenance_digest_added_to_rng = false
+numerical_input_digest = "mode_config_context_seed_round_and_ordered_sequence_status_membership_including_eligible_objective_values_excluding_ineligible_objective_values_and_transport_IDs_never_an_rng_seed"
+raw_history_projection_or_status_relabeling = false
+unlearning_reset_or_refit = false
+
+[composition]
+inner = "exact_NativeBaselineEnsemble_not_subclass"
+legacy_advance_used_for_new_training = false
+legacy_propose_and_verify_native_pool_reused = true
+global_monkeypatch_or_function_injection = false
+update_receipts = "unchanged_NativeBaselineAdvance_steps_inside_new_source_and_eligibility_bound_envelope"
+step_origin = "ordered_selected_revealed_query_IDs_per_student_and_step"
+pool_admission = "accepted_update_envelope_and_exact_resulting_policy_identities_before_legacy_pool_verification"
+replacement_lineage = "unchanged_initializer_metadata_training_IDs_ordered_corpus_reference_and_model_configuration_against_trusted_predecessor"
+commit = "whole_tuple_after_independent_update_reconstruction_encoding_final_clock_then_callback_free_binding_checks"
+failure = "retain_partial_evidence_no_unit_history_receipt_or_pool_commit_no_implicit_retry"
+same_history_resume = "exact_raw_history_applicability_receipt_context_source_predecessor_and_original_clock"
+historical_v1_receipt_migration = false
+
+[verification]
+independent_update_reconstruction = "derive_admission_selection_weights_corruption_probes_gradient_backtracks_status_and_replacements_without_producer_selector_or_advance"
+shared_numerical_primitives = "accepted_native_weighted_training_endpoint_and_trace_scorer_disclosed_not_independent_neural_implementation"
+all_eligible_parity = "same_rows_weights_masks_gradients_diagnostics_decisions_model_hashes_and_proposal_traces_wrapper_provenance_differs"
+ineligible_value_and_transport_invariance = "same_numerics_different_full_provenance"
+external_applicability_and_time_truth_authenticated_here = false
+
+[resources]
+scientific_wall_seconds_per_run = 7200
+deadline = "externally_supplied_original_absolute_deadline_and_epoch_never_now_plus7200"
+deadline_and_every_clock_read = "exact_builtin_int_or_float_excluding_bool_finite_overflow_safe_rejection"
+new_wave_cap = false
+existing_campaign_limits_changed = false
+reconstruction_encoding_and_failed_work_charged = true
+hard_preemption = "external_controller_owned"
+automatic_retry_or_fresh_allowance = false
+
+[engineering_validation]
+development_jobs_maximum = 1
+exact_complete_regression_jobs_maximum = 1
+source_review_before_each_submission_required = true
+account = "bio"
+partition = "standard"
+nodes = 1
+cpus_per_job = 2
+memory_gib_per_job = 8
+seconds_per_job = 900
+aggregate_allocated_cpu_seconds_maximum = 3600
+jobs_sequential = true
+gpus = 0
+requeue = false
+dependency_install_or_shared_environment_change = false
+test_models = "deterministic_tiny_actual_NativeDenoiser_fixtures_not_audited_real_checkpoints"
+complete_files_each_job = ["tests/test_native_baseline_context_eligibility_v2.py", "tests/test_native_baseline_operators.py", "tests/test_native_subset_endpoint.py", "tests/test_native_endpoint_batching.py", "tests/test_charged_missing_status.py"]
+test_exclusions_or_selective_success_claim = false
+uncached_lint_and_format_check = true
+pytest_plugin_autoload = false
+inherited_pytest_addopts = false
+exact_job = "clean_frozen_commit_all_changed_blob_and_spooled_launcher_checks_before_and_after"
+failure_or_timeout = "retain_report_and_stop_no_unapproved_rerun_or_cap_extension"
+
+[scope_limits]
+durable_controller_transport_or_checkpoint_resume = false
+qualified_feasibility_or_oracle = false
+actual_operator_path_or_global_kl_qualification = false
+posthoc_ranking_or_private_448_identity_plan = false
+real_model_training_tuning_or_scientific_campaign = false

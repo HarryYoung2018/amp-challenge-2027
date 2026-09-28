@@ -1,0 +1,10 @@
+name = "AMP Challenge antibacterial reference"
+path = "data/antibacterial.fasta"
+source_repository = "https://github.com/szczurek-lab/amp-challenge-2027"
+source_commit = "5c8a5d8e2551c8cf572d3d3bfcfe7633b109d91e"
+source_license = "BSD-3-Clause"
+retrieved_at = "2026-09-02"
+sha256 = "cbbeac64ba95746d87961e8ad9dd0849ae8058d15a300b2e7f6990730ca521e9"
+records = 39448
+bytes = 4318298
+role = "compliance_reference_only"

@@ -1,0 +1,25 @@
+seed = 42
+alphabet = "ACDEFGHIKLMNPQRSTVWY"
+min_length = 8
+max_length = 50
+mask_schedule = "cosine"
+condition_dropout = 0.15
+self_conditioning = true
+prediction_target = "clean_token"
+sampling_steps = 64
+guidance_scale = 1.5
+
+[model]
+kind = "sequence_transformer"
+layers = 8
+hidden_dim = 512
+attention_heads = 8
+dropout = 0.10
+
+[training]
+cluster_balanced_sampling = true
+learning_rate = 0.0002
+weight_decay = 0.01
+batch_tokens = 16384
+max_steps = 100000
+

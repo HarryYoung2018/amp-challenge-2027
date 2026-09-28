@@ -1,0 +1,108 @@
+schema_version = 1
+artifact = "candidate_diversity_novelty_v1"
+status = "predeclared_development_diversity_novelty_handoff"
+automatic_production_eligible = false
+allowed_consumer = "development_diversity_novelty_selection_only"
+expected_candidates = 115536
+expected_training_rows = 914
+expected_reference_records = 39448
+alphabet = "ACDEFGHIKLMNPQRSTVWY"
+uncertainty_status = "unavailable"
+reference_similarity_threshold = 0.80
+
+[accepted_mean_ledger]
+producer_job_id = 225404
+audit_job_id = 225410
+git_commit = "3ddf2da9c8994c121b555719a103142fc7728a5b"
+config_sha256 = "96f8c80be56165b0612be1d57009503ee0593ca5be42b397ef03a426f5670eb2"
+publication_top_sha256 = "b9c3cde2c6d4c53308816d8f19602b390c8dcd7dec7bf737295f86556eb7f647"
+publication_tree_sha256 = "7f5fad169bfb4db71cc6a7d1d93b8c7c8cc8b595bb84f6ef6af2d16fde9b318e"
+candidate_ledger_sha256 = "62d6a256caace067ec3ea46424e251461d87fc55775485392394de6f10d49fbc"
+diagnostics_sha256 = "590e89dbca31c98965668ad2805a948c589917d9ac9763e31403783da7f16831"
+manifest_sha256 = "6f4bdf57beed782932c215480f5b26b6c49fae37aa555de7bb119cb881a00e46"
+independent_verification_sha256 = "358458c62bb76aea32a28f93ddc14fe67cb651bc20a471d5ed6eb61ff5c3b7c4"
+operational_audit_sha256 = "b887c192f42906f872fd9a938f327917e525e1c6ee3de9f6ed35a47f68a065d4"
+model_release_id = "98bdb74cd26b7652d18feb476f926eadfb9e4ac80369bb92b0c2608420473ab6"
+
+[accepted_training_projection]
+stage_job_id = 223738
+git_commit = "3e81822a1e2fa2c5b0bfcbd6527d1e9ea31a8474"
+projection_sha256 = "127a0eb88c5dc10c94904dcc5a3e98ff75a55890dc29af807e99f3f93c61ae46"
+projection_size_bytes = 146365
+receipt_sha256 = "065646732dded9a2de92f312f7b0f0d2ab4084379ece8682ef073fb07902152f"
+receipt_size_bytes = 1079
+fields = ["sequence_id", "sequence", "sampling_weight"]
+weighting = "component_equal_sampling_weight_from_accepted_train_projection"
+
+[organizer_reference]
+sha256 = "cbbeac64ba95746d87961e8ad9dd0849ae8058d15a300b2e7f6990730ca521e9"
+size_bytes = 4318298
+source_commit = "5c8a5d8e2551c8cf572d3d3bfcfe7633b109d91e"
+role = "compliance_reference_only"
+
+[features]
+feature_space = "physchem_descriptors_plus_canonical_amino_acid_fractions_v1"
+descriptor_names = [
+  "length",
+  "molecular_weight_da",
+  "net_charge",
+  "charge_density",
+  "isoelectric_point",
+  "mean_hydrophobicity",
+  "hydrophobic_moment",
+  "hydrophobic_fraction",
+  "aromatic_fraction",
+  "basic_fraction",
+  "acidic_fraction",
+  "shannon_entropy",
+  "max_residue_fraction",
+]
+residue_order = "ACDEFGHIKLMNPQRSTVWY"
+feature_count = 33
+descriptor_ph = 7.4
+hydrophobic_moment_angle_degrees = 100.0
+isoelectric_point_lower_ph = 0.0
+isoelectric_point_upper_ph = 14.0
+isoelectric_point_iterations = 60
+free_termini = true
+fit_rows = "accepted_training_projection_only"
+training_weighting = "sampling_weight"
+weighted_mean_algorithm = "math_fsum_of_weight_times_value_divided_by_math_fsum_weights"
+weighted_scale_algorithm = "population_sd_sqrt_math_fsum_weight_times_squared_centered_value_divided_by_math_fsum_weights"
+standardization = "candidate_raw_minus_training_weighted_mean_divided_by_training_weighted_population_sd"
+row_normalization = "euclidean_l2_after_standardization"
+output_dtype = "float32"
+byte_order = "little_endian"
+memory_order = "C"
+csv_float_format = "shortest_roundtrip_little_endian_float32"
+
+[similarity]
+implementation = "rapidfuzz.distance.Indel.normalized_similarity"
+value_range = "zero_to_one"
+training_reduction = "exact_maximum_over_all_accepted_training_sequences"
+nearest_training_tie_break = "lexicographically_smallest_sequence_id"
+novelty = "one_minus_max_train_indel_similarity"
+reference_rule = "unsafe_if_any_unique_organizer_reference_similarity_strictly_exceeds_threshold"
+reference_threshold_equality = "safe"
+reference_witness_tie_break = "lexicographically_smallest_sequence_id"
+reference_maximum_similarity_stored = false
+length_pruning = "upper_bound_two_times_min_length_divided_by_sum_lengths"
+candidate_chunk_size = 1024
+choice_chunk_size = 1024
+worker_default = 4
+worker_minimum = 1
+worker_maximum = 128
+worker_count_affects_output_bytes = false
+
+[claims]
+calibrated_uncertainty = false
+cluster_assignment = false
+esm_embedding = false
+final_ranking = false
+hemolysis_risk = false
+mdr_eskape_activity = false
+out_of_distribution = false
+production_ensemble = false
+quality_probability = false
+reference_witness_is_reference_maximum = false
+selectivity = false

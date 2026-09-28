@@ -1,0 +1,49 @@
+schema_version = 1
+method = "mp2d_style_inference_search"
+scientific_evidence_accepted = false
+production_eligible = false
+oracle_calls = 0
+paper = "https://arxiv.org/abs/2605.05829v1"
+
+[search]
+starts = 8
+global_passes = 2
+expansions_per_tree = 4
+children_per_expansion = 8
+direction_bank_size = 64
+ucb_exploration = 0.1
+angle_initial_degrees = 45.0
+angle_minimum_degrees = 15.0
+angle_maximum_degrees = 75.0
+rejection_ema_initial = 0.3
+rejection_ema_old_weight = 0.5
+rejection_target = 0.3
+mpi_lambda = 1.0
+shortlist_cap = 256
+attempt_cap = 1024
+posterior_unique_cap = 1024
+native_batch_rows = 128
+native_microbatch_rows = 16
+posterior_batch_rows = 128
+wave_seconds_cap = 120.0
+
+[protocol_limits]
+scientific_seconds = 7200
+charged_calls = 512
+initial_charges = 64
+adaptive_rounds = 28
+method_seats_per_round = 14
+private_reserve_seats_per_round = 2
+gpus = 1
+cpus = 8
+host_gib = 32
+gpu_peak_gib = 16
+output_gib = 5
+clock_reset_on_resume = false
+
+[scope]
+generator = "audited_direct_logit_unconditional_64_level_cosine_uniform_subset_epsilon_0.001"
+posterior = "frozen_wave_vector_mean_esm320_plus_normalized_length"
+feasibility = "fixed_context_supplied_checks_not_imputed_HC50_or_oracle_truth"
+numerical_rng = "semantic_history_seed_round_config_not_transport_receipt_or_timing"
+source = "independent_adaptation_no_paper_code_copied_no_reproduction_claim"

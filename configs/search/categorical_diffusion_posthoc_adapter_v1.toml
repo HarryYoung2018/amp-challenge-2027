@@ -1,0 +1,135 @@
+schema_version = 1
+artifact = "categorical_diffusion_posthoc_engineering_adapter_v1"
+status = "blocked_no_accepted_policy_or_campaign_assets"
+evidence_class = "structural_engineering_only_external_inputs_unauthenticated"
+execution_authorized = false
+oracle_calls_authorized = false
+scientific_evidence_accepted = false
+production_input_eligible = false
+automatic_generator_mixture_eligible = false
+biological_superiority_claim_allowed = false
+accepted_policy_sets = []
+external_request_identity_authenticated = false
+external_policy_member_identities_authenticated = false
+external_trajectory_receipts_authenticated = false
+external_initial64_snapshot_authenticated = false
+external_common_reserve_inventory_authenticated = false
+charged_call_evidence_present = false
+charged_call_output = "unauthenticated_structural_claim_only"
+
+[identity]
+frozen_research_protocol_sha256 = "ccbc55e5f20d851c3495413ff1f26f8ed2e0e0e818b076fde76641937c346463"
+frozen_real_campaign_registry_v1_sha256 = "059a3b30770028a1d95d71e766df99937059dd60bd9216f212f2b83a2ec01da3"
+frozen_controller_v2_contract_sha256 = "7bf1afa4282c90f71d6607a086e771da925f83482d7687ab0e1a1244439caaac"
+native_fixture_sampler_v1_sha256 = "6a9e2853185678a00f87654dedae318bf67e48ba69580f1309fa926142c3b5da"
+native_pilot_contract_sha256 = "9499e40d348ce2542f99f4363f34b790f7c09a75b2ebcb92d40fe4aad6e9457d"
+native_parent_contract_sha256 = "4a13952a606e154b652f8bbc1e8f698b5993ee1a41181867c979729709573d40"
+accepted_policy_count = 0
+required_future_policy_count = 10
+required_training_folds_per_policy = 3
+required_future_trajectory_receipt = true
+production_sampler_construction_allowed = false
+
+[generation]
+mode = "generate_once_before_scoring"
+target_slots = 2048
+attempts_per_slot = 8
+attempt_count = 16384
+attempt_ordinal = "slot_times_8_plus_attempt"
+acceptance_order = "slot_then_attempt"
+policy_member_count = 10
+policy_member_schedule = "source_ordinal_modulo_10"
+sample_counter = "source_ordinal"
+per_output_trajectory_receipt_required = true
+support_alphabet = "ACDEFGHIKLMNPQRSTVWY"
+minimum_length = 8
+maximum_length = 50
+maximum_raw_output_characters = 256
+maximum_raw_output_utf8_bytes = 256
+maximum_attempt_jsonl_line_bytes = 2048
+accepted_fill_filters = [
+  "canonical_support",
+  "duplicate_of_previously_accepted_sequence",
+  "exact_generator_training_overlap",
+  "accepted_training_homology_exclusion",
+]
+organizer_reference_visible = false
+organizer_reference_may_shape_generation = false
+organizer_reference_may_shape_bounded_fill = false
+
+[scoring]
+mode = "rank_once_after_generation"
+posterior_conditioning_scope = "future_requires_authenticated_common_initial_64_v1_records_untrusted_digest_only"
+required_initial_response_count = 64
+adaptive_response_inputs_allowed = false
+reranking_allowed = false
+chance_feasibility = "joint_probability_greater_than_or_equal_to_snapshot_threshold"
+utility = "arithmetic_mean_gram_positive_and_gram_negative_posterior_means"
+ranking_order = [
+  "chance_feasible_descending",
+  "posterior_mean_utility_descending",
+  "canonical_sequence_id_ascending",
+  "source_ordinal_ascending",
+]
+nonfinite_input = "hard_stop"
+degenerate_joint_support = "unauthenticated_structural_affine_support_claim_only"
+
+[controller]
+adaptive_waves = 28
+method_seats_per_wave = 14
+common_reserve_seats_per_wave = 2
+method_seat_count = 392
+calls_per_wave = 16
+total_unique_logical_calls = 512
+method_stream = "immutable_prefix_of_feasible_ranked_pool"
+duplicate_identity = "skip_without_call_or_seat_advance"
+submitted_failure = "charged_without_replacement"
+method_exhaustion = "prefrozen_controller_overflow_only"
+method_may_observe_adaptive_outcomes = false
+
+[compliance]
+organizer_reference_role = "unauthenticated_post_generation_structural_claim_only"
+compliance_claim_may_enter_generation = false
+compliance_claim_may_enter_fill = false
+compliance_claim_may_enter_model_fit = false
+compliance_claim_may_enter_scorer = false
+compliance_claim_may_enter_ranking = false
+compliance_claim_may_enter_selection = false
+compliance_claim_may_enter_scientific_stopping = false
+compliance_claim_may_veto_later_shadow_or_production = false
+maximum_reason_characters = 256
+maximum_claim_bytes = 2097152
+
+[resources]
+slurm_account = "bio"
+cpu_partition = "standard"
+nodes = 1
+tasks = 1
+cpus = 8
+host_memory_gib = 32
+gpus = 0
+validation_wall_seconds = 7200
+maximum_adapter_config_bytes = 65536
+maximum_path_characters = 4096
+maximum_nonnegative_signed63 = 9223372036854775807
+
+[blockers]
+reasons = [
+  "no_independently_accepted_ten_policy_set",
+  "no_accepted_de_novo_policy_aggregation",
+  "no_accepted_training_homology_exclusion",
+  "no_accepted_generator_oracle_provenance_separation",
+  "no_accepted_native_sampler_trajectory_receipt",
+  "no_accepted_common_initial_64_posterior_snapshot",
+  "no_external_request_policy_or_trajectory_authentication",
+  "no_authenticated_common_reserve_inventory_or_seal",
+  "no_campaign_charged_call_evidence_bundle",
+  "no_accepted_generated_peptide_oracle",
+  "no_production_controller_or_timing_ports",
+  "no_independent_campaign_verifier_or_telemetry_authority",
+]
+future_acceptance_requires_new_contract_version = true
+fixture_sampler_may_satisfy_blocker = false
+invalid_run_checkpoint_may_satisfy_blocker = false
+no_go_checkpoint_may_satisfy_blocker = false
+runtime_hashes_may_satisfy_blocker = false

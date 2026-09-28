@@ -1,0 +1,67 @@
+schema_version = 1
+
+# Frozen diagnostic panel. Only the final method is a statistical candidate.
+methods = [
+  "descriptor_logistic",
+  "homology_knn",
+  "equal_weight_ensemble",
+  "esm2_t6_8m_mean_logistic",
+  "base_esm_probability_half_blend",
+  "nested_ungated_logit_residual",
+  "nested_hard_lt_0_4_logit_residual",
+  "soft_similarity_gate_beta_0_5",
+  "nested_soft_similarity_gated_logit_residual",
+]
+promotion_reference = "equal_weight_ensemble"
+promotion_candidate = "nested_soft_similarity_gated_logit_residual"
+
+# The gate and weight grid were fixed before the parser-v7 run.
+probability_clip = 1e-6
+beta_grid = [0.0, 0.25, 0.5, 0.75, 1.0]
+hard_gate_threshold = 0.4
+soft_gate_full_below = 0.4
+soft_gate_zero_at = 0.6
+fixed_soft_beta = 0.5
+selection_objective = "homology_cluster_equal_weighted_log_loss"
+selection_tie_break = "lowest_beta"
+selection_tie_tolerance = 1e-12
+
+# ESM heads use fixed embeddings with split-local scaling and Gram one-hot context.
+embedding_model = "esm2_t6_8M_UR50D"
+embedding_dimension = 320
+representation_layer = 6
+context_features = "gram_one_hot"
+esm_l2 = 0.1
+esm_prior_strength = 2.0
+esm_max_iterations = 100
+esm_tolerance = 1e-9
+
+folds = 5
+homology_identity_threshold = 0.8
+similarity_bin_edges = [0.0, 0.4, 0.6, 0.8]
+calibration_bins = 10
+bootstrap_replicates = 500
+seed = 20260902
+
+# Immutable extraction provenance inherited from the accepted GPU artifact.
+expected_input_fasta_sha256 = "1c01e87608042b8b9534c43eed3309e89b7a1bc2b639254ac95fb41ece7a9d7e"
+expected_input_fasta_manifest_sha256 = "eab831e5de718363ebdaa7952b50e25fcc53a7eee49184ae99f057fc8afb08ec"
+expected_model_checkpoint_sha256 = "46f002a9870c9bdecd0ea887acb1f9a38a6b561e8f8bf8a6990b679b9d31b928"
+expected_contact_regression_sha256 = "8f7a4557d57713b97ba0e484303007efb7230d25299c0ac47a0a1b12a87bbb9d"
+expected_environment_lock_sha256 = "aaf37baa3adf5070dd3090c43527daa2696741a7e3057c72c78d51a80af9e234"
+expected_trust_manifest_sha256 = "5e62db4fd3241e1fa6bbd83cc0f26e299c6d16e9fa1e449304fab2e4c98fd9ff"
+expected_embedding_worker_sha256 = "34fdb77e87aaa44044960655259cc60fb20b165bfb87c38ba19bee21565f2cba"
+expected_embedding_python_version = "3.10.19"
+expected_embedding_torch_version = "2.5.1+cu121"
+expected_embedding_fair_esm_version = "2.0.0"
+expected_embedding_numpy_version = "2.2.6"
+expected_embedding_cuda_runtime = "12.1"
+expected_embedding_cudnn_version = 90100
+expected_embedding_device_type = "cuda"
+expected_embedding_batch_size = 128
+expected_embedding_seed = 20260902
+
+# A statistical pass still cannot promote this post-hoc-motivated gate to production.
+promotion_auc_delta_lower_minimum = 0.0
+promotion_brier_delta_upper_maximum = 0.0
+promotion_log_loss_delta_upper_maximum = 0.0

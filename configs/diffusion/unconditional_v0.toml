@@ -1,0 +1,265 @@
+schema_version = 1
+artifact = "native_categorical_diffusion_unconditional_v0"
+evidence_doc = "docs/benchmarks/native_categorical_diffusion_v0.md"
+
+[status]
+before_execution = "predeclared_not_run"
+evidence_invalid = "invalid_run"
+reproducible_no_go = "reproducible_no_go_v0"
+candidate_generator_only = "accepted_as_unconditional_categorical_diffusion_v0_candidate_generator"
+
+[input]
+corpus_artifact = "categorical_diffusion_corpus_v1"
+corpus_config_sha256 = "f08a64cf05ea2f536e33368f2d6579c49fd84ddb7caac67fdba38a557312a6e6"
+corpus_sha256 = "c03595a8650b732307ada7e030f996d65345238efaea55d25925ac433bec8bc7"
+training_projection_sha256 = "127a0eb88c5dc10c94904dcc5a3e98ff75a55890dc29af807e99f3f93c61ae46"
+summary_sha256 = "711e0f5498691e186b32c0e066434c7a8b2ac0a0e6cf0958bafc711a9a065332"
+manifest_sha256 = "8f546c93fcdfe0a6fd28fe7d7c0bea7d4e64ede17fac296fd9b6f9c0cb17d280"
+independent_outer_receipt_sha256 = "6ae50c58098fbfeae3ec28035cf409df14f7818d978b160e68d2326e46c3e2c5"
+organizer_reference_sha256 = "cbbeac64ba95746d87961e8ad9dd0849ae8058d15a300b2e7f6990730ca521e9"
+organizer_reference_records = 39448
+organizer_reference_role = "post_generation_compliance_audit_only"
+expected_train_sequences = 914
+expected_validation_sequences = 199
+train_folds = [0, 1, 2, 3]
+validation_fold = 4
+component_weighting = "homology_component_equal_within_role_v1"
+
+[model]
+kind = "bidirectional_pre_layer_norm_transformer"
+alphabet = "ACDEFGHIKLMNPQRSTVWY"
+min_length = 8
+max_length = 50
+special_tokens = ["PAD", "MASK"]
+layers = 4
+hidden_dim = 256
+attention_heads = 8
+ffn_dim = 1024
+activation = "gelu"
+dropout = 0.10
+layer_norm_epsilon = 0.00001
+token_embedding = "learned"
+position_embedding = "learned_absolute_0_to_49"
+length_embedding = "learned_8_to_50"
+timestep_embedding = "learned_0_to_64_row_zero_reserved"
+tie_residue_input_output_weights = true
+attention_projection_bias = true
+ffn_bias = true
+final_layer_norm = true
+output_bias = true
+prediction_classes = 20
+expected_trainable_parameters = 3205652
+initialization = "normal_std_0.02_bias_zero_norm_scale_one"
+property_conditioning = false
+classifier_free_guidance = false
+self_conditioning = false
+
+[diffusion]
+kind = "absorbing_mask_fixed_count"
+levels = 64
+schedule = "cosine_alpha_bar"
+cosine_offset = 0.008
+timestep_sampling = "uniform_integer_1_to_64"
+mask_count = "ceil_length_times_mask_probability"
+mask_position_sampling = "uniform_without_replacement"
+prediction_target = "clean_residue"
+loss_positions = "masked_valid_positions_only"
+loss_reduction = "masked_mean_per_sequence_then_batch_mean"
+
+[training]
+seeds = [42, 43, 44]
+reproducibility_seed = 42
+batch_sequences = 128
+sample_with_replacement = true
+sampling_weight_application = "weighted_draw_only"
+max_steps = 10000
+optimizer = "adamw_unfused"
+learning_rate = 0.0002
+betas = [0.90, 0.95]
+epsilon = 0.00000001
+weight_decay = 0.01
+exclude_from_weight_decay = ["bias", "normalization", "embedding"]
+warmup_steps = 500
+lr_schedule = "linear_warmup_cosine_decay"
+final_learning_rate = 0.00002
+gradient_clip_norm = 1.0
+precision = "float32"
+gradient_accumulation_steps = 1
+early_stopping = false
+checkpoint_selection = "final_step_10000_only"
+validation_during_training = false
+training_log_interval_steps = 100
+ema = false
+amp = false
+tf32 = false
+torch_compile = false
+
+[determinism]
+rng_derivation = "sha256_namespace_to_uint64_v1"
+rng_namespaces = ["initialization", "minibatch", "timestep", "corruption", "dropout", "proposal"]
+corruption_rng = "numpy_pcg64_2.4.6"
+validation_rng = "sha256_counter_by_contract_sequence_timestep_replicate_v1"
+proposal_rng = "pcg64dxsm_candidate_keyed_v1"
+deterministic_algorithms = true
+math_sdpa_only = true
+mha_fastpath = false
+cublas_workspace_config = ":4096:8"
+cudnn_benchmark = false
+dataloader_workers = 0
+pytorch_allocator = "backend:native"
+require_distinct_node_seed42_twin = true
+require_exact_seed42_twin = true
+twin_environment_equal_fields = ["python", "numpy", "torch", "torch_cuda", "safetensors", "triton", "nvidia_cudnn_cu13", "gpu_name", "compute_capability", "driver", "allocator"]
+
+[environment]
+python = "3.11.14"
+numpy = "2.4.6"
+torch = "2.14.0"
+torch_cuda = "13.0"
+safetensors = "0.6.2"
+triton = "3.8.0"
+nvidia_cudnn_cu13 = "9.24.0.43"
+gpu_name = "NVIDIA A100-SXM4-80GB"
+compute_capability = [8, 0]
+checkpoint_format = "safetensors"
+allow_pickle = false
+
+[evaluation]
+levels = 64
+replicates_per_sequence_level = 4
+expected_validation_sequences = 199
+expected_corruption_cases = 50944
+evaluation_seed = 20260904
+batch_sequences = 256
+primary_metric = "component_balanced_masked_token_nll_nats"
+secondary_metrics = ["perplexity", "top1_accuracy", "top3_accuracy", "multiclass_brier", "ece_15_equal_width"]
+timestep_bins = ["1_to_16", "17_to_32", "33_to_48", "49_to_64", "64_fully_masked"]
+bootstrap_unit = "union_component_id"
+bootstrap_replicates = 10000
+bootstrap_seed = 20260904
+bootstrap_confidence = 0.95
+
+[baselines]
+names = ["component_weighted_unigram", "component_weighted_bidirectional_markov", "length_relative_position_frequency"]
+count_pseudocount = 0.5
+count_weighting = "expected_train_sequences_times_sampling_weight_divided_by_sequence_length"
+transition_count_weighting = "expected_train_sequences_times_sampling_weight_divided_by_sequence_length_minus_one"
+bidirectional_markov_combination = "log_unigram_plus_available_forward_reverse_log_likelihood_ratios"
+relative_position_length_bins = [8, 15, 20, 25, 33, 51]
+relative_position_bins = 10
+relative_position_prior_mass = 20.0
+strongest_baseline_rule = "lowest_primary_validation_nll"
+generator_controls = ["component_weighted_unigram", "component_weighted_forward_markov"]
+memorization_control = "component_weighted_train_resampling_report_only"
+
+[sampling]
+checkpoint = "final_step_10000"
+length_distribution = "train_only_component_weighted_empirical"
+shared_length_plan_across_methods = true
+reverse_steps = 64
+reverse_target_mask_count = "ceil_length_times_previous_mask_probability"
+reveal_order = "descending_max_residue_probability"
+reveal_tie_break = "ascending_position"
+categorical_draw_order = "reveal_order"
+temperature = 1.0
+top_k = 0
+top_p = 1.0
+rejection_retries = 0
+raw_proposals_per_seed = 2048
+batch_sequences = 256
+report_before_filtering = true
+length_rng = "sha256_counter_by_seed_ordinal_v1"
+control_rng = "pcg64dxsm_by_method_seed_ordinal_position_v1"
+distribution_reference = "training_projection_component_weighted"
+distribution_candidate_pool = "deduplicated_canonical_exact_reference_safe"
+ngram_orders = [1, 3]
+ngram_reference_weighting = "sampling_weight_divided_by_available_ngrams"
+descriptor_features = ["length", "molecular_weight_da", "net_charge", "charge_density", "isoelectric_point", "mean_hydrophobicity", "hydrophobic_moment", "hydrophobic_fraction", "aromatic_fraction", "basic_fraction", "acidic_fraction", "shannon_entropy", "max_residue_fraction"]
+descriptor_standardization = "training_component_weighted_population_zscore_floor_1e-12"
+descriptor_energy_distance = "weighted_v_statistic_euclidean"
+top_reference_ratio = 0.80
+identity_threshold = 0.70
+
+[gates.denoising]
+require_every_seed_beats_strongest_baseline = true
+minimum_mean_relative_nll_improvement = 0.05
+minimum_bootstrap_lower_bound_improvement = 0.0
+bootstrap_lower_bound_comparator = "strictly_greater_than"
+bootstrap_seed_aggregation = "arithmetic_mean_relative_improvement"
+high_noise_timestep_bin = "49_to_64"
+minimum_high_noise_relative_nll_improvement = 0.02
+high_noise_seed_aggregation = "arithmetic_mean_nll"
+maximum_timestep_bin_relative_nll_regression = 0.01
+timestep_bin_seed_aggregation = "arithmetic_mean_nll"
+maximum_ece = 0.10
+maximum_ece_regression = 0.02
+ece_seed_rule = "every_seed"
+
+[gates.sampling]
+minimum_canonical_valid_fraction_each_seed = 1.0
+minimum_raw_unique_fraction_each_seed = 0.95
+maximum_exact_train_overlap_fraction_each_seed = 0.10
+minimum_common_funnel_yield_fraction_each_seed = 0.90
+minimum_top_reference_safe_count_each_seed = 100
+minimum_hill2_effective_70pct_clusters_each_seed = 100.0
+maximum_largest_70pct_cluster_fraction_each_seed = 0.10
+maximum_common_funnel_yield_deficit_vs_best_control = 0.02
+maximum_ngram_jsd_regression_bits_vs_best_control = 0.02
+maximum_descriptor_energy_distance_ratio_vs_best_control = 1.10
+minimum_improvement_in_3mer_jsd_or_descriptor_distance = 0.05
+relative_control_seed_aggregation = "median"
+
+[compute]
+account = "bio"
+gpu_partition = "gpumid"
+cpu_partition = "standard"
+gpu_type = "A100_80GB"
+gpus_per_job = 1
+cpus_per_task = 8
+memory_gib = 32
+maximum_gpu_hours_per_training_run = 2.0
+maximum_total_gpu_hours = 10.0
+maximum_peak_gpu_memory_gib = 16.0
+cpu_audit_time_hours = 2.0
+scratch_root_env = "AMP_CHALLENGE_SCRATCH"
+run_subdir = "diffusion/native-categorical-unconditional-v0"
+execution_command = "uv run --locked --no-sync"
+
+[artifacts]
+schema_version = 1
+canonical_json = true
+reject_nonfinite_json = true
+file_mode = "0444"
+directory_mode = "0555"
+manifest_published_last = true
+semantic_manifests_path_free = true
+independent_verifier_imports_producer = false
+evaluation_scope = "cohort_seed_order_42_43_44"
+evaluation_seed_order = [42, 43, 44]
+training_bundle_binding_labels = ["seed-42-primary", "seed-42-twin", "seed-43", "seed-44"]
+proposal_method_order = ["native_categorical_diffusion", "component_weighted_unigram", "component_weighted_forward_markov"]
+validation_token_stats_method_order = ["component_weighted_unigram", "component_weighted_bidirectional_markov", "length_relative_position_frequency", "native_seed_42", "native_seed_43", "native_seed_44"]
+npz_archive_format = "zip_stored_npy_v1_0_dos_epoch_1980_member_order_v1"
+validation_corruptions_npz_schema = ["sequence_id|S64|199", "homology_component_id|S64|199", "union_component_id|S64|199", "length|u1|199", "sampling_weight|<f8|199", "clean_tokens|u1|199,50", "attention_mask|b1|199,50", "case_id|S64|50944", "row_index|<u2|50944", "level|u1|50944", "replicate|u1|50944", "row_seed|<u8|50944", "mask_count|u1|50944", "corrupted_tokens|u1|50944,50", "selected_mask|b1|50944,50"]
+validation_token_stats_npz_schema = ["case_id|S64|50944", "case_offsets|<u8|50945", "position|u1|N_selected", "target_token|u1|N_selected", "method|S64|6", "target_log_probability|<f8|6,N_selected", "top1_confidence|<f8|6,N_selected", "top1_correct|b1|6,N_selected", "top3_correct|b1|6,N_selected", "multiclass_brier|<f8|6,N_selected"]
+training_bundle_files = ["CODE_SHA256SUMS", "INPUT_SHA256SUMS", "contract.toml", "environment.json", "rng.json", "training_schedule.sha256", "model_final.safetensors", "training_trace.jsonl", "train_metrics.json", "manifest.json"]
+evaluation_bundle_files = ["contract.toml", "training_bundle.sha256", "validation_corruptions.npz", "validation_token_stats.npz", "validation_metrics.json", "baseline_metrics.json", "length_plan.json", "raw_proposals.fasta", "candidate_ledger.jsonl", "sampling_metrics.json", "manifest.json"]
+independent_receipt_file = "independent-verification.json"
+training_manifest_fields = ["schema_version", "artifact", "config_sha256", "git_commit", "seed", "corpus", "model", "rng", "training", "artifacts"]
+evaluation_manifest_fields = ["schema_version", "artifact", "config_sha256", "git_commit", "seeds", "training_bundle_sha256", "validation", "baselines", "sampling", "gates", "decision_status", "artifacts"]
+operational_receipt_fields = ["schema_version", "artifact", "decision_status", "config_sha256", "git_commit", "producer_jobs", "producer_nodes", "audit_job", "audit_node", "environment", "resources", "bundle_sha256", "checks"]
+independent_receipt_fields = ["schema_version", "artifact", "decision_status", "config_sha256", "git_commit", "input_hashes", "training_bundle_hashes", "evaluation_bundle_hashes", "seed42_twin", "validation", "gates", "checks", "limitations"]
+
+[leakage]
+trainer_allowed_roles = ["train"]
+trainer_allowed_fields = ["sequence_id", "sequence", "sampling_weight"]
+validation_visible_to_trainer = false
+validation_used_for_early_stopping = false
+labels_allowed = false
+provenance_allowed = false
+study_keys_allowed = false
+oracle_predictions_allowed = false
+structures_allowed = false
+organizer_reference_allowed_during_training = false
+organizer_reference_use = "post_generation_compliance_audit_only"
+future_fold4_informed_changes_require_new_contract = true

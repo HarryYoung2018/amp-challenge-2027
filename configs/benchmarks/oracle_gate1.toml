@@ -1,0 +1,30 @@
+schema_version = 1
+
+# The declared binary endpoint is strain-level activity at MIC <= 16 uM.
+# Interval-censored observations are labeled only when the complete interval is
+# on one side of this boundary. Approximate and boundary-straddling values are
+# audited but excluded.
+activity_threshold_um = 16.0
+
+# Single-link global-alignment identity groups are indivisible CV units.
+homology_identity_threshold = 0.80
+folds = 5
+seed = 42
+
+# Resample complete homology clusters, not assay rows, for uncertainty intervals.
+bootstrap_replicates = 1000
+calibration_bins = 10
+similarity_bin_edges = [0.0, 0.4, 0.6, 0.8]
+
+[descriptor_logistic]
+l2 = 0.10
+max_iterations = 100
+tolerance = 1e-9
+prior_strength = 2.0
+
+[homology_knn]
+neighbors = 7
+similarity_power = 4.0
+prior_strength = 2.0
+minimum_weight = 1e-6
+

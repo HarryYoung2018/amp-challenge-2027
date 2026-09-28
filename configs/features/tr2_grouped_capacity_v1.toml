@@ -1,0 +1,22 @@
+# Supersedes only batching v1 physical_run_limit=128; all batching semantics unchanged.
+# Prospective TR2 component capacity; no scientific release or timing qualification.
+artifact = "tr2_grouped_capacity_v1"
+arm = "tr2d2_style_tree_offpolicy"
+feature_batching_configuration_sha256 = "45be987de4a6e5805e10328bcad2d25f95fca47d024504c0c52a8d0b2f30993e"
+physical_requests = 281
+acquired_origins = 22520
+preloaded_shared_rows = 120
+initial_rows = 64
+waves = 28
+candidate_requests_per_wave = 10
+candidate_rows_per_request = 80
+workers = 1
+padded_rows = 128
+token_width = 52
+run_seconds = 7200
+wave_seconds = 180
+feature_operation_seconds = 120
+session_bytes = 2147483648
+session_entries = 10000
+run_bytes = 5368709120
+scientific_evidence_accepted = false

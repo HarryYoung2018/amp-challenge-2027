@@ -1,0 +1,266 @@
+schema_version = 1
+artifact = "evolutionary_kl_successor_runtime_v1"
+status = "blocked_evidence_bound_transition_validator"
+protocol_path = "configs/search/evolutionary_kl_successor_protocol_v2.toml"
+protocol_sha256 = "579d071fac1d70bf514761ff98e6d2019730fbdad484e548f9b672fda1a001af"
+execution_authorized = false
+oracle_calls_authorized = false
+scientific_evidence_accepted = false
+automatic_production_eligible = false
+biological_superiority_claim_allowed = false
+hidden_confirmation_available = false
+independent_verification_complete = false
+screen_phase = "published_development_screen_only"
+screen_seeds = [17, 42, 91, 137, 271]
+full_method_id = "counterfactual_softkg_evolutionary_diffusion"
+blocking_digest_value = "missing_execution_blocking"
+
+[logical_schedule]
+configuration_count = 13
+seed_count = 5
+run_count = 65
+common_initial_calls_per_run = 64
+adaptive_batch_count = 28
+calls_per_adaptive_batch = 16
+method_seats_per_adaptive_batch = 14
+reserve_seats_per_adaptive_batch = 2
+adaptive_calls_per_run = 448
+total_calls_per_run = 512
+scientific_wall_seconds_per_run = 7200
+method_run_a100_hours = 130.0
+logical_initial_charges = 4160
+logical_adaptive_charges = 29120
+logical_total_charges = 33280
+failed_submission_is_charged = true
+failed_submission_replacement_allowed = false
+duplicate_query_identity_within_run_allowed = false
+within_run_all_512_query_identity_uniqueness_receipt_required = true
+common_initial_adaptive_or_reserve_identity_overlap_allowed = false
+cross_arm_common_initial_identity_reuse_within_seed_required = true
+
+[visibility_and_clock]
+unsubmitted_proposal_and_tree_evaluation_source = "method_posterior_only"
+hidden_surrogate_truth_may_score_unsubmitted_candidates = false
+hidden_surrogate_truth_visible_only_after_charged_submission = true
+method_specific_model_loading_inside_scientific_clock = true
+generation_search_and_proposal_inside_scientific_clock = true
+posterior_acquisition_and_update_inside_scientific_clock = true
+endpoint_distillation_inside_scientific_clock = true
+adaptive_oracle_queue_and_poll_inside_scientific_clock = true
+
+[source_provenance]
+primary_source_registry_role = "provenance_only_non_authorizing"
+primary_source_registry_may_substitute_for_adapter_or_asset_authority = false
+arcadiamp_tr2d2_mp2d_arms_are_adaptations_not_reproductions = true
+tr2d2_tree_selection_and_pareto_retention_propensities_are_explicit = true
+tr2d2_rn_or_exact_offpolicy_claim_allowed_without_propensities = false
+mp2d_numeric_rollout_cap_is_frozen = true
+
+[runtime_environment]
+runner = "/home/yonghan.yang/.local/bin/uv run --locked --no-sync"
+uv_version = "0.9.9"
+python_implementation = "CPython"
+python_version = "3.11.14"
+uv_lock_path = "uv.lock"
+uv_lock_sha256 = "d0d6fc911b57fbae016d058cd9e595bdc173e52b90e53376d5709aa75f6b868c"
+project_manifest_path = "pyproject.toml"
+project_manifest_sha256 = "7a51c6f2326c8aa901954762c390672f2a1680a5784d063a32a4d42fef2d0426"
+pythonhashseed = "0"
+locale = "C.UTF-8"
+timezone = "UTC"
+pytest_plugin_autoload = false
+python_user_site = false
+
+[physical_common_initial]
+policy = "evaluate_once_per_seed_then_share_byte_identical_authenticated_responses"
+seed_block_productions = 5
+physical_unique_calls_per_seed = 64
+physical_unique_calls = 320
+logical_arm_copies_per_seed = 13
+logical_charges = 4160
+slurm_account = "bio"
+partition = "gpumid"
+gpu_type = "A100"
+nodes_per_seed = 1
+gpus_per_seed = 1
+cpus_per_seed = 8
+host_memory_gib_per_seed = 32
+wall_seconds_per_seed = 900
+additive_a100_hours = 1.25
+outside_each_arm_scientific_clock = true
+inside_proposed_additive_screen_resource_envelope = true
+fallback_or_recompute_allowed = false
+unallocated_resource_pool_allowed = false
+latency_receipt_required = true
+timing_ledger_required = true
+source_response_seal_required = true
+per_arm_copy_seal_required = true
+
+[physical_screen_envelope]
+maximum_adaptive_physical_unique_calls = 29120
+maximum_total_physical_unique_calls = 29440
+method_run_a100_hours = 130.0
+additive_common_initial_a100_hours = 1.25
+proposed_total_a100_hours = 131.25
+array_concurrency_cap = 4
+max_output_gib_per_run = 5
+scratch_ceiling_gib = 1024
+
+[resource_ceiling_reconciliation]
+parent_protocol_field = "resources.screen_a100_hour_ceiling"
+parent_protocol_value = 131.25
+parent_value_derivation = "130_method_run_a100_hours_plus_1.25_shared_initial_a100_hours"
+parent_arm_clock_starts_after_common_initial_responses = true
+gap_audit_identifies_shared_initial_as_unaccounted_additive_resource = false
+runtime_proposed_additive_total_a100_hours = 131.25
+parent_protocol_modified_or_reinterpreted = false
+resource_ceiling_reconciliation_accepted = true
+execution_requires_reviewed_protocol_clarification_or_correction = false
+
+[statistics]
+paired_unit = "seed_block"
+bootstrap_samples = 10000
+bootstrap_seed = 20260909
+bootstrap_algorithm = "sha256_counter_rejection_uint64_be_seed_block_v1"
+bootstrap_interval = "two_sided_95_percentile_type7"
+exact_sign_test_reported = true
+exact_sign_test_zero_difference_policy = "discard_ties_and_use_n_equal_to_non_tied_pairs"
+exact_sign_test_all_ties_p_value = 1.0
+comparison_tolerance = 0.0
+full_mean_must_be_strictly_highest_among_eight_methods = true
+ablation_positive_pairs_required = 4
+ablation_median_margin = 0.05
+missing_nonfinite_tied_or_incomparable_is_gate_failure = true
+screen_is_descriptive_only = true
+
+[stopping]
+stop_at_call_or_wall_budget_whichever_first = true
+discard_unsealed_partial_batch = true
+carry_last_authenticated_sealed_incumbent = true
+algorithmic_failures_retained = true
+result_driven_reruns = 0
+infrastructure_reruns_before_first_oracle_response = 1
+resume_only_from_last_authenticated_round = true
+resumed_clock_may_reset = false
+nonfinite_or_psd_support_failure = "hard_stop"
+forbidden_support_or_namespace_overlap = "hard_stop"
+unsealed_oracle_response = "hard_stop"
+kg_tie_or_numerical_instability = "hard_stop"
+kl_constraint_violation = "hard_stop"
+replay_integrity_or_propensity_failure = "hard_stop"
+policy_version_lag_exceeded = "hard_stop"
+validity_drop_or_terminal_eligibility_failure = "hard_stop"
+cumulative_progress_chain_required = true
+terminal_progress_receipt_required = true
+unique_call_receipt_required = true
+oracle_request_and_response_seals_required = true
+resource_usage_receipt_required = true
+
+[required_shared_artifacts]
+primary_source_registry_sha256 = "missing_execution_blocking"
+namespace_receipt_sha256 = "missing_execution_blocking"
+generator_checkpoint_manifest_sha256 = "missing_execution_blocking"
+oracle_bundle_manifest_sha256 = "missing_execution_blocking"
+adaptive_posterior_manifest_sha256 = "missing_execution_blocking"
+generated_sequence_feature_manifest_sha256 = "missing_execution_blocking"
+laplacian_feature_manifest_sha256 = "missing_execution_blocking"
+joint_kg_preflight_receipt_sha256 = "missing_execution_blocking"
+external_timing_issuer_receipt_sha256 = "missing_execution_blocking"
+common_initial_schedule_sha256 = "missing_execution_blocking"
+common_reserve_schedule_sha256 = "missing_execution_blocking"
+common_initial_source_response_seal_sha256 = "missing_execution_blocking"
+common_initial_latency_receipt_sha256 = "missing_execution_blocking"
+common_initial_copy_manifest_sha256 = "missing_execution_blocking"
+training_exclusion_inventory_sha256 = "missing_execution_blocking"
+organizer_veto_inventory_sha256 = "missing_execution_blocking"
+
+[[configurations]]
+id = "tuned_peptide_ga"
+kind = "method"
+base_method = "none"
+adapter_sha256 = "missing_execution_blocking"
+asset_manifest_sha256 = "missing_execution_blocking"
+
+[[configurations]]
+id = "categorical_diffusion_posthoc"
+kind = "method"
+base_method = "none"
+adapter_sha256 = "missing_execution_blocking"
+asset_manifest_sha256 = "missing_execution_blocking"
+
+[[configurations]]
+id = "diffusion_reward_kl_no_search"
+kind = "method"
+base_method = "none"
+adapter_sha256 = "missing_execution_blocking"
+asset_manifest_sha256 = "missing_execution_blocking"
+
+[[configurations]]
+id = "arcadiamp_style_iterative_d3pm"
+kind = "method"
+base_method = "none"
+adapter_sha256 = "missing_execution_blocking"
+asset_manifest_sha256 = "missing_execution_blocking"
+
+[[configurations]]
+id = "tr2d2_style_tree_offpolicy"
+kind = "method"
+base_method = "none"
+adapter_sha256 = "missing_execution_blocking"
+asset_manifest_sha256 = "missing_execution_blocking"
+
+[[configurations]]
+id = "mp2d_style_inference_search"
+kind = "method"
+base_method = "none"
+adapter_sha256 = "missing_execution_blocking"
+asset_manifest_sha256 = "missing_execution_blocking"
+
+[[configurations]]
+id = "ga_endpoint_distillation_no_kg"
+kind = "method"
+base_method = "none"
+adapter_sha256 = "missing_execution_blocking"
+asset_manifest_sha256 = "missing_execution_blocking"
+
+[[configurations]]
+id = "counterfactual_softkg_evolutionary_diffusion"
+kind = "method"
+base_method = "none"
+adapter_sha256 = "missing_execution_blocking"
+asset_manifest_sha256 = "missing_execution_blocking"
+
+[[configurations]]
+id = "ablation_no_spectral_representation"
+kind = "ablation"
+base_method = "counterfactual_softkg_evolutionary_diffusion"
+adapter_sha256 = "missing_execution_blocking"
+asset_manifest_sha256 = "missing_execution_blocking"
+
+[[configurations]]
+id = "ablation_no_counterfactual_credit"
+kind = "ablation"
+base_method = "counterfactual_softkg_evolutionary_diffusion"
+adapter_sha256 = "missing_execution_blocking"
+asset_manifest_sha256 = "missing_execution_blocking"
+
+[[configurations]]
+id = "ablation_singleton_kg"
+kind = "ablation"
+base_method = "counterfactual_softkg_evolutionary_diffusion"
+adapter_sha256 = "missing_execution_blocking"
+asset_manifest_sha256 = "missing_execution_blocking"
+
+[[configurations]]
+id = "ablation_no_endpoint_distillation"
+kind = "ablation"
+base_method = "counterfactual_softkg_evolutionary_diffusion"
+adapter_sha256 = "missing_execution_blocking"
+asset_manifest_sha256 = "missing_execution_blocking"
+
+[[configurations]]
+id = "ablation_no_kl_controls"
+kind = "ablation"
+base_method = "counterfactual_softkg_evolutionary_diffusion"
+adapter_sha256 = "missing_execution_blocking"
+asset_manifest_sha256 = "missing_execution_blocking"

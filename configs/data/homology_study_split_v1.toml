@@ -1,0 +1,39 @@
+schema_version = 1
+
+# This split is bound to the accepted parser-v7 sequence table and the accepted
+# endpoint-context production twins from Slurm job 223141. Study keys are used
+# only to construct indivisible leakage components; they are never features.
+normalized_sequences_sha256 = "76305e284ce3689970c89e3f2b45c4adc0ceef2375e74dfcddc50882d8b14884"
+endpoint_context_ledger_sha256 = "acd2ca8bfdf23588532463b399ffcf4a8068986aa28d75170cbf71b93c18f9f6"
+study_membership_sha256 = "9bcf564f95bad6f4ddd49ddfcdf6c72f552fbd662c31693502b33e25b5c4ffaf"
+endpoint_context_manifest_sha256 = "7d671640b24b39e5ed5fbe804f5d120c55653f869450c7bbd71fb6cd991637a9"
+endpoint_context_top_manifest_sha256 = "3a3722e685470a37ec9e5fb31aa2652cae9742966a3be3d29133692737054ae8"
+expected_unique_sequences = 1113
+expected_assay_observations = 6079
+expected_study_memberships = 1136
+
+# Homology means deterministic single-link connected components under the
+# repository's global-alignment identity (matches/alignment length). Every
+# homology component is then united with every shared study-key hyperedge.
+identity_threshold = 0.80
+folds = 5
+seed = 42
+
+# Greedy placement minimizes the sum of normalized squared deviations over
+# these predeclared dimensions. Equal weights prevent small label strata from
+# disappearing behind the much larger sequence census.
+[balance_weight]
+component_count = 1.0
+sequences = 1.0
+gram_negative_mic16_negative = 1.0
+gram_negative_mic16_positive = 1.0
+gram_positive_mic16_negative = 1.0
+gram_positive_mic16_positive = 1.0
+
+# Every primary Gram-by-label stratum must remain represented in every fold.
+# These are feasibility guards, not targets selected from model performance.
+[balance_minimum]
+gram_negative_mic16_negative = 1
+gram_negative_mic16_positive = 1
+gram_positive_mic16_negative = 1
+gram_positive_mic16_positive = 1

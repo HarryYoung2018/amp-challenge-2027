@@ -1,0 +1,358 @@
+schema_version = 2
+artifact = "evolutionary_kl_successor_protocol_v2"
+status = "predeclared_blocked_non_authorizing_corrected_before_execution"
+decision_date = "2026-09-09"
+supersedes_protocol_for_future_runs_only = "evolutionary_kl_research_protocol_v1"
+superseded_protocol_sha256 = "ccbc55e5f20d851c3495413ff1f26f8ed2e0e0e818b076fde76641937c346463"
+retroactive_reinterpretation_of_v1_allowed = false
+supersedes_unexecuted_successor_v2_sha256 = "ae6ae49506fb7c2b81521feec70b5535a6d5316d5079caa01ee2b8464fd750b6"
+superseded_successor_v2_execution_count = 0
+pre_execution_corrections = [
+  "reset_tr2d2_tree_before_each_buffer_generation_while_preserving_within_generation_tree_state",
+  "include_shared_common_initial_production_in_total_screen_a100_hour_ceiling",
+  "define_sign_test_ties_as_discarded_with_n_equal_to_non_tied_pairs",
+]
+execution_authorized = false
+oracle_calls_authorized = false
+scientific_evidence_accepted = false
+automatic_production_eligible = false
+biological_superiority_claim_allowed = false
+current_public_campaign_evidence_class = "computational_surrogate_screen_only"
+required_screen_seed_count = 5
+screen_seeds = [17, 42, 91, 137, 271]
+screen_seed_status = "published_development_screen_only"
+hidden_confirmation_seed_count = 5
+hidden_confirmation_seed_status = "not_yet_committed_or_revealed"
+
+[scope]
+alphabet = "ACDEFGHIKLMNPQRSTVWY"
+min_length = 8
+max_length = 50
+linear_unmodified_free_termini = true
+exact_training_overlap_forbidden = true
+organizer_reference_role = "post_generation_compliance_veto_only"
+organizer_reference_may_shape_training_generation_or_search = false
+organizer_reference_max_levenshtein_ratio = 0.8
+current_public_labels_may_establish_biological_superiority = false
+current_public_labels_may_authorize_production = false
+official_wetlab_panel_may_be_used_during_search = false
+official_wetlab_panel_role = "future_independent_locked_evaluation_only_if_content_pinned_and_access_controlled"
+
+[namespace]
+policy = "whole_union_component_availability_only_v1"
+status = "producer_and_independent_twin_not_yet_accepted"
+assignment_unit = "union_component_id"
+oracle_if_any_component_member_has_endpoint = ["hc50", "hemolysis_percent"]
+assignment_may_read_measurement_values_labels_relations_old_roles_or_weights = false
+generator_oracle_exact_sequence_overlap_allowed = false
+generator_oracle_union_component_overlap_allowed = false
+expected_total_sequences = 1113
+expected_total_union_components = 278
+expected_generator_sequences = 698
+expected_generator_union_components = 226
+expected_oracle_sequences = 415
+expected_oracle_union_components = 52
+generator_fold_count = 5
+expected_generator_fold_sequence_counts = [140, 140, 140, 139, 139]
+expected_generator_fold_union_component_counts = [45, 45, 46, 45, 45]
+generator_checkpoint_training_fold_triples = [
+  "012",
+  "013",
+  "014",
+  "023",
+  "024",
+  "034",
+  "123",
+  "124",
+  "134",
+  "234",
+]
+generator_checkpoint_count = 10
+checkpoint_aggregation = "equal_weight_mixture_with_seeded_round_robin_checkpoint_assignment"
+generator_models_may_train_on_oracle_namespace = false
+oracle_models_may_train_on_generator_namespace = false
+search_may_query_generator_training_sequences = false
+accepted_producer_twin_sha256 = "missing_execution_blocking"
+accepted_independent_twin_sha256 = "missing_execution_blocking"
+accepted_disjointness_receipt_sha256 = "missing_execution_blocking"
+
+[design]
+configuration_count = 13
+method_count = 8
+ablation_count = 5
+common_initial_design_unique_calls = 64
+adaptive_batches = 28
+unique_calls_per_batch = 16
+method_controlled_seats_per_batch = 14
+prefrozen_common_random_reserve_seats_per_batch = 2
+total_unique_calls_per_run = 512
+proposal_attempt_cap_per_batch = 65536
+shortlist_cap_per_batch = 256
+joint_kg_q_cap = 14
+kg_fantasies = 512
+same_seed_common_initial_and_reserve = true
+all_reserve_identities_prefrozen_before_method_compute = true
+cross_arm_physical_oracle_cache_during_scientific_clock = false
+cross_arm_cache_hits_charged_as_logical_calls = true
+same_run_duplicate_query_identity_forbidden = true
+failed_missing_censored_partial_or_timed_out_submission_is_charged = true
+failed_submission_replacement_allowed = false
+terminal_rule = "final_sealed_posterior_mean_feasible_real_submitted_candidate_or_abstain"
+
+[resources]
+slurm_account = "bio"
+cpu_partition = "standard"
+gpu_partition = "gpumid"
+gpu_type = "A100"
+nodes_per_run = 1
+gpus_per_run = 1
+cpus_per_run = 8
+host_memory_gib = 32
+max_peak_gpu_memory_gib = 16
+scientific_wall_seconds_per_run = 7200
+outer_sealing_allowance_seconds_per_run = 900
+outer_sealing_accelerator_hours = 0
+scientific_clock_start = "after_authenticated_common_initial_responses_before_any_method_specific_load_or_compute"
+scientific_clock_includes = [
+  "method_specific_model_loading",
+  "generation_and_proposal_compute",
+  "posterior_and_acquisition_compute",
+  "training_and_endpoint_distillation",
+  "adaptive_oracle_queue_and_poll_time",
+]
+scientific_clock_stop = "first_of_7200_seconds_or_terminal_status_of_512th_charged_submission"
+resumed_clock_may_reset = false
+external_timing_receipt_required_for_every_segment = true
+screen_runs = 65
+screen_logical_unique_calls = 33280
+screen_method_run_a100_hour_ceiling = 130.0
+common_initial_physical_seed_blocks = 5
+common_initial_physical_unique_calls_per_seed = 64
+common_initial_physical_unique_calls = 320
+common_initial_wall_seconds_per_seed = 900
+common_initial_additive_a100_hour_ceiling = 1.25
+common_initial_policy = "evaluate_once_per_seed_then_share_byte_identical_authenticated_responses"
+common_initial_outside_each_arm_scientific_clock = true
+common_initial_fallback_or_recompute_allowed = false
+screen_a100_hour_ceiling = 131.25
+array_concurrency_cap = 4
+max_output_gib_per_run = 5
+scratch_ceiling_gib = 1024
+adapter_tuning_calls_in_screen_budget = 0
+adapter_tuning_a100_hours_in_screen_budget = 0
+unallocated_resource_pool_allowed = false
+
+[metrics]
+primary = "normalized_feasible_two_objective_hypervolume_auc_by_submitted_query_identity"
+primary_objectives = ["gram_positive_activity", "gram_negative_activity"]
+objective_bounds = [0.0, 1.0]
+hypervolume_reference = [0.0, 0.0]
+call_checkpoint_start = 64
+call_checkpoint_step = 16
+call_checkpoint_count = 29
+hypervolume_auc_denominator_calls = 448
+primary_truth_source = "authenticated_hidden_surrogate_oracle_response_never_method_posterior"
+primary_archive_requires = "support_namespace_novelty_complete_finite_uncensored_objectives_and_all_frozen_constraints_pass"
+wall_checkpoint_minutes = [0, 15, 30, 45, 60, 75, 90, 105, 120]
+secondary = [
+  "top10_feasible_mean_utility_auc",
+  "terminal_posterior_mean_regret",
+  "terminal_abstention_rate_and_error",
+  "valid_canonical_unique_reference_safe_yield",
+  "hill2_effective_identity70_clusters",
+  "largest_identity70_cluster_share",
+  "pairwise_sequence_and_embedding_diversity",
+  "wall_time_hypervolume_auc",
+  "posterior_calibration_and_covariance_rank",
+  "complete_transition_and_path_kl_summary",
+  "replay_ess_and_maximum_weight",
+  "parent_child_contrast_accuracy_and_coverage",
+  "kg_monte_carlo_standard_error_and_rank_stability",
+]
+early_stop_metric_rule = "carry_last_authenticated_sealed_incumbent_through_all_later_call_and_wall_checkpoints"
+
+[statistics]
+screen_is_descriptive_only = true
+paired_unit = "seed_block"
+paired_effect = "full_primary_auc_minus_comparator_primary_auc"
+paired_bootstrap_samples = 10000
+paired_bootstrap_seed = 20260909
+paired_bootstrap_interval = "two_sided_95_percentile_type7"
+exact_sign_test_reported = true
+exact_sign_test_zero_difference_policy = "discard_ties_and_use_n_equal_to_non_tied_pairs"
+exact_sign_test_all_ties_p_value = 1.0
+five_seed_minimum_one_sided_exact_sign_p = 0.03125
+screen_full_mean_must_be_strictly_highest_among_eight_methods = true
+screen_full_vs_each_core_ablation_positive_pairs_required = 4
+screen_full_vs_each_core_ablation_median_margin = 0.05
+missing_nonfinite_tied_or_incomparable_required_result = "gate_failure"
+multiple_comparison_claim_from_screen_allowed = false
+fresh_hidden_confirmation_required_for_comparative_claim = true
+confirmation_primary_comparators = ["tuned_peptide_ga", "tr2d2_style_tree_offpolicy"]
+confirmation_all_five_pairs_above_additive_margin = 0.05
+confirmation_global_rule = "intersection_union_both_comparator_gates"
+
+[stopping]
+stop_at_call_or_wall_budget_whichever_first = true
+discard_unsealed_partial_batch = true
+result_driven_reruns = 0
+infrastructure_reruns_before_first_oracle_response = 1
+resume_only_from_last_authenticated_round = true
+algorithmic_failures_retained = true
+nonfinite_or_psd_support_failure = "hard_stop"
+forbidden_support_or_namespace_overlap = "hard_stop"
+unsealed_oracle_response = "hard_stop"
+kg_tie_or_numerical_instability = "hard_stop"
+minimum_terminal_eligible_candidates = 100
+max_local_complete_transition_kl_mean = 0.01
+max_local_complete_transition_kl_p99 = 0.02
+max_frozen_reference_path_kl_mean = 0.08
+max_frozen_reference_transition_kl_p99 = 0.02
+min_replay_ess_fraction = 0.20
+max_normalized_replay_weight = 0.05
+max_policy_version_lag = 1
+max_validity_drop_fraction = 0.05
+
+[promotion]
+surrogate_screen_max_production_mixture_quota = 0.0
+surrogate_screen_max_shadow_mixture_quota = 0.10
+shadow_candidates_may_enter_submission_or_top100 = false
+independent_chronological_or_assay_result_required = true
+fresh_hidden_confirmation_required = true
+new_content_pinned_promotion_protocol_required = true
+screen_failure_outcome = "no_go_keep_out_of_production"
+confirmation_failure_outcome = "no_go_keep_out_of_production"
+missing_independent_result_outcome = "no_go_keep_out_of_production"
+passing_this_protocol_authorizes_production = false
+
+[sources]
+arcadiamp_repository = "https://github.com/IBPA/ARCADIAMP"
+arcadiamp_commit = "70448c14a176399640a26095782e870b7204c338"
+arcadiamp_license = "Apache-2.0"
+tr2d2_repository = "https://github.com/sophtang/TR2-D2"
+tr2d2_commit = "b5a3d097f38b6cc11dfafbaed9fca71ca4bf9ac6"
+tr2d2_license = "MIT"
+mp2d_paper = "https://arxiv.org/abs/2605.05829v1"
+mp2d_official_code_status = "not_located_at_protocol_freeze"
+equiformer_v3_paper = "https://arxiv.org/abs/2604.09130"
+equiformer_v3_repository = "https://github.com/atomicarchitects/equiformer_v3"
+equiformer_v3_commit = "a7300c58df683dc99cb48027d5bfd4c887486c48"
+equiformer_v3_license = "MIT"
+external_results_transfer_to_this_amp_task = false
+
+[[methods]]
+id = "tuned_peptide_ga"
+role = "primary_baseline"
+semantics = "fixed_tuned_aa_ga_tournament_elitism_mutation_crossover_oracle_updated_each_sealed_batch"
+generator_policy_updates = "none"
+query_selection = "ga_fitness_then_fixed_tie_break"
+reproduction_claim_allowed = false
+
+[[methods]]
+id = "categorical_diffusion_posthoc"
+role = "baseline"
+semantics = "frozen_native_categorical_diffusion_generate_then_content_pinned_posthoc_rank"
+generator_policy_updates = "none"
+query_selection = "static_prefrozen_full_adaptive_stream_no_oracle_response_influence"
+reproduction_claim_allowed = false
+
+[[methods]]
+id = "diffusion_reward_kl_no_search"
+role = "baseline"
+semantics = "one_reward_weighted_kl_constrained_update_from_common_initial_64_then_freeze"
+generator_policy_updates = "exactly_one_after_common_initial_then_none"
+query_selection = "static_full_448_identity_stream_committed_before_first_adaptive_response"
+reproduction_claim_allowed = false
+
+[[methods]]
+id = "arcadiamp_style_iterative_d3pm"
+role = "baseline_adaptation"
+semantics = "native_aa_d3pm_iterative_activity_weighted_retraining_after_each_sealed_batch_without_tree_ga_kg_or_counterfactual_credit"
+generator_policy_updates = "after_each_complete_sealed_adaptive_batch"
+query_selection = "posterior_mean_feasible_rank_with_fixed_tie_break"
+reproduction_claim_allowed = false
+
+[[methods]]
+id = "tr2d2_style_tree_offpolicy"
+role = "primary_baseline_adaptation"
+semantics = "native_aa_diffusion_tree_reset_each_buffer_generation_within_generation_persistence_plus_offpolicy_replay_control_update"
+tree_persistence_scope = "within_one_buffer_generation_only"
+tree_reset_before_each_buffer_generation = true
+replay_buffer_emptied_and_repopulated_each_generation = true
+buffer_generation_boundary = "one_per_complete_sealed_adaptive_batch"
+tree_reset_timing = "after_policy_update_before_next_buffer_generation"
+generator_policy_updates = "offpolicy_update_after_each_complete_sealed_adaptive_batch"
+query_selection = "tree_policy_pareto_reward_without_softkg_counterfactual_credit_or_laplacian_features"
+reproduction_claim_allowed = false
+
+[[methods]]
+id = "mp2d_style_inference_search"
+role = "baseline_paper_adaptation"
+semantics = "frozen_native_masked_diffusion_constrained_mcts_pareto_reward_and_global_iterative_remask_refinement"
+generator_policy_updates = "none"
+query_selection = "constrained_tree_search_without_endpoint_distillation_softkg_or_counterfactual_credit"
+reproduction_claim_allowed = false
+
+[[methods]]
+id = "ga_endpoint_distillation_no_kg"
+role = "baseline"
+semantics = "ga_proposals_and_oracle_observations_distill_endpoint_policy_after_each_sealed_batch"
+generator_policy_updates = "after_each_complete_sealed_adaptive_batch_and_consumed_by_next_ga_proposal_round"
+query_selection = "ga_fitness_and_posterior_mean_without_kg"
+reproduction_claim_allowed = false
+
+[[methods]]
+id = "counterfactual_softkg_evolutionary_diffusion"
+role = "proposal"
+semantics = "counterfactual_credit_yield_allocation_frozen_thompson_direction_covariance_joint_softkg_evolutionary_diffusion_endpoint_distillation_kl_controls"
+generator_policy_updates = "after_each_complete_sealed_adaptive_batch"
+query_selection = "joint_covariance_softkg_q14_plus_two_prefrozen_common_reserve"
+reproduction_claim_allowed = false
+
+[[ablations]]
+id = "ablation_no_spectral_representation"
+base_method = "counterfactual_softkg_evolutionary_diffusion"
+only_change = "replace_contact_laplacian_spectral_features_with_esm320_plus_normalized_length"
+
+[[ablations]]
+id = "ablation_no_counterfactual_credit"
+base_method = "counterfactual_softkg_evolutionary_diffusion"
+only_change = "set_parent_child_credit_to_neutral_exclude_contrasts_from_replay_and_use_equal_deterministic_branch_yield_allocation"
+
+[[ablations]]
+id = "ablation_singleton_kg"
+base_method = "counterfactual_softkg_evolutionary_diffusion"
+only_change = "select_14_distinct_seats_sequentially_by_q1_marginal_kg_with_selected_ids_removed_and_no_joint_batch_covariance_term"
+
+[[ablations]]
+id = "ablation_no_endpoint_distillation"
+base_method = "counterfactual_softkg_evolutionary_diffusion"
+only_change = "keep_exact_initialized_generator_policy_immutable_for_all_28_adaptive_batches"
+
+[[ablations]]
+id = "ablation_no_kl_controls"
+base_method = "counterfactual_softkg_evolutionary_diffusion"
+only_change = "run_identical_policy_updates_and_record_identical_kl_diagnostics_but_disable_only_local_and_frozen_reference_kl_enforcement"
+
+[prerequisites]
+accepted_namespace_producer_and_independent_twin = false
+accepted_generator_fold_policy_checkpoints = false
+accepted_oracle_objective_constraint_and_censoring_contract = false
+accepted_calibrated_joint_posterior_with_non_degenerate_covariance = false
+accepted_generated_sequence_esm_contact_bundle = false
+accepted_persistent_ledger_and_timing_receipt_chain = false
+accepted_all_eight_method_adapters = false
+accepted_all_five_ablation_adapters = false
+accepted_independent_campaign_verifier = false
+accepted_external_receipt_issuer = false
+accepted_hidden_confirmation_seed_commitment = false
+accepted_sequestered_confirmation_oracle_access = false
+
+[evidence_boundaries]
+numpy_smoke_is_scientific_evidence = false
+fixture_or_structural_validation_is_scientific_evidence = false
+public_surrogate_campaign_establishes_biological_superiority = false
+five_published_seeds_are_independent_biological_replicates = false
+arcadiamp_tr2d2_mp2d_style_arms_are_published_method_reproductions = false
+equiformer_v3_validates_sequence_contact_laplacian_features = false
+counterfactual_credit_is_a_biological_causal_effect = false
