@@ -1,7 +1,8 @@
 # AMP Challenge 2027 — frozen-mixture diffusion search under a distance budget
 
 Submission entry for the [AMP Challenge 2027](https://github.com/szczurek-lab/amp-challenge-2027).
-See [ABSTRACT.md](ABSTRACT.md) for the method summary and
+See [WRITEUP.md](WRITEUP.md) for the full submission writeup,
+[ABSTRACT.md](ABSTRACT.md) for the method summary, and
 [DATA_DISCLOSURE.md](DATA_DISCLOSURE.md) for the full training-data disclosure.
 
 All activity values below are **internal model predictions**, not measured
